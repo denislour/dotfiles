@@ -33,6 +33,7 @@
           ./hosts/my-vm/configuration.nix
           ./modules/common.nix
           ./modules/desktop.nix
+          ./modules/development.nix
           hyprland.nixosModules.default
         ];
       };
