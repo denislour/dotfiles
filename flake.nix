@@ -29,6 +29,7 @@
           disko.nixosModules.disko
           ./hosts/my-vm/disk-config.nix
           ./hosts/my-vm/configuration.nix
+          ./modules/common.nix
         ];
       };
     };
