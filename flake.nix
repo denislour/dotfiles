@@ -8,9 +8,11 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { self, nixpkgs, disko, ... }@inputs:
+  outputs = { self, nixpkgs, disko, hyprland, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -30,6 +32,8 @@
           ./hosts/my-vm/disk-config.nix
           ./hosts/my-vm/configuration.nix
           ./modules/common.nix
+          ./modules/desktop.nix
+          hyprland.nixosModules.default
         ];
       };
     };
