@@ -1,0 +1,11 @@
+*.iso
+*.qcow2
+result
+result-*
+hosts/*/hardware-configuration.nix
+secrets/*
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
