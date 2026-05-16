@@ -34,7 +34,7 @@
     noto-fonts
     noto-fonts-color-emoji
     jetbrains-mono
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
   ];
 
   environment.systemPackages = with pkgs; [
