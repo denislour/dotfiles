@@ -21,7 +21,7 @@
   environment.systemPackages = with pkgs; [
     kitty
     waybar
-    rofi-wayland
+    rofi
     swww
     wl-clipboard
     grim
