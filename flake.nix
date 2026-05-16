@@ -3,10 +3,19 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, disko, ... }@inputs:
     let
       system = "x86_64-linux";
-    in { };
+    in {
+      diskoConfigurations = {
+        my-vm = import ./hosts/my-vm/disk-config.nix;
+      };
+    };
 }
