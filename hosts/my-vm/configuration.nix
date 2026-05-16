@@ -31,7 +31,7 @@
     };
   };
 
-  services.vmware-guest.enable = true;
+  virtualisation.vmware.guest.enable = true;
 
   fonts.packages = with pkgs; [
     noto-fonts
