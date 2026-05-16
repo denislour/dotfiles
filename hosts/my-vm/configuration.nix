@@ -18,10 +18,7 @@
 
   security.sudo.wheelNeedsPassword = true;
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-  };
+  hardware.opengl.enable = true;
 
   services.openssh = {
     enable = true;
