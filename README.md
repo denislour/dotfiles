@@ -46,10 +46,16 @@ sudo git clone https://github.com/denislour/dotfiles /mnt/etc/nixos
 sudo nixos-generate-config --root /mnt
 sudo cp /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hosts/my-vm/
 
-# 5. Install
-sudo nixos-install --flake /mnt/etc/nixos#my-vm
+# 5. Create swap (fix OOM during build — 8GB)
+dd if=/dev/zero of=/mnt/swapfile bs=1M count=8192 status=progress
+chmod 600 /mnt/swapfile
+mkswap /mnt/swapfile
+swapon /mnt/swapfile
 
-# 6. Reboot (eject ISO)
+# 6. Install (limit 1 job + 1 core to save RAM)
+sudo nixos-install --flake /mnt/etc/nixos#my-vm --max-jobs 1 --cores 1
+
+# 7. Reboot (eject ISO)
 sudo reboot
 ```
 
