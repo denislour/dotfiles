@@ -1,81 +1,106 @@
 # NixOS dotfiles
 
-NixOS configuration with Hyprland desktop for VMware Workstation 17 Pro.
+NixOS + Hyprland for VMware Workstation 17 Pro.
 
-## VM settings
+## VM Settings
 
 | Setting | Value |
 |---------|-------|
-| OS | NixOS (Minimal ISO) |
-| Processors | 4 CPU, bật VT-x |
-| RAM | 8GB |
-| Disk | 20GB (NVMe or SCSI) |
+| Guest OS | Linux → Other Linux 6.x kernel 64-bit |
+| CPUs | 4 |
+| RAM | 8 GB |
+| Disk | 40 GB (SCSI or SATA) |
 | Network | NAT |
-| Display | Accelerate 3D: OFF |
+| Firmware | UEFI |
+| 3D Acceleration | **ON** (required for Hyprland) |
+
+### .vmx tweak
+
+Add this line to your `.vmx` file to fix keyboard lag in TTY:
+
+```
+keyboard.vusb.enable = "TRUE"
+```
+
+---
 
 ## Installation
 
-Boot NixOS Minimal ISO. At GRUB menu, select **Install LTS**.
+Boot the **NixOS Minimal ISO**.
 
 ```bash
-# 1. Check network (NAT auto DHCP)
-ping -c1 google.com
+# 1. Check network
+ping -c 1 google.com
 
-# 2. Clone dotfiles
-git clone https://github.com/denislour/dotfiles.git /mnt/etc/nixos
+# 2. Partition & mount with disko (fetched directly from GitHub)
+sudo nix --experimental-features "nix-command flakes" \
+  run github:nix-community/disko -- \
+  --mode disko "https://raw.githubusercontent.com/denislour/dotfiles/master/hosts/my-vm/disk-config.nix"
 
-# 3. Clone disko locally (avoids GitHub API 404 in VM)
-git clone https://github.com/nix-community/disko /tmp/disko
+# 3. Clone repo to persistent storage
+nix-shell -p git
+sudo git clone https://github.com/denislour/dotfiles /mnt/etc/nixos
 
-# 4. Run disko — format & mount partitions
-sudo nix run /tmp/disko \
-  --extra-experimental-features "nix-command flakes" -- \
-  --mode disko /mnt/etc/nixos/hosts/my-vm/disk-config.nix
+# 4. Generate hardware config
+sudo nixos-generate-config --root /mnt
+sudo cp /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hosts/my-vm/
 
-# 5. Generate hardware config (unique per machine, not in git)
-nixos-generate-config --root /mnt \
-  --show-hardware-config > /mnt/etc/nixos/hosts/my-vm/hardware-configuration.nix
+# 5. Install
+sudo nixos-install --flake /mnt/etc/nixos#my-vm
 
-# 6. Install NixOS
-nixos-install --flake /mnt/etc/nixos#my-vm
-
-# 7. Reboot (eject ISO)
-reboot
+# 6. Reboot (eject ISO)
+sudo reboot
 ```
 
-## First boot
+---
 
-- Login: `jake` / `changeme`
-- Change password: `passwd`
-- Rebuild: `sudo nixos-rebuild switch --flake /etc/nixos#my-vm`
+## First Boot
 
-## After install (optional)
+| User | Password |
+|------|----------|
+| `jake` | `changeme` |
 
 ```bash
-# Update all packages
-sudo nix flake update
-sudo nixos-rebuild switch --flake /etc/nixos#my-vm
-
-# Clean old generations
-sudo nix-collect-garbage -d
+# Change password immediately
+passwd
 ```
+
+SDDM → Hyprland → Waybar + kitty.
+
+---
 
 ## Keybinds
 
 | Key | Action |
 |-----|--------|
-| Super + Q | Terminal (kitty) |
-| Super + R | App launcher (rofi) |
-| Super + W | Close window |
-| Super + F | Toggle fullscreen |
-| Super + Space | Toggle floating |
-| Super + arrows | Focus window |
-| Super + Shift + arrows | Move window |
-| Print | Screenshot area |
+| `Super + Q` | Terminal (kitty) |
+| `Super + R` | App launcher (rofi) |
+| `Super + W` | Close window |
+| `Super + F` | Toggle fullscreen |
+| `Super + Space` | Toggle floating |
+| `Super + arrows` | Focus window |
+| `Super + Shift + arrows` | Move window |
+| `Super + 1-9` | Switch workspace |
+| `Super + Shift + 1-9` | Move window to workspace |
+| `Print` | Screenshot |
 | Volume keys | Adjust volume |
 
-## Notes
+---
 
-- `hardware-configuration.nix` is auto-generated per machine — not tracked in git
-- Use initial password `changeme` on first boot, change it immediately
-- All config is in Nix language — edit files in `modules/` then rebuild
+## Project Structure
+
+```
+dotfiles/
+├── flake.nix
+├── hosts/
+│   └── my-vm/
+│       ├── configuration.nix
+│       ├── disk-config.nix
+│       └── hardware-configuration.nix (auto-generated, untracked)
+├── modules/
+│   ├── common.nix
+│   ├── desktop.nix
+│   └── development.nix
+└── home-manager/
+    └── home.nix
+```
