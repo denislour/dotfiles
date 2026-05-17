@@ -7,8 +7,10 @@
   time.timeZone = "Asia/Ho_Chi_Minh";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  # systemd-boot (UEFI)
   boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.canTouchEfiVariables = false;
+  boot.loader.efi.efiSysMountPoint = "/boot";
 
   users.users.jake = {
     isNormalUser = true;
