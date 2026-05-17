@@ -32,10 +32,11 @@ Boot the **NixOS Minimal ISO**.
 # 1. Check network
 ping -c 1 google.com
 
-# 2. Partition & mount with disko (fetched directly from GitHub)
+# 2. Download disko config & partition
+curl -L "https://raw.githubusercontent.com/denislour/dotfiles/master/hosts/my-vm/disk-config.nix" -o /tmp/disk-config.nix
 sudo nix --experimental-features "nix-command flakes" \
   run github:nix-community/disko -- \
-  --mode disko "https://raw.githubusercontent.com/denislour/dotfiles/master/hosts/my-vm/disk-config.nix"
+  --mode disko /tmp/disk-config.nix
 
 # 3. Clone repo to persistent storage
 nix-shell -p git
