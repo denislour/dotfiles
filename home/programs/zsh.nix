@@ -6,7 +6,7 @@
     autocd = true;
     enableCompletion = true;
 
-    initExtra = ''
+    initContent = ''
       alias history='atuin history'
 
       alias ls='eza --icons'
