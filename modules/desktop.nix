@@ -24,26 +24,32 @@
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
+    wireplumber.enable = true;
   };
 
   services.libinput.enable = true;
 
   environment.systemPackages = with pkgs; [
-    # terminal
-    ghostty
+    # terminal (foot = CPU render, no GPU needed)
+    foot
     # hypr ecosystem
     hyprpaper
+    hyprlock
+    hypridle
     xdg-desktop-portal-hyprland
     # bar & launcher
     waybar
     rofi
     # notifications
     dunst
-    # utils
+    # clipboard
+    cliphist
     wl-clipboard
+    # screenshot
     grim
     slurp
     swappy
+    # utils
     thunar
     networkmanagerapplet
     polkit_gnome
