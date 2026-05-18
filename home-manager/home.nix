@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ lib, pkgs, ... }: {
 
   home.username = "jake";
   home.homeDirectory = "/home/jake";
@@ -6,7 +6,6 @@
 
   home.packages = with pkgs; [
     fastfetch
-    swaybg
     polkit_gnome
     waybar
   ];
@@ -36,7 +35,7 @@
     settings = [{
       layer = "top";
       position = "top";
-      modules-left = [ "niri/workspaces" ];
+      modules-left = [ "sway/workspaces" ];
       modules-center = [ "clock" ];
       modules-right = [ "pulseaudio" "network" "tray" ];
     }];
@@ -55,86 +54,95 @@
     '';
   };
 
-  xdg.configFile."niri/config.kdl" = {
-    text = ''
-      input {
-          keyboard {
-              xkb {
-                  layout "us"
-              }
-              numlock
-          }
-          touchpad {
-              tap
-              natural-scroll
-          }
+  wayland.windowManager.sway = {
+    enable = true;
+    config = {
+      modifier = "Mod4";
+      terminal = "kitty";
+      menu = "rofi -show drun";
+      bars = [ ];
+      gaps = {
+        inner = 8;
+        outer = 8;
+      };
+      window = {
+        border = 2;
+        titlebar = false;
+      };
+      colors = {
+        focused = {
+          border = "#33ccff";
+          background = "#33ccff";
+          text = "#000000";
+          indicator = "#33ccff";
+          childBorder = "#33ccff";
+        };
+        unfocused = {
+          border = "#595959";
+          background = "#595959";
+          text = "#ffffff";
+          indicator = "#595959";
+          childBorder = "#595959";
+        };
+      };
+      fonts = {
+        names = [ "JetBrains Mono" ];
+        style = "Normal";
+        size = 10.0;
+      };
+      keybindings = let
+        mod = "Mod4";
+      in lib.mkOptionDefault {
+        "${mod}+q" = "exec kitty";
+        "${mod}+r" = "exec rofi -show drun";
+        "${mod}+w" = "kill";
+        "${mod}+f" = "fullscreen";
+        "${mod}+Shift+e" = "exit";
+        "${mod}+h" = "focus left";
+        "${mod}+j" = "focus down";
+        "${mod}+k" = "focus up";
+        "${mod}+l" = "focus right";
+        "${mod}+Shift+h" = "move left";
+        "${mod}+Shift+j" = "move down";
+        "${mod}+Shift+k" = "move up";
+        "${mod}+Shift+l" = "move right";
+        "${mod}+1" = "workspace 1";
+        "${mod}+2" = "workspace 2";
+        "${mod}+3" = "workspace 3";
+        "${mod}+4" = "workspace 4";
+        "${mod}+5" = "workspace 5";
+        "${mod}+Shift+1" = "move container to workspace 1";
+        "${mod}+Shift+2" = "move container to workspace 2";
+        "${mod}+Shift+3" = "move container to workspace 3";
+        "${mod}+Shift+4" = "move container to workspace 4";
+        "${mod}+Shift+5" = "move container to workspace 5";
+        "Print" = "exec grimblast copy area";
+        "Ctrl+Print" = "exec grimblast copy output";
+        "Alt+Print" = "exec grimblast copy active";
+        "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+        "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+        "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+      };
+    };
+    extraConfig = ''
+      # Wallpaper
+      output * bg /etc/nixos/wallpapers/default.png fill
+
+      # Startup
+      exec waybar
+      exec nm-applet
+
+      # Input
+      input type:keyboard {
+          xkb_layout "us"
+      }
+      input type:touchpad {
+          tap enabled
+          natural_scroll enabled
       }
 
-      layout {
-          gaps 8
-          border {
-              active-color "#33ccff"
-              inactive-color "#595959"
-              width 2
-          }
-      }
-
-      spawn-at-startup "waybar"
-      spawn-at-startup "nm-applet"
-      spawn-at-startup "swaybg" "-i" "/etc/nixos/wallpapers/default.png" "-m" "fill"
-
-      screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
-      binds {
-          // Terminal
-          Super+Q { spawn "foot"; }
-          // App launcher
-          Super+R { spawn "rofi -show drun"; }
-          // Close window
-          Super+W { close-window; }
-          // Fullscreen
-          Super+F { toggle-window-flags "fullscreen"; }
-          // Quit niri
-          Super+Shift+E { quit; }
-
-          // Vim-style focus
-          Super+H { focus-left; }
-          Super+J { focus-down; }
-          Super+K { focus-up; }
-          Super+L { focus-right; }
-
-          // Move windows
-          Super+Shift+H { move-column-left; }
-          Super+Shift+J { move-window-down; }
-          Super+Shift+K { move-window-up; }
-          Super+Shift+L { move-column-right; }
-
-          // Workspaces (1-5)
-          Super+1 { focus-workspace 1; }
-          Super+2 { focus-workspace 2; }
-          Super+3 { focus-workspace 3; }
-          Super+4 { focus-workspace 4; }
-          Super+5 { focus-workspace 5; }
-
-          Super+Shift+1 { move-window-or-workspace-to-workspace 1; }
-          Super+Shift+2 { move-window-or-workspace-to-workspace 2; }
-          Super+Shift+3 { move-window-or-workspace-to-workspace 3; }
-          Super+Shift+4 { move-window-or-workspace-to-workspace 4; }
-          Super+Shift+5 { move-window-or-workspace-to-workspace 5; }
-
-          // Niri built-in screenshot (Print = full screen)
-          Print { screenshot; }
-          Ctrl+Print { screenshot-screen; }
-          Alt+Print { screenshot-window; }
-
-          // Audio keys (allow-when-locked works while screen is off)
-          XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
-          XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }
-          XF86AudioMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-
-          // Keyboard shortcut inhibitor escape hatch
-          Super+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-      }
+      # Default layout
+      workspace_layout tabbed
     '';
   };
 }
