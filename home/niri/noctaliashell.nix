@@ -1,5 +1,8 @@
-{ inputs, config, ... }:
+{ inputs, config, pkgs, ... }:
 
+let
+  wallpaperFile = ../../wallpapers/default.jpg;
+in
 {
   imports = [
     inputs.noctalia.homeModules.default
@@ -56,6 +59,19 @@
       colorSchemes.predefinedScheme = "Catppuccin-Lavender";
 
       network = { };
+
+      wallpaper = {
+        enabled = true;
+        directory = "/home/${config.home.username}/Pictures/Wallpapers";
+      };
     };
+  };
+
+  # Copy wallpaper so Noctalia can find it
+  home.file."Pictures/Wallpapers/default.jpg".source = wallpaperFile;
+
+  # Tell Noctalia to use this wallpaper
+  home.file.".cache/noctalia/wallpapers.json".text = builtins.toJSON {
+    "Virtual-1" = "/home/${config.home.username}/Pictures/Wallpapers/default.jpg";
   };
 }
