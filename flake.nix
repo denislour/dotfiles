@@ -43,6 +43,7 @@
           ./modules/common.nix
           ./modules/desktop.nix
           ./modules/development.nix
+          ./modules/stylix.nix
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
