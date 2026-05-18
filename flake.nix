@@ -50,7 +50,7 @@
       nixosConfigurations.my-vm = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs;
+          inherit self inputs;
           wallpaper = ./system/wallpapers/default.jpg;
         };
         modules = [
