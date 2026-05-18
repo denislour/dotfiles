@@ -56,5 +56,17 @@
     };
   };
 
+  # XDG Desktop Portal (needed when home-manager useUserPackages = true)
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+  };
+
+  environment.pathsToLink = [
+    "/share/xdg-desktop-portal"
+  ];
+
   system.stateVersion = "25.05";
 }
