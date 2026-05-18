@@ -47,7 +47,6 @@
         horizontal_padding = 8;
         frame_width = 2;
         separator_color = "frame";
-        font = "JetBrains Mono 10";
         corner_radius = 5;
       };
       urgency_normal = { timeout = 5; };
