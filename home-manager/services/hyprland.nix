@@ -21,26 +21,13 @@
         padding = 8;
         horizontal_padding = 8;
         frame_width = 2;
-        frame_color = "#33ccff";
         separator_color = "frame";
         font = "JetBrains Mono 10";
         corner_radius = 5;
       };
-      urgency_normal = {
-        background = "#282a36";
-        foreground = "#f8f8f2";
-        timeout = 5;
-      };
-      urgency_low = {
-        background = "#282a36";
-        foreground = "#888888";
-        timeout = 5;
-      };
-      urgency_critical = {
-        background = "#900000";
-        foreground = "#ffffff";
-        timeout = 0;
-      };
+      urgency_normal = { timeout = 5; };
+      urgency_low = { timeout = 5; };
+      urgency_critical = { timeout = 0; };
     };
   };
 
@@ -77,28 +64,18 @@
         gaps_in = 5;
         gaps_out = 8;
         border_size = 2;
-        "col.active_border" = "rgba(51ccffff)";
-        "col.inactive_border" = "rgba(595959ff)";
         layout = "dwindle";
       };
 
       decoration = {
         rounding = 3;
-        blur = {
-          enabled = false;
-        };
-        shadow = {
-          enabled = false;
-        };
+        blur = { enabled = false; };
+        shadow = { enabled = false; };
       };
 
-      animations = {
-        enabled = false;
-      };
+      animations = { enabled = false; };
 
-      dwindle = {
-        preserve_split = true;
-      };
+      dwindle = { preserve_split = true; };
 
       misc = {
         force_default_wallpaper = 1;

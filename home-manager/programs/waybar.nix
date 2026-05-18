@@ -10,9 +10,7 @@
         "hyprland/workspaces"
         "hyprland/window"
       ];
-      modules-center = [
-        "clock"
-      ];
+      modules-center = [ "clock" ];
       modules-right = [
         "network"
         "pulseaudio"
@@ -26,11 +24,8 @@
         all-outputs = true;
         format = "{name}";
         persistent_workspaces = {
-          "1" = [];
-          "2" = [];
-          "3" = [];
-          "4" = [];
-          "5" = [];
+          "1" = []; "2" = []; "3" = [];
+          "4" = []; "5" = [];
         };
       };
 
@@ -64,30 +59,10 @@
         interval = 10;
       };
     }];
-
     style = ''
-      * {
-        font-family: "JetBrains Mono";
-        font-size: 13px;
-        min-height: 0;
-      }
-      window#waybar {
-        background: rgba(0, 0, 0, 0.85);
-        color: #c0caf5;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-      }
-      #workspaces button {
-        padding: 0 6px;
-        color: #565f89;
-      }
-      #workspaces button.active {
-        color: #7aa2f7;
-        background: rgba(122, 162, 247, 0.15);
-      }
-      #workspaces button.urgent {
-        color: #f7768e;
-      }
-      #clock { color: #a9b1d6; }
+      * { font-family: "JetBrains Mono"; font-size: 13px; min-height: 0; }
+      window#waybar { border-bottom: 1px solid rgba(255,255,255,0.1); }
+      #workspaces button { padding: 0 6px; }
       #network, #pulseaudio, #cpu, #memory { padding: 0 8px; }
       #tray { padding: 0 4px; }
     '';
