@@ -152,6 +152,12 @@
           size = 3;
           passes = 2;
         };
+        shadow = {
+          enabled = true;
+          range = 4;
+          render_power = 3;
+          color = "rgba(1a1a1aee)";
+        };
       };
 
       animations = {
@@ -170,8 +176,8 @@
       };
 
       misc = {
-        force_default_wallpaper = 0;
-        disable_hyprland_logo = false;
+        force_default_wallpaper = 1;
+        disable_hyprland_logo = true;
       };
 
       bind = [
