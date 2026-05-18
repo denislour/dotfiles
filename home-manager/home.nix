@@ -20,6 +20,13 @@
     };
   };
 
+  programs.kitty = {
+    enable = true;
+    settings = {
+      linux_display_server = "wayland";
+    };
+  };
+
   programs.bash = {
     enable = true;
     bashrcExtra = ''
