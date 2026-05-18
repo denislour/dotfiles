@@ -6,8 +6,6 @@
 
   home.packages = with pkgs; [
     fastfetch
-    polkit_gnome
-    waybar
   ];
 
   programs.git = {
@@ -43,7 +41,7 @@
     settings = [{
       layer = "top";
       position = "top";
-      modules-left = [ "sway/workspaces" ];
+      modules-left = [ "hyprland/workspaces" ];
       modules-center = [ "clock" ];
       modules-right = [ "pulseaudio" "network" "tray" ];
     }];
@@ -62,109 +60,183 @@
     '';
   };
 
-  wayland.windowManager.sway = {
+  services.hyprpaper = {
     enable = true;
-    checkConfig = false;
-    config = {
-      modifier = "Mod4";
-      terminal = "ghostty";
-      menu = "rofi -show drun";
-      bars = [ ];
-      gaps = {
-        inner = 8;
-        outer = 8;
+    settings = {
+      preload = [ "/etc/nixos/wallpapers/default.png" ];
+      wallpaper = [ ",/etc/nixos/wallpapers/default.png" ];
+    };
+  };
+
+  services.dunst = {
+    enable = true;
+    settings = {
+      global = {
+        monitor = 0;
+        follow = "mouse";
+        width = 300;
+        height = 300;
+        origin = "top-right";
+        offset = "10x50";
+        padding = 8;
+        horizontal_padding = 8;
+        frame_width = 2;
+        frame_color = "#33ccff";
+        separator_color = "frame";
+        font = "JetBrains Mono 10";
+        corner_radius = 5;
       };
-      window = {
-        border = 2;
-        titlebar = false;
+      urgency_normal = {
+        background = "#282a36";
+        foreground = "#f8f8f2";
+        timeout = 5;
       };
-      colors = {
-        focused = {
-          border = "#33ccff";
-          background = "#33ccff";
-          text = "#000000";
-          indicator = "#33ccff";
-          childBorder = "#33ccff";
-        };
-        focusedInactive = {
-          border = "#33ccff";
-          background = "#595959";
-          text = "#ffffff";
-          indicator = "#33ccff";
-          childBorder = "#33ccff";
-        };
-        unfocused = {
-          border = "#595959";
-          background = "#595959";
-          text = "#ffffff";
-          indicator = "#595959";
-          childBorder = "#595959";
-        };
-        urgent = {
-          border = "#ff0000";
-          background = "#ff0000";
-          text = "#ffffff";
-          indicator = "#ff0000";
-          childBorder = "#ff0000";
-        };
+      urgency_low = {
+        background = "#282a36";
+        foreground = "#888888";
+        timeout = 5;
       };
-      workspaceLayout = "tabbed";
-      fonts = {
-        names = [ "JetBrains Mono" ];
-        style = "Normal";
-        size = 10.0;
-      };
-      keybindings = let
-        mod = "Mod4";
-      in lib.mkOptionDefault {
-        "${mod}+q" = "exec ghostty";
-        "${mod}+r" = "exec rofi -show drun";
-        "${mod}+w" = "kill";
-        "${mod}+f" = "fullscreen";
-        "${mod}+Shift+e" = "exit";
-        "${mod}+h" = "focus left";
-        "${mod}+j" = "focus down";
-        "${mod}+k" = "focus up";
-        "${mod}+l" = "focus right";
-        "${mod}+Shift+h" = "move left";
-        "${mod}+Shift+j" = "move down";
-        "${mod}+Shift+k" = "move up";
-        "${mod}+Shift+l" = "move right";
-        "${mod}+1" = "workspace 1";
-        "${mod}+2" = "workspace 2";
-        "${mod}+3" = "workspace 3";
-        "${mod}+4" = "workspace 4";
-        "${mod}+5" = "workspace 5";
-        "${mod}+Shift+1" = "move container to workspace 1";
-        "${mod}+Shift+2" = "move container to workspace 2";
-        "${mod}+Shift+3" = "move container to workspace 3";
-        "${mod}+Shift+4" = "move container to workspace 4";
-        "${mod}+Shift+5" = "move container to workspace 5";
-        "Print" = "exec grimblast copy area";
-        "Ctrl+Print" = "exec grimblast copy output";
-        "Alt+Print" = "exec grimblast copy active";
-        "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
-        "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
-        "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+      urgency_critical = {
+        background = "#900000";
+        foreground = "#ffffff";
+        timeout = 0;
       };
     };
-    extraConfig = ''
-      # Wallpaper
-      output * bg /etc/nixos/wallpapers/default.png fill
+  };
 
-      # Startup
-      exec waybar
-      exec nm-applet
+  wayland.windowManager.hyprland = {
+    enable = true;
+    systemd.enable = false;  # UWSM handles systemd integration
 
-      # Input
-      input "type:keyboard" {
-          xkb_layout "us"
-      }
-      input "type:touchpad" {
-          tap enabled
-          natural_scroll enabled
-      }
+    settings = {
+      env = [
+        # VMware compatibility
+        "WLR_NO_HARDWARE_CURSORS,1"
+        "WLR_RENDERER_ALLOW_SOFTWARE,1"
+        "AQ_NO_ATOMIC,1"
+        "AQ_NO_MODIFIERS,1"
+        # Toolkit hints
+        "GTK_THEME,Adwaita-dark"
+        "NIXOS_OZONE_WL,1"
+      ];
 
-    '';
+      exec-once = [
+        "waybar"
+        "hyprpaper"
+        "nm-applet"
+        "dunst"
+      ];
+
+      input = {
+        kb_layout = "us";
+        follow_mouse = 1;
+        touchpad = {
+          natural_scroll = true;
+          tap-to-click = true;
+        };
+      };
+
+      general = {
+        gaps_in = 5;
+        gaps_out = 8;
+        border_size = 2;
+        "col.active_border" = "rgba(51ccffff)";
+        "col.inactive_border" = "rgba(595959ff)";
+        layout = "dwindle";
+      };
+
+      decoration = {
+        rounding = 5;
+        drop_shadow = true;
+        shadow_range = 8;
+        shadow_offset = "0 2";
+        "col.shadow" = "rgba(00000066)";
+        blur = {
+          enabled = true;
+          size = 3;
+          passes = 2;
+        };
+      };
+
+      animations = {
+        enabled = true;
+        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+        animation = [
+          "windows, 1, 7, myBezier"
+          "windowsOut, 1, 7, default"
+          "fade, 1, 7, default"
+          "workspaces, 1, 6, default"
+        ];
+      };
+
+      dwindle = {
+        pseudotile = true;
+        preserve_split = true;
+      };
+
+      master = {
+        new_status = "master";
+      };
+
+      misc = {
+        force_default_wallpaper = -1;  # disable hyprland anime wallpaper
+        disable_hyprland_logo = true;
+      };
+
+      bind = [
+        # Terminal
+        "SUPER, Q, exec, ghostty"
+        # App launcher
+        "SUPER, R, exec, rofi -show drun"
+        # Close window
+        "SUPER, W, killactive"
+        # Fullscreen
+        "SUPER, F, fullscreen"
+        # Exit Hyprland
+        "SUPER, M, exit"
+
+        # Focus (vim-style)
+        "SUPER, H, movefocus, l"
+        "SUPER, J, movefocus, d"
+        "SUPER, K, movefocus, u"
+        "SUPER, L, movefocus, r"
+
+        # Move windows
+        "SUPER SHIFT, H, movewindow, l"
+        "SUPER SHIFT, J, movewindow, d"
+        "SUPER SHIFT, K, movewindow, u"
+        "SUPER SHIFT, L, movewindow, r"
+
+        # Workspaces
+        "SUPER, 1, workspace, 1"
+        "SUPER, 2, workspace, 2"
+        "SUPER, 3, workspace, 3"
+        "SUPER, 4, workspace, 4"
+        "SUPER, 5, workspace, 5"
+
+        # Move to workspace
+        "SUPER SHIFT, 1, movetoworkspace, 1"
+        "SUPER SHIFT, 2, movetoworkspace, 2"
+        "SUPER SHIFT, 3, movetoworkspace, 3"
+        "SUPER SHIFT, 4, movetoworkspace, 4"
+        "SUPER SHIFT, 5, movetoworkspace, 5"
+
+        # Screenshot
+        ", Print, exec, grimblast copy area"
+        "CTRL, Print, exec, grimblast copy output"
+        "ALT, Print, exec, grimblast copy active"
+
+        # Audio
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ];
+
+      bindm = [
+        # Mouse: move/resize windows
+        "SUPER, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
+      ];
+    };
   };
 }
