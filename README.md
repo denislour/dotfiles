@@ -46,8 +46,8 @@ sudo git clone https://github.com/denislour/dotfiles /mnt/etc/nixos
 sudo nixos-generate-config --root /mnt
 sudo cp /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hosts/my-vm/
 
-# 5. Install (limit jobs to avoid OOM)
-sudo nixos-install --flake /mnt/etc/nixos#my-vm --max-jobs 2 --cores 2
+# 5. Install (1 job to avoid OOM + no space)
+sudo nixos-install --flake /mnt/etc/nixos#my-vm --max-jobs 1 --cores 1
 
 # 6. Reboot (eject ISO)
 sudo reboot
@@ -55,10 +55,10 @@ sudo reboot
 
 ### If "no space left on device"
 
-After failed builds, the store accumulates garbage:
-
 ```bash
+# Clean failed build artifacts
 sudo rm -rf /mnt/nix/store/*
+sudo nixos-install --flake /mnt/etc/nixos#my-vm --max-jobs 1 --cores 1
 sudo nixos-install --flake /mnt/etc/nixos#my-vm --max-jobs 2 --cores 2
 ```
 
