@@ -1,19 +1,16 @@
-# fastfetch: hiển thị thông tin hệ thống khi mở terminal
-#   fastfetch         = show system info
-#   fastfetch --help  = xem all options
 {
   programs.fastfetch = {
-    enable = true;              # bật fastfetch
+    enable = true;
     settings = {
       logo = {
-        type = "auto";          # "auto" | "small" | "nixos" | "niri" | ...
+        type = "auto";
         padding = { left = 2; };
       };
       display = {
-        separator = " → ";      # ký tự phân cách
-        color = "blue";         # màu chữ
+        separator = " → ";
+        color = "blue";
       };
-      modules = "default";      # modules hiển thị: "default" | "title", "os", "kernel"...
+      modules = "default";
     };
   };
 }
