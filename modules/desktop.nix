@@ -3,10 +3,6 @@
 {
   programs.niri.enable = true;
 
-  xdg.portal.extraPortals = with pkgs; [
-    xdg-desktop-portal-gtk
-  ];
-
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
@@ -30,11 +26,4 @@
     swappy
     thunar
   ];
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
-  };
 }
