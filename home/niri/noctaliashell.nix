@@ -1,7 +1,8 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, config, ... }:
 
 let
   wallpaperFile = ../../wallpapers/default.jpg;
+  wallpaperPath = "/home/${config.home.username}/.local/share/noctalia/wallpapers/default.jpg";
 in
 {
   imports = [
@@ -60,11 +61,19 @@ in
 
       network = { };
 
-      # Disable Noctalia wallpaper management — let swaybg handle it
-      wallpaper.enabled = false;
+      wallpaper = {
+        enabled = true;
+        directory = "/home/${config.home.username}/.local/share/noctalia/wallpapers";
+      };
     };
   };
 
-  # Copy wallpaper for swaybg
-  home.file."Pictures/Wallpapers/default.jpg".source = wallpaperFile;
+  # Copy wallpaper so Noctalia can find it
+  home.file.".local/share/noctalia/wallpapers/default.jpg".source = wallpaperFile;
+
+  # Set wallpaper via cache (format: { wallpapers: { <screen>: <path> }, defaultWallpaper: <path> })
+  home.file.".cache/noctalia/wallpapers.json".text = builtins.toJSON {
+    wallpapers = { "Virtual-1" = wallpaperPath; };
+    defaultWallpaper = wallpaperPath;
+  };
 }
