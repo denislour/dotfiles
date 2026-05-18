@@ -106,6 +106,8 @@
       bind = [
         "SUPER, Q, exec, foot"
         "SUPER, R, exec, rofi -show drun"
+        # Reload wallpaper
+        "SUPER SHIFT, R, exec, killall hyprpaper && hyprpaper"
         "SUPER, W, killactive"
         "SUPER, F, fullscreen"
         "SUPER, M, exit"
