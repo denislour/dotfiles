@@ -30,9 +30,10 @@
   virtualisation.vmware.guest.enable = true;
 
   environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
     AQ_NO_ATOMIC = "1";
     AQ_NO_MODIFIERS = "1";
+    XCURSOR_THEME = "Bibata-Modern-Classic";
+    XCURSOR_SIZE = "24";
   };
 
   environment.systemPackages = with pkgs; [

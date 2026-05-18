@@ -62,11 +62,12 @@
 
     settings = {
       env = [
-        "WLR_NO_HARDWARE_CURSORS,1"
         "AQ_NO_ATOMIC,1"
         "AQ_NO_MODIFIERS,1"
         "GTK_THEME,Adwaita-dark"
         "NIXOS_OZONE_WL,1"
+        "XCURSOR_THEME,Bibata-Modern-Classic"
+        "XCURSOR_SIZE,24"
       ];
 
       exec-once = [
