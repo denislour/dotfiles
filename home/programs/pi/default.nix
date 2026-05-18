@@ -10,7 +10,7 @@ in
 {
   home.packages = [ piWrapper ];
 
-  home.file.".pi/agent/settings.json".source = ./agent/settings.json;
-  home.file.".pi/agent/models.json".source = ./agent/models.json;
+  home.file.".pi/agent/settings.json".text = builtins.toJSON (import ./agent/settings.nix);
+  home.file.".pi/agent/models.json".text = builtins.toJSON (import ./agent/models.nix);
   home.file.".pi/agent/skills/web-search/SKILL.md".source = ./agent/skills/web-search/SKILL.md;
 }
