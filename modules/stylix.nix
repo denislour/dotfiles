@@ -1,7 +1,6 @@
 { lib, pkgs, ... }: {
   stylix.enable = true;
   stylix.autoEnable = true;
-  stylix.image = ../wallpapers/default.jpg;
   stylix.cursor.package = pkgs.bibata-cursors;
   stylix.cursor.name = "Bibata-Modern-Classic";
   stylix.fonts = {

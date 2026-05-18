@@ -29,6 +29,8 @@
 
   virtualisation.vmware.guest.enable = true;
 
+  stylix.image = ././wallpapers/default.jpg;
+
   environment.sessionVariables = {
     AQ_NO_ATOMIC = "1";
     AQ_NO_MODIFIERS = "1";
