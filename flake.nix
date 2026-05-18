@@ -30,7 +30,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, stylix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, disko, stylix, niri, noctalia, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -60,6 +60,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.jake = import ./home-manager/home.nix;
           }
         ];
