@@ -1,20 +1,20 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 let
   noctalia = args: [ "noctalia-shell" "ipc" "call" ] ++ args;
 in
 {
-  programs.niri.settings.binds = with config.lib.niri.actions; {
+  programs.niri.settings.binds = {
     # Terminal & Launcher
     "Super+Return".action.spawn = [ "${pkgs.ghostty}/bin/ghostty" ];
     "Super+Space".action.spawn = noctalia [ "launcher" "toggle" ];
     "Super+r".action.spawn = noctalia [ "launcher" "toggle" ];
 
     # Window operations
-    "Super+q".action = close-window;
-    "Super+f".action = fullscreen-window;
-    "Super+t".action = toggle-window-floating;
-    "Super+m".action = quit;
+    "Super+q".action.close-window = true;
+    "Super+f".action.fullscreen-window = true;
+    "Super+t".action.toggle-window-floating = true;
+    "Super+m".action.quit = true;
 
     # Screenshot
     "Print".action.screenshot = [ ];
@@ -22,30 +22,30 @@ in
     "Alt+Print".action.screenshot-window = [ ];
 
     # Focus movement (Vim keys)
-    "Super+h".action = focus-column-left;
-    "Super+j".action = focus-workspace-down;
-    "Super+k".action = focus-workspace-up;
-    "Super+l".action = focus-column-right;
+    "Super+h".action.focus-column-left = true;
+    "Super+j".action.focus-workspace-down = true;
+    "Super+k".action.focus-workspace-up = true;
+    "Super+l".action.focus-column-right = true;
 
     # Move windows
-    "Super+Shift+h".action = move-column-left;
-    "Super+Shift+j".action = move-column-to-workspace-down;
-    "Super+Shift+k".action = move-column-to-workspace-up;
-    "Super+Shift+l".action = move-column-right;
+    "Super+Shift+h".action.move-column-left = true;
+    "Super+Shift+j".action.move-column-to-workspace-down = true;
+    "Super+Shift+k".action.move-column-to-workspace-up = true;
+    "Super+Shift+l".action.move-column-right = true;
 
     # Workspace switching
-    "Super+1".action = focus-workspace 1;
-    "Super+2".action = focus-workspace 2;
-    "Super+3".action = focus-workspace 3;
-    "Super+4".action = focus-workspace 4;
-    "Super+5".action = focus-workspace 5;
+    "Super+1".action.focus-workspace = 1;
+    "Super+2".action.focus-workspace = 2;
+    "Super+3".action.focus-workspace = 3;
+    "Super+4".action.focus-workspace = 4;
+    "Super+5".action.focus-workspace = 5;
 
     # Move windows to workspace
-    "Super+Shift+1".action = move-column-to-workspace 1;
-    "Super+Shift+2".action = move-column-to-workspace 2;
-    "Super+Shift+3".action = move-column-to-workspace 3;
-    "Super+Shift+4".action = move-column-to-workspace 4;
-    "Super+Shift+5".action = move-column-to-workspace 5;
+    "Super+Shift+1".action.move-column-to-workspace = 1;
+    "Super+Shift+2".action.move-column-to-workspace = 2;
+    "Super+Shift+3".action.move-column-to-workspace = 3;
+    "Super+Shift+4".action.move-column-to-workspace = 4;
+    "Super+Shift+5".action.move-column-to-workspace = 5;
 
     # Volume keys via Noctalia
     "XF86AudioRaiseVolume".action.spawn = noctalia [ "volume" "increase" ];
