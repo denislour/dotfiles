@@ -8,6 +8,31 @@
     };
   };
 
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      general = {
+        hide_input = true;
+        no_fade_in = false;
+      };
+      background = {
+        path = "/etc/nixos/wallpapers/default.jpg";
+        blur_passes = 2;
+        blur_size = 6;
+      };
+      input-field = {
+        size = "300, 60";
+        outline_thickness = 3;
+        dots_size = 0.3;
+        dots_spacing = 0.4;
+        dots_center = true;
+        position = "0, -100";
+        halign = "center";
+        valign = "center";
+      };
+    };
+  };
+
   services.dunst = {
     enable = true;
     settings = {
@@ -88,6 +113,9 @@
         "SUPER, W, killactive"
         "SUPER, F, fullscreen"
         "SUPER, M, exit"
+
+        # Lock
+        "SUPER SHIFT, L, exec, hyprlock"
 
         "SUPER, H, movefocus, l"
         "SUPER, J, movefocus, d"
