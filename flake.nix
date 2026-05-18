@@ -56,8 +56,9 @@
           ./system/packages.nix
           ./system/environment.nix
           ./system/greeter/greetd.nix
-          ./modules/common.nix
-          ./modules/development.nix
+          ./system/common.nix
+          ./system/programs/development.nix
+          ./system/programs/stylix.nix
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
