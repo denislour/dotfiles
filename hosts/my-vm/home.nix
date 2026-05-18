@@ -10,6 +10,7 @@
     ../../home/programs/atuin.nix
     ../../home/programs/bat.nix
     ../../home/programs/bottom.nix
+    ../../home/programs/starship.nix
     ../../home/programs/delta.nix
     ../../home/programs/eza.nix
     ../../home/programs/fastfetch.nix
