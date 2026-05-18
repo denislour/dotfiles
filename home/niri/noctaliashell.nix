@@ -68,10 +68,10 @@ in
     };
   };
 
-  # Copy wallpaper so Noctalia can find it
+
   home.file.".local/share/noctalia/wallpapers/default.jpg".source = wallpaperFile;
 
-  # Set wallpaper via cache (format: { wallpapers: { <screen>: <path> }, defaultWallpaper: <path> })
+
   home.file.".cache/noctalia/wallpapers.json".text = builtins.toJSON {
     wallpapers = { "Virtual-1" = wallpaperPath; };
     defaultWallpaper = wallpaperPath;

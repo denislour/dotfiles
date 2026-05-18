@@ -3,7 +3,7 @@
 {
   programs.niri.settings.window-rules = [
     {
-      # Bo góc cho tất cả cửa sổ
+
       matches = [ { } ];
       geometry-corner-radius = {
         top-left = 10.0;

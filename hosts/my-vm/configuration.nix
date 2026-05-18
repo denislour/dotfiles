@@ -58,7 +58,7 @@
     };
   };
 
-  # XDG Desktop Portal (needed when home-manager useUserPackages = true)
+
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
