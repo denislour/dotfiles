@@ -33,18 +33,20 @@ sudo nix --experimental-features "nix-command flakes" \
 sudo mkdir -p /mnt/nix
 sudo mount --bind /mnt/nix /nix
 
-# 3. Clone repo
-nix-shell -p git
+# 3. Re-enter nix-shell (bind mount replaces tmpfs, tools are gone)
+nix-shell -p git sudo
+
+# 4. Clone repo
 sudo git clone https://github.com/denislour/dotfiles /mnt/etc/nixos
 
-# 4. Generate hardware config
+# 5. Generate hardware config
 sudo nixos-generate-config --root /mnt
 sudo cp /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hosts/my-vm/
 
-# 5. Install
+# 6. Install
 sudo nixos-install --flake /mnt/etc/nixos#my-vm --max-jobs 1 --cores 1
 
-# 6. Reboot (eject ISO)
+# 7. Reboot (eject ISO)
 sudo reboot
 ```
 
