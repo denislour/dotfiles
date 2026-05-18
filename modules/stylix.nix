@@ -1,7 +1,7 @@
 { lib, pkgs, ... }: {
   stylix.enable = true;
   stylix.autoEnable = true;
-  stylix.image = ./wallpapers/default.jpg;
+  stylix.image = ../wallpapers/default.jpg;
   stylix.base16Scheme = "tokyo-night-terminal-storm";
   stylix.cursor.package = pkgs.bibata-cursors;
   stylix.cursor.name = "Bibata-Modern-Classic";
