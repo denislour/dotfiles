@@ -20,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, disko, stylix, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
