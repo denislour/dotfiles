@@ -7,7 +7,7 @@
 
   imports = [
     ../../home/niri
-    ../../home/programs/bash.nix
+    ../../home/programs/zsh.nix
     ../../home/programs/ghostty.nix
     ../../home/programs/git.nix
     ../../home/programs/yazi.nix

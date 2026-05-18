@@ -17,6 +17,8 @@
 
   security.sudo.wheelNeedsPassword = false;
 
+  programs.zsh.enable = true;
+
   hardware.graphics.enable = true;
 
   services.openssh = {

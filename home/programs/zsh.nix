@@ -1,7 +1,13 @@
-{ ... }: {
-  programs.bash = {
+{ ... }:
+
+{
+  programs.zsh = {
     enable = true;
-    bashrcExtra = ''
+    autocd = true;
+    enableCompletion = true;
+
+    initExtra = ''
+      # Aliases to modern Rust tools
       alias ls='eza --icons'
       alias ll='eza -la --icons'
       alias la='eza -A --icons'
