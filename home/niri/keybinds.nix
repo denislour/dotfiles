@@ -6,14 +6,14 @@ in
 {
   programs.niri.settings.binds = {
     # Terminal & Launcher
-    "Super+Return".action.spawn = [ "${pkgs.ghostty}/bin/ghostty" ];
+    "Super+t".action.spawn = [ "${pkgs.ghostty}/bin/ghostty" ];
     "Super+Space".action.spawn = noctalia [ "launcher" "toggle" ];
     "Super+r".action.spawn = noctalia [ "launcher" "toggle" ];
 
     # Window operations
     "Super+q".action.close-window = { };
     "Super+f".action.fullscreen-window = { };
-    "Super+t".action.toggle-window-floating = { };
+    "Super+Return".action.toggle-window-floating = { };
     "Super+m".action.quit = { };
 
     # Screenshot
