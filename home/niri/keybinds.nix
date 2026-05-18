@@ -59,6 +59,6 @@ in
     "XF86AudioPrev".action.spawn = noctalia "media previous";
 
     # Lock screen
-    "Super+Shift+Escape".action.spawn = noctalia "lockScreen lock";
+    "Super+Shift+q".action.spawn = noctalia "lockScreen lock";
   };
 }
