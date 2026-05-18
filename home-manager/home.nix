@@ -23,6 +23,7 @@
     settings = {
       font-family = "JetBrains Mono";
       font-size = 12;
+      renderer = "software";
     };
   };
 
@@ -115,6 +116,8 @@
         "WLR_RENDERER_ALLOW_SOFTWARE,1"
         "AQ_NO_ATOMIC,1"
         "AQ_NO_MODIFIERS,1"
+        # Force software OpenGL for Ghostty on VMware
+        "LIBGL_ALWAYS_SOFTWARE,1"
         # Toolkit hints
         "GTK_THEME,Adwaita-dark"
         "NIXOS_OZONE_WL,1"
