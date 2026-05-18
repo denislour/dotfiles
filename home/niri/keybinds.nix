@@ -1,14 +1,14 @@
 { pkgs, config, ... }:
 
 let
-  noctalia = cmd: [ "noctalia-shell" "ipc" "call" ] ++ (builtins.splitString " " cmd);
+  noctalia = args: [ "noctalia-shell" "ipc" "call" ] ++ args;
 in
 {
   programs.niri.settings.binds = with config.lib.niri.actions; {
     # Terminal & Launcher
     "Super+Return".action.spawn = [ "${pkgs.ghostty}/bin/ghostty" ];
-    "Super+Space".action.spawn = noctalia "launcher toggle";
-    "Super+r".action.spawn = noctalia "launcher toggle";
+    "Super+Space".action.spawn = noctalia [ "launcher" "toggle" ];
+    "Super+r".action.spawn = noctalia [ "launcher" "toggle" ];
 
     # Window operations
     "Super+q".action = close-window;
@@ -48,17 +48,17 @@ in
     "Super+Shift+5".action = move-column-to-workspace 5;
 
     # Volume keys via Noctalia
-    "XF86AudioRaiseVolume".action.spawn = noctalia "volume increase";
-    "XF86AudioLowerVolume".action.spawn = noctalia "volume decrease";
-    "XF86AudioMute".action.spawn = noctalia "volume muteOutput";
-    "Shift+XF86AudioMute".action.spawn = noctalia "volume muteInput";
+    "XF86AudioRaiseVolume".action.spawn = noctalia [ "volume" "increase" ];
+    "XF86AudioLowerVolume".action.spawn = noctalia [ "volume" "decrease" ];
+    "XF86AudioMute".action.spawn = noctalia [ "volume" "muteOutput" ];
+    "Shift+XF86AudioMute".action.spawn = noctalia [ "volume" "muteInput" ];
 
     # Media keys
-    "XF86AudioPlay".action.spawn = noctalia "media playPause";
-    "XF86AudioNext".action.spawn = noctalia "media next";
-    "XF86AudioPrev".action.spawn = noctalia "media previous";
+    "XF86AudioPlay".action.spawn = noctalia [ "media" "playPause" ];
+    "XF86AudioNext".action.spawn = noctalia [ "media" "next" ];
+    "XF86AudioPrev".action.spawn = noctalia [ "media" "previous" ];
 
     # Lock screen
-    "Super+Shift+q".action.spawn = noctalia "lockScreen lock";
+    "Super+Shift+q".action.spawn = noctalia [ "lockScreen" "lock" ];
   };
 }
