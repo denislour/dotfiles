@@ -5,6 +5,7 @@
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
+    hyprpaper
   ];
 
   programs.git = {
@@ -27,9 +28,24 @@
     '';
   };
 
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = [ "/etc/nixos/wallpapers/default.png" ];
+      wallpaper = [ ",/etc/nixos/wallpapers/default.png" ];
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      env = [
+        "WLR_NO_HARDWARE_CURSORS,1"
+        "WLR_RENDERER_ALLOW_SOFTWARE,1"
+      ];
+      exec-once = [
+        "hyprpaper"
+      ];
       input.kb_layout = "us";
       "$mod" = "SUPER";
       bind = [
