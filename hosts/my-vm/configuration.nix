@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, wallpaper, ... }: {
   networking.hostName = "my-vm";
   networking.networkmanager.enable = true;
 
@@ -29,7 +29,7 @@
 
   virtualisation.vmware.guest.enable = true;
 
-  stylix.image = ././wallpapers/default.jpg;
+  stylix.image = wallpaper;
 
   environment.sessionVariables = {
     AQ_NO_ATOMIC = "1";

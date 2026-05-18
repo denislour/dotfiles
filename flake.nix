@@ -34,7 +34,10 @@
 
       nixosConfigurations.my-vm = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs;
+          wallpaper = ./wallpapers/default.jpg;
+        };
         modules = [
           stylix.nixosModules.stylix
           disko.nixosModules.disko
