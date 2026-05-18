@@ -75,6 +75,9 @@
       input = {
         kb_layout = "us";
         follow_mouse = 1;
+        cursor = {
+          no_hardware_cursors = true;
+        };
         touchpad = {
           natural_scroll = true;
           tap-to-click = true;
