@@ -1,6 +1,6 @@
 # NixOS dotfiles
 
-NNN Stack: **N**ixOS + **N**iri + **N**octalia for VMware Workstation 17 Pro.
+NNN Stack: **N**ixOS + **N**iri + **N**octalia on VMware Workstation 17 Pro.
 
 ## VM Settings
 
@@ -27,7 +27,7 @@ sudo nix --experimental-features "nix-command flakes" \
   run github:nix-community/disko -- \
   --mode disko /tmp/disk-config.nix
 
-# 2. Create nix dir on real disk & bind
+# 2. Mount real disk for /nix (tmpfs is ~4GB only)
 sudo mkdir -p /mnt/nix
 sudo mount --bind /mnt/nix /nix
 
@@ -51,24 +51,24 @@ sudo reboot
 ## First Boot
 
 - User: `jake` / `changeme`
-- Greetd tự động login → Niri → Noctalia
-- Terminal: `Super+Return` (ghostty)
+- Greetd auto-login → Niri → Noctalia
+- Open terminal: `Super+Return` (ghostty)
 
 ## Seasoning
 
-| Tool | What |
-|------|------|
-| `eza` | `ls` đẹp hơn |
-| `bat` | `cat` có màu |
-| `fd` | `find` nhanh hơn |
-| `rg` | `grep` siêu tốc |
-| `delta` | `diff` đẹp |
-| `btm` | `top` hiện đại |
-| `dust` | `du` trực quan |
-| `procs` | `ps` dễ đọc |
-| `atuin` | Lịch sử lệnh có search |
-| `starship` | Prompt zsh đẹp |
-| `zoxide` | `cd` thông minh |
+| Tool | Replaces | Why |
+|------|----------|-----|
+| `eza` | `ls` | Colors, icons, git status |
+| `bat` | `cat` | Syntax highlighting |
+| `fd` | `find` | Faster, intuitive |
+| `rg` | `grep` | Blazing fast code search |
+| `delta` | `diff` | Side-by-side diffs |
+| `btm` | `top` | TUI with charts |
+| `dust` | `du` | Visual disk usage |
+| `procs` | `ps` | Human-readable processes |
+| `atuin` | `history` | Ctrl+R with fuzzy search |
+| `starship` | prompt | Minimal, fast prompt |
+| `zoxide` | `cd` | Smart directory jumping |
 
 ## Keybinds
 
@@ -89,7 +89,7 @@ sudo reboot
 
 ## Secrets
 
-Sops-nix với age key. Tạo key lần đầu:
+Managed with sops-nix + age. First-time setup:
 ```bash
 age-keygen -o ~/.config/sops/age/keys.txt
 sops secrets/secrets.yaml
@@ -99,7 +99,7 @@ sops secrets/secrets.yaml
 
 ```
 ├── flake.nix
-├── system/              ← System-level config
+├── system/              ← System-level (NixOS)
 │   ├── common.nix
 │   ├── environment.nix
 │   ├── packages.nix
@@ -111,7 +111,7 @@ sops secrets/secrets.yaml
 │   │   ├── stylix.nix
 │   │   └── xdg-portal.nix
 │   └── wallpapers/
-├── home/                ← User-level config
+├── home/                ← User-level (home-manager)
 │   ├── niri/
 │   │   ├── settings.nix
 │   │   ├── keybinds.nix
