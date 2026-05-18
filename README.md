@@ -23,18 +23,27 @@ keyboard.vusb.enable = "TRUE"
 ## Installation
 
 ```bash
-# Partition
+# 1. Partition
 curl -L "https://raw.githubusercontent.com/denislour/dotfiles/master/hosts/my-vm/disk-config.nix" -o /tmp/disk-config.nix
 sudo nix --experimental-features "nix-command flakes" \
   run github:nix-community/disko -- \
   --mode disko /tmp/disk-config.nix
 
-# Clone + install
+# 2. Bind nix store to real disk (tmpfs is only ~4GB, not enough)
+sudo mount --bind /mnt/nix /nix
+
+# 3. Clone repo
 nix-shell -p git
 sudo git clone https://github.com/denislour/dotfiles /mnt/etc/nixos
+
+# 4. Generate hardware config
 sudo nixos-generate-config --root /mnt
 sudo cp /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hosts/my-vm/
+
+# 5. Install
 sudo nixos-install --flake /mnt/etc/nixos#my-vm --max-jobs 1 --cores 1
+
+# 6. Reboot (eject ISO)
 sudo reboot
 ```
 
@@ -46,16 +55,14 @@ sudo reboot
 
 ---
 
-## Minimal Keybinds
+## Keybinds
 
 | Key | Action |
 |-----|--------|
-| `Super + Q` | Terminal (kitty) |
-| `Super + R` | App launcher (rofi) |
+| `Super + Q` | Terminal (foot) |
 | `Super + W` | Close window |
-| `Super + arrows` | Focus / Move |
-| `Super + 1-9` | Switch workspace |
-| `Print` | Screenshot |
+
+Add more in `home-manager/home.nix` → `wayland.windowManager.hyprland.settings.bind`.
 
 ---
 
