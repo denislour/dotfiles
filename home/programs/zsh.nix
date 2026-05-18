@@ -1,14 +1,11 @@
 { ... }:
-
 {
   programs.zsh = {
     enable = true;
     autocd = true;
     enableCompletion = true;
-
     initContent = ''
       alias history='atuin history'
-
       alias ls='eza --icons'
       alias ll='eza -la --icons'
       alias la='eza -A --icons'
