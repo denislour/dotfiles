@@ -6,5 +6,6 @@
     xwayland-satellite
     wl-clipboard
     libnotify
+    swaybg
   ];
 }
