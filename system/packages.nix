@@ -2,11 +2,14 @@
 
 {
   environment.systemPackages = with pkgs; [
-    curl unzip zip killall
-    xwayland-satellite
-    wl-clipboard
-    libnotify
     cliphist
+    curl
+    killall
+    libnotify
+    unzip
+    wl-clipboard
     wl-clip-persist
+    xwayland-satellite
+    zip
   ];
 }
