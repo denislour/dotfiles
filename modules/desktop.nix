@@ -1,8 +1,12 @@
 { lib, pkgs, ... }: {
 
-  programs.hyprland = {
+  programs.niri.enable = true;
+
+  xdg.portal = {
     enable = true;
-    xwayland.enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
   };
 
   services.displayManager.sddm = {
@@ -19,7 +23,14 @@
 
   environment.systemPackages = with pkgs; [
     foot
-    hyprpaper
     waybar
+    swaybg
+    rofi
+    wl-clipboard
+    grim
+    slurp
+    swappy
+    thunar
+    polkit_gnome
   ];
 }
