@@ -13,11 +13,9 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, hyprland, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, disko, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -39,7 +37,6 @@
           ./modules/common.nix
           ./modules/desktop.nix
           ./modules/development.nix
-          hyprland.nixosModules.default
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
