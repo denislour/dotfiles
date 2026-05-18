@@ -32,10 +32,12 @@
 
   virtualisation.vmware.guest.enable = true;
 
-  # VMware workarounds for wlroots (Sway)
+  # VMware fixes for Hyprland (wlroots/aquamarine)
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     WLR_RENDERER_ALLOW_SOFTWARE = "1";
+    AQ_NO_ATOMIC = "1";
+    AQ_NO_MODIFIERS = "1";
   };
 
   fonts.packages = with pkgs; [

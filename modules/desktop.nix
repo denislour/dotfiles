@@ -1,14 +1,15 @@
 { lib, pkgs, ... }: {
 
-  programs.sway = {
+  programs.hyprland = {
     enable = true;
-    wrapperFeatures.gtk = true;
+    withUWSM = true;
+    xwayland.enable = true;
   };
 
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-      xdg-desktop-portal-wlr
+      xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
     ];
   };
@@ -25,18 +26,30 @@
     pulse.enable = true;
   };
 
+  services.libinput.enable = true;
+
   environment.systemPackages = with pkgs; [
+    # terminal
     ghostty
+    # hypr ecosystem
+    hyprpaper
+    xdg-desktop-portal-hyprland
+    # bar & launcher
     waybar
-    rofi
+    rofi-wayland
+    # notifications
+    dunst
+    # utils
     wl-clipboard
     grim
     slurp
     swappy
     thunar
     networkmanagerapplet
-    grimblast
     polkit_gnome
+    # audio
+    pavucontrol
+    pamixer
   ];
 
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
