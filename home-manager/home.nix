@@ -147,10 +147,6 @@
 
       decoration = {
         rounding = 5;
-        drop_shadow = true;
-        shadow_range = 8;
-        shadow_offset = "0 2";
-        "col.shadow" = "rgba(00000066)";
         blur = {
           enabled = true;
           size = 3;
@@ -170,17 +166,12 @@
       };
 
       dwindle = {
-        pseudotile = true;
         preserve_split = true;
       };
 
-      master = {
-        new_status = "master";
-      };
-
       misc = {
-        force_default_wallpaper = -1;  # disable hyprland anime wallpaper
-        disable_hyprland_logo = true;
+        force_default_wallpaper = 0;
+        disable_hyprland_logo = false;
       };
 
       bind = [
