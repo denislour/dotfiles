@@ -36,7 +36,7 @@
     xdg-desktop-portal-hyprland
     # bar & launcher
     waybar
-    rofi-wayland
+    rofi
     # notifications
     dunst
     # utils
