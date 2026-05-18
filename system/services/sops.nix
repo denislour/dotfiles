@@ -6,5 +6,9 @@
 
   sops.age.keyFile = "/home/jake/.config/sops/age/keys.txt";
 
-  sops.secrets.test = { };
+  sops.secrets = {
+    test = { };
+    brave_search_api_key = { };
+    deepseek_api_key = { };
+  };
 }
