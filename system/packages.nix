@@ -6,5 +6,7 @@
     xwayland-satellite
     wl-clipboard
     libnotify
+    cliphist
+    wl-clip-persist
   ];
 }
