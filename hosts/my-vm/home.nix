@@ -17,7 +17,7 @@
     ../../home/programs/fd.nix
     ../../home/programs/ghostty.nix
     ../../home/programs/git.nix
-    ../../home/programs/pi.nix
+    ../../home/programs/pi
     ../../home/programs/ripgrep.nix
     ../../home/programs/yazi.nix
     ../../home/programs/zoxide.nix

@@ -72,5 +72,5 @@ in
     };
   };
 
-  home.file.".pi/skills/web-search/SKILL.md".source = ./pi/skills/web-search/SKILL.md;
+  home.file.".pi/skills/web-search/SKILL.md".source = ./skills/web-search/SKILL.md;
 }
