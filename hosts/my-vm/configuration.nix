@@ -34,6 +34,7 @@
   stylix.image = wallpaper;
   stylix.cursor.package = pkgs.bibata-cursors;
   stylix.cursor.name = "Bibata-Modern-Classic";
+  stylix.cursor.size = 24;
   stylix.fonts = {
     monospace = {
       package = pkgs.jetbrains-mono;
