@@ -33,9 +33,14 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    pi = {
+      url = "github:lukasl-dev/pi.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, stylix, niri, noctalia, sops-nix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, disko, stylix, niri, noctalia, sops-nix, pi, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -57,6 +62,7 @@
           stylix.nixosModules.stylix
           disko.nixosModules.disko
           inputs.sops-nix.nixosModules.sops
+          inputs.pi.nixosModules.coding-agent
           ./hosts/my-vm/disk-config.nix
           ./hosts/my-vm/configuration.nix
           ./system/packages.nix
@@ -66,6 +72,7 @@
           ./system/common.nix
           ./system/programs/stylix.nix
           ./system/programs/xdg-portal.nix
+          ./system/programs/pi.nix
           ./system/services/ssh.nix
 
           home-manager.nixosModules.home-manager {
