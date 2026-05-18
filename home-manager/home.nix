@@ -15,6 +15,6 @@
 
   home.packages = with pkgs; [
     fastfetch
-    bat eza fd ripgrep du-dust procs bottom delta sd
+    bat eza fd ripgrep dust procs bottom delta sd
   ];
 }
