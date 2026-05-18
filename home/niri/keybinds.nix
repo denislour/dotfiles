@@ -1,12 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
+  apps = import ./applications.nix { inherit pkgs; };
   noctalia = args: [ "noctalia-shell" "ipc" "call" ] ++ args;
 in
 {
   programs.niri.settings.binds = {
     # Terminal & Launcher
-    "Super+Return".action.spawn = [ "${pkgs.ghostty}/bin/ghostty" ];
+    "Super+Return".action.spawn = [ apps.terminal ];
     "Super+Space".action.spawn = noctalia [ "launcher" "toggle" ];
     "Super+r".action.spawn = noctalia [ "launcher" "toggle" ];
 
