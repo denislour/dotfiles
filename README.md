@@ -29,7 +29,8 @@ sudo nix --experimental-features "nix-command flakes" \
   run github:nix-community/disko -- \
   --mode disko /tmp/disk-config.nix
 
-# 2. Bind nix store to real disk (tmpfs is only ~4GB, not enough)
+# 2. Create nix dir on real disk & bind (tmpfs is only ~4GB)
+sudo mkdir -p /mnt/nix
 sudo mount --bind /mnt/nix /nix
 
 # 3. Clone repo
