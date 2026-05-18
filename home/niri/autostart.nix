@@ -5,7 +5,7 @@ let
 in
 {
   programs.niri.settings.spawn-at-startup = [
-    { command = [ "noctalia-shell" ]; }
     { command = [ "${pkgs.swaybg}/bin/swaybg" "-i" wallpaperPath "-m" "fill" ]; }
+    { command = [ "noctalia-shell" ]; }
   ];
 }

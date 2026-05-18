@@ -60,18 +60,11 @@ in
 
       network = { };
 
-      wallpaper = {
-        enabled = true;
-        directory = "/home/${config.home.username}/Pictures/Wallpapers";
-      };
+      # Disable Noctalia wallpaper management — let swaybg handle it
+      wallpaper.enabled = false;
     };
   };
 
-  # Copy wallpaper so Noctalia can find it
+  # Copy wallpaper for swaybg
   home.file."Pictures/Wallpapers/default.jpg".source = wallpaperFile;
-
-  # Tell Noctalia to use this wallpaper
-  home.file.".cache/noctalia/wallpapers.json".text = builtins.toJSON {
-    "Virtual-1" = "/home/${config.home.username}/Pictures/Wallpapers/default.jpg";
-  };
 }
