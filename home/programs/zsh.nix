@@ -7,7 +7,6 @@
     enableCompletion = true;
 
     initExtra = ''
-
       alias ls='eza --icons'
       alias ll='eza -la --icons'
       alias la='eza -A --icons'

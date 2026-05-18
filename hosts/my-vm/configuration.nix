@@ -58,7 +58,6 @@
     };
   };
 
-
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [

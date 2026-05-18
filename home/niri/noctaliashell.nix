@@ -1,7 +1,7 @@
 { inputs, config, ... }:
 
 let
-  wallpaperFile = ../../wallpapers/default.jpg;
+  wallpaperFile = ../../system/wallpapers/default.jpg;
   wallpaperPath = "/home/${config.home.username}/.local/share/noctalia/wallpapers/default.jpg";
 in
 {
@@ -68,9 +68,7 @@ in
     };
   };
 
-
   home.file.".local/share/noctalia/wallpapers/default.jpg".source = wallpaperFile;
-
 
   home.file.".cache/noctalia/wallpapers.json".text = builtins.toJSON {
     wallpapers = { "Virtual-1" = wallpaperPath; };

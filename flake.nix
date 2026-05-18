@@ -46,7 +46,7 @@
         inherit system;
         specialArgs = {
           inherit inputs;
-          wallpaper = ./wallpapers/default.jpg;
+          wallpaper = ./system/wallpapers/default.jpg;
         };
         modules = [
           stylix.nixosModules.stylix
@@ -58,7 +58,6 @@
           ./system/greeter/greetd.nix
           ./system/common.nix
           ./system/programs/development.nix
-          ./system/programs/stylix.nix
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
