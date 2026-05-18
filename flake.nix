@@ -28,9 +28,14 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, stylix, niri, noctalia, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, disko, stylix, niri, noctalia, sops-nix, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -51,11 +56,13 @@
         modules = [
           stylix.nixosModules.stylix
           disko.nixosModules.disko
+          inputs.sops-nix.nixosModules.sops
           ./hosts/my-vm/disk-config.nix
           ./hosts/my-vm/configuration.nix
           ./system/packages.nix
           ./system/environment.nix
           ./system/services/greetd.nix
+          ./system/services/sops.nix
           ./system/common.nix
           ./system/programs/stylix.nix
           ./system/programs/xdg-portal.nix

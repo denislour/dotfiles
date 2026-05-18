@@ -1,0 +1,6 @@
+keys:
+  - &jake_vm age1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+creation_rules:
+  - key_groups:
+      - age:
+          - *jake_vm
