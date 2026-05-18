@@ -8,7 +8,7 @@
   home.packages = with pkgs; [
     fastfetch
     swaybg
-    polkit-gnome
+    polkit_gnome
   ];
 
   programs.git = {
