@@ -81,7 +81,6 @@
 
       spawn-at-startup "waybar"
       spawn-at-startup "nm-applet"
-      spawn-at-startup "/run/wrappers/bin/polkit-gnome-authentication-agent-1"
       spawn-at-startup "swaybg" "-i" "/etc/nixos/wallpapers/default.png" "-m" "fill"
 
       binds {
