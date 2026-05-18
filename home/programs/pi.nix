@@ -12,6 +12,9 @@ in
 {
   home.packages = [ piWrapper ];
 
+  # Deploy web-search skill
+  home.file.".agents/skills/web-search/SKILL.md".source = ../../.agents/skills/web-search/SKILL.md;
+
   home.file.".pi/agent/settings.json".text = builtins.toJSON {
     defaultProvider = "deepseek";
     defaultModel = "deepseek-v4-flash";
