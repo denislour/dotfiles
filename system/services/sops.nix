@@ -9,6 +9,9 @@
   sops.secrets = {
     test = { };
     brave_search_api_key = { };
-    deepseek_api_key = { };
+    deepseek_api_key = {
+      owner = "jake";
+      mode = "0444";
+    };
   };
 }
