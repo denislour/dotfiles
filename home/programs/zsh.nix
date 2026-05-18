@@ -7,6 +7,10 @@
     enableCompletion = true;
 
     initExtra = ''
+      # atuin replaces history
+      alias history='atuin history'
+      eval "$(atuin init zsh)"
+
       alias ls='eza --icons'
       alias ll='eza -la --icons'
       alias la='eza -A --icons'
