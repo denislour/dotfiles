@@ -1,12 +1,6 @@
 { ... }: {
 
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      preload = [ "/etc/nixos/wallpapers/default.jpg" ];
-      wallpaper = [ ",/etc/nixos/wallpapers/default.jpg" ];
-    };
-  };
+  services.hyprpaper.enable = true;
 
   programs.hyprlock = {
     enable = true;
