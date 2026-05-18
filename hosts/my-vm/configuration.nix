@@ -30,10 +30,10 @@
   virtualisation.vmware.guest.enable = true;
 
   stylix.enable = true;
-  stylix.autoEnable = false;
-  stylix.targets.foot.enable = true;
-  stylix.targets.waybar.enable = true;
-  stylix.targets.rofi.enable = true;
+  stylix.autoEnable = true;
+  stylix.targets.dunst.enable = false;
+  stylix.targets.hyprlock.enable = false;
+  stylix.targets.hyprpaper.enable = false;
   stylix.image = wallpaper;
   stylix.cursor.package = pkgs.bibata-cursors;
   stylix.cursor.name = "Bibata-Modern-Classic";
