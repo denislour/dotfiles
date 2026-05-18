@@ -6,19 +6,14 @@ let
     export BRAVE_SEARCH_API_KEY=$(cat /run/secrets/brave_search_api_key 2>/dev/null || echo "")
     exec ${pkgs.pi-coding-agent}/bin/pi "$@"
   '';
-
-  piAgentsDir = "${config.home.homeDirectory}/.agents/skills";
 in
 {
   home.packages = [ piWrapper ];
 
-  # Deploy web-search skill
-  home.file.".agents/skills/web-search/SKILL.md".source = ../../.agents/skills/web-search/SKILL.md;
-
   home.file.".pi/agent/settings.json".text = builtins.toJSON {
     defaultProvider = "deepseek";
     defaultModel = "deepseek-v4-flash";
-    skills = [ piAgentsDir ];
+    skills = [ "${config.home.homeDirectory}/.pi/skills" ];
   };
 
   home.file.".pi/agent/models.json".text = builtins.toJSON {
@@ -76,4 +71,6 @@ in
       ];
     };
   };
+
+  home.file.".pi/skills/web-search/SKILL.md".source = ../../pi/skills/web-search/SKILL.md;
 }
