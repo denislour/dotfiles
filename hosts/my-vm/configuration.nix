@@ -56,29 +56,5 @@
     };
   };
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-color-emoji
-    jetbrains-mono
-    nerd-fonts.jetbrains-mono
-  ];
-
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "jake";
-  };
-
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-    AQ_NO_ATOMIC = "1";
-    AQ_NO_MODIFIERS = "1";
-    XCURSOR_THEME = "Bibata-Modern-Classic";
-    XCURSOR_SIZE = "24";
-  };
-
-  environment.systemPackages = with pkgs; [
-    wget curl unzip zip killall
-  ];
-
   system.stateVersion = "25.05";
 }
