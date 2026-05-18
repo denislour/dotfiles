@@ -2,7 +2,6 @@
   programs.bash = {
     enable = true;
     bashrcExtra = ''
-      # Rust CLI aliases
       alias ls='eza --icons'
       alias ll='eza -la --icons'
       alias la='eza -A --icons'

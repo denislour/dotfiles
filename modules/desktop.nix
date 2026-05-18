@@ -1,5 +1,4 @@
 { lib, pkgs, ... }: {
-
   programs.hyprland = {
     enable = true;
     withUWSM = true;
@@ -30,32 +29,13 @@
   services.libinput.enable = true;
 
   environment.systemPackages = with pkgs; [
-    # terminal (foot = CPU render, no GPU needed)
-    foot
-    # hypr ecosystem
-    hyprpaper
-    hyprlock
-    hypridle
+    foot hyprpaper hyprlock hypridle
     xdg-desktop-portal-hyprland
-    # bar & launcher
-    waybar
-    rofi
-    # notifications
-    dunst
-    # clipboard
-    cliphist
-    wl-clipboard
-    # screenshot
-    grim
-    slurp
-    swappy
-    # utils
-    yazi
-    networkmanagerapplet
-    polkit_gnome
-    # audio
-    pavucontrol
-    pamixer
+    waybar rofi dunst
+    cliphist wl-clipboard
+    grim slurp swappy
+    yazi networkmanagerapplet polkit_gnome
+    pavucontrol pamixer
   ];
 
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
