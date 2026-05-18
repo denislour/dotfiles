@@ -27,11 +27,7 @@
     };
   };
 
-  virtualisation.vmware.guest = {
-    enable = true;
-    # Enable X11 support for clipboard copy-paste (limited on Wayland)
-    package = pkgs.open-vm-tools.override { x11Support = true; };
-  };
+  virtualisation.vmware.guest.enable = true;
 
   stylix.enable = true;
   stylix.autoEnable = false;
