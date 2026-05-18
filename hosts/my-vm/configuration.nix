@@ -63,7 +63,7 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  services.xserver.displayManager.sddm.autoLogin = {
+  services.displayManager.autoLogin = {
     enable = true;
     user = "jake";
   };
