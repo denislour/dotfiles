@@ -4,6 +4,6 @@
     icons = true;
     colors = true;
     git = true;
-    extraOptions = [];
+    extraOptions = [ "--group-directories-first" ];
   };
 }

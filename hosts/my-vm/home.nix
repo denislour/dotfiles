@@ -7,11 +7,19 @@
 
   imports = [
     ../../home/niri
-    ../../home/programs/zsh.nix
+    ../../home/programs/atuin.nix
+    ../../home/programs/bat.nix
+    ../../home/programs/bottom.nix
+    ../../home/programs/delta.nix
+    ../../home/programs/eza.nix
+    ../../home/programs/fastfetch.nix
+    ../../home/programs/fd.nix
     ../../home/programs/ghostty.nix
     ../../home/programs/git.nix
+    ../../home/programs/ripgrep.nix
     ../../home/programs/yazi.nix
     ../../home/programs/zoxide.nix
+    ../../home/programs/zsh.nix
   ];
 
   home.packages = import ./packages.nix { inherit pkgs; };

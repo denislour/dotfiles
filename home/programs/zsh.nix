@@ -8,7 +8,6 @@
 
     initExtra = ''
       alias history='atuin history'
-      eval "$(atuin init zsh)"
 
       alias ls='eza --icons'
       alias ll='eza -la --icons'
