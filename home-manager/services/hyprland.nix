@@ -51,7 +51,6 @@
     settings = {
       env = [
         "WLR_NO_HARDWARE_CURSORS,1"
-        "WLR_RENDERER_ALLOW_SOFTWARE,1"
         "AQ_NO_ATOMIC,1"
         "AQ_NO_MODIFIERS,1"
         "GTK_THEME,Adwaita-dark"
@@ -84,29 +83,17 @@
       };
 
       decoration = {
-        rounding = 5;
+        rounding = 3;
         blur = {
-          enabled = true;
-          size = 3;
-          passes = 2;
+          enabled = false;
         };
         shadow = {
-          enabled = true;
-          range = 4;
-          render_power = 3;
-          color = "rgba(1a1a1aee)";
+          enabled = false;
         };
       };
 
       animations = {
-        enabled = true;
-        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-        animation = [
-          "windows, 1, 7, myBezier"
-          "windowsOut, 1, 7, default"
-          "fade, 1, 7, default"
-          "workspaces, 1, 6, default"
-        ];
+        enabled = false;
       };
 
       dwindle = {
