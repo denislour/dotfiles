@@ -6,6 +6,7 @@
 
   home.packages = with pkgs; [
     hyprpaper
+    waybar
   ];
 
   programs.git = {
@@ -36,6 +37,30 @@
     };
   };
 
+  programs.waybar = {
+    enable = true;
+    settings = [{
+      layer = "top";
+      position = "top";
+      modules-left = [ "hyprland/workspaces" ];
+      modules-center = [ "clock" ];
+      modules-right = [ "pulseaudio" "network" "tray" ];
+    }];
+    style = ''
+      * {
+        font-family: "JetBrains Mono";
+        font-size: 13px;
+      }
+      window#waybar {
+        background: rgba(0, 0, 0, 0.8);
+        color: #ffffff;
+      }
+      #workspaces button.active {
+        background: #6272a4;
+      }
+    '';
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -45,6 +70,7 @@
       ];
       exec-once = [
         "hyprpaper"
+        "waybar"
       ];
       input.kb_layout = "us";
       "$mod" = "SUPER";
