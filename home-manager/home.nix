@@ -71,7 +71,7 @@
       }
 
       layout {
-          gaps 8 8 8 8
+          gaps 8
           border {
               active-color "#33ccff"
               inactive-color "#595959"
@@ -83,10 +83,12 @@
       spawn-at-startup "nm-applet"
       spawn-at-startup "swaybg" "-i" "/etc/nixos/wallpapers/default.png" "-m" "fill"
 
+      screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
       binds {
           // Terminal
           Super+Q { spawn "foot"; }
-          // Launcher
+          // App launcher
           Super+R { spawn "rofi -show drun"; }
           // Close window
           Super+W { close-window; }
@@ -95,7 +97,7 @@
           // Quit niri
           Super+Shift+E { quit; }
 
-          // Focus
+          // Vim-style focus
           Super+H { focus-left; }
           Super+J { focus-down; }
           Super+K { focus-up; }
@@ -107,7 +109,7 @@
           Super+Shift+K { move-window-up; }
           Super+Shift+L { move-column-right; }
 
-          // Workspaces
+          // Workspaces (1-5)
           Super+1 { focus-workspace 1; }
           Super+2 { focus-workspace 2; }
           Super+3 { focus-workspace 3; }
@@ -120,13 +122,18 @@
           Super+Shift+4 { move-window-or-workspace-to-workspace 4; }
           Super+Shift+5 { move-window-or-workspace-to-workspace 5; }
 
-          // Screenshot
-          Print { spawn "grimblast" "copy" "area"; }
+          // Niri built-in screenshot (Print = full screen)
+          Print { screenshot; }
+          Ctrl+Print { screenshot-screen; }
+          Alt+Print { screenshot-window; }
 
-          // Audio
-          XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
-          XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
-          XF86AudioMute { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+          // Audio keys (allow-when-locked works while screen is off)
+          XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
+          XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }
+          XF86AudioMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+
+          // Keyboard shortcut inhibitor escape hatch
+          Super+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
       }
     '';
   };
