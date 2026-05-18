@@ -22,7 +22,7 @@
     kitty
     waybar
     rofi
-    swww
+    awww
     wl-clipboard
     grim
     slurp
