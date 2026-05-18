@@ -18,8 +18,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    kitty
-    waybar
-    rofi
+    foot
   ];
 }
