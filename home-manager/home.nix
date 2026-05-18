@@ -5,7 +5,9 @@
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
-    hyprpaper
+    fastfetch
+    swaybg
+    polkit_gnome
     waybar
   ];
 
@@ -29,20 +31,12 @@
     '';
   };
 
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      preload = [ "/etc/nixos/wallpapers/default.png" ];
-      wallpaper = [ ",/etc/nixos/wallpapers/default.png" ];
-    };
-  };
-
   programs.waybar = {
     enable = true;
     settings = [{
       layer = "top";
       position = "top";
-      modules-left = [ "hyprland/workspaces" ];
+      modules-left = [ "niri/workspaces" ];
       modules-center = [ "clock" ];
       modules-right = [ "pulseaudio" "network" "tray" ];
     }];
@@ -61,25 +55,80 @@
     '';
   };
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    settings = {
-      env = [
-        "WLR_NO_HARDWARE_CURSORS,1"
-        "WLR_RENDERER_ALLOW_SOFTWARE,1"
-        "AQ_NO_ATOMIC,1"
-        "AQ_NO_MODIFIERS,1"
-      ];
-      exec-once = [
-        "hyprpaper"
-        "waybar"
-      ];
-      input.kb_layout = "us";
-      "$mod" = "SUPER";
-      bind = [
-        "$mod, Q, exec, foot"
-        "$mod, W, killactive"
-      ];
-    };
+  xdg.configFile."niri/config.kdl" = {
+    text = ''
+      input {
+          keyboard {
+              xkb {
+                  layout "us"
+              }
+              numlock
+          }
+          touchpad {
+              tap
+              natural-scroll
+          }
+      }
+
+      layout {
+          gaps 8 8 8 8
+          border {
+              active-color "#33ccff"
+              inactive-color "#595959"
+              width 2
+          }
+      }
+
+      spawn-at-startup "waybar"
+      spawn-at-startup "nm-applet"
+      spawn-at-startup "/run/wrappers/bin/polkit-gnome-authentication-agent-1"
+      spawn-at-startup "swaybg" "-i" "/etc/nixos/wallpapers/default.png" "-m" "fill"
+
+      binds {
+          // Terminal
+          Super+Q { spawn "foot"; }
+          // Launcher
+          Super+R { spawn "rofi -show drun"; }
+          // Close window
+          Super+W { close-window; }
+          // Fullscreen
+          Super+F { toggle-window-flags "fullscreen"; }
+          // Quit niri
+          Super+Shift+E { quit; }
+
+          // Focus
+          Super+H { focus-left; }
+          Super+J { focus-down; }
+          Super+K { focus-up; }
+          Super+L { focus-right; }
+
+          // Move windows
+          Super+Shift+H { move-column-left; }
+          Super+Shift+J { move-window-down; }
+          Super+Shift+K { move-window-up; }
+          Super+Shift+L { move-column-right; }
+
+          // Workspaces
+          Super+1 { focus-workspace 1; }
+          Super+2 { focus-workspace 2; }
+          Super+3 { focus-workspace 3; }
+          Super+4 { focus-workspace 4; }
+          Super+5 { focus-workspace 5; }
+
+          Super+Shift+1 { move-window-or-workspace-to-workspace 1; }
+          Super+Shift+2 { move-window-or-workspace-to-workspace 2; }
+          Super+Shift+3 { move-window-or-workspace-to-workspace 3; }
+          Super+Shift+4 { move-window-or-workspace-to-workspace 4; }
+          Super+Shift+5 { move-window-or-workspace-to-workspace 5; }
+
+          // Screenshot
+          Print { spawn "grimblast" "copy" "area"; }
+
+          // Audio
+          XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+          XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+          XF86AudioMute { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+      }
+    '';
   };
 }
