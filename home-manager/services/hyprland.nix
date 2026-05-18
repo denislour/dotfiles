@@ -114,7 +114,6 @@
         "SUPER, F, fullscreen"
         "SUPER, M, exit"
 
-        # Lock
         "SUPER SHIFT, L, exec, hyprlock"
 
         "SUPER, H, movefocus, l"
