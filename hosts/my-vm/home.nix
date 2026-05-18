@@ -14,11 +14,7 @@
     ../../home/programs/zoxide.nix
   ];
 
-  home.packages = with pkgs; [
-    fastfetch
-    bat eza fd ripgrep dust procs bottom delta sd
-    just
-  ];
+  home.packages = import ./packages.nix { inherit pkgs; };
 
   programs.home-manager.enable = true;
 }

@@ -7,5 +7,6 @@
     ./keybinds.nix
     ./autostart.nix
     ./noctaliashell.nix
+    ./rules.nix
   ];
 }
