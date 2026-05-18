@@ -7,7 +7,6 @@
     enableCompletion = true;
 
     initExtra = ''
-      # atuin replaces history
       alias history='atuin history'
       eval "$(atuin init zsh)"
 
