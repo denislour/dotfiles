@@ -15,7 +15,7 @@
     initialPassword = "changeme";
   };
 
-  security.sudo.wheelNeedsPassword = true;
+  security.sudo.wheelNeedsPassword = false;
 
   hardware.graphics.enable = true;
 
