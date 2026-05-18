@@ -15,12 +15,12 @@
         hide_input = true;
         no_fade_in = false;
       };
-      background = {
+      background = [{
         path = "/etc/nixos/wallpapers/default.jpg";
         blur_passes = 2;
         blur_size = 6;
-      };
-      input-field = {
+      }];
+      input-field = [{
         size = "300, 60";
         outline_thickness = 3;
         dots_size = 0.3;
@@ -29,7 +29,7 @@
         position = "0, -100";
         halign = "center";
         valign = "center";
-      };
+      }];
     };
   };
 
