@@ -53,15 +53,17 @@
           disko.nixosModules.disko
           ./hosts/my-vm/disk-config.nix
           ./hosts/my-vm/configuration.nix
+          ./system/packages.nix
+          ./system/environment.nix
+          ./system/greeter/greetd.nix
           ./modules/common.nix
-          ./modules/desktop.nix
           ./modules/development.nix
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.jake = import ./home-manager/home.nix;
+            home-manager.users.jake = import ./hosts/my-vm/home.nix;
           }
         ];
       };
