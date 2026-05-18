@@ -50,7 +50,7 @@
     slurp
     swappy
     # utils
-    thunar
+    yazi
     networkmanagerapplet
     polkit_gnome
     # audio
