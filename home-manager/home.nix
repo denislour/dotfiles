@@ -20,10 +20,11 @@
     };
   };
 
-  programs.foot = {
+  programs.ghostty = {
     enable = true;
     settings = {
-      font = "JetBrains Mono:size=10";
+      font-family = "JetBrains Mono";
+      font-size = 12;
     };
   };
 
@@ -66,7 +67,7 @@
     checkConfig = false;
     config = {
       modifier = "Mod4";
-      terminal = "foot";
+      terminal = "ghostty";
       menu = "rofi -show drun";
       bars = [ ];
       gaps = {
@@ -116,7 +117,7 @@
       keybindings = let
         mod = "Mod4";
       in lib.mkOptionDefault {
-        "${mod}+q" = "exec foot";
+        "${mod}+q" = "exec ghostty";
         "${mod}+r" = "exec rofi -show drun";
         "${mod}+w" = "kill";
         "${mod}+f" = "fullscreen";

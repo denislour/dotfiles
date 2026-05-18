@@ -26,7 +26,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    foot
+    ghostty
     waybar
     rofi
     wl-clipboard
