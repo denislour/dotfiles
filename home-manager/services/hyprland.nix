@@ -1,0 +1,165 @@
+{ ... }: {
+
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = [ "/etc/nixos/wallpapers/default.png" ];
+      wallpaper = [ ",/etc/nixos/wallpapers/default.png" ];
+    };
+  };
+
+  services.dunst = {
+    enable = true;
+    settings = {
+      global = {
+        monitor = 0;
+        follow = "mouse";
+        width = 300;
+        height = 300;
+        origin = "top-right";
+        offset = "10x50";
+        padding = 8;
+        horizontal_padding = 8;
+        frame_width = 2;
+        frame_color = "#33ccff";
+        separator_color = "frame";
+        font = "JetBrains Mono 10";
+        corner_radius = 5;
+      };
+      urgency_normal = {
+        background = "#282a36";
+        foreground = "#f8f8f2";
+        timeout = 5;
+      };
+      urgency_low = {
+        background = "#282a36";
+        foreground = "#888888";
+        timeout = 5;
+      };
+      urgency_critical = {
+        background = "#900000";
+        foreground = "#ffffff";
+        timeout = 0;
+      };
+    };
+  };
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    systemd.enable = false;
+
+    settings = {
+      env = [
+        "WLR_NO_HARDWARE_CURSORS,1"
+        "WLR_RENDERER_ALLOW_SOFTWARE,1"
+        "AQ_NO_ATOMIC,1"
+        "AQ_NO_MODIFIERS,1"
+        "GTK_THEME,Adwaita-dark"
+        "NIXOS_OZONE_WL,1"
+      ];
+
+      exec-once = [
+        "waybar"
+        "hyprpaper"
+        "nm-applet"
+        "dunst"
+      ];
+
+      input = {
+        kb_layout = "us";
+        follow_mouse = 1;
+        touchpad = {
+          natural_scroll = true;
+          tap-to-click = true;
+        };
+      };
+
+      general = {
+        gaps_in = 5;
+        gaps_out = 8;
+        border_size = 2;
+        "col.active_border" = "rgba(51ccffff)";
+        "col.inactive_border" = "rgba(595959ff)";
+        layout = "dwindle";
+      };
+
+      decoration = {
+        rounding = 5;
+        blur = {
+          enabled = true;
+          size = 3;
+          passes = 2;
+        };
+        shadow = {
+          enabled = true;
+          range = 4;
+          render_power = 3;
+          color = "rgba(1a1a1aee)";
+        };
+      };
+
+      animations = {
+        enabled = true;
+        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+        animation = [
+          "windows, 1, 7, myBezier"
+          "windowsOut, 1, 7, default"
+          "fade, 1, 7, default"
+          "workspaces, 1, 6, default"
+        ];
+      };
+
+      dwindle = {
+        preserve_split = true;
+      };
+
+      misc = {
+        force_default_wallpaper = 1;
+        disable_hyprland_logo = true;
+      };
+
+      bind = [
+        "SUPER, Q, exec, foot"
+        "SUPER, R, exec, rofi -show drun"
+        "SUPER, W, killactive"
+        "SUPER, F, fullscreen"
+        "SUPER, M, exit"
+
+        "SUPER, H, movefocus, l"
+        "SUPER, J, movefocus, d"
+        "SUPER, K, movefocus, u"
+        "SUPER, L, movefocus, r"
+
+        "SUPER SHIFT, H, movewindow, l"
+        "SUPER SHIFT, J, movewindow, d"
+        "SUPER SHIFT, K, movewindow, u"
+        "SUPER SHIFT, L, movewindow, r"
+
+        "SUPER, 1, workspace, 1"
+        "SUPER, 2, workspace, 2"
+        "SUPER, 3, workspace, 3"
+        "SUPER, 4, workspace, 4"
+        "SUPER, 5, workspace, 5"
+
+        "SUPER SHIFT, 1, movetoworkspace, 1"
+        "SUPER SHIFT, 2, movetoworkspace, 2"
+        "SUPER SHIFT, 3, movetoworkspace, 3"
+        "SUPER SHIFT, 4, movetoworkspace, 4"
+        "SUPER SHIFT, 5, movetoworkspace, 5"
+
+        ", Print, exec, grimblast copy area"
+        "CTRL, Print, exec, grimblast copy output"
+        "ALT, Print, exec, grimblast copy active"
+
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ];
+
+      bindm = [
+        "SUPER, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
+      ];
+    };
+  };
+}
