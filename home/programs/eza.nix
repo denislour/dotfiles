@@ -1,8 +1,8 @@
 {
   programs.eza = {
     enable = true;
-    icons = true;
-    colors = true;
+    icons = "always";
+    colors = "auto";
     git = true;
     extraOptions = [ "--group-directories-first" ];
   };
