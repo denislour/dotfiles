@@ -9,11 +9,6 @@
         hide_input = true;
         no_fade_in = false;
       };
-      background = [{
-        path = "/etc/nixos/wallpapers/default.jpg";
-        blur_passes = 2;
-        blur_size = 6;
-      }];
       input-field = [{
         size = "300, 60";
         outline_thickness = 3;
