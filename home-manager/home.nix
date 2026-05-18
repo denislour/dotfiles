@@ -20,10 +20,10 @@
     };
   };
 
-  programs.kitty = {
+  programs.foot = {
     enable = true;
     settings = {
-      linux_display_server = "wayland";
+      font = "JetBrains Mono:size=10";
     };
   };
 
@@ -66,7 +66,7 @@
     checkConfig = false;
     config = {
       modifier = "Mod4";
-      terminal = "kitty";
+      terminal = "foot";
       menu = "rofi -show drun";
       bars = [ ];
       gaps = {
@@ -116,7 +116,7 @@
       keybindings = let
         mod = "Mod4";
       in lib.mkOptionDefault {
-        "${mod}+q" = "exec kitty";
+        "${mod}+q" = "exec foot";
         "${mod}+r" = "exec rofi -show drun";
         "${mod}+w" = "kill";
         "${mod}+f" = "fullscreen";

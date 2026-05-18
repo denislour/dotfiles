@@ -26,7 +26,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    kitty
+    foot
     waybar
     rofi
     wl-clipboard
