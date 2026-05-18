@@ -3,8 +3,8 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ "/etc/nixos/wallpapers/default.png" ];
-      wallpaper = [ ",/etc/nixos/wallpapers/default.png" ];
+      preload = [ "/etc/nixos/wallpapers/default.jpg" ];
+      wallpaper = [ ",/etc/nixos/wallpapers/default.jpg" ];
     };
   };
 
