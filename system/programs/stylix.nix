@@ -5,8 +5,8 @@
     enable = true;
     autoEnable = false;
     cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
+      package = pkgs.banana-cursor;
+      name = "Banana";
       size = 24;
     };
     fonts = {
