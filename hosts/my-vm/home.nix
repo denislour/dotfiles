@@ -17,6 +17,7 @@
     ../../home/programs/fd.nix
     ../../home/programs/ghostty.nix
     ../../home/programs/git.nix
+    ../../home/programs/pi.nix
     ../../home/programs/ripgrep.nix
     ../../home/programs/yazi.nix
     ../../home/programs/zoxide.nix
@@ -24,10 +25,6 @@
   ];
 
   home.packages = import ./packages.nix { inherit pkgs; };
-
-  home.file.".pi/agent/settings.json".text = builtins.toJSON {
-    defaultProvider = "deepseek";
-  };
 
   programs.home-manager.enable = true;
 }
