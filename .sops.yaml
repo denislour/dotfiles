@@ -1,0 +1,7 @@
+keys:
+  - &jake_vm age1598ry8qju8t7yhz5sn3dynhf3sfxxezgzz4wfavwtpdgrs80336sgz6cr4
+creation_rules:
+  - path_regex: secrets/[^/]+\.yaml$
+    key_groups:
+      - age:
+          - *jake_vm
