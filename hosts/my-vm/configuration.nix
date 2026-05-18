@@ -21,28 +21,9 @@
 
   hardware.graphics.enable = true;
 
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = true;
-      PermitRootLogin = "no";
-    };
-  };
-
   virtualisation.vmware.guest.enable = true;
 
   stylix.image = wallpaper;
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
-  };
-
-  environment.pathsToLink = [
-    "/share/xdg-desktop-portal"
-  ];
 
   system.stateVersion = "25.05";
 }

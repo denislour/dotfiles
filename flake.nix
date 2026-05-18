@@ -58,6 +58,8 @@
           ./system/greeter/greetd.nix
           ./system/common.nix
           ./system/programs/stylix.nix
+          ./system/programs/xdg-portal.nix
+          ./system/services/ssh.nix
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
