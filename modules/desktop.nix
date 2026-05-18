@@ -1,10 +1,11 @@
 { lib, pkgs, ... }:
 
 {
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
+  programs.niri.enable = true;
+
+  xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal-gtk
+  ];
 
   services.displayManager.sddm = {
     enable = true;
@@ -30,12 +31,10 @@
     thunar
   ];
 
-  services.dbus.enable = true;
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-    xdg-desktop-portal-hyprland
-    xdg-desktop-portal-gtk
-  ];
+      xdg-desktop-portal-gtk
+    ];
   };
 }
