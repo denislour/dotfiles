@@ -100,6 +100,7 @@
           childBorder = "#ff0000";
         };
       };
+      workspaceLayout = "tabbed";
       fonts = {
         names = [ "JetBrains Mono" ];
         style = "Normal";
