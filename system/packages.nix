@@ -5,7 +5,6 @@
     curl unzip zip killall
     xwayland-satellite
     wl-clipboard
-    libnotify
     cliphist
     wl-clip-persist
   ];
