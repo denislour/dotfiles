@@ -5,4 +5,6 @@
   sops.defaultSopsFormat = "yaml";
 
   sops.age.keyFile = "/home/jake/.config/sops/age/keys.txt";
+
+  sops.secrets.test = { };
 }

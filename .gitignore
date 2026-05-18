@@ -4,6 +4,7 @@ result
 result-*
 hosts/*/hardware-configuration.nix
 secrets/*
+!secrets/secrets.yaml
 .vscode/
 .idea/
 *.swp
