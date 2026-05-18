@@ -77,12 +77,26 @@
           indicator = "#33ccff";
           childBorder = "#33ccff";
         };
+        focusedInactive = {
+          border = "#33ccff";
+          background = "#595959";
+          text = "#ffffff";
+          indicator = "#33ccff";
+          childBorder = "#33ccff";
+        };
         unfocused = {
           border = "#595959";
           background = "#595959";
           text = "#ffffff";
           indicator = "#595959";
           childBorder = "#595959";
+        };
+        urgent = {
+          border = "#ff0000";
+          background = "#ff0000";
+          text = "#ffffff";
+          indicator = "#ff0000";
+          childBorder = "#ff0000";
         };
       };
       fonts = {
@@ -133,10 +147,10 @@
       exec nm-applet
 
       # Input
-      input type:keyboard {
+      input "type:keyboard" {
           xkb_layout "us"
       }
-      input type:touchpad {
+      input "type:touchpad" {
           tap enabled
           natural_scroll enabled
       }
