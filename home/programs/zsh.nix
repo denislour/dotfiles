@@ -7,6 +7,8 @@
     enableCompletion = true;
 
     initContent = ''
+      export DEEPSEEK_API_KEY=$(cat /run/secrets/deepseek_api_key 2>/dev/null || echo "")
+
       alias history='atuin history'
 
       alias ls='eza --icons'

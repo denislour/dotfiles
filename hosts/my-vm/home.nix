@@ -25,5 +25,9 @@
 
   home.packages = import ./packages.nix { inherit pkgs; };
 
+  home.file.".pi/agent/settings.json".text = builtins.toJSON {
+    defaultProvider = "deepseek";
+  };
+
   programs.home-manager.enable = true;
 }
