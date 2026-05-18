@@ -13,7 +13,7 @@
     enable = true;
     userName = "Lektor";
     userEmail = "Lektor@users.noreply.github.com";
-    extraConfig = {
+    config = {
       init.defaultBranch = "main";
       pull.rebase = true;
     };
@@ -32,6 +32,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      "configType" = "hyprlang";
       monitor = ", preferred, auto, 1";
       input = {
         kb_layout = "us";
