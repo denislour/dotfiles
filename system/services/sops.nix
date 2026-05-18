@@ -7,11 +7,8 @@
   sops.age.keyFile = "/home/jake/.config/sops/age/keys.txt";
 
   sops.secrets = {
-    test = { };
-    brave_search_api_key = { };
-    deepseek_api_key = {
-      owner = "jake";
-      mode = "0444";
-    };
+    test = { owner = "jake"; mode = "0444"; };
+    brave_search_api_key = { owner = "jake"; mode = "0444"; };
+    deepseek_api_key = { owner = "jake"; mode = "0444"; };
   };
 }
