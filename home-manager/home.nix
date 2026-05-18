@@ -56,6 +56,7 @@
 
   wayland.windowManager.sway = {
     enable = true;
+    checkConfig = false;
     config = {
       modifier = "Mod4";
       terminal = "kitty";
@@ -155,8 +156,6 @@
           natural_scroll enabled
       }
 
-      # Default layout
-      workspace_layout tabbed
     '';
   };
 }
