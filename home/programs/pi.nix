@@ -3,8 +3,11 @@
 let
   piWrapper = pkgs.writeShellScriptBin "pi" ''
     export DEEPSEEK_API_KEY=$(cat /run/secrets/deepseek_api_key 2>/dev/null || echo "")
+    export BRAVE_SEARCH_API_KEY=$(cat /run/secrets/brave_search_api_key 2>/dev/null || echo "")
     exec ${pkgs.pi-coding-agent}/bin/pi "$@"
   '';
+
+  piAgentsDir = "${config.home.homeDirectory}/.agents/skills";
 in
 {
   home.packages = [ piWrapper ];
@@ -12,6 +15,7 @@ in
   home.file.".pi/agent/settings.json".text = builtins.toJSON {
     defaultProvider = "deepseek";
     defaultModel = "deepseek-v4-flash";
+    skills = [ piAgentsDir ];
   };
 
   home.file.".pi/agent/models.json".text = builtins.toJSON {
