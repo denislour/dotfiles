@@ -1,6 +1,6 @@
 # NixOS dotfiles
 
-NixOS + Hyprland for VMware Workstation 17 Pro.
+NixOS + Niri for VMware Workstation 17 Pro.
 
 ## VM Settings
 
@@ -9,14 +9,14 @@ NixOS + Hyprland for VMware Workstation 17 Pro.
 | Guest OS | Linux → Other Linux 6.x kernel 64-bit |
 | CPUs | 4 |
 | RAM | 8 GB |
-| Disk | 40 GB (SCSI or SATA) |
+| Disk | 40 GB |
 | Network | NAT |
 | Firmware | UEFI |
-| 3D Acceleration | **ON** (required for Hyprland) |
+| 3D Acceleration | **ON** |
 
 ### .vmx tweak
 
-Add this line to your `.vmx` file to fix keyboard lag in TTY:
+Add to `.vmx` to fix keyboard lag:
 
 ```
 keyboard.vusb.enable = "TRUE"
@@ -38,7 +38,7 @@ sudo nix --experimental-features "nix-command flakes" \
   run github:nix-community/disko -- \
   --mode disko /tmp/disk-config.nix
 
-# 3. Clone repo to persistent storage
+# 3. Clone repo
 nix-shell -p git
 sudo git clone https://github.com/denislour/dotfiles /mnt/etc/nixos
 
@@ -46,11 +46,20 @@ sudo git clone https://github.com/denislour/dotfiles /mnt/etc/nixos
 sudo nixos-generate-config --root /mnt
 sudo cp /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hosts/my-vm/
 
-# 5. Install (limit 1 job + 1 core to save RAM)
-sudo nixos-install --flake /mnt/etc/nixos#my-vm --max-jobs 1 --cores 1
+# 5. Install (limit jobs to avoid OOM)
+sudo nixos-install --flake /mnt/etc/nixos#my-vm --max-jobs 2 --cores 2
 
 # 6. Reboot (eject ISO)
 sudo reboot
+```
+
+### If "no space left on device"
+
+After failed builds, the store accumulates garbage:
+
+```bash
+sudo rm -rf /mnt/nix/store/*
+sudo nixos-install --flake /mnt/etc/nixos#my-vm --max-jobs 2 --cores 2
 ```
 
 ---
@@ -66,7 +75,7 @@ sudo reboot
 passwd
 ```
 
-SDDM → Hyprland → Waybar + kitty.
+SDDM → Niri → Waybar appears.
 
 ---
 
@@ -78,11 +87,11 @@ SDDM → Hyprland → Waybar + kitty.
 | `Super + R` | App launcher (rofi) |
 | `Super + W` | Close window |
 | `Super + F` | Toggle fullscreen |
-| `Super + Space` | Toggle floating |
-| `Super + arrows` | Focus window |
+| `Super + arrows` | Focus (H/J/K/L) |
 | `Super + Shift + arrows` | Move window |
-| `Super + 1-9` | Switch workspace |
-| `Super + Shift + 1-9` | Move window to workspace |
+| `Super + 1-5` | Switch workspace |
+| `Super + Shift + 1-5` | Move window to workspace |
+| `Super + Shift + E` | Quit Niri |
 | `Print` | Screenshot |
 | Volume keys | Adjust volume |
 
@@ -97,7 +106,7 @@ dotfiles/
 │   └── my-vm/
 │       ├── configuration.nix
 │       ├── disk-config.nix
-│       └── hardware-configuration.nix (auto-generated, untracked)
+│       └── hardware-configuration.nix (auto-generated)
 ├── modules/
 │   ├── common.nix
 │   ├── desktop.nix
