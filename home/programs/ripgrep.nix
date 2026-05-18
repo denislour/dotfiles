@@ -1,11 +1,11 @@
 {
   programs.ripgrep = {
     enable = true;
-    config = {
-      max-columns = 150;
-      smart-case = true;
-      hidden = true;
-      glob = [ "!.git" ];
-    };
+    arguments = [
+      "--max-columns=150"
+      "--smart-case"
+      "--hidden"
+      "--glob=!.git"
+    ];
   };
 }
