@@ -13,7 +13,7 @@
     enable = true;
     userName = "Lektor";
     userEmail = "Lektor@users.noreply.github.com";
-    config = {
+    extraConfig = {
       init.defaultBranch = "main";
       pull.rebase = true;
     };
