@@ -55,7 +55,7 @@
           ./hosts/my-vm/configuration.nix
           ./system/packages.nix
           ./system/environment.nix
-          ./system/greeter/greetd.nix
+          ./system/services/greetd.nix
           ./system/common.nix
           ./system/programs/stylix.nix
           ./system/programs/xdg-portal.nix
