@@ -11,7 +11,7 @@ in
 
   home.file.".pi/agent/settings.json".text = builtins.toJSON {
     defaultProvider = "deepseek";
-    defaultModel = "deepseek-v4-pro";
+    defaultModel = "deepseek-v4-flash";
   };
 
   home.file.".pi/agent/models.json".text = builtins.toJSON {
