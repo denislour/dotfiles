@@ -13,6 +13,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "video" "input" ];
     initialPassword = "changeme";
+    shell = pkgs.zsh;
   };
 
   security.sudo.wheelNeedsPassword = false;
