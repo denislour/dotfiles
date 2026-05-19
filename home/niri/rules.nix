@@ -13,12 +13,6 @@
       clip-to-geometry = true;
     }
 
-    {
-      matches = [
-        { app-id = "^zen$"; }
-        { app-id = "^org\.zen_browser\.zen$"; }
-      ];
-      open-fullscreen = false;
-    }
+
   ];
 }
