@@ -21,9 +21,9 @@
       };
 
       search = {
-        default = "Google";
+        default = "google";
         engines = {
-          "Google" = {
+          "google" = {
             keyword = "google.com";
             definedAliases = [ "@g" ];
           };
