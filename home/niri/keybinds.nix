@@ -16,26 +16,6 @@ in
     "Alt+t".action.toggle-window-floating = { };
     "Alt+m".action.quit = { };
 
-    "Alt+o".action.toggle-overview = { };
-    "Alt+Left".action.consume-or-expel-window-left = { };
-    "Alt+Right".action.consume-or-expel-window-right = { };
-    "Alt+comma".action.consume-window-into-column = { };
-    "Alt+period".action.expel-window-from-column = { };
-    "Alt+w".action.toggle-column-tabbed-display = { };
-
-    "Alt+s".action.switch-preset-column-width = { };
-    "Alt+Shift+r".action.switch-preset-column-width-back = { };
-    "Alt+minus".action.set-column-width = "-10%";
-    "Alt+equal".action.set-column-width = "+10%";
-
-    "Alt+Shift+minus".action.set-window-height = "-10%";
-    "Alt+Shift+equal".action.set-window-height = "+10%";
-
-    "Alt+Home".action.focus-column-first = { };
-    "Alt+End".action.focus-column-last = { };
-
-    "Alt+c".action.center-column = { };
-
     "Print".action.screenshot = { };
     "Ctrl+Print".action.screenshot-screen = { };
     "Alt+Print".action.screenshot-window = { };
