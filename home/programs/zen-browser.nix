@@ -30,12 +30,7 @@
         };
       };
 
-      extensions = [
-        {
-          id = "uBlock0@raymondhill.net";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-        }
-      ];
+      extensions = [];
 
       userChrome = ''
         #tabbrowser-tabs { visibility: collapse !important; }
