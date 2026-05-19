@@ -24,6 +24,45 @@
         "zen.theme.essentials-header" = false;
         "zen.view.sidebar-expanded" = false;
         "zen.theme.accent-color" = "#89b4fa";
+        "browser.compactmode.show" = true;
+        "browser.tabs.drawInTitlebar" = true;
+        "browser.uiCustomization.state" = builtins.toJSON {
+          currentVersion = 1;
+          newElementCount = 0;
+          placements = {
+            "PersonalToolbar" = [ "personal-bookmarks" ];
+            "nav-bar" = [
+              "back-button"
+              "forward-button"
+              "stop-reload-button"
+              "urlbar-container"
+              "zen-split-views-button"
+              "downloads-button"
+              "sidebar-button"
+            ];
+            "TabsToolbar" = [
+              "tabbrowser-tabs"
+              "alltabs-button"
+            ];
+            "widget-overflow-fixed-list" = [ ];
+          };
+          seen = [
+            "back-button"
+            "forward-button"
+            "stop-reload-button"
+            "urlbar-container"
+            "zen-split-views-button"
+            "downloads-button"
+            "personal-bookmarks"
+            "sidebar-button"
+          ];
+          dirtyAreaCache = [
+            "nav-bar"
+            "PersonalToolbar"
+            "TabsToolbar"
+            "widget-overflow-fixed-list"
+          ];
+        };
       };
 
       search = {

@@ -23,7 +23,7 @@ in
     "Alt+period".action.expel-window-from-column = { };
     "Alt+w".action.toggle-column-tabbed-display = { };
 
-    "Alt+slash".action.switch-preset-column-width = { };
+    "Alt+s".action.switch-preset-column-width = { };
     "Alt+Shift+r".action.switch-preset-column-width-back = { };
     "Alt+minus".action.set-column-width = "-10%";
     "Alt+equal".action.set-column-width = "+10%";
