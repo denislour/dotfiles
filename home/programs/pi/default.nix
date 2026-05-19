@@ -4,7 +4,12 @@ let
   piWrapper = pkgs.writeShellScriptBin "pi" ''
     export DEEPSEEK_API_KEY=$(cat /run/secrets/deepseek_api_key 2>/dev/null || echo "")
     export BRAVE_SEARCH_API_KEY=$(cat /run/secrets/brave_search_api_key 2>/dev/null || echo "")
-    exec ${pkgs.pi-coding-agent}/bin/pi "$@"
+    if [ "$1" = "update" ]; then
+      # pi update -> nixos-rebuild (Nix install can't self-update)
+      cd /home/jake/nixos && git pull && sudo nixos-rebuild switch --flake .#my-vm
+    else
+      exec ${pkgs.pi-coding-agent}/bin/pi "$@"
+    fi
   '';
 in
 {
