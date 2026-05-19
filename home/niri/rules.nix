@@ -13,6 +13,11 @@
       clip-to-geometry = true;
     }
 
-
+    {
+      matches = [
+        { app-id = "^librewolf$"; }
+      ];
+      open-fullscreen = false;
+    }
   ];
 }
