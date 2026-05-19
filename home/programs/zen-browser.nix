@@ -18,6 +18,8 @@
         "widget.wayland" = true;
         "browser.startup.page" = 3;
         "browser.uidensity" = 1;
+        "widget.dmabuf.force-enabled" = true;
+        "full-screen-api.ignore-widgets" = true;
       };
 
       search = {
