@@ -13,7 +13,6 @@
       clip-to-geometry = true;
     }
 
-    # Prevent Zen Browser from opening fullscreen
     {
       matches = [
         { app-id = "^zen$"; }

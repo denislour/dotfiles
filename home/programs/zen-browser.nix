@@ -37,7 +37,6 @@
       };
 
       userChrome = ''
-        /* Chrome/Firefox style - hide Zen sidebar, show horizontal tabs */
         #sidebar-box { display: none !important; }
         #sidebar-splitter { display: none !important; }
       '';
