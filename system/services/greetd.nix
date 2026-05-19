@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "DEEPSEEK_API_KEY=$(cat /run/secrets/deepseek_api_key) niri-session";
+        command = "niri-session";
         user = "jake";
       };
     };
