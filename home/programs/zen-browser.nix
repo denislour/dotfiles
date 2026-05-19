@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -7,6 +7,7 @@
 
   programs.zen-browser = {
     enable = true;
+    package = inputs.zen.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
     profiles.jake = {
       id = 0;
