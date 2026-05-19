@@ -34,18 +34,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    firefox-addons = {
-      url = "github:OsiPog/nix-firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     zen = {
       url = "github:zstg/zen-browser";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, stylix, niri, noctalia, sops-nix, firefox-addons, zen, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, disko, stylix, niri, noctalia, sops-nix, zen, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {

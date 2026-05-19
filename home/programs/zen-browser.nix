@@ -1,14 +1,5 @@
 { pkgs, inputs, ... }:
 
-let
-  extension = shortId: guid: {
-    name = guid;
-    value = {
-      install_url = "https://addons.mozilla.org/firefox/downloads/latest/${shortId}/latest.xpi";
-      installation_mode = "normal_installed";
-    };
-  };
-in
 {
   imports = [
     inputs.zen.homeModules.default
@@ -27,16 +18,7 @@ in
         "widget.wayland" = true;
         "browser.startup.page" = 3;
         "browser.uidensity" = 1;
-        "extensions.autoDisableScopes" = 0;
-        "extensions.webextensions.ExtensionStorageIDB.enabled" = false;
-        "extensions.enabledScopes" = 5;
-        "extensions.getAddons.catalog.enabled" = true;
-        "extensions.webservice.discoverURL" = "";
       };
-
-      extraPrefs = ''
-        lockPref("extensions.webextensions.ExtensionStorageIDB.enabled", false);
-      '';
 
       search = {
         default = "google";
@@ -59,11 +41,5 @@ in
         }
       '';
     };
-
-    extraPrefsFiles = [
-      (builtins.toFile "extension-settings" ''
-        lockPref("extensions.webextensions.ExtensionStorageIDB.enabled", false);
-      '')
-    ];
   };
 }
