@@ -23,6 +23,19 @@
           top = 30;
           bottom = 4;
         };
+
+        # Preset column widths: dùng Alt+/ để chuyển
+        preset-column-widths = [
+          { proportion = 0.30; }   # 30%
+          { proportion = 0.40; }   # 40%
+          { proportion = 0.50; }   # 50%
+          { proportion = 0.55; }   # 55%
+          { proportion = 0.60; }   # 60%
+          { proportion = 0.70; }   # 70%
+        ];
+
+        # Default width cho window mới
+        default-column-width = { proportion = 0.5; };
       };
 
       input = {
