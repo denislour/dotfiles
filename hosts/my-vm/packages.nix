@@ -5,5 +5,4 @@ with pkgs; [
   just
   procs
   sd
-  zen-browser
 ]

@@ -33,9 +33,14 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen = {
+      url = "github:zstg/zen-browser";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, stylix, niri, noctalia, sops-nix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, disko, stylix, niri, noctalia, sops-nix, zen, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
