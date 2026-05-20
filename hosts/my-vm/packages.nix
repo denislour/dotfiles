@@ -5,4 +5,8 @@ with pkgs; [
   just
   procs
   sd
+  thunar
+  thunar-volman
+  tumbler
+  gvfs
 ]
