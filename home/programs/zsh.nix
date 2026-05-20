@@ -4,6 +4,10 @@
     enable = true;
     autocd = true;
     enableCompletion = true;
+    initExtra = ''
+      ZED_TOKEN=$(cat /run/secrets/deepseek_api_key 2>/dev/null || echo "")
+      export ZED_TOKEN
+    '';
     initContent = ''
       alias history='atuin history'
       alias ls='eza --icons'
@@ -18,8 +22,9 @@
       alias diff='delta'
       alias sed='sd'
       alias top='btm'
-      alias v='vim'
+      alias v='nvim'
       alias g='git'
+      alias z='zeditor'
     '';
   };
 }
