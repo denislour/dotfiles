@@ -3,11 +3,6 @@
 let
   apps = import ./applications.nix { inherit pkgs; };
   noctalia = args: [ "noctalia-shell" "ipc" "call" ] ++ args;
-  minimizeScript = pkgs.writeShellScript "niri-minimize" ''
-    workspace=$(niri msg -j workspaces | ${pkgs.python3}/bin/python3 -c "import sys,json; ws=json.load(sys.stdin); print([w['idx'] for w in ws if w['is_focused']][0])")
-    niri msg action move-column-to-workspace 9
-    niri msg action focus-workspace "$workspace"
-  '';
 in
 {
   programs.niri.settings.binds = {
@@ -18,8 +13,7 @@ in
     "Alt+q".action.close-window = { };
     "Alt+f".action.fullscreen-window = { };
     "Alt+t".action.toggle-window-floating = { };
-    "Alt+m".action.spawn = [ "${minimizeScript}" ];
-    "Alt+Shift+m".action.focus-workspace = 9;
+    "Alt+m".action.quit = { };
 
     "Alt+o".action.toggle-overview = { };
     "Alt+Left".action.consume-or-expel-window-left = { };
