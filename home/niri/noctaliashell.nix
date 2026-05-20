@@ -18,6 +18,13 @@ in
         position = "top";
         barType = "floating";
         showCapsule = true;
+        capsuleOpacity = 1;
+        outerCorners = true;
+        marginVertical = 4;
+        marginHorizontal = 4;
+        frameRadius = 12;
+        backgroundOpacity = 0.93;
+        displayMode = "always_visible";
         widgets = {
           left = [
             { id = "Launcher"; }
@@ -51,6 +58,26 @@ in
             }
           ];
         };
+      };
+
+      dock = {
+        enabled = true;
+        position = "bottom";
+        displayMode = "auto_hide";
+        dockType = "floating";
+        floatingRatio = 1;
+        size = 1;
+        backgroundOpacity = 1;
+        onlySameOutput = true;
+        groupApps = false;
+        showLauncherIcon = true;
+        launcherPosition = "end";
+        launcherUseDistroLogo = true;
+        showDockIndicator = true;
+        indicatorThickness = 3;
+        indicatorColor = "primary";
+        indicatorOpacity = 0.6;
+        deadOpacity = 0.6;
       };
 
       general = {

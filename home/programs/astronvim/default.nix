@@ -31,23 +31,24 @@ in
   };
 
   home.activation.installAstroNvim = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
-      cp -r ${astronvimTemplate} "${config.home.homeDirectory}/.config/nvim"
-      chmod -R u+w "${config.home.homeDirectory}/.config/nvim"
+    nvim_dir="${config.home.homeDirectory}/.config/nvim"
+    if [ ! -d "$nvim_dir" ] || [ ! -f "$nvim_dir/init.lua" ]; then
+      rm -rf "$nvim_dir"
+      cp -r ${astronvimTemplate} "$nvim_dir"
+      chmod -R u+w "$nvim_dir"
     fi
-  '';
-
-  home.file.".config/nvim/lua/community.lua".text = ''
+    mkdir -p "$nvim_dir/lua"
+    cat > "$nvim_dir/lua/community.lua" << 'EOF'
     return {
       "AstroNvim/astrocommunity",
       { import = "astrocommunity.pack.rust" },
       { import = "astrocommunity.pack.python" },
       { import = "astrocommunity.pack.ruby" },
     }
-  '';
-
-  home.file.".config/nvim/lua/options.lua".text = ''
+    EOF
+    cat > "$nvim_dir/lua/options.lua" << 'EOF'
     vim.opt.relativenumber = true
     vim.opt.number = true
+    EOF
   '';
 }
