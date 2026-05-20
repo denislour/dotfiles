@@ -1,14 +1,13 @@
-{ ... }:
+{ pkgs, ... }:
+
 {
   programs.zsh = {
     enable = true;
     autocd = true;
     enableCompletion = true;
-    initExtra = ''
-      ZED_TOKEN=$(cat /run/secrets/deepseek_api_key 2>/dev/null || echo "")
-      export ZED_TOKEN
-    '';
     initContent = ''
+      source ${pkgs.fzf}/share/fzf/completion.zsh 2>/dev/null || true
+      source ${pkgs.fzf}/share/fzf/key-bindings.zsh 2>/dev/null || true
       alias history='atuin history'
       alias ls='eza --icons'
       alias ll='eza -la --icons'
@@ -27,4 +26,6 @@
       alias z='zeditor'
     '';
   };
+
+  home.packages = with pkgs; [fzf];
 }
