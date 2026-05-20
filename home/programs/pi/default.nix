@@ -2,6 +2,7 @@
 
 let
   piWrapper = pkgs.writeShellScriptBin "pi" ''
+    export PATH="${pkgs.nodejs}/bin:$PATH"
     export DEEPSEEK_API_KEY=$(cat /run/secrets/deepseek_api_key 2>/dev/null || echo "")
     export BRAVE_SEARCH_API_KEY=$(cat /run/secrets/brave_search_api_key 2>/dev/null || echo "")
     exec ${pkgs.pi-coding-agent}/bin/pi "$@"
