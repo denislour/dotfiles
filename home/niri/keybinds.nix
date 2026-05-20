@@ -18,7 +18,8 @@ in
     "Alt+o".action.toggle-overview = { };
     "Alt+Left".action.consume-or-expel-window-left = { };
     "Alt+Right".action.consume-or-expel-window-right = { };
-    "Alt+comma".action.consume-window-into-column = { };
+    "Alt+comma".action.spawn = noctalia [ "settings" "toggle" ];
+    "Alt+Shift+comma".action.consume-window-into-column = { };
     "Alt+period".action.expel-window-from-column = { };
     "Alt+w".action.toggle-column-tabbed-display = { };
 
