@@ -21,7 +21,6 @@
     ../../home/programs/pi
     ../../home/programs/ripgrep.nix
     ../../home/programs/yazi.nix
-    ../../home/programs/zed.nix
     ../../home/programs/zoxide.nix
     ../../home/programs/zsh.nix
   ];

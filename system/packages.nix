@@ -16,7 +16,6 @@
     wl-clipboard
     wl-clip-persist
     xwayland-satellite
-    zed-editor
     zip
   ];
 }
