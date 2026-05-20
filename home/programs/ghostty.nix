@@ -18,6 +18,7 @@
         "-dlig"
         "-calt"
       ];
+      theme = "catppuccin-lavender";
     };
   };
 }
