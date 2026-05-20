@@ -67,6 +67,36 @@ This project follows a strict, clean, minimal Nix style. Apply these rules when 
 - Stylix handles all theming (GTK, Qt). Do not set colors manually.
 - No `environment.systemPackages` for user tools — use home-manager instead.
 
+## Git Commit Convention
+
+Follow **Conventional Commits** with one line per commit (no multi-line bodies):
+
+```
+feat: add rust-analyzer to astronvim LSPs
+fix: resolve qt.platformTheme conflict with Stylix
+style: remove all comments for clean code
+refactor: extract niri layout to separate file
+chore: update flake.lock
+docs: add nix-style skill for code generation
+```
+
+Rules:
+- **One concern = one commit.** Never mix `feat` + `fix` + `style` in the same commit.
+- **One line only.** Subject line under 72 chars. No body, no footers.
+- **Use `git log --oneline`** before writing a commit. Reference past style to stay consistent with existing commit history.
+- **Scope** (optional): `feat(niri):`, `fix(stylix):`, `feat(pi):` — match the area of change.
+- When in doubt, run `git log --oneline -20` and match the tone of recent commits.
+
+## Research Before Implementing
+
+When adding new packages, fixing issues, or configuring unfamiliar tools:
+
+1. **Use the `web-search` skill** to find current best practices (NixOS Discourse, GitHub issues, r/NixOS, NixOS Wiki).
+2. **Check nixpkgs for latest version** — avoid hardcoding outdated package names or deprecated options.
+3. **Prefer NixOS/nixpkgs built-in options** over manual hacks. Search `search.nixos.org` first.
+4. If a package exists in nixpkgs, use `pkgs.<name>` — do not fetch from GitHub or use `builtins.fetchTarball`.
+5. Pin `rev` + `sha256` only for repos not in nixpkgs (e.g., AstroNvim template).
+
 ## Anti-patterns to avoid
 
 1. **No `with lib;`** — import explicitly: `inherit (lib) mkForce;`
