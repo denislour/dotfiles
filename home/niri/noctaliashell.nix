@@ -14,7 +14,7 @@ in
 
     settings = {
       bar = {
-        density = "compact";
+        density = "spacious";
         position = "top";
         barType = "floating";
         showCapsule = true;
@@ -66,7 +66,7 @@ in
         displayMode = "auto_hide";
         dockType = "floating";
         floatingRatio = 1;
-        size = 1;
+        size = 1.35;
         backgroundOpacity = 1;
         onlySameOutput = true;
         groupApps = false;
