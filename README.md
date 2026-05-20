@@ -35,7 +35,7 @@ sudo mount --bind /mnt/nix /nix
 nix-shell -p git sudo
 
 # 4. Clone repo
-sudo git clone https://github.com/denislour/dotfiles /mnt/etc/nixos
+sudo git clone git@github.com:denislour/dotfiles /mnt/etc/nixos
 
 # 5. Generate hardware config
 sudo nixos-generate-config --root /mnt
@@ -52,9 +52,46 @@ sudo reboot
 
 - User: `jake` / `changeme`
 - Greetd auto-login → Niri → Noctalia
-- Open terminal: `Super+Return` (ghostty)
+- Open terminal: `Alt+Return` (ghostty)
 
-## Seasoning
+## Features
+
+### Desktop shell — Noctalia
+
+- Floating pill-shaped bar at top (iPhone Dynamic Island style)
+- Auto-hide dock at bottom (macOS-like)
+- Catppuccin Lavender color scheme
+- Noctalia launcher: `Alt+Space` / `Alt+r`
+- Lock screen: `Alt+Shift+q`
+- Volume/media OSD via Noctalia
+
+### Terminal — Ghostty
+
+- JetBrainsMono Nerd Font, 11px
+- Catppuccin Lavender theme
+- Transparent background (0.95)
+- No window decorations
+
+### Editor — Neovim + AstroNvim
+
+- AstroNvim template with custom community plugins
+- LSPs: rust-analyzer, pyright, solargraph
+- Relative line numbers
+- Default shell editor
+
+### AI coding — pi
+
+- DeepSeek V4 (flash/pro) models
+- Phin themes (robusta dark, arabica light)
+- Custom skills: web-search, nix-style
+
+### File management — Yazi
+
+- Terminal file manager with image preview
+- `yy` shell wrapper for cwd opening
+- Hotkeys: `gn` (sizes), `gm` (mtime), `gp` (permissions)
+
+## Tools
 
 | Tool | Replaces | Why |
 |------|----------|-----|
@@ -74,22 +111,26 @@ sudo reboot
 
 | Key | Action |
 |-----|--------|
-| `Super+Return` | Terminal (ghostty) |
-| `Super+Space` / `Super+r` | Noctalia launcher |
-| `Super+q` | Close window |
-| `Super+f` | Fullscreen |
-| `Super+t` | Toggle floating |
-| `Super+m` | Quit niri |
-| `Super+h/j/k/l` | Focus direction |
-| `Super+Shift+h/j/k/l` | Move window |
-| `Super+1-5` | Switch workspace |
-| `Super+Shift+1-5` | Move to workspace |
-| `Super+Shift+q` | Lock screen |
+| `Alt+Return` | Terminal (ghostty) |
+| `Alt+Space` / `Alt+r` | Noctalia launcher |
+| `Alt+q` | Close window |
+| `Alt+f` | Fullscreen |
+| `Alt+t` | Toggle floating |
+| `Alt+m` | Quit niri |
+| `Alt+o` | Toggle overview |
+| `Alt+h/j/k/l` | Focus direction |
+| `Alt+Shift+h/j/k/l` | Move column |
+| `Alt+1-5` | Switch workspace |
+| `Alt+Shift+1-5` | Move column to workspace |
+| `Alt+Shift+q` | Lock screen |
 | `Print` | Screenshot area |
+| `Ctrl+Print` | Screenshot screen |
+| `Alt+Print` | Screenshot window |
 
 ## Secrets
 
 Managed with sops-nix + age. First-time setup:
+
 ```bash
 age-keygen -o ~/.config/sops/age/keys.txt
 sops secrets/secrets.yaml
@@ -119,9 +160,10 @@ sops secrets/secrets.yaml
 │   │   ├── noctaliashell.nix
 │   │   └── rules.nix
 │   └── programs/
+│       ├── astronvim/
 │       ├── atuin.nix, bat.nix, bottom.nix, ...
 │       ├── ghostty.nix, git.nix
-│       ├── pi.nix
+│       ├── pi/
 │       ├── starship.nix, zsh.nix
 │       └── ...
 └── hosts/my-vm/
