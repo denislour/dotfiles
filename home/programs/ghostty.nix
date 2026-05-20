@@ -18,7 +18,7 @@
         "-dlig"
         "-calt"
       ];
-      theme = "catppuccin-lavender";
+      theme = "Catppuccin Mocha";
     };
   };
 }
