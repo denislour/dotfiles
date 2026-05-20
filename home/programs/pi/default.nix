@@ -17,4 +17,5 @@ in
   home.file.".pi/agent/settings.json".text = builtins.toJSON (import ./agent/settings.nix);
   home.file.".pi/agent/models.json".text = builtins.toJSON (import ./agent/models.nix);
   home.file.".pi/agent/skills/web-search/SKILL.md".source = ./agent/skills/web-search/SKILL.md;
+  home.file.".pi/agent/skills/nix-style/SKILL.md".source = ./agent/skills/nix-style/SKILL.md;
 }
