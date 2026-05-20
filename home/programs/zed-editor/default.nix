@@ -37,6 +37,7 @@ let
       metrics = false;
     };
     auto_update = false;
+    use_system_path_prompts = false;
     restore_on_startup = "last_session";
     vim_mode = false;
     relative_line_numbers = false;
