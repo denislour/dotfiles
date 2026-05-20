@@ -84,7 +84,7 @@ in
         avatarImage = "/home/${config.home.username}/.face";
       };
 
-      colorSchemes.predefinedScheme = "Catppuccin-Lavender";
+      colorSchemes.predefinedScheme = "Ayu";
 
       network = { };
 
