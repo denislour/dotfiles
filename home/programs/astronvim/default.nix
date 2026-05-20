@@ -21,7 +21,7 @@ in
 
   home.packages = with pkgs; [
     rustc cargo rust-analyzer rustfmt
-    python3 python3Packages.pyright
+    python3 pyright
     ruby solargraph
   ];
 
