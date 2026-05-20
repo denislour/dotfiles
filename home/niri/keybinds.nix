@@ -13,7 +13,8 @@ in
     "Alt+q".action.close-window = { };
     "Alt+f".action.fullscreen-window = { };
     "Alt+t".action.toggle-window-floating = { };
-    "Alt+m".action.quit = { };
+    "Alt+m".action.move-column-to-workspace = 0;
+    "Alt+Shift+m".action.focus-workspace = 0;
 
     "Alt+o".action.toggle-overview = { };
     "Alt+Left".action.consume-or-expel-window-left = { };
