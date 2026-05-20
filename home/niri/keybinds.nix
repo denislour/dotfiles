@@ -9,7 +9,6 @@ in
 
     "Alt+Return".action.spawn = [ apps.terminal ];
     "Alt+Space".action.spawn = noctalia [ "launcher" "toggle" ];
-    "Alt+r".action.spawn = noctalia [ "launcher" "toggle" ];
 
     "Alt+q".action.close-window = { };
     "Alt+f".action.fullscreen-window = { };
