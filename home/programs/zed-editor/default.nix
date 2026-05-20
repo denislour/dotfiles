@@ -22,7 +22,8 @@ let
       rm -rf $out/bin
       mkdir -p $out/bin
       makeWrapper ${pkgs.zed-editor}/bin/zeditor $out/bin/zeditor \
-        --prefix PATH : ${lspBinPath}/bin
+        --prefix PATH : ${lspBinPath}/bin \
+        --run 'export ZED_TOKEN=$(cat /run/secrets/deepseek_api_key 2>/dev/null || echo "")'
       for bin in ${pkgs.zed-editor}/bin/*; do
         if [ "$(basename $bin)" != "zeditor" ]; then
           ln -s $bin $out/bin/$(basename $bin)
