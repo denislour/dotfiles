@@ -9,6 +9,5 @@
     { command = [ "sh" "-c" "wl-paste --type text --watch cliphist store" ]; }
     { command = [ "sh" "-c" "wl-paste --type image --watch cliphist store" ]; }
 
-    { command = [ "${pkgs.xdg-desktop-portal-gtk}/libexec/xdg-desktop-portal-gtk" ]; }
   ];
 }
