@@ -17,6 +17,8 @@
     ../../home/programs/fastfetch.nix
     ../../home/programs/fd.nix
     ../../home/programs/ghostty.nix
+    ../../home/programs/glow.nix
+    ../../home/programs/lazygit.nix
     ../../home/programs/librewolf.nix
     ../../home/programs/git.nix
     ../../home/programs/pi
