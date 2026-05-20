@@ -23,7 +23,7 @@ in
         marginVertical = 4;
         marginHorizontal = 4;
         frameRadius = 12;
-        backgroundOpacity = 0.93;
+        backgroundOpacity = 0.88;
         displayMode = "always_visible";
         widgets = {
           left = [
@@ -82,6 +82,7 @@ in
 
       general = {
         avatarImage = "/home/${config.home.username}/.face";
+        radiusRatio = 2;
       };
 
       colorSchemes.predefinedScheme = "Ayu";
