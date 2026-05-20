@@ -9,4 +9,8 @@ with pkgs; [
   thunar-volman
   tumbler
   gvfs
+  celluloid
+  loupe
+  papers
+  file-roller
 ]
