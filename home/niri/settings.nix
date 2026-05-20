@@ -12,28 +12,51 @@
       };
 
       layout = {
-        focus-ring = {
-          enable = true;
+        background-color = "transparent";
+
+        # Use border instead of focus-ring (subtle 2px border on all windows)
+        focus-ring = { enable = false; };
+        border = {
           width = 2;
         };
+
+        shadow = { enable = false; };
+
         gaps = 6;
+        always-center-single-column = true;
+
+        # No struts — Noctalia manages the bar area
         struts = {
-          left = 4;
-          right = 4;
-          top = 30;
-          bottom = 4;
+          left = 0;
+          right = 0;
+          top = 0;
+          bottom = 0;
+        };
+
+        tab-indicator = {
+          hide-when-single-tab = true;
+          place-within-column = true;
+          position = "left";
+          corner-radius = 20.0;
+          gap = -12.0;
+          gaps-between-tabs = 10.0;
+          width = 4.0;
+          length = { total-proportion = 0.1; };
         };
 
         preset-column-widths = [
-          { proportion = 0.30; }
-          { proportion = 0.40; }
+          { proportion = 0.25; }
           { proportion = 0.50; }
-          { proportion = 0.55; }
-          { proportion = 0.60; }
-          { proportion = 0.70; }
+          { proportion = 0.75; }
+          { proportion = 1.00; }
         ];
 
         default-column-width = { proportion = 0.5; };
+      };
+
+      overview = {
+        workspace-shadow = { enable = false; };
+        backdrop-color = "transparent";
       };
 
       input = {
@@ -44,8 +67,10 @@
           scroll-method = "two-finger";
         };
         focus-follows-mouse.enable = true;
-        warp-mouse-to-focus.enable = false;
+        warp-mouse-to-focus.enable = true;
       };
+
+      screenshot-path = "~/Pictures/Screenshots/Screenshot-from-%Y-%m-%d-%H-%M-%S.png";
 
       outputs = {
         "Virtual-1" = {
