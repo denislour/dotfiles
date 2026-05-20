@@ -1,9 +1,11 @@
 { pkgs, lib, config, ... }:
 
 let
-  astronvimTemplate = builtins.fetchGit {
-    url = "https://github.com/AstroNvim/template";
-    ref = "main";
+  astronvimTemplate = pkgs.fetchFromGitHub {
+    owner = "AstroNvim";
+    repo = "template";
+    rev = "49a7161b776f8bc6c23508819ea1ad4e7b359bee";
+    sha256 = "sha256-zrwpZ6Ow5qL9dml5gJFmLEOlQa02qm/AdFYGlfpw8fY=";
   };
 in
 {
