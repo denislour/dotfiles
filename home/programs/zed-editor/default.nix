@@ -22,8 +22,7 @@ let
       rm -rf $out/bin
       mkdir -p $out/bin
       makeWrapper ${pkgs.zed-editor}/bin/zeditor $out/bin/zeditor \
-        --prefix PATH : ${lspBinPath}/bin \
-        --run 'export ZED_TOKEN=$(cat /run/secrets/deepseek_api_key 2>/dev/null || echo "")'
+        --prefix PATH : ${lspBinPath}/bin
       for bin in ${pkgs.zed-editor}/bin/*; do
         if [ "$(basename $bin)" != "zeditor" ]; then
           ln -s $bin $out/bin/$(basename $bin)
@@ -38,11 +37,11 @@ let
     };
     auto_update = false;
     restore_on_startup = "last_session";
-    vim_mode = true;
-    relative_line_numbers = true;
+    vim_mode = false;
+    relative_line_numbers = false;
     gutter.runnables = true;
     current_line_highlight = "all";
-    tab_bar.show = false;
+    tab_bar.show = true;
     scrollbar.show = "never";
     toolbar = {
       agent_review = false;
