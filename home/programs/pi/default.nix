@@ -16,7 +16,6 @@ in
 
   home.file.".pi/agent/settings.json".text = builtins.toJSON (import ./agent/settings.nix);
   home.file.".pi/agent/models.json".text = builtins.toJSON (import ./agent/models.nix);
-  home.file.".pi/agent/caveman.json".text = builtins.toJSON (import ./agent/caveman.nix);
   home.file.".pi/agent/themes/arabica.json".source = ./agent/themes/arabica.json;
   home.file.".pi/agent/themes/robusta.json".source = ./agent/themes/robusta.json;
   home.file.".pi/agent/skills/web-search/SKILL.md".source = ./agent/skills/web-search/SKILL.md;
