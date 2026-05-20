@@ -3,7 +3,6 @@
 {
   programs.niri.settings = {
     window-rules = [
-      # Default rule: bo góc 20px cho mọi cửa sổ
       {
         matches = [ { } ];
         geometry-corner-radius = {
@@ -16,24 +15,18 @@
         draw-border-with-background = false;
       }
 
-      # Floating windows cũng bo góc, kèm shadow nhẹ
       {
         matches = [ { is-floating = true; } ];
         shadow = { enable = true; };
       }
 
       {
-        matches = [
-          { app-id = "^librewolf$"; }
-        ];
+        matches = [ { app-id = "^librewolf$"; } ];
         open-fullscreen = false;
       }
 
-      # Picture-in-Picture window
       {
-        matches = [
-          { title = "^Picture-in-Picture$"; }
-        ];
+        matches = [ { title = "^Picture-in-Picture$"; } ];
         open-floating = true;
         default-floating-position = {
           x = 32;
@@ -44,7 +37,6 @@
         default-window-height = { fixed = 270; };
       }
 
-      # Floating dialogs
       {
         matches = [
           { app-id = "^pavucontrol$"; }
@@ -57,11 +49,8 @@
     ];
 
     layer-rules = [
-      # Noctalia wallpaper hiển thị dưới nền
       {
-        matches = [
-          { namespace = "^noctalia-wallpaper"; }
-        ];
+        matches = [ { namespace = "^noctalia-wallpaper"; } ];
         place-within-backdrop = true;
       }
     ];

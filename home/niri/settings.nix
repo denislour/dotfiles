@@ -13,19 +13,11 @@
 
       layout = {
         background-color = "transparent";
-
-        # Use border instead of focus-ring (subtle 2px border on all windows)
         focus-ring = { enable = false; };
-        border = {
-          width = 2;
-        };
-
+        border = { width = 2; };
         shadow = { enable = false; };
-
         gaps = 6;
         always-center-single-column = true;
-
-        # No struts — Noctalia manages the bar area
         struts = {
           left = 0;
           right = 0;
