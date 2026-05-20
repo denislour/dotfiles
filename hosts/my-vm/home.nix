@@ -7,6 +7,7 @@
 
   imports = [
     ../../home/niri
+    ../../home/programs/astronvim
     ../../home/programs/atuin.nix
     ../../home/programs/bat.nix
     ../../home/programs/bottom.nix

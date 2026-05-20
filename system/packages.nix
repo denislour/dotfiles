@@ -12,7 +12,6 @@
     killall
     libnotify
     unzip
-    vim
     wl-clipboard
     wl-clip-persist
     xwayland-satellite
