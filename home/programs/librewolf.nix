@@ -16,6 +16,8 @@
       "browser.compactmode.show" = true;
       "browser.theme.toolbar-theme" = 0;
       "browser.theme.content-theme" = 0;
+      "layout.css.prefers-color-scheme.content" = 0;
+      "ui.systemUsesDarkTheme" = 1;
     };
     languagePacks = [ ];
     profiles = {
