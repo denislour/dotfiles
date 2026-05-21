@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.librewolf = {
@@ -30,12 +30,7 @@
         path = "jake";
         isDefault = true;
         settings = { };
-        extraConfig = ''
-          pref("privacy.resistFingerprinting", false);
-          pref("privacy.fingerprintingProtection", true);
-          pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CSSPrefersColorScheme");
-          pref("layout.css.prefers-color-scheme.content-override", 0);
-        '';
+        extraConfig = "";
         userChrome = "";
         userContent = "";
         search = {
@@ -44,4 +39,13 @@
       };
     };
   };
+
+  home.activation.forceDarkMode = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    cat >> "${config.home.homeDirectory}/.librewolf/librewolf.overrides.cfg" << 'EOF'
+    pref("privacy.resistFingerprinting", false);
+    pref("privacy.fingerprintingProtection", true);
+    pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CSSPrefersColorScheme");
+    pref("layout.css.prefers-color-scheme.content-override", 0);
+    EOF
+  '';
 }
