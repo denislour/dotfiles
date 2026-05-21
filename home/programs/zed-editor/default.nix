@@ -67,7 +67,7 @@ let
     tab_size = 2;
     theme = {
       mode = "light";
-      dark = "Duskfox - blurred";
+      dark = "Carbonfox - opaque";
       light = "Dayfox - opaque";
     };
     icon_theme = "Catppuccin Mocha";

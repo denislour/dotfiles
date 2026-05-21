@@ -51,5 +51,21 @@ in
     vim.opt.relativenumber = true
     vim.opt.number = true
     EOF
+    cat > "$nvim_dir/lua/plugins/neo-tree.lua" << 'EOF'
+    return {
+      {
+        "nvim-neo-tree/neo-tree.nvim",
+        opts = {
+          filesystem = {
+            filtered_items = {
+              visible = true,
+              hide_dotfiles = false,
+              hide_gitignored = false,
+            },
+          },
+        },
+      },
+    }
+    EOF
   '';
 }
