@@ -1,3 +1,6 @@
+rebuild:
+    sudo nixos-rebuild switch --flake .#my-vm
+
 update:
     cd ~/nixos && git pull
     sudo nixos-rebuild switch --flake .#my-vm
