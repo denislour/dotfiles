@@ -62,7 +62,7 @@ let
     tab_size = 2;
     theme = {
       mode = "dark";
-      dark = "Catppuccin Mocha";
+      dark = "Carbonfox - opaque";
       light = "Catppuccin Latte";
     };
     icon_theme = "Catppuccin Mocha";
@@ -76,8 +76,18 @@ let
     };
     terminal.font_size = 11;
     features.edit_prediction_provider = "none";
+    git_panel = {
+      dock = "left";
+    };
+    outline_panel = {
+      dock = "left";
+    };
+    project_panel = {
+      dock = "left";
+    };
     agent = {
       enabled = true;
+      dock = "right";
     };
     languages = {
       Nix = {
