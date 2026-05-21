@@ -23,6 +23,8 @@ in
     rustc cargo rust-analyzer rustfmt
     python3 pyright
     ruby solargraph
+    tree-sitter
+    gcc
   ];
 
   home.sessionVariables = {
