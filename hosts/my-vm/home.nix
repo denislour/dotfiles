@@ -19,7 +19,7 @@
     ../../home/programs/ghostty.nix
     ../../home/programs/glow.nix
     ../../home/programs/lazygit.nix
-    ../../home/programs/librewolf.nix
+    ../../home/programs/librewolf
     ../../home/programs/git.nix
     ../../home/programs/pi
     ../../home/programs/ripgrep.nix
