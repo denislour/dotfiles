@@ -35,6 +35,9 @@ let
       diagnostics = false;
       metrics = false;
     };
+    auto_install_extensions = {
+      "catppuccin-icons" = true;
+    };
     auto_update = false;
     use_system_path_prompts = false;
     restore_on_startup = "last_session";
