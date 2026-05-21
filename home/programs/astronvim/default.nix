@@ -32,11 +32,9 @@ in
 
   home.activation.installAstroNvim = lib.hm.dag.entryAfter ["writeBoundary"] ''
     nvim_dir="${config.home.homeDirectory}/.config/nvim"
-    if [ ! -d "$nvim_dir" ] || [ ! -f "$nvim_dir/init.lua" ]; then
-      rm -rf "$nvim_dir"
-      cp -r ${astronvimTemplate} "$nvim_dir"
-      chmod -R u+w "$nvim_dir"
-    fi
+    rm -rf "$nvim_dir"
+    cp -r ${astronvimTemplate} "$nvim_dir"
+    chmod -R u+w "$nvim_dir"
     mkdir -p "$nvim_dir/lua"
     cat > "$nvim_dir/lua/community.lua" << 'EOF'
     return {
