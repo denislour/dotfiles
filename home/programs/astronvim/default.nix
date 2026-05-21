@@ -54,11 +54,18 @@ in
     return {
       {
         "jay-babu/mason-nvim-dap.nvim",
-        opts = {
-          ensure_installed = {},
-        },
+        opts = function()
+          return { ensure_installed = {} }
+        end,
       },
     }
+    EOF
+    cat > "$nvim_dir/lua/polish.lua" << 'EOF'
+    if true then
+      local registry = require "mason-registry"
+      local pkg = registry.get_package "codelldb"
+      if pkg and pkg:is_installed() then pkg:uninstall() end
+    end
     EOF
   '';
 }
