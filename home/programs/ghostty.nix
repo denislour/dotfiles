@@ -5,7 +5,7 @@
     installBatSyntax = true;
 
     settings = {
-      font-size = 13;
+      font-size = 18;
       font-family = "JetBrainsMono Nerd Font";
       window-decoration = false;
       background-opacity = 0.95;
