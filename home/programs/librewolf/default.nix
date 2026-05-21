@@ -44,6 +44,7 @@ in
   };
 
   home.activation.forceDarkMode = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    find "${config.home.homeDirectory}/.librewolf" -name "*.hm-backup" -delete
     rm -f "${config.home.homeDirectory}/.librewolf/librewolf.overrides.cfg"
     cat > "${config.home.homeDirectory}/.librewolf/librewolf.overrides.cfg" << 'EOF'
     ${overridesCfg}
