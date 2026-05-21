@@ -39,7 +39,7 @@ let
     use_system_path_prompts = false;
     restore_on_startup = "last_session";
     vim_mode = false;
-    relative_line_numbers = false;
+    relative_line_numbers = "disabled";
     gutter.runnables = true;
     current_line_highlight = "all";
     tab_bar.show = true;
@@ -61,14 +61,14 @@ let
     format_on_save = "on";
     tab_size = 2;
     theme = {
-      mode = "dark";
-      dark = "Carbonfox - opaque";
-      light = "Catppuccin Latte";
+      mode = "light";
+      dark = "Duskfox - blurred";
+      light = "Dayfox - opaque";
     };
     icon_theme = "Catppuccin Mocha";
     ui_font_family = "JetBrainsMono Nerd Font";
     buffer_font_family = "JetBrainsMono Nerd Font";
-    buffer_font_size = 12;
+    buffer_font_size = 16;
     buffer_font_features = {
       calt = false;
       dlig = false;
