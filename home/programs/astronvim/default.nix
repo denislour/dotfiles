@@ -12,6 +12,7 @@ let
   optionsLua = builtins.readFile ./lua/options.lua;
   neoTreeLua = builtins.readFile ./lua/plugins/neo-tree.lua;
   nightfoxLua = builtins.readFile ./lua/plugins/nightfox.lua;
+  yaziLua = builtins.readFile ./lua/plugins/yazi.lua;
 in
 {
   programs.neovim = {
@@ -54,6 +55,9 @@ in
     EOF
     cat > "$nvim_dir/lua/plugins/nightfox.lua" << 'EOF'
     ${nightfoxLua}
+    EOF
+    cat > "$nvim_dir/lua/plugins/yazi.lua" << 'EOF'
+    ${yaziLua}
     EOF
   '';
 }
