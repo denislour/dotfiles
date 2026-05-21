@@ -50,5 +50,15 @@ in
     vim.opt.relativenumber = true
     vim.opt.number = true
     EOF
+    cat > "$nvim_dir/lua/plugins/mason-dap.lua" << 'EOF'
+    return {
+      {
+        "jay-babu/mason-nvim-dap.nvim",
+        opts = {
+          ensure_installed = {},
+        },
+      },
+    }
+    EOF
   '';
 }
