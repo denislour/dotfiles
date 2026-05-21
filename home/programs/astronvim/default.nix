@@ -41,6 +41,7 @@ in
     cat > "$nvim_dir/lua/community.lua" << 'EOF'
     return {
       "AstroNvim/astrocommunity",
+      { import = "astrocommunity.file-explorer.yazi-nvim" },
       { import = "astrocommunity.pack.rust" },
       { import = "astrocommunity.pack.python" },
       { import = "astrocommunity.pack.ruby" },
