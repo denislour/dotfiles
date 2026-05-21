@@ -1,4 +1,3 @@
-''
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.file-explorer.yazi-nvim" },
@@ -6,4 +5,3 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.ruby" },
 }
-''

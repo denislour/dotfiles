@@ -1,4 +1,3 @@
-''
 return {
   {
     "EdenEast/nightfox.nvim",
@@ -9,4 +8,3 @@ return {
     end,
   },
 }
-''

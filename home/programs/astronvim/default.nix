@@ -8,10 +8,10 @@ let
     sha256 = "sha256-zrwpZ6Ow5qL9dml5gJFmLEOlQa02qm/AdFYGlfpw8fY=";
   };
 
-  communityLua = import ./community.nix;
-  optionsLua = import ./options.nix;
-  neoTreeLua = import ./plugins/neo-tree.nix;
-  nightfoxLua = import ./plugins/nightfox.nix;
+  communityLua = builtins.readFile ./lua/community.lua;
+  optionsLua = builtins.readFile ./lua/options.lua;
+  neoTreeLua = builtins.readFile ./lua/plugins/neo-tree.lua;
+  nightfoxLua = builtins.readFile ./lua/plugins/nightfox.lua;
 in
 {
   programs.neovim = {
