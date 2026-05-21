@@ -32,6 +32,8 @@
         settings = { };
         extraConfig = ''
           pref("privacy.resistFingerprinting", false);
+          pref("privacy.fingerprintingProtection", true);
+          pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CSSPrefersColorScheme");
           pref("layout.css.prefers-color-scheme.content-override", 0);
         '';
         userChrome = "";
