@@ -22,8 +22,7 @@ let
       rm -rf $out/bin
       mkdir -p $out/bin
       makeWrapper ${pkgs.zed-editor}/bin/zeditor $out/bin/zeditor \
-        --prefix PATH : ${lspBinPath}/bin \
-        --run 'export ZED_TOKEN=$(cat /run/secrets/deepseek_api_key 2>/dev/null || echo "")'
+        --prefix PATH : ${lspBinPath}/bin
       for bin in ${pkgs.zed-editor}/bin/*; do
         if [ "$(basename $bin)" != "zeditor" ]; then
           ln -s $bin $out/bin/$(basename $bin)
@@ -79,14 +78,6 @@ let
     features.edit_prediction_provider = "none";
     agent = {
       enabled = true;
-      default_model = {
-        provider = "deep_seek";
-        model = "deepseek-chat";
-      };
-      commit_message_model = {
-        provider = "deep_seek";
-        model = "deepseek-chat";
-      };
     };
     languages = {
       Nix = {
