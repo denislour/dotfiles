@@ -7,6 +7,11 @@ let
     rev = "49a7161b776f8bc6c23508819ea1ad4e7b359bee";
     sha256 = "sha256-zrwpZ6Ow5qL9dml5gJFmLEOlQa02qm/AdFYGlfpw8fY=";
   };
+
+  communityLua = import ./community.nix;
+  optionsLua = import ./options.nix;
+  neoTreeLua = import ./plugins/neo-tree.nix;
+  nightfoxLua = import ./plugins/nightfox.nix;
 in
 {
   programs.neovim = {
@@ -37,35 +42,18 @@ in
     rm -rf "$nvim_dir"
     cp -r ${astronvimTemplate} "$nvim_dir"
     chmod -R u+w "$nvim_dir"
-    mkdir -p "$nvim_dir/lua"
+    mkdir -p "$nvim_dir/lua/plugins"
     cat > "$nvim_dir/lua/community.lua" << 'EOF'
-    return {
-      "AstroNvim/astrocommunity",
-      { import = "astrocommunity.file-explorer.yazi-nvim" },
-      { import = "astrocommunity.pack.rust" },
-      { import = "astrocommunity.pack.python" },
-      { import = "astrocommunity.pack.ruby" },
-    }
+    ${communityLua}
     EOF
     cat > "$nvim_dir/lua/options.lua" << 'EOF'
-    vim.opt.relativenumber = true
-    vim.opt.number = true
+    ${optionsLua}
     EOF
     cat > "$nvim_dir/lua/plugins/neo-tree.lua" << 'EOF'
-    return {
-      {
-        "nvim-neo-tree/neo-tree.nvim",
-        opts = {
-          filesystem = {
-            filtered_items = {
-              visible = true,
-              hide_dotfiles = false,
-              hide_gitignored = false,
-            },
-          },
-        },
-      },
-    }
+    ${neoTreeLua}
+    EOF
+    cat > "$nvim_dir/lua/plugins/nightfox.lua" << 'EOF'
+    ${nightfoxLua}
     EOF
   '';
 }
