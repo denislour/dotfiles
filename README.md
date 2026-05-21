@@ -67,7 +67,7 @@ sudo reboot
 
 ### Terminal — Ghostty
 
-- JetBrainsMono Nerd Font, 13px
+- JetBrainsMono Nerd Font, 18px
 - Catppuccin Mocha theme
 - Transparent background (0.95)
 - No window decorations
