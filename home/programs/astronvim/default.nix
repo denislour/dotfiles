@@ -59,9 +59,9 @@ in
           local dap = require "dap"
           dap.adapters.lldb = {
             type = "server",
-            port = "''${port:13000}",
+            port = "${port:13000}",
             executable = {
-              command = "lldb-dap",
+              command = "lldb-vscode",
               args = { "--port", "13000" },
             },
           }
@@ -73,7 +73,7 @@ in
               program = function()
                 return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
               end,
-              cwd = "''${workspaceFolder}",
+              cwd = "${workspaceFolder}",
               stopOnEntry = false,
               args = {},
             },
