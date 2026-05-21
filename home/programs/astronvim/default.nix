@@ -25,7 +25,6 @@ in
     ruby solargraph
     tree-sitter
     gcc
-    lldb
   ];
 
   home.sessionVariables = {
@@ -50,37 +49,6 @@ in
     cat > "$nvim_dir/lua/options.lua" << 'EOF'
     vim.opt.relativenumber = true
     vim.opt.number = true
-    EOF
-    cat > "$nvim_dir/lua/plugins/dap.lua" << 'EOF'
-    return {
-      {
-        "mfussenegger/nvim-dap",
-        config = function()
-          local dap = require "dap"
-          dap.adapters.lldb = {
-            type = "server",
-            port = "${port:13000}",
-            executable = {
-              command = "lldb-vscode",
-              args = { "--port", "13000" },
-            },
-          }
-          dap.configurations.rust = {
-            {
-              name = "Launch",
-              type = "lldb",
-              request = "launch",
-              program = function()
-                return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
-              end,
-              cwd = "${workspaceFolder}",
-              stopOnEntry = false,
-              args = {},
-            },
-          }
-        end,
-      },
-    }
     EOF
   '';
 }
