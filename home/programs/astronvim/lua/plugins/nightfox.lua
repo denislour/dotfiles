@@ -11,9 +11,9 @@ return {
       vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
       vim.api.nvim_set_hl(0, "FoldColumn", { bg = "none" })
       vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NeogitStatusHeader", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NeogitStatusTitle", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NeogitDiffHeader", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NeoTreeEndOfBuffer", { bg = "none" })
     end,
   },
 }
