@@ -63,6 +63,8 @@
     pref("privacy.fingerprintingProtection", true);
     pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CSSPrefersColorScheme");
     pref("layout.css.prefers-color-scheme.content-override", 0);
+    pref("privacy.clearOnShutdown.cookies", false);
+    pref("privacy.clearOnShutdown.cache", false);
     EOF
   '';
 }
