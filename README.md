@@ -67,8 +67,8 @@ sudo reboot
 
 ### Terminal — Ghostty
 
-- JetBrainsMono Nerd Font, 11px
-- Catppuccin Lavender theme
+- JetBrainsMono Nerd Font, 13px
+- Catppuccin Mocha theme
 - Transparent background (0.95)
 - No window decorations
 
@@ -76,19 +76,39 @@ sudo reboot
 
 - AstroNvim template with custom community plugins
 - LSPs: rust-analyzer, pyright, solargraph
+- Community packs: rust, python, ruby
+- File explorer: yazi-nvim (`<leader>yy`), neo-tree (hidden files visible, transparent)
+- Colorscheme: carbonfox (nightfox)
 - Relative line numbers
 - Default shell editor
+
+### IDE — Zed
+
+- Catppuccin Mocha icons theme
+- Panels: project, outline, git on left; agent on right
+- LSPs: rust-analyzer, pyright, marksman, nil (alejandra formatter)
+- Carbonfox - opaque theme
+- DeepSeek agent
 
 ### AI coding — pi
 
 - DeepSeek V4 (flash/pro) models
 - Phin themes (robusta dark, arabica light)
 - Custom skills: web-search, nix-style
+- Caveman extension (ultra-compressed communication)
+
+### Browser — LibreWolf
+
+- Dark mode forced (prefers-color-scheme override)
+- Fingerprinting protection with CSS color scheme exception
+- Cookies persist across restarts
+- Privacy-hardened defaults
 
 ### File management — Yazi
 
 - Terminal file manager with image preview
-- `yy` shell wrapper for cwd opening
+- `y` shell wrapper for cwd opening
+- Show hidden files
 - Hotkeys: `gn` (sizes), `gm` (mtime), `gp` (permissions)
 
 ## Tools
@@ -106,6 +126,8 @@ sudo reboot
 | `atuin` | `history` | Ctrl+R with fuzzy search |
 | `starship` | prompt | Minimal, fast prompt |
 | `zoxide` | `cd` | Smart directory jumping |
+| `lazygit` | `git` | TUI git client |
+| `glow` | `man` | Markdown renderer |
 
 ## Keybinds
 
@@ -127,6 +149,14 @@ sudo reboot
 | `Ctrl+Print` | Screenshot screen |
 | `Alt+Print` | Screenshot window |
 
+## Quick Commands
+
+```bash
+just rebuild    # nixos-rebuild only (no gc, no reboot)
+just update     # git pull + rebuild + gc + reboot
+just upgrade    # nix flake update + rebuild + gc + reboot
+```
+
 ## Secrets
 
 Managed with sops-nix + age. First-time setup:
@@ -136,12 +166,17 @@ age-keygen -o ~/.config/sops/age/keys.txt
 sops secrets/secrets.yaml
 ```
 
+Secrets stored in `/run/secrets/`:
+- `deepseek_api_key`
+- `brave_search_api_key`
+
 ## Structure
 
 ```
 ├── flake.nix
+├── justfile
 ├── system/              ← System-level (NixOS)
-│   ├── common.nix
+│   ├── common.nix       ← nix-ld, flakes, GC
 │   ├── environment.nix
 │   ├── packages.nix
 │   ├── services/
@@ -149,22 +184,37 @@ sops secrets/secrets.yaml
 │   │   ├── sops.nix
 │   │   └── ssh.nix
 │   ├── programs/
-│   │   ├── stylix.nix
+│   │   ├── stylix.nix    ← dark theme, fonts
 │   │   └── xdg-portal.nix
 │   └── wallpapers/
 ├── home/                ← User-level (home-manager)
-│   ├── niri/
+│   ├── niri/             ← Wayland compositor
 │   │   ├── settings.nix
 │   │   ├── keybinds.nix
 │   │   ├── autostart.nix
 │   │   ├── noctaliashell.nix
 │   │   └── rules.nix
 │   └── programs/
-│       ├── astronvim/
-│       ├── atuin.nix, bat.nix, bottom.nix, ...
-│       ├── ghostty.nix, git.nix
-│       ├── pi/
-│       ├── starship.nix, zsh.nix
+│       ├── astronvim/    ← Neovim + plugins
+│       │   ├── default.nix
+│       │   └── lua/
+│       │       ├── community.lua
+│       │       ├── options.lua
+│       │       └── plugins/
+│       │           ├── neo-tree.lua
+│       │           ├── nightfox.lua
+│       │           └── yazi.lua
+│       ├── librewolf/   ← Browser config
+│       │   ├── default.nix
+│       │   └── overrides.cfg
+│       ├── pi/          ← AI coding agent
+│       │   ├── default.nix
+│       │   └── agent/
+│       │       ├── models.nix
+│       │       └── settings.nix
+│       ├── zed-editor/  ← Zed IDE
+│       │   └── default.nix
+│       ├── ghostty.nix, git.nix, starship.nix, ...
 │       └── ...
 └── hosts/my-vm/
     ├── configuration.nix
