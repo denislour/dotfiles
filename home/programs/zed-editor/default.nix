@@ -22,7 +22,8 @@ let
       rm -rf $out/bin
       mkdir -p $out/bin
       makeWrapper ${pkgs.zed-editor}/bin/zeditor $out/bin/zeditor \
-        --prefix PATH : ${lspBinPath}/bin
+        --prefix PATH : ${lspBinPath}/bin \
+        --run 'export DEEPSEEK_API_KEY=$(cat /run/secrets/deepseek_api_key 2>/dev/null || echo "")'
       for bin in ${pkgs.zed-editor}/bin/*; do
         if [ "$(basename $bin)" != "zeditor" ]; then
           ln -s $bin $out/bin/$(basename $bin)
@@ -30,7 +31,8 @@ let
       done
     '';
   };
-  settingsJSON = builtins.toJSON {
+  jsonFormat = pkgs.formats.json { };
+  settingsJSON = jsonFormat.generate "zed-settings" {
     telemetry = {
       diagnostics = false;
       metrics = false;
@@ -70,6 +72,7 @@ let
     };
     icon_theme = "Catppuccin Mocha";
     ui_font_family = "JetBrainsMono Nerd Font";
+    ui_font_size = 16;
     buffer_font_family = "JetBrainsMono Nerd Font";
     buffer_font_size = 16;
     buffer_font_features = {
@@ -92,6 +95,7 @@ let
       enabled = true;
       dock = "right";
     };
+    agent_font_size = 16;
     languages = {
       Nix = {
         tab_size = 2;
@@ -127,5 +131,5 @@ in
 {
   home.packages = [zedWithLSP];
 
-  home.file.".config/zed/settings.json".text = settingsJSON;
+  home.file.".config/zed/settings.json".source = settingsJSON;
 }
