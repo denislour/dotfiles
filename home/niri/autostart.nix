@@ -9,5 +9,6 @@
     { command = [ "sh" "-c" "wl-paste --type text --watch cliphist store" ]; }
     { command = [ "sh" "-c" "wl-paste --type image --watch cliphist store" ]; }
 
+    { command = [ "sh" "-c" "echo '' | ${pkgs.gnome-keyring}/bin/gnome-keyring-daemon --unlock" ]; }
   ];
 }
