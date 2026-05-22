@@ -26,5 +26,7 @@
 
   stylix.image = wallpaper;
 
+  services.speechd.enable = false;
+
   system.stateVersion = "25.05";
 }
