@@ -5,6 +5,7 @@ with pkgs; [
   just
   procs
   sd
+  trunk
   thunar
   thunar-volman
   tumbler
