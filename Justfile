@@ -17,7 +17,7 @@ upgrade:
     sudo nix-collect-garbage
     sudo reboot
 
-clean keep=3:
+clean keep='3':
     sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +{{keep}}
     sudo nix-env --delete-generations +{{keep}}
     nix-env --delete-generations +{{keep}} || true
