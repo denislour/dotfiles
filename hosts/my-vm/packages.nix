@@ -6,12 +6,4 @@ with pkgs; [
   procs
   sd
   trunk
-  thunar
-  thunar-volman
-  tumbler
-  gvfs
-  celluloid
-  loupe
-  papers
-  file-roller
 ]
