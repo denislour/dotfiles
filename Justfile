@@ -1,5 +1,13 @@
 rebuild:
     sudo nixos-rebuild switch --flake .#my-vm
+    sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +1
+    nix-env --delete-generations +1 || true
+    sudo nix-collect-garbage -d
+    sudo nix-store --optimise
+    echo "Rebuilt + cleaned."
+
+build:
+    just rebuild
 
 update:
     cd ~/nixos && git pull
@@ -23,12 +31,17 @@ clean keep='3':
     nix-env --delete-generations +{{keep}} || true
     sudo nix-collect-garbage -d
     sudo nix-store --optimise
-    echo "Kept last {{keep}} generations, cleaned old builds."
+    sudo journalctl --vacuum-time=3d --vacuum-size=200M 2>/dev/null || true
+    sudo rm -rf /nix/var/log/nix/drvs 2>/dev/null || true
+    echo "Kept last {{keep}} generations, cleaned old builds + logs."
 
 clean-all:
     sudo nix-collect-garbage -d
     sudo nix-store --gc
     sudo nix-store --optimise
     nix-env --delete-generations old || true
+    sudo journalctl --vacuum-time=1d --vacuum-size=100M 2>/dev/null || true
+    sudo rm -rf /nix/var/log/nix/drvs 2>/dev/null || true
+    sudo rm -rf /tmp/nix-build-* 2>/dev/null || true
     echo "Full cleanup done."
 
