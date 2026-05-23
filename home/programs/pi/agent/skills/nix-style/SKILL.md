@@ -1,36 +1,45 @@
 ---
 name: nix-style
-description: Nix code style and conventions for this project. Use when editing Nix files to ensure consistency.
+description: >
+  Nix code style and conventions for this project.
+  Use when editing Nix files to ensure consistency.
+  No comments in code — code must be self-documenting.
+  Exception: JSDoc docstrings in TypeScript extensions.
 ---
 
 # Nix Style Guide
 
-This project follows a strict, clean, minimal Nix style. Apply these rules when writing or editing any `.nix` files.
+Code must be self-documenting. No inline comments, no block comments. If something needs explanation, make the code clearer instead. Extension docstrings (JSDoc `/** ... */`) are the only exception.
 
 ## General Rules
 
-- **No comments.** Code must be self-documenting. Remove all inline comments (`#`) and block comments (`/* */`). If something needs explanation, make the code clearer instead.
-- **No blank lines** between closely related settings. Use blank lines only to separate logical sections.
-- **Clean and minimal.** No unused imports, no dead code, no `with` statements that shadow.
-- **Follow Nixpkgs conventions.** Use `lib.mkForce` and `lib.mkDefault` appropriately, never override without reason.
+- **No comments** in `.nix` files, `.ts` files (except JSDoc), `.lua` files, or any config
+- **No blank lines** between related settings. Blank line only between logical sections
+- **Clean and minimal** — no unused imports, dead code, or `with` that shadows
+- Extension files: JSDoc header describing usage is fine. No inline `//` comments
+- Use `lib.mkForce` / `lib.mkDefault` appropriately. Never override without reason
 
 ## Formatting
 
-- Use 2-space indentation.
-- Attributes on one line when short: `border = { width = 2; };`
-- Multi-line attributes use consistent indentation with no extra blank lines inside braces.
-- Lists: `[ "item1" "item2" ]` with space after opening bracket.
-- Attribute sets: `{ key = value; }` with trailing semicolon.
+- 2-space indentation
+- Short attributes on one line: `border = { width = 2; };`
+- Multi-line attributes: consistent indent, no extra blank lines inside braces
+- Lists: `[ "item1" "item2" ]` — space after `[`, space before `]`
+- Attribute sets: `{ key = value; }` — trailing semicolon
 
 ## Naming
 
-- `camelCase` for NixOS option names and attribute names.
-- `kebab-case` for file names only.
-- Quotes only when identifier contains special characters (dots, hyphens).
+| Scope | Convention | Example |
+|-------|-----------|---------|
+| NixOS options | `camelCase` | `autoOptimiseStore` |
+| Variables | `camelCase` | `myVar` |
+| File names | `kebab-case` | `home-manager.nix` |
+| Attribute names | `camelCase` | `myService` |
+| Quotes | Only for special chars (dots, hyphens) | `"my-module"` |
 
 ## Module Structure
 
-### NixOS modules
+### NixOS module
 ```nix
 { config, lib, pkgs, ... }: {
   imports = [ ... ];
@@ -39,7 +48,7 @@ This project follows a strict, clean, minimal Nix style. Apply these rules when 
 }
 ```
 
-### Home-manager modules
+### Home-manager module
 ```nix
 { pkgs, lib, config, ... }: {
   programs.neovim.enable = true;
@@ -47,7 +56,7 @@ This project follows a strict, clean, minimal Nix style. Apply these rules when 
 }
 ```
 
-### Flake outputs
+### Flake output
 ```nix
 {
   description = "description";
@@ -56,20 +65,29 @@ This project follows a strict, clean, minimal Nix style. Apply these rules when 
 }
 ```
 
+## Project Layout
+
+| Path | Purpose |
+|------|---------|
+| `system/*.nix` | NixOS-level config |
+| `hosts/<name>/` | Per-machine config |
+| `home/*.nix` | Home-manager modules |
+| `home/programs/<name>/default.nix` | One dir per program |
+| `home/programs/pi/agent/extensions/<name>/index.ts` | Pi extensions |
+| `home/programs/pi/agent/skills/<name>/SKILL.md` | Pi skills |
+| `secrets/` | SOPS-managed secrets |
+| `/run/secrets/` | Runtime secret paths |
+
 ## Project Conventions
 
-- System config: `system/*.nix` — NixOS-level configuration.
-- Host config: `hosts/<name>/` — per-machine config.
-- User config: `home/*.nix` — home-manager modules.
-- Programs: `home/programs/<name>/default.nix` — one directory per program.
-- Secrets: managed via SOPS (`secrets/`), referenced via `/run/secrets/`.
-- No `programs.neovim` in system packages — neovim is user-level via home-manager.
-- Stylix handles all theming (GTK, Qt). Do not set colors manually.
-- No `environment.systemPackages` for user tools — use home-manager instead.
+- Neovim → user-level via home-manager (`programs.neovim`), not in system packages
+- Stylix handles all theming (GTK, Qt). No manual color config
+- `environment.systemPackages` for system tools only. User tools via home-manager
+- Secrets via SOPS. Referenced as `/run/secrets/<name>` in wrappers
 
-## Git Commit Convention
+## Git Commits
 
-Follow **Conventional Commits** with one line per commit (no multi-line bodies):
+One line, conventional commits. No body, no footers.
 
 ```
 feat: add rust-analyzer to astronvim LSPs
@@ -77,32 +95,29 @@ fix: resolve qt.platformTheme conflict with Stylix
 style: remove all comments for clean code
 refactor: extract niri layout to separate file
 chore: update flake.lock
-docs: add nix-style skill for code generation
+docs: add pi-extensions skill for writing extensions
 ```
 
 Rules:
-- **One concern = one commit.** Never mix `feat` + `fix` + `style` in the same commit.
-- **One line only.** Subject line under 72 chars. No body, no footers.
-- **Use `git log --oneline`** before writing a commit. Reference past style to stay consistent with existing commit history.
-- **Scope** (optional): `feat(niri):`, `fix(stylix):`, `feat(pi):` — match the area of change.
-- When in doubt, run `git log --oneline -20` and match the tone of recent commits.
+- **One concern per commit.** Never mix feat + fix + style
+- **Under 72 chars.** Single line only
+- **Scope optional:** `feat(niri):`, `fix(pi):` — match area of change
+- Check `git log --oneline -20` before writing. Match tone of recent commits
 
 ## Research Before Implementing
 
-When adding new packages, fixing issues, or configuring unfamiliar tools:
+1. Use `web-search` skill for current best practices (NixOS Discourse, GitHub, NixOS Wiki)
+2. Check nixpkgs for latest version — avoid hardcoding outdated names
+3. Prefer built-in NixOS options over manual hacks. Search `search.nixos.org` first
+4. If package exists in nixpkgs, use `pkgs.<name>`. No `fetchTarball` or `fetchFromGitHub` for packages already in nixpkgs
+5. Pin `rev` + `sha256` only for repos not in nixpkgs (e.g., AstroNvim template, custom builds)
 
-1. **Use the `web-search` skill** to find current best practices (NixOS Discourse, GitHub issues, r/NixOS, NixOS Wiki).
-2. **Check nixpkgs for latest version** — avoid hardcoding outdated package names or deprecated options.
-3. **Prefer NixOS/nixpkgs built-in options** over manual hacks. Search `search.nixos.org` first.
-4. If a package exists in nixpkgs, use `pkgs.<name>` — do not fetch from GitHub or use `builtins.fetchTarball`.
-5. Pin `rev` + `sha256` only for repos not in nixpkgs (e.g., AstroNvim template).
+## Anti-patterns
 
-## Anti-patterns to avoid
-
-1. **No `with lib;`** — import explicitly: `inherit (lib) mkForce;`
-2. **No deeply nested `let in`** — keep it flat, use `let ... in` once per file.
-3. **No `rec { }`** — prefer explicit references.
-4. **No `import ./path` in the middle of files** — use `imports = [ ... ]` at top.
-5. **No `builtins.pathExists`** — use shell checks in activation scripts instead.
-6. **No broad `with pkgs;`** — scope it tightly: `with pkgs; [ package ]` only inside package lists.
-7. **No comments** — really, none.
+1. **No `with lib;`** — use `inherit (lib) mkForce;` instead
+2. **No deeply nested `let in`** — flat, one `let ... in` per file
+3. **No `rec { }`** — explicit references only
+4. **No `import ./path` mid-file** — use `imports = [ ... ]` at top
+5. **No `builtins.pathExists`** — shell checks in activation scripts
+6. **No broad `with pkgs;`** — scope tightly: `with pkgs; [ package ]` inside package lists only
+7. **No inline comments** — really, none. JSDoc in extensions only
