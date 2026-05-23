@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: let
+{ ... }: let
   dogeLogo = ./doge.txt;
 in {
   programs.fastfetch = {
@@ -8,7 +8,6 @@ in {
         type = "file-raw";
         source = "${dogeLogo}";
         padding = { left = 2; };
-        color = { "1" = "yellow"; };
       };
       display = {
         separator = " → ";
