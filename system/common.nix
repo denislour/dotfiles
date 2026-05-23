@@ -22,10 +22,4 @@
   };
 
   nix.optimise.automatic = true;
-
-  # Daily fstrim to reclaim VM disk space after nix-collect-garbage
-  services.fstrim = {
-    enable = true;
-    interval = "daily";
-  };
 }
