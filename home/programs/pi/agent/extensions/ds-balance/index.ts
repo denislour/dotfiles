@@ -47,13 +47,9 @@ async function fetchBalance(): Promise<BalanceResponse | string> {
 }
 
 function formatBalance(data: BalanceResponse): string {
-  const lines = data.balance_infos.map((b) => {
-    const parts = [`${b.currency} ${b.total_balance}`];
-    if (b.granted_balance !== "0.00") parts.push(`granted ${b.granted_balance}`);
-    if (b.topped_up_balance !== "0.00") parts.push(`topped up ${b.topped_up_balance}`);
-    return parts.join(" | ");
-  });
-  return `DeepSeek Balance: ${lines.join(", ")}`;
+  return data.balance_infos
+    .map((b) => `${b.currency} ${b.total_balance}`)
+    .join(", ");
 }
 
 export default function (pi: ExtensionAPI) {
@@ -67,7 +63,13 @@ export default function (pi: ExtensionAPI) {
         return;
       }
 
-      ctx.ui.notify(formatBalance(result), "info");
+      pi.sendMessage({
+        customType: "ds-balance",
+        content: `DeepSeek Balance: ${formatBalance(result)}`,
+        display: true,
+      }, {
+        triggerTurn: false,
+      });
     },
   });
 }
