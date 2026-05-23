@@ -6,4 +6,5 @@ return {
   { import = "astrocommunity.pack.ruby" },
   { import = "astrocommunity.markdown-preview.markdown-preview-nvim" },
   { import = "astrocommunity.editing-support.render-markdown-nvim" },
+  { import = "astrocommunity.editing-support.glow-nvim" },
 }

@@ -13,6 +13,7 @@ let
   neoTreeLua = builtins.readFile ./lua/plugins/neo-tree.lua;
   nightfoxLua = builtins.readFile ./lua/plugins/nightfox.lua;
   yaziLua = builtins.readFile ./lua/plugins/yazi.lua;
+  glowLua = builtins.readFile ./lua/plugins/glow.lua;
 in
 {
   programs.neovim = {
@@ -61,6 +62,9 @@ in
     EOF
     cat > "$nvim_dir/lua/plugins/yazi.lua" << 'EOF'
     ${yaziLua}
+    EOF
+    cat > "$nvim_dir/lua/plugins/glow.lua" << 'EOF'
+    ${glowLua}
     EOF
 
     mkdir -p "$mason_dir/packages/codelldb"
