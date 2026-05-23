@@ -6,4 +6,5 @@ with pkgs; [
   procs
   sd
   trunk
+  papirus-icon-theme
 ]

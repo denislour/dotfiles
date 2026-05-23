@@ -45,5 +45,4 @@
   };
 
   programs.dconf.enable = true;
-  qt.enable = true;
 }

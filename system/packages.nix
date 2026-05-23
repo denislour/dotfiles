@@ -16,5 +16,7 @@
     wl-clip-persist
     xwayland-satellite
     zip
+    adwaita-qt
+    adwaita-qt6
   ];
 }

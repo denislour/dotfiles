@@ -31,6 +31,14 @@
 
   home.packages = import ./packages.nix { inherit pkgs; };
 
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
+    };
+  };
+
   programs.home-manager.enable = true;
 
 
