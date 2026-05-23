@@ -21,6 +21,7 @@ in
   home.file.".pi/agent/skills/web-search/SKILL.md".source = ./agent/skills/web-search/SKILL.md;
   home.file.".pi/agent/skills/nix-style/SKILL.md".source = ./agent/skills/nix-style/SKILL.md;
   home.file.".pi/agent/skills/caveman/SKILL.md".source = ./agent/skills/caveman/SKILL.md;
+  home.file.".pi/agent/skills/pi-extensions/SKILL.md".source = ./agent/skills/pi-extensions/SKILL.md;
   home.file.".pi/agent/extensions/caveman/index.ts".source = ./agent/extensions/caveman/index.ts;
   home.file.".pi/agent/extensions/ds-balance/index.ts".source = ./agent/extensions/ds-balance/index.ts;
 }
