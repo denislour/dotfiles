@@ -1,3 +1,17 @@
+/**
+ * Caveman Extension for Pi Coding Agent
+ * 
+ * Inspired by https://github.com/JuliusBrussee/caveman
+ * Makes the agent speak like a caveman - cutting ~75% of output tokens
+ * while keeping full technical accuracy.
+ * 
+ * Usage:
+ * - `/caveman` - Toggle caveman mode on/off
+ * - `/caveman lite` - Drop filler, keep grammar (professional)
+ * - `/caveman full` - Default caveman mode (drop articles, fragments)
+ * - `/caveman ultra` - Maximum compression, telegraphic
+ */
+
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 
 type CavemanLevel = "off" | "lite" | "full" | "ultra";
