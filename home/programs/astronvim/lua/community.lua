@@ -5,6 +5,6 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.ruby" },
   { import = "astrocommunity.markdown-preview.markdown-preview-nvim" },
-  { import = "astrocommunity.editing-support.render-markdown-nvim" },
-  { import = "astrocommunity.editing-support.glow-nvim" },
+  { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
+  { import = "astrocommunity.markdown-and-latex.glow-nvim" },
 }
