@@ -20,4 +20,6 @@ in
   home.file.".pi/agent/themes/robusta.json".source = ./agent/themes/robusta.json;
   home.file.".pi/agent/skills/web-search/SKILL.md".source = ./agent/skills/web-search/SKILL.md;
   home.file.".pi/agent/skills/nix-style/SKILL.md".source = ./agent/skills/nix-style/SKILL.md;
+  home.file.".pi/agent/skills/caveman/SKILL.md".source = ./agent/skills/caveman/SKILL.md;
+  home.file.".pi/agent/extensions/caveman/index.ts".source = ./agent/extensions/caveman/index.ts;
 }
