@@ -41,3 +41,16 @@ clean-all:
     sudo rm -rf /tmp/nix-build-* 2>/dev/null || true
     echo "Full cleanup done."
 
+# Check VM storage: inside VM vs host disk file bloat
+vm-check:
+    @echo "=== Disk usage inside VM ==="
+    df -h /
+    @echo ""
+    @echo "=== Biggest dirs ==="
+    -du -sh /nix/store /home /var 2>/dev/null
+    @echo ""
+    @echo "Kiem tra host disk file (.vmdk) size ben Windows."
+    @echo "Neu host file > VM used +5G => can compact."
+    @echo ""
+    @echo "Compact: VM Settings -> Hard Disk -> Compact"
+
