@@ -41,3 +41,18 @@ clean-all:
     sudo rm -rf /tmp/nix-build-* 2>/dev/null || true
     echo "Full cleanup done."
 
+# Check VM disk usage vs actual usage (to know if compact needed)
+vm-disk:
+    echo "=== Trong VM ==="
+    df -h /
+    du -sh /nix/store 2>/dev/null
+    du -sh /home 2>/dev/null
+    echo ""
+    echo "Disk dang dung: $$(df -h / | tail -1 | awk '{print $$3}')"
+    echo "Disk file ben host se lon hon do ko trim duoc."
+    echo ""
+    echo "Tren HOST (Windows), chay:"
+    echo '  "C:\Program Files\VMware\VMware Workstation\vmware-vdiskmanager.exe" -k "<path>.vmdk"'
+    echo ""
+    echo "Hoac: VM Settings -> Hard Disk -> Compact"
+
