@@ -43,7 +43,6 @@ in
     nvim_dir="${config.home.homeDirectory}/.config/nvim"
     mason_dir="${config.home.homeDirectory}/.local/share/nvim/mason"
 
-    # AstroNvim template
     rm -rf "$nvim_dir"
     cp -r ${astronvimTemplate} "$nvim_dir"
     chmod -R u+w "$nvim_dir"
@@ -64,7 +63,6 @@ in
     ${yaziLua}
     EOF
 
-    # Link codelldb from nixpkgs into Mason so it stop trying to download
     mkdir -p "$mason_dir/packages/codelldb"
     ln -sf ${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb "$mason_dir/packages/codelldb/codelldb"
     mkdir -p "$mason_dir/bin"

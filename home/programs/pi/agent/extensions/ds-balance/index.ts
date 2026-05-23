@@ -1,13 +1,3 @@
-/**
- * DeepSeek Balance Extension for Pi Coding Agent
- *
- * Check DeepSeek account balance with `/ds-balance` command.
- * Reads API key from DEEPSEEK_API_KEY environment variable.
- *
- * Usage:
- * - `/ds-balance` - Show current DeepSeek balance
- */
-
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 
 interface BalanceInfo {
