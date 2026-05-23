@@ -67,7 +67,6 @@ in
     # Link codelldb from nixpkgs into Mason so it stop trying to download
     mkdir -p "$mason_dir/packages/codelldb"
     ln -sf ${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb "$mason_dir/packages/codelldb/codelldb"
-    chmod +x "$mason_dir/packages/codelldb/codelldb"
     mkdir -p "$mason_dir/bin"
     ln -sf ../packages/codelldb/codelldb "$mason_dir/bin/codelldb"
   '';
