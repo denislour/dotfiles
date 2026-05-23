@@ -20,7 +20,7 @@ in
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
-    withNodeJs = false;
+    withNodeJs = true;
     withRuby = false;
     withPython3 = false;
   };
