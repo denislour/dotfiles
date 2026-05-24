@@ -14,7 +14,7 @@
     ../../home/programs/starship.nix
     ../../home/programs/delta.nix
     ../../home/programs/eza.nix
-    ../../home/programs/fastfetch.nix
+    ../../home/programs/fastfetch
     ../../home/programs/fd.nix
     ../../home/programs/ghostty.nix
     ../../home/programs/glow.nix
