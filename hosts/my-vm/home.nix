@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   home.username = "jake";
@@ -28,7 +28,7 @@
     ../../home/programs/zsh.nix
   ];
 
-  home.packages = import ../../home/packages.nix { inherit pkgs inputs; };
+  home.packages = import ../../home/packages.nix { inherit pkgs; };
 
   gtk = {
     enable = true;

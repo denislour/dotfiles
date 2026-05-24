@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 with pkgs; [
   cliphist
@@ -11,5 +11,4 @@ with pkgs; [
   wl-clipboard
   wl-clip-persist
   wlsunset
-  inputs.zen-browser.packages.${pkgs.system}.default
 ]
