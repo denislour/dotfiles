@@ -10,5 +10,5 @@ with pkgs; [
   trunk
   wl-clipboard
   wl-clip-persist
-  wlsunset
+  wl-gammarelay-rs
 ]
