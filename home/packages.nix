@@ -10,5 +10,6 @@ with pkgs; [
   trunk
   wl-clipboard
   wl-clip-persist
+  wlsunset
   inputs.zen-browser.packages.${pkgs.system}.default
 ]

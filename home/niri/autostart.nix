@@ -2,6 +2,8 @@
 
 {
   programs.niri.settings.spawn-at-startup = [
+    { command = [ "wlsunset" "-t" "6500" "-T" "6500" ]; }
+
     { command = [ "noctalia-shell" ]; }
 
     { command = [ "wl-clip-persist" "--clipboard" "both" ]; }
