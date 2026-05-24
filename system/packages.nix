@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -16,8 +16,8 @@
     wl-clip-persist
     xwayland-satellite
     zip
-    zen-browser
     adwaita-qt
     adwaita-qt6
+    inputs.zen-browser.packages.${pkgs.system}.default
   ];
 }
