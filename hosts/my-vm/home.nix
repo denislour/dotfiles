@@ -27,7 +27,7 @@
     ../../home/programs/zsh.nix
   ];
 
-  home.packages = import ../../home/packages.nix { inherit pkgs; };
+  home.packages = import ../../home/programs/packages.nix { inherit pkgs; };
 
   gtk = {
     enable = true;
