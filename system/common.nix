@@ -1,8 +1,8 @@
-{ lib, ... }:
+{ ... }:
 
 {
   programs.nix-ld.enable = true;
-  qt.enable = lib.mkForce false;
+  qt.enable = true;
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
