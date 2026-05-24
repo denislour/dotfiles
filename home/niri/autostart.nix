@@ -2,7 +2,7 @@
 
 {
   programs.niri.settings.spawn-at-startup = [
-    { command = [ "wlsunset" "-t" "6500" "-T" "6500" ]; }
+    { command = [ "wlsunset" "-t" "7500" "-T" "7500" ]; }
 
     { command = [ "noctalia-shell" ]; }
 
