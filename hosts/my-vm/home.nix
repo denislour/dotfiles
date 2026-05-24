@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.username = "jake";
@@ -17,8 +17,6 @@
     ../../home/programs/fastfetch
     ../../home/programs/fd.nix
     ../../home/programs/ghostty.nix
-    ../../home/programs/glow.nix
-    ../../home/programs/lazygit.nix
     ../../home/programs/librewolf
     ../../home/programs/git.nix
     ../../home/programs/pi
@@ -29,7 +27,7 @@
     ../../home/programs/zsh.nix
   ];
 
-  home.packages = import ./packages.nix { inherit pkgs; };
+  home.packages = import ../../home/packages.nix { inherit pkgs; };
 
   gtk = {
     enable = true;
@@ -40,6 +38,4 @@
   };
 
   programs.home-manager.enable = true;
-
-
 }
