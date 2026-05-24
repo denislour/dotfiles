@@ -21,6 +21,9 @@ in
       "browser.theme.content-theme" = 0;
       "layout.css.prefers-color-scheme.content-override" = 0;
       "ui.systemUsesDarkTheme" = 1;
+      "font.size.variable.x-western" = 16;
+      "font.size.monospace.x-western" = 14;
+      "font.minimum-size.x-western" = 14;
       "privacy.resistFingerprinting" = false;
       "privacy.fingerprintingProtection" = true;
       "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme";
