@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   home.username = "jake";
@@ -17,8 +17,9 @@
     ../../home/programs/fastfetch
     ../../home/programs/fd.nix
     ../../home/programs/ghostty.nix
-    ../../home/programs/librewolf
     ../../home/programs/git.nix
+    ../../home/programs/lazygit.nix
+    ../../home/programs/librewolf
     ../../home/programs/pi
     ../../home/programs/ripgrep.nix
     ../../home/programs/zed-editor
@@ -27,7 +28,7 @@
     ../../home/programs/zsh.nix
   ];
 
-  home.packages = import ../../home/programs/packages.nix { inherit pkgs; };
+  home.packages = import ../../home/packages.nix { inherit pkgs inputs; };
 
   gtk = {
     enable = true;
