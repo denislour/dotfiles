@@ -15,8 +15,6 @@
     zip
     adwaita-qt
     adwaita-qt6
-
-    # native build deps (cargo install, worker-build, openssl-sys)
     pkg-config
     openssl
   ];
