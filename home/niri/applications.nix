@@ -1,5 +1,5 @@
 { pkgs, ... }:
 
 {
-  terminal = "${pkgs.kitty}/bin/kitty";
+  terminal = "${pkgs.ghostty}/bin/ghostty";
 }

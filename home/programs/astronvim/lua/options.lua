@@ -1,12 +1,2 @@
 vim.opt.relativenumber = true
 vim.opt.number = true
-vim.opt.sidescroll = 1
-vim.opt.sidescrolloff = 8
-vim.keymap.set({ "n", "v" }, "<A-ScrollWheelUp>", "zh", { desc = "Scroll left" })
-vim.keymap.set({ "n", "v" }, "<A-2-ScrollWheelUp>", "2zh", { desc = "Scroll left x2" })
-vim.keymap.set({ "n", "v" }, "<A-3-ScrollWheelUp>", "3zh", { desc = "Scroll left x3" })
-vim.keymap.set({ "n", "v" }, "<A-4-ScrollWheelUp>", "4zh", { desc = "Scroll left x4" })
-vim.keymap.set({ "n", "v" }, "<A-ScrollWheelDown>", "zl", { desc = "Scroll right" })
-vim.keymap.set({ "n", "v" }, "<A-2-ScrollWheelDown>", "2zl", { desc = "Scroll right x2" })
-vim.keymap.set({ "n", "v" }, "<A-3-ScrollWheelDown>", "3zl", { desc = "Scroll right x3" })
-vim.keymap.set({ "n", "v" }, "<A-4-ScrollWheelDown>", "4zl", { desc = "Scroll right x4" })
