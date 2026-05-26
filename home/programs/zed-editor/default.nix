@@ -41,6 +41,7 @@ let
       "catppuccin-icons" = true;
       "nix" = true;
       "nvim-nightfox" = true;
+      "toml" = true;
     };
     auto_update = false;
     use_system_path_prompts = false;
@@ -50,14 +51,16 @@ let
     gutter.runnables = true;
     current_line_highlight = "all";
     tab_bar.show = true;
-    scrollbar.show = "never";
+    scrollbar.show = "always";
     toolbar = {
       agent_review = false;
       quick_actions = false;
     };
     indent_guides = {
+      enabled = true;
       background_coloring = "disabled";
       coloring = "fixed";
+      line_width = 1;
     };
     inlay_hints = {
       enabled = true;
@@ -122,6 +125,10 @@ let
         tab_size = 2;
         format_on_save = "on";
         language_servers = ["marksman"];
+      };
+      TOML = {
+        tab_size = 2;
+        format_on_save = "on";
       };
     };
     lsp = {
