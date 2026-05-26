@@ -24,4 +24,13 @@ in
   home.file.".pi/agent/skills/pi-extensions/SKILL.md".source = ./agent/skills/pi-extensions/SKILL.md;
   home.file.".pi/agent/extensions/caveman/index.ts".source = ./agent/extensions/caveman/index.ts;
   home.file.".pi/agent/extensions/ds-balance/index.ts".source = ./agent/extensions/ds-balance/index.ts;
+
+  home.activation.ensureDesignSystemsSymlink = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+    designs="${config.home.homeDirectory}/.pi/designs"
+    link="${config.home.homeDirectory}/.pi/agent/skills/design-systems"
+    if [ -d "$designs" ]; then
+      mkdir -p "$(dirname "$link")"
+      ln -sfn "$designs" "$link"
+    fi
+  '';
 }
