@@ -66,8 +66,8 @@ let
     format_on_save = "on";
     tab_size = 2;
     theme = {
-      mode = "light";
-      dark = "Carbonfox - opaque";
+      mode = "dark";
+      dark = "Duskfox - blurred";
       light = "Dayfox - opaque";
     };
     icon_theme = "Catppuccin Mocha";
@@ -80,7 +80,7 @@ let
       dlig = false;
       liga = false;
     };
-    terminal.font_size = 11;
+    terminal.font_size = 16;
     features.edit_prediction_provider = "none";
     git_panel = {
       dock = "left";
