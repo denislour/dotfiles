@@ -61,6 +61,7 @@ let
       enabled = true;
       show_background = true;
     };
+    buffer_line_height = { custom = 2 };
     show_whitespaces = "selection";
     colorize_brackets = true;
     format_on_save = "on";
@@ -72,15 +73,15 @@ let
     };
     icon_theme = "Catppuccin Mocha";
     ui_font_family = "JetBrainsMono Nerd Font";
-    ui_font_size = 22;
+    ui_font_size = 24;
     buffer_font_family = "JetBrainsMono Nerd Font";
-    buffer_font_size = 22;
+    buffer_font_size = 24;
     buffer_font_features = {
       calt = false;
       dlig = false;
       liga = false;
     };
-    terminal.font_size = 22;
+    terminal.font_size = 24;
     features.edit_prediction_provider = "none";
     git_panel = {
       dock = "left";
@@ -95,7 +96,7 @@ let
       enabled = true;
       dock = "right";
     };
-    agent_font_size = 22;
+    agent_font_size = 24;
     languages = {
       Nix = {
         tab_size = 2;
