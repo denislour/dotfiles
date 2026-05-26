@@ -72,15 +72,15 @@ let
     };
     icon_theme = "Catppuccin Mocha";
     ui_font_family = "JetBrainsMono Nerd Font";
-    ui_font_size = 16;
+    ui_font_size = 22;
     buffer_font_family = "JetBrainsMono Nerd Font";
-    buffer_font_size = 16;
+    buffer_font_size = 22;
     buffer_font_features = {
       calt = false;
       dlig = false;
       liga = false;
     };
-    terminal.font_size = 16;
+    terminal.font_size = 22;
     features.edit_prediction_provider = "none";
     git_panel = {
       dock = "left";
@@ -95,7 +95,7 @@ let
       enabled = true;
       dock = "right";
     };
-    agent_font_size = 16;
+    agent_font_size = 22;
     languages = {
       Nix = {
         tab_size = 2;
