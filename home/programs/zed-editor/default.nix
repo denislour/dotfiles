@@ -61,7 +61,7 @@ let
       enabled = true;
       show_background = true;
     };
-    buffer_line_height = { custom = 2 };
+    buffer_line_height = { custom = 2; };
     show_whitespaces = "selection";
     colorize_brackets = true;
     format_on_save = "on";
