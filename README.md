@@ -2,6 +2,10 @@
 
 NNN Stack: **N**ixOS + **N**iri + **N**octalia on VMware Workstation 17 Pro.
 
+## Screenshot
+
+![Desktop screenshot](images/desktop-screenshot.png)
+
 ## VM Settings
 
 | Setting | Value |
@@ -174,6 +178,8 @@ Secrets stored in `/run/secrets/`:
 
 ```
 ├── flake.nix
+├── images/             ← Screenshots
+│   └── desktop-screenshot.png
 ├── justfile
 ├── system/              ← System-level (NixOS)
 │   ├── common.nix       ← nix-ld, flakes, GC
