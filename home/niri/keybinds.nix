@@ -25,10 +25,8 @@ in
     "Alt+period".action.expel-window-from-column = { };
     "Alt+w".action.toggle-column-tabbed-display = { };
 
-    "Alt+s".action.switch-preset-column-width = { };
-    "Alt+Shift+r".action.switch-preset-column-width-back = { };
-    "Alt+minus".action.set-column-width = "-10%";
-    "Alt+equal".action.set-column-width = "+10%";
+    "Alt+minus".action.switch-preset-column-width-back = { };
+    "Alt+equal".action.switch-preset-column-width = { };
 
     "Alt+Shift+minus".action.set-window-height = "-10%";
     "Alt+Shift+equal".action.set-window-height = "+10%";
