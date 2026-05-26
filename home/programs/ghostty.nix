@@ -19,7 +19,6 @@
         "-calt"
       ];
       theme = "Catppuccin Mocha";
-      mouse-shift-capture = true;
     };
   };
 }
