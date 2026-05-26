@@ -85,7 +85,7 @@ let
     };
     terminal.font_size = 18;
     edit_predictions = {
-      mode = "none";
+      mode = "subtle";
     };
     git_panel = {
       dock = "left";
