@@ -11,8 +11,9 @@ in
     "Alt+Space".action.spawn = noctalia [ "launcher" "toggle" ];
 
     "Alt+q".action.close-window = { };
-    "Alt+f".action.fullscreen-window = { };
-    "Mod+Shift+f".action.set-column-width = "100%";
+    "Mod+f".action.fullscreen-window = { };
+    "Alt+f".action.screenshot = { };
+    "Alt+Shift+f".action.set-column-width = "100%";
     "Alt+t".action.toggle-window-floating = { };
     "Alt+m".action.move-column-to-workspace = 9;
     "Alt+Shift+m".action.focus-workspace = 9;
