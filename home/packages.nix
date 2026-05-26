@@ -8,6 +8,8 @@ with pkgs; [
   procs
   sd
   trunk
+  grim
+  slurp
   wl-clipboard
   wl-clip-persist
   wl-gammarelay-rs
