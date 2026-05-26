@@ -40,6 +40,7 @@ let
     auto_install_extensions = {
       "catppuccin-icons" = true;
       "nix" = true;
+      "nvim-nightfox" = true;
     };
     auto_update = false;
     use_system_path_prompts = false;
