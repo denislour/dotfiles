@@ -11,9 +11,10 @@ in
     "Alt+Space".action.spawn = noctalia [ "launcher" "toggle" ];
 
     "Alt+q".action.close-window = { };
-    "Mod+f".action.fullscreen-window = { };
-    "Alt+f".action.screenshot = { };
-    "Alt+Shift+f".action.spawn = [ "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy" ];
+    "Alt+f".action.fullscreen-window = { };
+    "Alt+Shift+f".action.set-column-width = "100%";
+    "Alt+s".action.screenshot = { };
+    "Alt+Shift+s".action.spawn = [ "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy" ];
     "Alt+t".action.toggle-window-floating = { };
     "Alt+m".action.move-column-to-workspace = 9;
     "Alt+Shift+m".action.focus-workspace = 9;
