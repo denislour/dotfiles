@@ -1,5 +1,11 @@
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.mouse = "a"
+vim.keymap.set({ "n", "v" }, "<ScrollWheelLeft>", "zh", { desc = "Scroll left" })
+vim.keymap.set({ "n", "v" }, "<ScrollWheelRight>", "zl", { desc = "Scroll right" })
 vim.keymap.set({ "n", "v" }, "<S-ScrollWheelUp>", "zh", { desc = "Scroll left" })
 vim.keymap.set({ "n", "v" }, "<S-ScrollWheelDown>", "zl", { desc = "Scroll right" })
+vim.keymap.set({ "n", "v" }, "<A-h>", "zh", { desc = "Scroll left" })
+vim.keymap.set({ "n", "v" }, "<A-l>", "zl", { desc = "Scroll right" })
+vim.keymap.set({ "n", "v" }, "<A-H>", "zH", { desc = "Scroll half screen left" })
+vim.keymap.set({ "n", "v" }, "<A-L>", "zL", { desc = "Scroll half screen right" })
