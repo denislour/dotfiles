@@ -39,6 +39,7 @@ let
     };
     auto_install_extensions = {
       "catppuccin-icons" = true;
+      "nix" = true;
     };
     auto_update = false;
     use_system_path_prompts = false;
@@ -82,7 +83,9 @@ let
       liga = false;
     };
     terminal.font_size = 24;
-    features.edit_prediction_provider = "none";
+    edit_predictions = {
+      mode = "none";
+    };
     git_panel = {
       dock = "left";
     };
@@ -96,7 +99,8 @@ let
       enabled = true;
       dock = "right";
     };
-    agent_font_size = 24;
+    agent_ui_font_size = 24;
+    agent_buffer_font_size = 24;
     languages = {
       Nix = {
         tab_size = 2;
