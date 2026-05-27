@@ -1,10 +1,6 @@
 { pkgs, config, lib, ... }:
 
 let
-  zedWrapper = pkgs.writeShellScriptBin "zeditor" ''
-    export DEEPSEEK_API_KEY="$(cat /run/secrets/deepseek_api_key 2>/dev/null || echo "")"
-    exec ${lib.getExe pkgs.zed-editor} "$@"
-  '';
   jsonFormat = pkgs.formats.json { };
   settingsJSON = jsonFormat.generate "zed-settings" {
     telemetry = {
@@ -115,10 +111,21 @@ let
       };
     };
   };
+
+  zedWithKey = pkgs.symlinkJoin {
+    name = "zed-with-key";
+    paths = [ pkgs.zed-editor ];
+    buildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      rm -f $out/bin/zeditor
+      makeWrapper ${pkgs.zed-editor}/bin/zeditor $out/bin/zeditor \
+        --run 'export DEEPSEEK_API_KEY="$(cat /run/secrets/deepseek_api_key 2>/dev/null || echo "")"'
+    '';
+  };
 in
 {
   home.packages = with pkgs; [
-    zedWrapper
+    zedWithKey
     rust-analyzer
     rustfmt
     pyright
