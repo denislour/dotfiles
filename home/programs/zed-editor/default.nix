@@ -1,36 +1,10 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 let
-  lspPackages = with pkgs; [
-    rust-analyzer
-    rustfmt
-    pyright
-    marksman
-    nil
-    alejandra
-  ];
-  lspBinPath = pkgs.buildEnv {
-    name = "zed-lsp-env";
-    paths = lspPackages;
-    pathsToLink = ["/bin"];
-  };
-  zedWithLSP = pkgs.symlinkJoin {
-    name = "zed-with-lsp";
-    paths = [pkgs.zed-editor];
-    buildInputs = [pkgs.makeWrapper];
-    postBuild = ''
-      rm -rf $out/bin
-      mkdir -p $out/bin
-      makeWrapper ${pkgs.zed-editor}/bin/zeditor $out/bin/zeditor \
-        --prefix PATH : ${lspBinPath}/bin \
-        --run 'export DEEPSEEK_API_KEY=$(cat /run/secrets/deepseek_api_key 2>/dev/null || echo "")'
-      for bin in ${pkgs.zed-editor}/bin/*; do
-        if [ "$(basename $bin)" != "zeditor" ]; then
-          ln -s $bin $out/bin/$(basename $bin)
-        fi
-      done
-    '';
-  };
+  zedWrapper = pkgs.writeShellScriptBin "zeditor" ''
+    export DEEPSEEK_API_KEY="$(cat /run/secrets/deepseek_api_key 2>/dev/null || echo "")"
+    exec ${lib.getExe pkgs.zed-editor} "$@"
+  '';
   settings = {
     telemetry = {
       diagnostics = false;
@@ -144,7 +118,15 @@ let
   };
 in
 {
-  home.packages = [zedWithLSP];
+  home.packages = with pkgs; [
+    zedWrapper
+    rust-analyzer
+    rustfmt
+    pyright
+    marksman
+    nil
+    alejandra
+  ];
 
   sops.templates."zed-settings".content = builtins.toJSON settings;
   home.file.".config/zed/settings.json".source = config.sops.templates."zed-settings".path;
