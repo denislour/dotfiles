@@ -7,6 +7,7 @@
     procs
     sd
     trunk
+    zig
     grim
     slurp
     wl-clipboard

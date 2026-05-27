@@ -37,6 +37,7 @@ in
     rustc cargo rust-analyzer rustfmt
     python3 pyright
     ruby solargraph
+    zig
     tree-sitter
     gcc
     vscode-extensions.vadimcn.vscode-lldb
