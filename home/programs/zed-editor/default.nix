@@ -31,8 +31,7 @@ let
       done
     '';
   };
-  jsonFormat = pkgs.formats.json { };
-  settingsJSON = jsonFormat.generate "zed-settings" {
+  settings = {
     telemetry = {
       diagnostics = false;
       metrics = false;
@@ -42,6 +41,7 @@ let
       "nix" = true;
       "nvim-nightfox" = true;
       "toml" = true;
+      "mcp-server-brave-search" = true;
     };
     auto_update = false;
     use_system_path_prompts = false;
@@ -139,10 +139,13 @@ let
         };
       };
     };
+    context_servers."mcp-server-brave-search".settings.brave_api_key =
+      "${config.sops.placeholder.brave_search_api_key}";
   };
 in
 {
   home.packages = [zedWithLSP];
 
-  home.file.".config/zed/settings.json".source = settingsJSON;
+  sops.templates."zed-settings".content = builtins.toJSON settings;
+  home.file.".config/zed/settings.json".source = config.sops.templates."zed-settings".path;
 }
