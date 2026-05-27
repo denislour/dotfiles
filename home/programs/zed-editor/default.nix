@@ -38,7 +38,11 @@ let
       show_background = true;
     };
     buffer_line_height = "comfortable";
-    show_whitespaces = "selection";
+    show_whitespaces = "all";
+    whitespace_map = {
+      space = "·";
+      tab = "→";
+    };
     colorize_brackets = true;
     format_on_save = "on";
     tab_size = 2;
