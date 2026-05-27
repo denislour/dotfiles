@@ -69,7 +69,6 @@
           ./system/programs/xdg-portal.nix
           ./system/services/ssh.nix
 
-          inputs.sops-nix.homeManagerModules.sops
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
