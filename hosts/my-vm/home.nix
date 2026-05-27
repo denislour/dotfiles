@@ -26,9 +26,8 @@
     ../../home/programs/yazi.nix
     ../../home/programs/zoxide.nix
     ../../home/programs/zsh.nix
+    ../../home/packages.nix
   ];
-
-  home.packages = import ../../home/packages.nix { inherit pkgs; };
 
   gtk = {
     enable = true;
