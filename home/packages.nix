@@ -2,10 +2,13 @@
   home.packages = with pkgs; [
     cliphist
     dust
+    epiphany
+    gitui
     glow
     just
     procs
     sd
+    tig
     trunk
     grim
     slurp
