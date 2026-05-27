@@ -130,9 +130,10 @@ in
   home.file.".config/zed/settings.json".source = settingsJSON;
 
   home.activation.injectBraveSearchMCP = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    ${pkgs.jq}/bin/jq '.context_servers["mcp-server-brave-search"].settings.brave_api_key = $api_key' \
-      --arg api_key "$(cat /run/secrets/brave_search_api_key 2>/dev/null || echo "")" \
-      ${config.home.homeDirectory}/.config/zed/settings.json > /tmp/zed-settings.json \
-      && mv /tmp/zed-settings.json ${config.home.homeDirectory}/.config/zed/settings.json
+    settings=${config.home.homeDirectory}/.config/zed/settings.json
+    secret=$(cat /run/secrets/brave_search_api_key 2>/dev/null || echo "")
+    tmp=$(mktemp)
+    ${pkgs.jq}/bin/jq --arg key "$secret" '.context_servers["mcp-server-brave-search"].settings.brave_api_key = $key' \
+      "$settings" > "$tmp" && mv "$tmp" "$settings"
   '';
 }
