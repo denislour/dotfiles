@@ -77,6 +77,10 @@ let
     agent = {
       enabled = true;
       dock = "right";
+      default_model = {
+        provider = "deepseek";
+        model = "deepseek-v4-flash";
+      };
       tool_permissions = {
         default = "allow";
         tools = {
