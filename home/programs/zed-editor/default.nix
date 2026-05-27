@@ -17,6 +17,7 @@ let
     auto_update = false;
     use_system_path_prompts = false;
     restore_on_startup = "last_session";
+    base_keymap = "JetBrains";
     vim_mode = false;
     relative_line_numbers = "disabled";
     gutter.runnables = true;
