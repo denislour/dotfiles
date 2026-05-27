@@ -43,7 +43,7 @@
           { proportion = 1.00; }
         ];
 
-        default-column-width = { proportion = 0.5; };
+        default-column-width = { proportion = 1.0; };
       };
 
       overview = {
