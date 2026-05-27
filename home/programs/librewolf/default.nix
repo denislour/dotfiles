@@ -50,7 +50,7 @@ in
       extraConfig = "";
       userChrome = "";
       userContent = "";
-      search.default = "Google";
+      search.default = "google";
     };
   };
 

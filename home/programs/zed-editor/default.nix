@@ -173,7 +173,10 @@ in
     alejandra
   ];
 
-  home.file.".config/zed/settings.json".source = settingsJSON;
+  home.file.".config/zed/settings.json" = {
+    source = settingsJSON;
+    force = true;
+  };
 
   home.activation.injectBraveSearchMCP = lib.hm.dag.entryAfter ["writeBoundary"] ''
     settings=${config.home.homeDirectory}/.config/zed/settings.json
