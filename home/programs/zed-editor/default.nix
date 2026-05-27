@@ -73,6 +73,45 @@ let
     agent = {
       enabled = true;
       dock = "right";
+      tool_permissions = {
+        default = "allow";
+        tools = {
+          terminal = {
+            default = "confirm";
+            always_allow = [
+              { pattern = "^cargo\\s+(build|test|check|run)"; }
+              { pattern = "^nix\\s+(build|run|flake|develop|search)"; }
+              { pattern = "^home-manager\\s+switch"; }
+              { pattern = "^git\\s+(add|commit|push|pull|log|diff|status|branch|checkout)"; }
+              { pattern = "^just\\s+(rebuild|update|upgrade|clean)"; }
+              { pattern = "^mkdir\\s+-p"; }
+              { pattern = "^ls\\b"; }
+              { pattern = "^cat\\b"; }
+            ];
+            always_confirm = [
+              { pattern = "sudo\\s+/"; }
+              { pattern = "rm\\s+-rf\\s+/"; }
+              { pattern = "chmod\\s+777"; }
+            ];
+          };
+          write_file = {
+            default = "allow";
+            always_confirm = [
+              { pattern = "/etc/"; }
+              { pattern = "/run/secrets/"; }
+            ];
+          };
+          delete_path = {
+            default = "confirm";
+          };
+          "mcp:mcp-server-brave-search:brave_web_search" = {
+            default = "allow";
+          };
+          "mcp:mcp-server-brave-search:brave_local_search" = {
+            default = "allow";
+          };
+        };
+      };
     };
     agent_ui_font_size = 22;
     agent_buffer_font_size = 22;
