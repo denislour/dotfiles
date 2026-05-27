@@ -178,6 +178,8 @@ in
     force = true;
   };
 
+  home.file.".config/zed/AGENTS.md".source = ./AGENTS.md;
+
   home.activation.injectBraveSearchMCP = lib.hm.dag.entryAfter ["writeBoundary"] ''
     settings=${config.home.homeDirectory}/.config/zed/settings.json
     secret=$(cat /run/secrets/brave_search_api_key 2>/dev/null || echo "")
