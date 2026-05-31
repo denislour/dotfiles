@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+  xdg.mime.enable = true;
   programs.brave = {
     enable = true;
     commandLineArgs = [
