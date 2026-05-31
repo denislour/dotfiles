@@ -4,8 +4,8 @@
     dust
     glow
     just
+    kdePackages.falkon
     procs
-    qutebrowser
     sd
     trunk
     zig
