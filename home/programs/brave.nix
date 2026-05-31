@@ -1,11 +1,12 @@
 { pkgs, ... }: {
   xdg.mimeApps.enable = true;
+
   programs.brave = {
     enable = true;
     commandLineArgs = [
-      "--enable-features=WebContentsForceDark"
+      "--force-dark-mode"
+      "--enable-features=WebContentsForceDark:inversion_method/cielab_based/image_behavior/none"
       "--ozone-platform-hint=auto"
-      "--enable-features=WaylandWindowDecorations"
     ];
   };
 
