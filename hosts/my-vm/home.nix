@@ -19,7 +19,7 @@
     ../../home/programs/ghostty.nix
     ../../home/programs/git.nix
     ../../home/programs/lazygit.nix
-    ../../home/programs/librewolf
+    ../../home/programs/brave
     ../../home/programs/pi
     ../../home/programs/ripgrep.nix
     ../../home/programs/zed-editor

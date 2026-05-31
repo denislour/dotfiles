@@ -16,6 +16,5 @@
     wrangler
     worker-build
     sqlite
-    brave
   ];
 }
