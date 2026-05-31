@@ -16,5 +16,6 @@
     wrangler
     worker-build
     sqlite
+    ungoogled-chromium
   ];
 }
