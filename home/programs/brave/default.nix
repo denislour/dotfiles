@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  xdg.mime.enable = true;
+  xdg.mimeApps.enable = true;
   programs.brave = {
     enable = true;
     commandLineArgs = [
@@ -9,7 +9,7 @@
     ];
   };
 
-  xdg.mime.defaultApplications = {
+  xdg.mimeApps.defaultApplications = {
     "x-scheme-handler/http" = "brave-browser.desktop";
     "x-scheme-handler/https" = "brave-browser.desktop";
     "x-scheme-handler/chrome" = "brave-browser.desktop";
