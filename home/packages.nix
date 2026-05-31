@@ -5,6 +5,7 @@
     glow
     just
     procs
+    qutebrowser
     sd
     trunk
     zig
