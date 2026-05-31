@@ -1,10 +1,17 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }:
+
+let
+  falkonLight = pkgs.writeShellScriptBin "falkon" ''
+    export QT_STYLE_OVERRIDE=fusion
+    exec ${lib.getExe pkgs.kdePackages.falkon} "$@"
+  '';
+in {
   home.packages = with pkgs; [
+    falkonLight
     cliphist
     dust
     glow
     just
-    kdePackages.falkon
     procs
     sd
     trunk
