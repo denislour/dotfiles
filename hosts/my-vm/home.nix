@@ -21,6 +21,7 @@
     ../../home/programs/lazygit.nix
     ../../home/programs/librewolf
     ../../home/programs/pi
+    ../../home/programs/qutebrowser.nix
     ../../home/programs/ripgrep.nix
     ../../home/programs/zed-editor
     ../../home/programs/yazi.nix
