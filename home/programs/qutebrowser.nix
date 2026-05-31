@@ -1,6 +1,14 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+
+let
+  quteLight = pkgs.writeShellScriptBin "qutebrowser" ''
+    export QT_WEBENGINE_DISABLE_VULKAN=1
+    exec ${lib.getExe pkgs.qutebrowser} "$@"
+  '';
+in {
   programs.qutebrowser = {
     enable = true;
+    package = quteLight;
     settings = {
       colors = {
         webpage.darkmode.enabled = false;
