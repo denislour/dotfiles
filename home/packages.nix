@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   home.packages = with pkgs; [
     cliphist
     dust
@@ -16,5 +16,7 @@
     wrangler
     worker-build
     sqlite
+  ] ++ [
+    inputs.helium.packages.${pkgs.system}.default
   ];
 }
