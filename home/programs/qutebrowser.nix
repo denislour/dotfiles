@@ -1,14 +1,6 @@
-{ pkgs, lib, ... }:
-
-let
-  quteLight = pkgs.writeShellScriptBin "qutebrowser" ''
-    export QT_STYLE_OVERRIDE=fusion
-    exec ${lib.getExe pkgs.qutebrowser} "$@"
-  '';
-in {
+{ pkgs, lib, ... }: {
   programs.qutebrowser = {
     enable = true;
-    package = quteLight;
     settings = {
       colors = {
         webpage.darkmode.enabled = false;
