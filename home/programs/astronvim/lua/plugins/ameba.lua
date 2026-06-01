@@ -16,6 +16,17 @@ return {
     ft = { "crystal" },
   },
   {
+    "AstroNvim/astrolsp",
+    opts = {
+      formatting = {
+        format_on_save = {
+          enabled = true,
+          ignore_filetypes = { "crystal" },
+        },
+      },
+    },
+  },
+  {
     "mfussenegger/nvim-lint",
     config = function()
       local lint = require("lint")
