@@ -11,10 +11,8 @@ return {
   },
   {
     "mfussenegger/nvim-lint",
-    opts = {
-      linters_by_ft = {
-        crystal = { "ameba" },
-      },
-    },
+    config = function()
+      require("lint").linters_by_ft.crystal = { "ameba" }
+    end,
   },
 }
