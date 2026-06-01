@@ -2,7 +2,7 @@
 
 {
   programs.niri.settings.spawn-at-startup = [
-    { command = [ "sh" "-c" "wl-gammarelay-rs & sleep 0.5 && gdbus call --session --dest rs.wl.gammarelay --object-path / --method rs.wl.gammarelay.UpdateGamma '(ddd)' 0.85 1.0 1.0" ]; }
+    { command = [ "sh" "-c" "wl-gammarelay-rs & sleep 0.5 && busctl --user set-property rs.wl.gammarelay / rs.wl.gammarelay Temperature q 7500" ]; }
 
     { command = [ "noctalia-shell" ]; }
 
