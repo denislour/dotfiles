@@ -7,7 +7,7 @@ let
       owner = "navid-m";
       repo = "liger";
       rev = "v0.1.2";
-      sha256 = lib.fakeSha256;
+      sha256 = "sha256-yyiZU9e8qIqO83QrThhKxR08sBYqyxGTGBCTLu+KWi4=";
     };
     buildInputs = [ pkgs.crystal ];
     buildPhase = ''
