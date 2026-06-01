@@ -41,11 +41,6 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [
-          (final: prev: {
-            liger = final.callPackage ./pkgs/liger { };
-          })
-        ];
       };
     in {
       diskoConfigurations = {
@@ -72,6 +67,11 @@
           ./system/programs/stylix.nix
           ./system/programs/xdg-portal.nix
           ./system/services/ssh.nix
+          {
+            nixpkgs.overlays = [
+              (import ./pkgs/overlay.nix)
+            ];
+          }
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
