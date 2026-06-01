@@ -1,5 +1,11 @@
 return {
   {
+    "AstroNvim/astrocore",
+    opts = {
+      filetypes = { extension = { cr = "crystal" } },
+    },
+  },
+  {
     "AstroNvim/astrolsp",
     opts = {
       servers = {
@@ -11,16 +17,6 @@ return {
           filetypes = { "crystal" },
           root_dir = require("lspconfig.util").root_pattern("shard.yml", ".git", ".ameba.yml"),
           settings = {},
-        },
-      },
-    },
-  },
-  {
-    "AstroNvim/astrocore",
-    opts = {
-      features = {
-        treesitter = {
-          ensure_installed = { "crystal" },
         },
       },
     },
