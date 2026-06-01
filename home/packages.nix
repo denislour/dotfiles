@@ -9,7 +9,6 @@
     trunk
     zig
     crystal
-    liger
     ameba
     grim
     slurp

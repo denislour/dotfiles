@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
 {
-  nixpkgs.overlays = [
-    (import ../../pkgs/overlay.nix)
-  ];
-
   home.username = "jake";
   home.homeDirectory = "/home/jake";
   home.stateVersion = "25.05";
@@ -31,6 +27,7 @@
     ../../home/programs/zoxide.nix
     ../../home/programs/zsh.nix
     ../../home/packages.nix
+    ../../home/programs/liger
   ];
 
   gtk = {
