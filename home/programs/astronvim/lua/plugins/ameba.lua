@@ -1,15 +1,5 @@
 return {
   {
-    "AstroNvim/astrocore",
-    opts = {
-      filetypes = { extension = { cr = "crystal" } },
-    },
-  },
-  {
-    "vim-crystal/vim-crystal",
-    ft = { "crystal" },
-  },
-  {
     "AstroNvim/astrolsp",
     opts = {
       formatting = {
