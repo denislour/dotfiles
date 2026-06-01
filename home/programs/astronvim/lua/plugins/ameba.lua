@@ -10,18 +10,10 @@ return {
     ft = { "crystal" },
   },
   {
-    "AstroNvim/astrolsp",
+    "mfussenegger/nvim-lint",
     opts = {
-      servers = {
-        "ameba",
-      },
-      config = {
-        ameba = {
-          cmd = { "ameba-ls" },
-          filetypes = { "crystal" },
-          root_markers = { "shard.yml", ".ameba.yml", ".git" },
-          settings = {},
-        },
+      linters_by_ft = {
+        crystal = { "ameba" },
       },
     },
   },
