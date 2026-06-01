@@ -13,6 +13,8 @@
     wl-clipboard
     wl-clip-persist
     wl-gammarelay-rs
+    wl-gammarelay-applet
+    brightnessctl
     wrangler
     worker-build
     sqlite
