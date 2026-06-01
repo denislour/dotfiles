@@ -41,6 +41,11 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        overlays = [
+          (final: prev: {
+            liger = final.callPackage ./pkgs/liger { };
+          })
+        ];
       };
     in {
       diskoConfigurations = {
