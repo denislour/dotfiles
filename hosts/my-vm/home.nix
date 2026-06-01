@@ -27,7 +27,7 @@
     ../../home/programs/zoxide.nix
     ../../home/programs/zsh.nix
     ../../home/packages.nix
-    ../../home/programs/liger
+    ../../home/programs/liger.nix
   ];
 
   gtk = {
