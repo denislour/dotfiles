@@ -21,6 +21,7 @@ let
     cp "${luaSrc}/plugins/yazi.lua" "$out/lua/plugins/yazi.lua"
     cp "${luaSrc}/plugins/glow.lua" "$out/lua/plugins/glow.lua"
     cp "${luaSrc}/plugins/crystal.lua" "$out/lua/plugins/crystal.lua"
+    cp "${luaSrc}/plugins/mint.lua" "$out/lua/plugins/mint.lua"
   '';
 in
 {

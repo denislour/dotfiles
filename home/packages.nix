@@ -9,6 +9,7 @@
     trunk
     zig
     crystal
+    mint
     ameba
     grim
     slurp
