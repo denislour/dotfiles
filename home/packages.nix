@@ -9,6 +9,8 @@
     trunk
     zig
     crystal
+    ameba
+    ameba-ls
     grim
     slurp
     wl-clipboard
