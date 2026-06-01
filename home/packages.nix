@@ -12,6 +12,7 @@
     slurp
     wl-clipboard
     wl-clip-persist
+    xrandr
     wrangler
     worker-build
     sqlite
