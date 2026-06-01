@@ -6,6 +6,12 @@ return {
   {
     "AstroNvim/astrolsp",
     opts = {
+      formatting = {
+        format_on_save = {
+          enabled = true,
+          ignore_filetypes = { "crystal" },
+        },
+      },
       servers = {
         "liger",
       },
