@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  nixpkgs.overlays = [
+    (import ../../pkgs/overlay.nix)
+  ];
+
   home.username = "jake";
   home.homeDirectory = "/home/jake";
   home.stateVersion = "25.05";

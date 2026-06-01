@@ -67,14 +67,9 @@
           ./system/programs/stylix.nix
           ./system/programs/xdg-portal.nix
           ./system/services/ssh.nix
-          {
-            nixpkgs.overlays = [
-              (import ./pkgs/overlay.nix)
-            ];
-          }
 
           home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
+            home-manager.useGlobalPkgs = false;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "hm-backup";
             home-manager.extraSpecialArgs = { inherit inputs; };
