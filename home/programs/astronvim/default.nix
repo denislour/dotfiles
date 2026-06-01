@@ -20,6 +20,7 @@ let
     cp "${luaSrc}/plugins/nightfox.lua" "$out/lua/plugins/nightfox.lua"
     cp "${luaSrc}/plugins/yazi.lua" "$out/lua/plugins/yazi.lua"
     cp "${luaSrc}/plugins/glow.lua" "$out/lua/plugins/glow.lua"
+    cp "${luaSrc}/plugins/crystal.lua" "$out/lua/plugins/crystal.lua"
   '';
 in
 {

@@ -1,4 +1,24 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+let
+  liger = pkgs.stdenv.mkDerivation {
+    pname = "liger";
+    version = "0.1.3";
+    src = pkgs.fetchFromGitHub {
+      owner = "navid-m";
+      repo = "liger";
+      rev = "v0.1.2";
+      sha256 = lib.fakeSha256;
+    };
+    buildInputs = [ pkgs.crystal ];
+    buildPhase = ''
+      crystal build src/liger.cr --release -o liger
+    '';
+    installPhase = ''
+      mkdir -p $out/bin
+      cp liger $out/bin/
+    '';
+  };
+in {
   home.packages = with pkgs; [
     cliphist
     dust
@@ -9,8 +29,8 @@
     trunk
     zig
     crystal
+    liger
     ameba
-    ameba-ls
     grim
     slurp
     wl-clipboard
