@@ -6,6 +6,10 @@ return {
     },
   },
   {
+    "vim-crystal/vim-crystal",
+    ft = { "crystal" },
+  },
+  {
     "AstroNvim/astrolsp",
     opts = {
       servers = {
@@ -15,7 +19,7 @@ return {
         ameba = {
           cmd = { "ameba-ls" },
           filetypes = { "crystal" },
-          root_dir = require("lspconfig.util").root_pattern("shard.yml", ".git", ".ameba.yml"),
+          root_markers = { "shard.yml", ".ameba.yml", ".git" },
           settings = {},
         },
       },
