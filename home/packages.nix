@@ -8,6 +8,7 @@
     sd
     trunk
     zig
+    crystal
     grim
     slurp
     wl-clipboard
