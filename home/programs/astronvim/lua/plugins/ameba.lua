@@ -15,4 +15,14 @@ return {
       },
     },
   },
+  {
+    "AstroNvim/astrocore",
+    opts = {
+      features = {
+        treesitter = {
+          ensure_installed = { "crystal" },
+        },
+      },
+    },
+  },
 }
