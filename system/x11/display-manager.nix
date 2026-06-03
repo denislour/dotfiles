@@ -8,4 +8,6 @@
       user = "jake";
     };
   };
+
+  services.xserver.displayManager.defaultSession = "i3";
 }

@@ -24,6 +24,7 @@
 
   services.xserver.enable = true;
   services.xserver.windowManager.i3.enable = true;
+  services.xserver.displayManager.lightdm.enable = true;
 
   virtualisation.vmware.guest.enable = true;
 
