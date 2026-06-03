@@ -6,7 +6,7 @@
   home.stateVersion = "25.05";
 
   imports = [
-    ../../home/niri
+    ../../home/wayland
     ../../home/programs/astronvim
     ../../home/programs/atuin.nix
     ../../home/programs/bat.nix

@@ -11,7 +11,6 @@
     killall
     libnotify
     unzip
-    xwayland-satellite
     zip
     adwaita-qt
     adwaita-qt6

@@ -16,6 +16,7 @@
     wl-clipboard
     wl-clip-persist
     xrandr
+    xwayland-satellite
     wrangler
     worker-build
     sqlite
