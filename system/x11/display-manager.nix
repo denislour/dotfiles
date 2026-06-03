@@ -9,5 +9,5 @@
     };
   };
 
-  services.xserver.displayManager.defaultSession = "i3";
+  services.xserver.displayManager.defaultSession = "none+i3";
 }
