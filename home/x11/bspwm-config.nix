@@ -7,9 +7,7 @@ in
   xsession.windowManager.bspwm = {
     enable = true;
 
-    monitors = {
-      eDP-1 = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" ];
-    };
+    monitors = {};
 
     settings = {
       border_width = 2;
@@ -37,6 +35,7 @@ in
     startupPrograms = [
       "${pkgs.picom}/bin/picom -b"
       "${pkgs.feh}/bin/feh --bg-scale ${../../system/wallpapers/default.jpg}"
+      "${pkgs.sxhkd}/bin/sxhkd -c ${config.xdg.configHome}/sxhkd/sxhkdrc &"
     ];
 
     extraConfig = ''

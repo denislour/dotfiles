@@ -6,4 +6,6 @@
   };
 
   services.xserver.displayManager.defaultSession = "none+bspwm";
+
+  environment.pathsToLink = [ "/share/xsessions" ];
 }
