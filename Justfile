@@ -1,25 +1,34 @@
-rebuild:
-    sudo nixos-rebuild switch --flake .#my-vm
+rebuild host='my-vm':
+    sudo nixos-rebuild switch --flake .#{{host}}
     sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2
     nix-env --delete-generations +2 || true
     sudo nix-collect-garbage -d
     sudo nix-store --optimise
 
-update:
+rebuild-x11:
+    just rebuild host=my-vm-x11
+
+update host='my-vm':
     cd ~/nixos && git pull
-    sudo nixos-rebuild switch --flake .#my-vm
+    sudo nixos-rebuild switch --flake .#{{host}}
     sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2
     nix-env --delete-generations +2 || true
     sudo nix-collect-garbage
     sudo reboot
 
-upgrade:
+update-x11:
+    just update host=my-vm-x11
+
+upgrade host='my-vm':
     cd ~/nixos && nix flake update
-    sudo nixos-rebuild switch --flake .#my-vm
+    sudo nixos-rebuild switch --flake .#{{host}}
     sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2
     nix-env --delete-generations +2 || true
     sudo nix-collect-garbage
     sudo reboot
+
+upgrade-x11:
+    just upgrade host=my-vm-x11
 
 clean keep='3':
     sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +{{keep}}
