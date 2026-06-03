@@ -23,7 +23,6 @@
       alias top='btm'
       alias v='nvim'
       alias g='git'
-      alias z='zeditor'
       alias ff='fastfetch'
     '';
   };
