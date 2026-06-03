@@ -1,8 +1,6 @@
 # Terminal
 alt + Return
 	ghostty
-alt + f
-	ghostty
 
 # Launcher
 alt + d
@@ -19,7 +17,7 @@ alt + q
 	bspc node -k
 
 # Fullscreen
-alt + Shift + f
+alt + f
 	bspc node -t ~fullscreen
 
 # Focus direction
