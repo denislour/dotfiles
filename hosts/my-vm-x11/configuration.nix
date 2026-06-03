@@ -23,7 +23,7 @@
   hardware.graphics.enable = true;
 
   services.xserver.enable = true;
-  services.xserver.displayManager.startx.enable = true;
+  services.xserver.windowManager.i3.enable = true;
 
   virtualisation.vmware.guest.enable = true;
 
