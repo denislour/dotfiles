@@ -181,11 +181,6 @@ in
         }
 
         {
-          matches = [ { app-id = "^librewolf$"; } ];
-          open-fullscreen = false;
-        }
-
-        {
           matches = [ { title = "^Picture-in-Picture$"; } ];
           open-floating = true;
           default-floating-position = {
