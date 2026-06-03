@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  xdg.portal.config.i3 = {
+  xdg.portal.config.bspwm = {
     default = [ "gtk" ];
     "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
   };
