@@ -34,7 +34,7 @@ upgrade-reboot:
     just upgrade
     sudo reboot
 
-clean keep='5':
+clean keep='2':
     sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +{{keep}}
     nix-env --delete-generations +{{keep}} || true
     sudo nix-collect-garbage -d
