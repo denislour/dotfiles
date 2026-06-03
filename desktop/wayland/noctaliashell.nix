@@ -1,14 +1,10 @@
-{ inputs, config, ... }:
+{ config, ... }:
 
 let
   wallpaperFile = ../../system/wallpapers/default.jpg;
   wallpaperPath = "/home/${config.home.username}/.local/share/noctalia/wallpapers/default.jpg";
 in
 {
-  imports = [
-    inputs.noctalia.homeModules.default
-  ];
-
   programs.noctalia-shell = {
     enable = true;
 
