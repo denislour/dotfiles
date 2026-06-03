@@ -2,8 +2,6 @@ _host := 'my-vm'
 
 rebuild:
     sudo nixos-rebuild switch --flake .#{{_host}}
-    sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2
-    nix-env --delete-generations +2 || true
     sudo nix-collect-garbage -d
     sudo nix-store --optimise
 
@@ -11,44 +9,45 @@ rebuild-x11:
     just _host=my-vm-x11 rebuild
 
 update:
-    cd ~/nixos && git pull
+    git pull
     sudo nixos-rebuild switch --flake .#{{_host}}
-    sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2
-    nix-env --delete-generations +2 || true
-    sudo nix-collect-garbage
-    sudo reboot
+    sudo nix-collect-garbage -d
+    sudo nix-store --optimise
 
 update-x11:
     just _host=my-vm-x11 update
 
-upgrade:
-    cd ~/nixos && nix flake update
-    sudo nixos-rebuild switch --flake .#{{_host}}
-    sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2
-    nix-env --delete-generations +2 || true
-    sudo nix-collect-garbage
+update-reboot:
+    just update
     sudo reboot
+
+upgrade:
+    nix flake update
+    sudo nixos-rebuild switch --flake .#{{_host}}
+    sudo nix-collect-garbage -d
+    sudo nix-store --optimise
 
 upgrade-x11:
     just _host=my-vm-x11 upgrade
 
-clean keep='3':
+upgrade-reboot:
+    just upgrade
+    sudo reboot
+
+clean keep='5':
     sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +{{keep}}
-    sudo nix-env --delete-generations +{{keep}}
     nix-env --delete-generations +{{keep}} || true
     sudo nix-collect-garbage -d
     sudo nix-store --optimise
     sudo journalctl --vacuum-time=3d --vacuum-size=200M 2>/dev/null || true
     sudo rm -rf /nix/var/log/nix/drvs 2>/dev/null || true
-    echo "Kept last {{keep}} generations, cleaned old builds + logs."
+    echo "kept last {{keep}} generations"
 
 clean-all:
     sudo nix-collect-garbage -d
-    sudo nix-store --gc
     sudo nix-store --optimise
     nix-env --delete-generations old || true
     sudo journalctl --vacuum-time=1d --vacuum-size=100M 2>/dev/null || true
     sudo rm -rf /nix/var/log/nix/drvs 2>/dev/null || true
     sudo rm -rf /tmp/nix-build-* 2>/dev/null || true
-    echo "Full cleanup done."
-
+    echo "full cleanup done"
