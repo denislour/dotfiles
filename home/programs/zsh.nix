@@ -3,8 +3,12 @@
 {
   programs.zsh = {
     enable = true;
-    autocd = true;
     enableCompletion = true;
+    history = {
+      path = "/dev/null";
+      size = 0;
+      save = 0;
+    };
     initContent = ''
       source ${pkgs.fzf}/share/fzf/completion.zsh 2>/dev/null || true
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh 2>/dev/null || true
