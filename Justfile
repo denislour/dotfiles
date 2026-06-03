@@ -32,9 +32,6 @@ upgrade:
 upgrade-x11:
     just _host=my-vm-x11 upgrade
 
-matrix:
-    python3 scripts/module-matrix.py
-
 clean keep='3':
     sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +{{keep}}
     sudo nix-env --delete-generations +{{keep}}
