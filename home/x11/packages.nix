@@ -1,13 +1,14 @@
 { pkgs, lib, ... }: {
   home.packages = with pkgs; [
+    bspwm
     dunst
     feh
-    i3
     maim
     picom
     polybar
     redshift
     rofi
+    sxhkd
     slop
     xclip
     xsel

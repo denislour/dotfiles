@@ -3,6 +3,6 @@
 {
   imports = [
     ./packages.nix
-    ./i3-config.nix
+    ./bspwm-config.nix
   ];
 }
