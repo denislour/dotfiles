@@ -5,7 +5,7 @@
     enable = true;
   };
 
-  services.xserver.displayManager.defaultSession = "none+openbox";
+  services.xserver.displayManager.defaultSession = "none+bspwm";
 
   environment.pathsToLink = [ "/share/xsessions" ];
 }

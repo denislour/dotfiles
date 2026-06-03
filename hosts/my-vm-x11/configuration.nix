@@ -23,8 +23,8 @@
   hardware.graphics.enable = true;
 
   services.xserver.enable = true;
-  services.xserver.windowManager.bspwm.enable = false;
-  services.xserver.windowManager.openbox.enable = true;
+  services.xserver.windowManager.bspwm.enable = true;
+  services.xserver.windowManager.openbox.enable = false;
   services.xserver.displayManager.lightdm.enable = true;
 
   virtualisation.vmware.guest.enable = true;

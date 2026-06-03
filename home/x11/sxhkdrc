@@ -1,0 +1,61 @@
+# Terminal
+alt + Return
+	ghostty
+alt + f
+	ghostty
+
+# Launcher
+alt + d
+	rofi -show drun
+alt + Shift + d
+	rofi -show run
+alt + Tab
+	rofi -show window
+
+# Close window
+alt + F4
+	bspc node -c
+alt + q
+	bspc node -k
+
+# Fullscreen
+alt + Shift + f
+	bspc node -t ~fullscreen
+
+# Focus direction
+alt + h
+	bspc node -f west
+alt + j
+	bspc node -f south
+alt + k
+	bspc node -f north
+alt + l
+	bspc node -f east
+
+# Move window
+alt + Shift + h
+	bspc node -p west && bspc node -s west
+alt + Shift + j
+	bspc node -p south && bspc node -s south
+alt + Shift + k
+	bspc node -p north && bspc node -s north
+alt + Shift + l
+	bspc node -p east && bspc node -s east
+
+# Workspaces
+alt + {1-5}
+	bspc desktop -f ^{1-5}
+alt + Shift + {1-5}
+	bspc node -d ^{1-5}
+
+# Floating / tiled toggle
+alt + t
+	bspc node -t tiled
+alt + s
+	bspc node -t floating
+
+# Screenshot
+Print
+	maim ~/Pictures/Screenshots/Screenshot-%Y-%m-%d-%H-%M-%S.png
+Shift + Print
+	maim -s ~/Pictures/Screenshots/Screenshot-%Y-%m-%d-%H-%M-%S.png

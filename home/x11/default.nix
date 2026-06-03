@@ -3,6 +3,6 @@
 {
   imports = [
     ./packages.nix
-    ./openbox-config.nix
+    ./bspwm-config.nix
   ];
 }
