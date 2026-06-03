@@ -62,11 +62,6 @@
         }
       ];
     in {
-      diskoConfigurations = {
-        my-vm = import ./hosts/my-vm/disk-config.nix;
-        my-vm-x11 = import ./hosts/my-vm-x11/disk-config.nix;
-      };
-
       nixosConfigurations.my-vm = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
