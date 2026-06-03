@@ -61,12 +61,12 @@
           ./hosts/my-vm/configuration.nix
           ./system/packages.nix
           ./system/environment.nix
-          ./system/services/greetd.nix
           ./system/services/sops.nix
           ./system/common.nix
           ./system/programs/stylix.nix
           ./system/programs/xdg-portal.nix
           ./system/services/ssh.nix
+          ./system/wayland
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;

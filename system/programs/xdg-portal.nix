@@ -9,15 +9,9 @@
     configPackages = [
       pkgs.xdg-desktop-portal-gtk
     ];
-    config = {
-      common = {
-        default = [ "gtk" ];
-        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
-      };
-      niri = {
-        default = [ "gtk" ];
-        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
-      };
+    config.common = {
+      default = [ "gtk" ];
+      "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
     };
   };
 
