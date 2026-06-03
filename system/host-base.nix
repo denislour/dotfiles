@@ -1,4 +1,4 @@
-{ config, pkgs, lib, wallpaper, ... }:
+{ pkgs, wallpaper, ... }:
 
 {
   networking.networkmanager.enable = true;
