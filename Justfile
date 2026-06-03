@@ -13,26 +13,20 @@ update:
     sudo nixos-rebuild switch --flake .#{{_host}}
     sudo nix-collect-garbage -d
     sudo nix-store --optimise
+    sudo reboot
 
 update-x11:
     just _host=my-vm-x11 update
-
-update-reboot:
-    just update
-    sudo reboot
 
 upgrade:
     nix flake update
     sudo nixos-rebuild switch --flake .#{{_host}}
     sudo nix-collect-garbage -d
     sudo nix-store --optimise
+    sudo reboot
 
 upgrade-x11:
     just _host=my-vm-x11 upgrade
-
-upgrade-reboot:
-    just upgrade
-    sudo reboot
 
 clean keep='2':
     sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +{{keep}}
