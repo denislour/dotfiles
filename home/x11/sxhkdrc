@@ -5,6 +5,8 @@ alt + Return
 # Launcher
 alt + d
 	rofi -show drun
+alt + Space
+	rofi -show drun
 alt + Shift + d
 	rofi -show run
 alt + Tab
