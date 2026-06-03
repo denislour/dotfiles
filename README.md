@@ -106,8 +106,10 @@ sudo reboot
 - Mint lang: mint LSP
 - Default shell editor (`EDITOR=nvim`)
 
-### IDE — Zed
+### IDE — Zed (disabled)
 
+Zed is disabled by default due to VM resource constraints (laggy on 4 CPU / 8 GB RAM).
+Config kept at `home/programs/zed-editor/` for when needed.
 - Catppuccin Mocha icons theme
 - Panels: project, outline, git on left; agent on right
 - LSPs: rust-analyzer, pyright, marksman, nil (alejandra formatter)
