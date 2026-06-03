@@ -34,11 +34,14 @@ let
         <keybind key="A-F4">
           <action name="Close"/>
         </keybind>
+        <keybind key="A-f">
+          <action name="Execute"><command>ghostty</command></action>
+        </keybind>
+        <keybind key="A-S-f">
+          <action name="ToggleFullscreen"/>
+        </keybind>
         <keybind key="A-d">
           <action name="Execute"><command>rofi -show drun</command></action>
-        </keybind>
-        <keybind key="A-f">
-          <action name="ToggleFullscreen"/>
         </keybind>
         <keybind key="A-Tab">
           <action name="NextWindow"/>
