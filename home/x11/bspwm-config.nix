@@ -31,6 +31,19 @@ in
     '';
   };
 
+  systemd.user.services.redshift = {
+    Unit = {
+      Description = "Redshift color temperature adjustment";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.redshift}/bin/redshift -t 5500:4500 -l 10.8:106.7";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
+
   systemd.user.services.dunst = {
     Unit = {
       Description = "Dunst notification daemon";
