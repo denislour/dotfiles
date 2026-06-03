@@ -34,10 +34,10 @@ let
         <keybind key="A-F4">
           <action name="Close"/>
         </keybind>
-        <keybind key="W-d">
+        <keybind key="A-d">
           <action name="Execute"><command>rofi -show drun</command></action>
         </keybind>
-        <keybind key="W-f">
+        <keybind key="A-f">
           <action name="ToggleFullscreen"/>
         </keybind>
         <keybind key="A-Tab">
@@ -46,19 +46,19 @@ let
         <keybind key="S-A-Tab">
           <action name="PreviousWindow"/>
         </keybind>
-        <keybind key="W-1">
+        <keybind key="A-1">
           <action name="Desktop"><desktop>1</desktop></action>
         </keybind>
-        <keybind key="W-2">
+        <keybind key="A-2">
           <action name="Desktop"><desktop>2</desktop></action>
         </keybind>
-        <keybind key="W-3">
+        <keybind key="A-3">
           <action name="Desktop"><desktop>3</desktop></action>
         </keybind>
-        <keybind key="W-4">
+        <keybind key="A-4">
           <action name="Desktop"><desktop>4</desktop></action>
         </keybind>
-        <keybind key="W-5">
+        <keybind key="A-5">
           <action name="Desktop"><desktop>5</desktop></action>
         </keybind>
         <keybind key="Print">
