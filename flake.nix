@@ -1,8 +1,18 @@
 {
-  description = "NixOS configuration";
+  nixConfig = {
+    extra-experimental-features = [ "nix-command" "flakes" ];
+    warn-dirty = false;
+  };
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
+    import-tree.url = "github:vic/import-tree";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -35,70 +45,5 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, stylix, niri, noctalia, sops-nix, ... }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      sharedModules = [
-        stylix.nixosModules.stylix
-        disko.nixosModules.disko
-        inputs.sops-nix.nixosModules.sops
-        ./system/packages.nix
-        ./system/environment.nix
-        ./system/services/sops.nix
-        ./system/common.nix
-        ./system/programs/stylix.nix
-        ./system/programs/xdg-portal.nix
-        ./system/services/ssh.nix
-
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "hm-backup";
-          home-manager.extraSpecialArgs = { inherit inputs; };
-        }
-      ];
-    in {
-      diskoConfigurations = {
-        my-vm = import ./hosts/my-vm/disk-config.nix;
-        my-vm-x11 = import ./hosts/my-vm-x11/disk-config.nix;
-      };
-
-      nixosConfigurations.my-vm = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit self inputs;
-          wallpaper = ./system/wallpapers/default.jpg;
-        };
-        modules = sharedModules ++ [
-          ./hosts/my-vm/disk-config.nix
-          ./hosts/my-vm/configuration.nix
-          ./system/wayland
-
-          ({
-            home-manager.users.jake = import ./hosts/my-vm/home.nix;
-          })
-        ];
-      };
-
-      nixosConfigurations.my-vm-x11 = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit self inputs;
-          wallpaper = ./system/wallpapers/default.jpg;
-        };
-        modules = sharedModules ++ [
-          ./hosts/my-vm-x11/disk-config.nix
-          ./hosts/my-vm-x11/configuration.nix
-          ./system/x11
-
-          ({
-            home-manager.users.jake = import ./hosts/my-vm-x11/home.nix;
-          })
-        ];
-      };
-    };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
