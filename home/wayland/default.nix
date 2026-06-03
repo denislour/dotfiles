@@ -5,5 +5,6 @@
     inputs.niri.homeModules.niri
     ./niri.nix
     ./noctaliashell.nix
+    ./packages.nix
   ];
 }

@@ -1,6 +1,5 @@
 { pkgs, lib, ... }: {
   home.packages = with pkgs; [
-    cliphist
     dust
     glow
     just
@@ -11,12 +10,7 @@
     crystal
     mint
     ameba
-    grim
-    slurp
-    wl-clipboard
-    wl-clip-persist
     xrandr
-    xwayland-satellite
     wrangler
     worker-build
     sqlite
