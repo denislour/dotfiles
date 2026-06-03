@@ -25,7 +25,7 @@ in
 
       startupPrograms = [
         "${pkgs.picom}/bin/picom -b"
-        "${pkgs.feh}/bin/feh --bg-scale ${../wallpapers/default.jpg}"
+        "${pkgs.feh}/bin/feh --bg-scale ${../../wallpapers/default.jpg}"
         "${pkgs.sxhkd}/bin/sxhkd -c ${./sxhkdrc}"
       ];
 

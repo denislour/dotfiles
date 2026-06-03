@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  flake.modules.homeManager.fastfetch = { pkgs, ... }: {
+{ ... }: {
+  flake.modules.homeManager.fastfetch = { ... }: {
     programs.fastfetch = {
       enable = true;
       settings = {
