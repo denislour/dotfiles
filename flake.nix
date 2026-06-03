@@ -76,7 +76,7 @@
         modules = sharedModules ++ [
           ./hosts/my-vm/disk-config.nix
           ./hosts/my-vm/configuration.nix
-          ./system/wayland
+          ./desktop/wayland/system.nix
 
           ({
             home-manager.users.jake = import ./hosts/my-vm/home.nix;
@@ -93,7 +93,7 @@
         modules = sharedModules ++ [
           ./hosts/my-vm-x11/disk-config.nix
           ./hosts/my-vm-x11/configuration.nix
-          ./system/x11
+          ./desktop/x11/system.nix
 
           ({
             home-manager.users.jake = import ./hosts/my-vm-x11/home.nix;

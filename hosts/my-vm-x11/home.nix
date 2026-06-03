@@ -6,7 +6,7 @@
   home.stateVersion = "25.05";
 
   imports = [
-    ../../home/x11
+    ../../desktop/x11/home.nix
     ../../home/programs/astronvim
     ../../home/programs/atuin.nix
     ../../home/programs/bat.nix

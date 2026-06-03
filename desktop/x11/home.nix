@@ -1,8 +1,6 @@
-{ ... }:
-
-{
+{ ... }: {
   imports = [
-    ./packages.nix
     ./bspwm-config.nix
+    ./packages.nix
   ];
 }

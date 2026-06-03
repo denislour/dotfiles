@@ -23,7 +23,7 @@ in
     startupPrograms = [
       "${pkgs.picom}/bin/picom -b"
       "${pkgs.feh}/bin/feh --bg-scale ${../../system/wallpapers/default.jpg}"
-      "${pkgs.sxhkd}/bin/sxhkd -c ${../../home/x11/sxhkdrc}"
+      "${pkgs.sxhkd}/bin/sxhkd -c ${./sxhkdrc}"
     ];
 
     extraConfig = ''
