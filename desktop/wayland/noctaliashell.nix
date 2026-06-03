@@ -1,8 +1,9 @@
 { config, ... }:
 
 let
+  homeDir = config.home.homeDirectory;
   wallpaperFile = ../../system/wallpapers/default.jpg;
-  wallpaperPath = "/home/${config.home.username}/.local/share/noctalia/wallpapers/default.jpg";
+  wallpaperPath = "${homeDir}/.local/share/noctalia/wallpapers/default.jpg";
 in
 {
   programs.noctalia-shell = {
@@ -77,7 +78,7 @@ in
       };
 
       general = {
-        avatarImage = "/home/${config.home.username}/.face";
+        avatarImage = "${homeDir}/.face";
         radiusRatio = 2;
       };
 
@@ -87,7 +88,7 @@ in
 
       wallpaper = {
         enabled = true;
-        directory = "/home/${config.home.username}/.local/share/noctalia/wallpapers";
+        directory = "${homeDir}/.local/share/noctalia/wallpapers";
       };
     };
   };
