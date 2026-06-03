@@ -1,6 +1,9 @@
-{ ... }: let
+{ ... }:
+
+let
   dogeLogo = ./doge.nix;
-in {
+in
+{
   programs.fastfetch = {
     enable = true;
     settings = {

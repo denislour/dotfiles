@@ -1,4 +1,6 @@
-{ config, pkgs, lib, wallpaper, ... }: {
+{ config, pkgs, lib, wallpaper, ... }:
+
+{
   networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Ho_Chi_Minh";
