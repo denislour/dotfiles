@@ -28,6 +28,7 @@
       alias v='nvim'
       alias g='git'
       alias ff='fastfetch'
+      export PKG_CONFIG_PATH="${pkgs.sqlite.dev}/lib/pkgconfig:$PKG_CONFIG_PATH"
     '';
   };
 
