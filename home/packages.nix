@@ -14,5 +14,6 @@
     wrangler
     worker-build
     sqlite
+    sqlite.dev
   ];
 }
