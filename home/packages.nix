@@ -8,6 +8,7 @@
     trunk
     zig
     crystal
+    shards
     mint
     ameba
     xrandr
