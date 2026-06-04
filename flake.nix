@@ -35,7 +35,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, stylix, niri, noctalia, sops-nix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, disko, stylix, niri, noctalia, sops-nix, ... } @ inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -45,7 +45,7 @@
       sharedModules = [
         stylix.nixosModules.stylix
         disko.nixosModules.disko
-        inputs.sops-nix.nixosModules.sops
+        sops-nix.nixosModules.sops
         ./system/packages.nix
         ./system/environment.nix
         ./system/services/sops.nix
