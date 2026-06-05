@@ -2,9 +2,7 @@
 
 let
   launch-polybar = pkgs.writeShellScriptBin "launch-polybar" ''
-    killall -q xfce4-panel 2>/dev/null
     killall -q polybar 2>/dev/null
-    while pgrep -u "$USER" -x xfce4-panel >/dev/null 2>&1; do sleep 0.2; done
     while pgrep -u "$USER" -x polybar >/dev/null 2>&1; do sleep 0.2; done
     polybar main 2>&1 | tee -a /tmp/polybar.log &
     disown
