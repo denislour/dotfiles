@@ -7,7 +7,7 @@
     settings = {
       font-size = 18;
       font-family = "JetBrainsMono Nerd Font";
-      window-decoration = false;
+      window-decoration = true;
       background-opacity = 0.95;
       confirm-close-surface = false;
       copy-on-select = "clipboard";
