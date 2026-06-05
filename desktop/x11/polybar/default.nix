@@ -1,147 +1,235 @@
 { pkgs, lib, ... }:
 let
   inherit (lib.generators) toINI;
-
-  colors = {
-    background = "#D91e1e2e";
-    background-alt = "#181825";
-    foreground = "#cdd6f4";
-    foreground-alt = "#a6adc8";
-    primary = "#89b4fa";
-    secondary = "#a6e3a1";
-    urgent = "#f38ba8";
-    surface = "#22313244";
-    overlay0 = "#6c7086";
-    mantle = "#181825";
-    red = "#f38ba8";
-    teal = "#94e2d5";
-    border = "#4A89b4fa";
-  };
-
   ini = toINI { };
+
+  c = {
+    bg = "#2d353b";
+    fg = "#d3c6aa";
+    mbg = "#f8f5e4";
+    red = "#e67e80";
+    blue = "#7fbbb3";
+    green = "#a7c080";
+    yellow = "#dbbc7f";
+    orange = "#e69875";
+    purple = "#d699b6";
+    lime = "#B9C244";
+    grey = "#272e33";
+  };
 in
 {
-  home.packages = with pkgs; [
-    polybar
-    pavucontrol
-    networkmanagerapplet
-  ];
+  home.packages = with pkgs; [ polybar ];
 
   xdg.configFile."polybar/config.ini".text = ini {
     colors = {
-      background = colors.background;
-      background-alt = colors.background-alt;
-      foreground = colors.foreground;
-      foreground-alt = colors.foreground-alt;
-      primary = colors.primary;
-      secondary = colors.secondary;
-      urgent = colors.urgent;
-      surface = colors.surface;
-      overlay0 = colors.overlay0;
-      mantle = colors.mantle;
-      red = colors.red;
-      teal = colors.teal;
-      border = colors.border;
+      bg = c.bg;
+      fg = c.fg;
+      mbg = c.mbg;
+      red = c.red;
+      blue = c.blue;
+      green = c.green;
+      yellow = c.yellow;
+      orange = c.orange;
+      purple = c.purple;
+      lime = c.lime;
+      grey = c.grey;
     };
 
     "bar/main" = {
-      width = "62%";
-      height = "32";
-      offset-x = "19%";
-      offset-y = "6";
-      radius = "16";
-      radius-top = "16";
-      radius-bottom = "16";
-      fixed-center = "false";
-      background = "${colors.background}";
-      foreground = "${colors.foreground}";
-      line-size = "1";
-      line-color = "${colors.border}";
-      border-left-size = "1";
-      border-right-size = "1";
-      border-top-size = "1";
-      border-bottom-size = "1";
-      border-color = "${colors.border}";
-      padding-left = "8";
-      padding-right = "8";
-      module-margin-left = "1";
-      module-margin-right = "1";
-      font-0 = "\"JetBrainsMono Nerd Font:size=11;2\"";
-      font-1 = "\"JetBrainsMono Nerd Font:style=Regular:size=11;2\"";
-      font-2 = "\"Noto Sans:size=10;2\"";
-      modules-left = "workspaces";
-      modules-center = "date";
-      modules-right = "pulseaudio network";
-      separator = " ";
-      separator-foreground = "${colors.overlay0}";
-      cursor-click = "pointer";
+      monitor = "${env:MONITOR:}";
+      monitor-strict = "false";
+      override-redirect = "false";
+      bottom = "false";
+      fixed-center = "true";
+      width = "98%";
+      height = "23";
+      offset-x = "1%";
+      offset-y = "5";
+      background = "${c.bg}";
+      foreground = "${c.fg}";
+      radius = "1";
+      line-size = "2";
+      line-color = "${c.blue}";
+      border-size = "10";
+      border-color = "${c.bg}";
+      padding = "1";
+      module-margin-left = "0";
+      module-margin-right = "0";
+      font-0 = "\"JetBrainsMono:style=Bold:size=9;2\"";
+      font-1 = "\"Font Awesome 6 Free Solid:size=10;3\"";
+      font-2 = "\"Material Design Icons Desktop:size=11;3\"";
+      font-3 = "\"Material Design Icons Desktop:size=12;3\"";
+      modules-left = "bspwm cpu memory filesystem";
+      modules-center = "";
+      modules-right = "network pulseaudio date tray";
+      separator = "";
+      dim-value = "1.0";
+      wm-restack = "bspwm";
       enable-ipc = "true";
-      tray-position = "none";
+      cursor-click = "pointer";
+      tray-position = "right";
     };
 
-    "module/workspaces" = {
-      type = "internal/xworkspaces";
-      label-active = "";
-      label-active-background = "${colors.primary}";
-      label-active-foreground = "${colors.mantle}";
-      label-active-padding = "3";
-      label-active-margin = "0 2";
-      label-occupied = "";
-      label-occupied-foreground = "${colors.foreground}";
-      label-occupied-padding = "3";
-      label-occupied-margin = "0 2";
-      label-urgent = "";
-      label-urgent-foreground = "${colors.mantle}";
-      label-urgent-background = "${colors.red}";
-      label-urgent-padding = "3";
-      label-urgent-margin = "0 2";
-      label-empty = "";
-      label-empty-foreground = "${colors.overlay0}";
-      label-empty-padding = "3";
-      label-empty-margin = "0 2";
+    "module/bspwm" = {
+      type = "internal/bspwm";
+      enable-click = "true";
+      enable-scroll = "true";
+      reverse-scroll = "true";
+      pin-workspaces = "true";
+      occupied-scroll = "false";
+      format = "<label-state>";
+      format-background = "${c.mbg}";
+      format-font = "3";
+      label-focused = "󰮯";
+      label-focused-padding = "1";
+      label-focused-foreground = "${c.orange}";
+      label-occupied = "󰊠";
+      label-occupied-padding = "1";
+      label-occupied-foreground = "${c.purple}";
+      label-urgent = "%icon%";
+      label-urgent-padding = "0";
+      label-empty = "󰑊";
+      label-empty-padding = "1";
+      label-empty-foreground = "${c.grey}";
+    };
+
+    "module/cpu" = {
+      type = "internal/cpu";
+      interval = "0.5";
+      format = "<label>";
+      format-prefix = "";
+      format-prefix-padding = "1";
+      format-prefix-font = "2";
+      format-prefix-background = "${c.red}";
+      format-prefix-foreground = "${c.mbg}";
+      label = "%percentage%%";
+      label-padding = "1";
+      label-background = "${c.mbg}";
+      label-foreground = "${c.grey}";
+    };
+
+    "module/memory" = {
+      type = "internal/memory";
+      interval = "3";
+      format = "<label>";
+      format-prefix = "";
+      format-prefix-padding = "1";
+      format-prefix-font = "2";
+      format-prefix-background = "${c.blue}";
+      format-prefix-foreground = "${c.mbg}";
+      label = "%used%";
+      label-padding = "1";
+      label-background = "${c.mbg}";
+      label-foreground = "${c.grey}";
+    };
+
+    "module/filesystem" = {
+      type = "internal/fs";
+      mount-0 = "/";
+      interval = "60";
+      fixed-values = "true";
+      format-mounted = "<label-mounted>";
+      format-mounted-prefix = "";
+      format-mounted-prefix-padding = "1";
+      format-mounted-prefix-font = "2";
+      format-mounted-prefix-background = "${c.yellow}";
+      format-mounted-prefix-foreground = "${c.mbg}";
+      label-mounted = "%used%";
+      label-mounted-padding = "1";
+      label-mounted-background = "${c.mbg}";
+      label-mounted-foreground = "${c.grey}";
+      format-unmounted = "<label-unmounted>";
+      format-unmounted-prefix = "";
+      format-unmounted-prefix-padding = "1";
+      format-unmounted-prefix-font = "2";
+      format-unmounted-prefix-background = "${c.yellow}";
+      format-unmounted-prefix-foreground = "${c.bg}";
+      label-unmounted = "%mountpoint%: not mounted";
+      label-unmounted-padding = "1";
+      label-unmounted-background = "${c.mbg}";
+      label-unmounted-foreground = "${c.grey}";
     };
 
     "module/date" = {
       type = "internal/date";
-      interval = "1";
-      date = "%a %b %d";
-      date-alt = "%A %B %d %Y";
-      time = "%H:%M";
-      time-alt = "%H:%M:%S";
-      format-prefix = " ";
-      format-prefix-foreground = "${colors.teal}";
-      format-foreground = "${colors.foreground}";
-      label = "%date%  %time%";
-    };
-
-    "module/pulseaudio" = {
-      type = "internal/pulseaudio";
-      format-volume = "<label-volume>";
-      format-volume-background = "${colors.surface}";
-      format-volume-padding = "3";
-      label-volume = "  %percentage%";
-      label-volume-foreground = "${colors.foreground}";
-      format-muted = "<label-muted>";
-      format-muted-background = "${colors.surface}";
-      format-muted-padding = "3";
-      label-muted = "ﳌ";
-      label-muted-foreground = "${colors.overlay0}";
-      click-middle = "pavucontrol";
+      interval = "1.0";
+      time = "%I:%M %P";
+      format-background = "${c.mbg}";
+      format-foreground = "${c.grey}";
+      date-alt = "\"%a, %d %b %Y\"";
+      format = "<label>";
+      format-prefix = "";
+      format-prefix-padding = "1";
+      format-prefix-font = "2";
+      format-prefix-background = "${c.blue}";
+      format-prefix-foreground = "${c.mbg}";
+      label = "%time%%date%";
+      label-padding = "1";
     };
 
     "module/network" = {
       type = "internal/network";
       interface-type = "wired";
+      interval = "3.0";
+      accumulate-stats = "true";
+      unknown-as-up = "true";
       format-connected = "<label-connected>";
-      format-connected-background = "${colors.surface}";
-      format-connected-padding = "3";
-      label-connected = "  %local_ip%";
-      label-connected-foreground = "${colors.foreground}";
+      format-connected-prefix = "";
+      format-connected-prefix-font = "2";
+      format-connected-prefix-padding = "1";
+      format-connected-prefix-foreground = "${c.mbg}";
+      format-connected-prefix-background = "${c.green}";
+      label-connected = "%local_ip%";
+      label-connected-padding = "1";
+      label-connected-background = "${c.mbg}";
+      label-connected-foreground = "${c.grey}";
       format-disconnected = "<label-disconnected>";
-      format-disconnected-background = "${colors.surface}";
-      format-disconnected-padding = "3";
-      label-disconnected = "";
-      label-disconnected-foreground = "${colors.overlay0}";
+      format-disconnected-prefix = "";
+      format-disconnected-prefix-font = "2";
+      format-disconnected-prefix-padding = "1";
+      format-disconnected-prefix-background = "${c.green}";
+      format-disconnected-prefix-foreground = "${c.mbg}";
+      label-disconnected = "Offline";
+      label-disconnected-padding = "1";
+      label-disconnected-background = "${c.mbg}";
+      label-disconnected-foreground = "${c.grey}";
+    };
+
+    "module/pulseaudio" = {
+      type = "internal/pulseaudio";
+      interval = "5";
+      use-ui-max = "true";
+      format-volume = "<label-volume>";
+      format-volume-prefix = "";
+      format-volume-prefix-font = "2";
+      format-volume-prefix-padding = "1";
+      format-volume-prefix-background = "${c.orange}";
+      format-volume-prefix-foreground = "${c.mbg}";
+      label-volume = "%percentage%%";
+      label-volume-padding = "1";
+      label-volume-background = "${c.mbg}";
+      label-volume-foreground = "${c.grey}";
+      format-muted = "<label-muted>";
+      format-muted-prefix = "";
+      format-muted-prefix-font = "2";
+      format-muted-prefix-padding = "1";
+      format-muted-prefix-background = "${c.orange}";
+      format-muted-prefix-foreground = "${c.mbg}";
+      label-muted = "Muted";
+      label-muted-padding = "1";
+      label-muted-background = "${c.mbg}";
+      label-muted-foreground = "${c.grey}";
+      click-middle = "pavucontrol";
+    };
+
+    "module/tray" = {
+      type = "internal/tray";
+      format = "<tray>";
+      format-background = "${c.bg}";
+      tray-foreground = "${c.fg}";
+      tray-spacing = "8";
+      tray-padding = "0";
+      tray-size = "70%";
     };
   };
 }

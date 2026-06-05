@@ -1,5 +1,15 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    maim slop xclip xsel redshift
+    brightnessctl
+    feh
+    lxqt.lxqt-policykit
+    maim
+    networkmanagerapplet
+    pavucontrol
+    redshift
+    slop
+    wireplumber
+    xclip
+    xsel
   ];
 }
