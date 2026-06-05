@@ -11,5 +11,6 @@
     wireplumber
     xclip
     xsel
+    xdg-user-dirs
   ];
 }
