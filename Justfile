@@ -8,6 +8,9 @@ rebuild:
 rebuild-x11:
     just _host=my-vm-x11 rebuild
 
+rebuild-suckless:
+    just _host=my-vm-x11 rebuild
+
 update:
     git pull
     sudo nixos-rebuild switch --flake .#{{_host}}
@@ -18,6 +21,9 @@ update:
 update-x11:
     just _host=my-vm-x11 update
 
+update-suckless:
+    just _host=my-vm-x11 update
+
 upgrade:
     nix flake update
     sudo nixos-rebuild switch --flake .#{{_host}}
@@ -26,6 +32,9 @@ upgrade:
     sudo reboot
 
 upgrade-x11:
+    just _host=my-vm-x11 upgrade
+
+upgrade-suckless:
     just _host=my-vm-x11 upgrade
 
 clean keep='2':
