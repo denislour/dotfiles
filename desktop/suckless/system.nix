@@ -44,7 +44,7 @@ let
       { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
       { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
-    static const char *dmenucmd[]   = { "${pkgs.dmenu}/bin/dmenu_run", "-fn", fonts[0], "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4 };
+    static const char *dmenucmd[]   = { "${pkgs.dmenu}/bin/dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4 };
     static const char *termcmd[]    = { "${pkgs.ghostty}/bin/ghostty" };
     static const char *scrotcmd[]   = { "sh", "-c", "${pkgs.maim}/bin/maim -u ~/Pictures/screenshot-$(date +%s).png" };
     static const char *scrotselcmd[] = { "sh", "-c", "${pkgs.maim}/bin/maim -su ~/Pictures/screenshot-$(date +%s).png" };
@@ -62,7 +62,7 @@ let
       { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
       { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
       { MODKEY,                       XK_Tab,    view,           {0} },
-      { MODKEY|ShiftMask,             XK_q,      quit,           {0} },    
+      { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
       { MODKEY,                       XK_h,      focusstack,     {.i = -1 } },
       { MODKEY,                       XK_l,      focusstack,     {.i = +1 } },
