@@ -15,7 +15,7 @@
 
   xdg.configFile."sxhkd/sxhkdrc".text = ''
     super + Return
-      ghostty
+      ${pkgs.ghostty}/bin/ghostty
     super + q
       bspc node -c
     super + shift + q
@@ -39,16 +39,16 @@
     super + shift + Tab
       bspc desktop -f prev.local
     super + d
-      rofi -show drun
+      ${pkgs.rofi}/bin/rofi -show drun
     Print
-      maim -u ~/Pictures/screenshot-$(date +%s).png
+      ${pkgs.maim}/bin/maim -u ~/Pictures/screenshot-$(date +%s).png
     shift + Print
-      maim -su ~/Pictures/screenshot-$(date +%s).png
+      ${pkgs.maim}/bin/maim -su ~/Pictures/screenshot-$(date +%s).png
     XF86MonBrightness{Down,Up}
-      brightnessctl s {5-,5+}
+      ${pkgs.brightnessctl}/bin/brightnessctl s {5-,5+}
     XF86Audio{Lower,Raise}Volume
-      wpctl set-volume @DEFAULT_AUDIO_SINK@ {0.05-,0.05+}
+      ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ {0.05-,0.05+}
     XF86AudioMute
-      wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+      ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
   '';
 }
