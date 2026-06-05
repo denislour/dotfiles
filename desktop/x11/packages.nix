@@ -1,14 +1,5 @@
-{ pkgs, ... }:
-
-let
-  kde = pkgs.kdePackages;
-in
-{
+{ pkgs, ... }: {
   home.packages = with pkgs; [
-    xclip xsel
-  ] ++ (with kde; [
-    kate
-    dolphin
-    gwenview
-  ]);
+    maim slop xclip xsel redshift
+  ];
 }
