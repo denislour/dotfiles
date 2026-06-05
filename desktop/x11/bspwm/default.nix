@@ -1,13 +1,10 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [
-    bspwm sxhkd
-  ];
+  home.packages = with pkgs; [ bspwm sxhkd ];
 
   xdg.configFile."bspwm/bspwmrc".text = ''
     #!${pkgs.bash}/bin/bash
 
-    sxhkd &
-    ${pkgs.picom}/bin/picom &
+    ${pkgs.picom}/bin/picom -b
     ${pkgs.dunst}/bin/dunst &
     ${pkgs.feh}/bin/feh --bg-fill /run/current-system/sw/share/backgrounds/nixos/nix-wallpaper-simple-dark.png &
     ${pkgs.polybar}/bin/polybar main &
