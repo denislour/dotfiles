@@ -1,5 +1,5 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    openbox dunst feh maim picom polybar redshift rofi sxhkd slop xclip xsel obconf
+    openbox dunst feh maim picom polybar redshift rofi slop xclip xsel obconf
   ];
 }
