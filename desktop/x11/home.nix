@@ -5,5 +5,6 @@
     ./packages.nix
     ./picom.nix
     ./polybar
+    ./rofi.nix
   ];
 }
