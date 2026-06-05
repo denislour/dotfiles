@@ -7,6 +7,7 @@
 
   imports = [
     ../../desktop/x11/home.nix
+    ../../desktop/suckless
     ../../home/programs/astronvim
     ../../home/programs/atuin.nix
     ../../home/programs/bat.nix

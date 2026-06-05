@@ -9,7 +9,7 @@ rebuild-x11:
     just _host=my-vm-x11 rebuild
 
 rebuild-suckless:
-    just _host=my-vm-x11 rebuild
+    just _host=my-vm-suckless rebuild
 
 update:
     git pull
@@ -22,7 +22,7 @@ update-x11:
     just _host=my-vm-x11 update
 
 update-suckless:
-    just _host=my-vm-x11 update
+    just _host=my-vm-suckless update
 
 upgrade:
     nix flake update
@@ -35,7 +35,7 @@ upgrade-x11:
     just _host=my-vm-x11 upgrade
 
 upgrade-suckless:
-    just _host=my-vm-x11 upgrade
+    just _host=my-vm-suckless upgrade
 
 clean keep='2':
     sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +{{keep}}
