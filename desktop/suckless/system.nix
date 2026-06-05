@@ -9,6 +9,7 @@ let
     static const int topbar             = 1;
     static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10:antialias=true" };
     static const char dmenufont[]       = "JetBrainsMono Nerd Font:size=10:antialias=true";
+    static char dmenumon[2]          = "0";
     static const char col_gray1[]       = "#2d353b";
     static const char col_gray2[]       = "#475258";
     static const char col_gray3[]       = "#d3c6aa";
@@ -54,8 +55,6 @@ let
     static const char *volmutecmd[] = { "${pkgs.wireplumber}/bin/wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle" };
     static const char *brightupcmd[]  = { "${pkgs.brightnessctl}/bin/brightnessctl", "s", "5+" };
     static const char *brightdowncmd[] = { "${pkgs.brightnessctl}/bin/brightnessctl", "s", "5-" };
-
-    static char dmenumon[2] = "0";
 
     static Key keys[] = {
       { MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
