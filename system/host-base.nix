@@ -1,4 +1,4 @@
-{ pkgs, wallpaper, ... }:
+{ lib, pkgs, wallpaper, ... }:
 
 {
   networking.networkmanager.enable = true;
@@ -25,7 +25,7 @@
 
   virtualisation.vmware.guest.enable = true;
 
-  services.speechd.enable = false;
+  services.speechd.enable = lib.mkForce false;
 
   stylix.image = wallpaper;
 
