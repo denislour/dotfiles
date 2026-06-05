@@ -6,7 +6,8 @@ let
     static const int showbar            = 1;
     static const int topbar             = 1;
     static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10:antialias=true" };
-    static const char dmenumon[2]      = "0";
+    static const char dmenufont[]       = "JetBrainsMono Nerd Font:size=10:antialias=true";
+    static char dmenumon[2]          = "0";
     static const char col_gray1[]       = "#2d353b";
     static const char col_gray2[]       = "#475258";
     static const char col_gray3[]       = "#d3c6aa";
@@ -24,6 +25,11 @@ let
       { "Gimp",     NULL,       NULL,       0,            1,           -1 },
       { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
     };
+
+    static const float mfact     = 0.55;
+    static const int nmaster     = 1;
+    static const int resizehints = 1;
+    static const int lockfullscreen = 1;
 
     static const Layout layouts[] = {
       { "[]=",      tile },
@@ -54,10 +60,9 @@ let
       { MODKEY,                       XK_q,      killclient,     {0} },
       { MODKEY,                       XK_space,  setlayout,      {0} },
       { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-      { MODKEY,                       XK_f,      togglefullscr,  {0} },
+      { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
       { MODKEY,                       XK_Tab,    view,           {0} },
-      { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-      { MODKEY|ControlMask,           XK_r,      restart,        {0} },
+      { MODKEY|ShiftMask,             XK_q,      quit,           {0} },    
 
       { MODKEY,                       XK_h,      focusstack,     {.i = -1 } },
       { MODKEY,                       XK_l,      focusstack,     {.i = +1 } },
