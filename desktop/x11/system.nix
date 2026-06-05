@@ -15,7 +15,7 @@ in
 {
   services.xserver.desktopManager.xterm.enable = false;
   services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.displayManager.defaultSession = "bspwm";
+  services.xserver.displayManager.defaultSession = "none+bspwm";
   services.xserver.displayManager.session = [{
     manage = "window";
     name = "bspwm";
