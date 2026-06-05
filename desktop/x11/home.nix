@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
-    ./openbox-config.nix
+    ./xfce-config.nix
     ./packages.nix
   ];
 }
