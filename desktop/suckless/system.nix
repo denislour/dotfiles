@@ -1,13 +1,14 @@
 { pkgs, ... }:
 let
   dwmConfig = pkgs.writeText "config.h" ''
+    #include <X11/XF86keysym.h>
+
     static const unsigned int borderpx  = 2;
     static const unsigned int snap      = 32;
     static const int showbar            = 1;
     static const int topbar             = 1;
     static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10:antialias=true" };
     static const char dmenufont[]       = "JetBrainsMono Nerd Font:size=10:antialias=true";
-    static char dmenumon[2]          = "0";
     static const char col_gray1[]       = "#2d353b";
     static const char col_gray2[]       = "#475258";
     static const char col_gray3[]       = "#d3c6aa";
@@ -54,6 +55,8 @@ let
     static const char *brightupcmd[]  = { "${pkgs.brightnessctl}/bin/brightnessctl", "s", "5+" };
     static const char *brightdowncmd[] = { "${pkgs.brightnessctl}/bin/brightnessctl", "s", "5-" };
 
+    static char dmenumon[2] = "0";
+
     static Key keys[] = {
       { MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
       { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
@@ -98,11 +101,11 @@ let
     };
 
     static Button buttons[] = {
-      { MODKEY, Button1,   movemouse,     {0} },
-      { MODKEY, Button2,   togglefloating, {0} },
-      { MODKEY, Button3,   resizemouse,   {0} },
-      { MODKEY, Button4,   focusstack,    {.i = -1 } },
-      { MODKEY, Button5,   focusstack,    {.i = +1 } },
+      { ClkClientWin, MODKEY, Button1, movemouse,     {0} },
+      { ClkClientWin, MODKEY, Button2, togglefloating, {0} },
+      { ClkClientWin, MODKEY, Button3, resizemouse,   {0} },
+      { ClkTagBar,    MODKEY, Button4, focusstack,    {.i = -1 } },
+      { ClkTagBar,    MODKEY, Button5, focusstack,    {.i = +1 } },
     };
   '';
   dwmCustom = pkgs.dwm.overrideAttrs (old: {
