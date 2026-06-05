@@ -258,7 +258,7 @@ in
       ${pkgs.redshift}/bin/redshift -t 5500:4500 -l 10.8:106.7 &
 
       # Bar
-      # ${pkgs.tint2}/bin/tint2 &
+      ${pkgs.tint2}/bin/tint2 &
     '';
   };
 
