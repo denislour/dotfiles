@@ -3,6 +3,8 @@
   services.xserver.displayManager.lightdm.enable = true;
   services.displayManager.defaultSession = "xfce";
 
+  services.xserver.videoDrivers = [ "vmware" "modesetting" ];
+
   environment.sessionVariables = {
     XDG_CURRENT_DESKTOP = "XFCE";
     XDG_SESSION_TYPE = "x11";
