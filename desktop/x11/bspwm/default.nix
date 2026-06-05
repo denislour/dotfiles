@@ -6,7 +6,7 @@
 
     ${pkgs.picom}/bin/picom -b
     ${pkgs.dunst}/bin/dunst &
-    ${pkgs.feh}/bin/feh --bg-fill /run/current-system/sw/share/backgrounds/nixos/nix-wallpaper-simple-dark.png &
+    ${pkgs.feh}/bin/feh --bg-fill '#2d353b' &
     ${pkgs.polybar}/bin/polybar main &
     ${pkgs.lxqt.lxqt-policykit}/bin/lxqt-policykit-agent &
   '';
