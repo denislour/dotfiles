@@ -1,5 +1,8 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    maim slop xclip xsel redshift
+    xclip xsel
+    plasma5Packages.kate
+    plasma5Packages.dolphin
+    plasma5Packages.gwenview
   ];
 }
