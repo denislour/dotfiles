@@ -10,6 +10,9 @@
       save = 0;
     };
     initContent = ''
+      [[ -z "$TMUX" && "$TERM" != "dumb" && "$TERM_PROGRAM" != "vscode" ]] && {
+        tmux attach 2>/dev/null || tmux new -s main
+      }
       source ${pkgs.fzf}/share/fzf/completion.zsh 2>/dev/null || true
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh 2>/dev/null || true
       alias history='atuin history'
