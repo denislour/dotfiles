@@ -21,9 +21,6 @@ update:
 update-x11:
     just _host=my-vm-x11 update
 
-update-suckless:
-    just _host=my-vm-suckless update
-
 upgrade:
     nix flake update
     sudo nixos-rebuild switch --flake .#{{_host}}
@@ -33,9 +30,6 @@ upgrade:
 
 upgrade-x11:
     just _host=my-vm-x11 upgrade
-
-upgrade-suckless:
-    just _host=my-vm-suckless upgrade
 
 clean keep='2':
     sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +{{keep}}

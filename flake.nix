@@ -95,21 +95,5 @@
           })
         ];
       };
-
-      nixosConfigurations.my-vm-suckless = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit self inputs;
-          wallpaper = ./system/wallpapers/default.jpg;
-        };
-        modules = sharedModules ++ [
-          ./hosts/my-vm-suckless/disk-config.nix
-          ./hosts/my-vm-suckless/configuration.nix
-
-          ({
-            home-manager.users.jake = import ./hosts/my-vm-suckless/home.nix;
-          })
-        ];
-      };
     };
 }
