@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ bspwm sxhkd ];
+  home.packages = with pkgs; [ bspwm polybar sxhkd ];
 
   xdg.configFile."wallpaper".source = ../../system/wallpapers/default.jpg;
 
@@ -25,6 +25,57 @@
     feh --bg-fill $HOME/.config/wallpaper &
 
     sxhkd -c $HOME/.config/sxhkd/sxhkdrc &
+  '';
+
+  xdg.configFile."polybar/config.ini".text = ''
+    [colors]
+    background = #1e1e2e
+    foreground = #cdd6f4
+    accent = #cba6f7
+
+    [bar/main]
+    width = 100%
+    height = 28
+    radius = 0
+    background = ''${colors.background}
+    foreground = ''${colors.foreground}
+    line-size = 2
+    border-top-size = 0
+    border-bottom-size = 2
+    border-color = #313244
+    padding-left = 8
+    padding-right = 8
+    module-margin-left = 4
+    module-margin-right = 4
+    font-0 = "JetBrainsMono Nerd Font:size=12"
+    modules-left = bspwm
+    modules-center = date
+    modules-right = pulseaudio
+    separator = |
+    enable-ipc = true
+
+    [module/bspwm]
+    type = internal/bspwm
+    pin-workspaces = true
+    label-active = %name%
+    label-active-foreground = ''${colors.accent}
+    label-active-underline = ''${colors.accent}
+    label-occupied = %name%
+    label-urgent = %name%
+    label-empty = %name%
+    label-empty-foreground = #585b70
+
+    [module/pulseaudio]
+    type = internal/pulseaudio
+    format-volume = V <label-volume>
+    label-volume = %percentage%
+    format-muted = V mute
+
+    [module/date]
+    type = internal/date
+    interval = 30
+    date = %a %b %d  %H:%M
+    label = %date%
   '';
 
   xdg.configFile."sxhkd/sxhkdrc".text = ''
