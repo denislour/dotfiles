@@ -36,7 +36,5 @@
     cyan = "#83c092"
     white = "#f8f5e4"
 
-    [hints]
-    enabled = false
   '';
 }
