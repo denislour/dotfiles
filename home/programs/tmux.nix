@@ -3,7 +3,7 @@
 
   home.file.".tmux.conf".text = ''
     set -g mouse on
-    set -g extended-keys always
+    set -g extended-keys on
     set -s extended-keys-format csi-u
     set -as terminal-features 'xterm*:extkeys'
 
