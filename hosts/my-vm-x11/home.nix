@@ -16,7 +16,7 @@
     ../../home/programs/eza.nix
     ../../home/programs/fastfetch
     ../../home/programs/fd.nix
-    ../../home/programs/ghostty.nix
+    ../../home/programs/konsole.nix
     ../../home/programs/git.nix
     ../../home/programs/lazygit.nix
     ../../home/programs/brave.nix
