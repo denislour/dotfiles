@@ -16,7 +16,6 @@
     ../../home/programs/eza.nix
     ../../home/programs/fastfetch
     ../../home/programs/fd.nix
-    ../../home/programs/ghostty.nix
     ../../home/programs/alacritty.nix
     ../../home/programs/zellij.nix
     ../../home/programs/xfce-panel.nix
