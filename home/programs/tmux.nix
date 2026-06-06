@@ -3,6 +3,8 @@
 
   home.file.".tmux.conf".text = ''
     set -g mouse on
+    set -g extended-keys always
+    set -as terminal-features 'xterm*:extkeys'
 
     set -g base-index 1
     setw -g pane-base-index 1
