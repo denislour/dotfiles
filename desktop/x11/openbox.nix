@@ -271,21 +271,22 @@
     module-margin-left = 4
     module-margin-right = 4
     font-0 = "JetBrainsMono Nerd Font:size=12"
-    modules-left = i3
+    modules-left = openbox
     modules-center = date
-    modules-right = pulseaudio network battery
+    modules-right = pulseaudio
     separator = |
     enable-ipc = true
 
-    [module/i3]
-    type = internal/i3
+    [module/openbox]
+    type = internal/xworkspaces
     pin-workspaces = true
-    format = <label-state> <label-mode>
-    label-focused = %index%
-    label-focused-foreground = ''${colors.accent}
-    label-focused-underline = ''${colors.accent}
-    label-unfocused = %index%
-    label-visible = %index%
+    label-active = %name%
+    label-active-foreground = ''${colors.accent}
+    label-active-underline = ''${colors.accent}
+    label-occupied = %name%
+    label-urgent = %name%
+    label-empty = %name%
+    label-empty-foreground = #585b70
 
     [module/date]
     type = internal/date
