@@ -1,41 +1,28 @@
-{ lib, ... }: {
-  programs.xfconf.enable = true;
-
-  xfconf.settings = {
-    "xfce4-panel" = {
-      "/panels/panel-1/position" = "p=6;x=0;y=0";
-      "/panels/panel-1/position-locked" = true;
-      "/panels/panel-1/length" = 100;
-      "/panels/panel-1/size" = 32;
-      "/panels/panel-1/autohide-behavior" = 0;
-
-      "/plugins/plugin-1" = "applicationsmenu";
-      "/plugins/plugin-2" = "tasklist";
-      "/plugins/plugin-3" = "separator";
-      "/plugins/plugin-4" = "pager";
-      "/plugins/plugin-5" = "separator";
-      "/plugins/plugin-6" = "clock";
-      "/plugins/plugin-7" = "systray";
-
-      "/panels/panel-1/plugin-ids" = [
-        1
-        2
-        3
-        4
-        5
-        6
-        7
-      ];
-    };
-
-    "xfwm4" = {
-      "/general/button_layout" = "|HMC";
-      "/general/theme" = "Greybird";
-    };
-
-    "xsettings" = {
-      "/Net/ThemeName" = "Greybird";
-      "/Net/IconThemeName" = "Papirus";
-    };
-  };
+{ ... }: {
+  xdg.configFile."xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml".text = ''
+    <?xml version="1.0" encoding="UTF-8"?>
+    <channel name="xfce4-panel" version="1.0">
+      <property name="panels" type="uint" value="1">
+        <property name="panel-0" type="empty">
+          <property name="position" type="string" value="p=6;x=0;y=0"/>
+          <property name="position-locked" type="bool" value="true"/>
+          <property name="length" type="uint" value="100"/>
+          <property name="size" type="uint" value="32"/>
+          <property name="autohide-behavior" type="uint" value="0"/>
+          <property name="plugin-ids" type="array">
+            <value type="int" value="1"/>
+            <value type="int" value="2"/>
+            <value type="int" value="3"/>
+            <value type="int" value="4"/>
+          </property>
+        </property>
+      </property>
+      <property name="plugins" type="empty">
+        <property name="plugin-1" type="string" value="applicationsmenu"/>
+        <property name="plugin-2" type="string" value="tasklist"/>
+        <property name="plugin-3" type="string" value="separator"/>
+        <property name="plugin-4" type="string" value="clock"/>
+      </property>
+    </channel>
+  '';  
 }
