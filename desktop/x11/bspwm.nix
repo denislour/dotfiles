@@ -1,6 +1,8 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [ bspwm sxhkd ];
 
+  xdg.configFile."wallpaper".source = ../../system/wallpapers/default.jpg;
+
   xdg.configFile."bspwm/bspwmrc".text = ''
     #!/usr/bin/env bash
     bspc monitor -d 1 2 3 4 5 6 7 8 9
@@ -20,7 +22,7 @@
     dunst &
     nm-applet &
     ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &
-    feh --bg-fill /run/current-system/sw/share/backgrounds/nixos/nix-wallpaper-nineish-dark-gray.png &
+    feh --bg-fill $HOME/.config/wallpaper &
 
     sxhkd -c $HOME/.config/sxhkd/sxhkdrc &
   '';

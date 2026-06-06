@@ -5,22 +5,13 @@
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.xfce.enable = true;
 
-  services.xserver.desktopManager.session = [
-    {
-      name = "openbox";
-      start = ''
-        source /home/jake/.config/openbox/autostart
-        exec ${pkgs.openbox}/bin/openbox
-      '';
-    }
-    {
-      name = "bspwm";
-      start = ''
-        source /home/jake/.config/bspwm/bspwmrc
-        exec ${pkgs.bspwm}/bin/bspwm
-      '';
-    }
-  ];
+  services.xserver.desktopManager.session = [{
+    name = "bspwm";
+    start = ''
+      source /home/jake/.config/bspwm/bspwmrc
+      exec ${pkgs.bspwm}/bin/bspwm
+    '';
+  }];
 
   services.xserver.videoDrivers = [ "vmware" "modesetting" ];
 
