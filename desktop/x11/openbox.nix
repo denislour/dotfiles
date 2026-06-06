@@ -61,85 +61,85 @@
         <moveButton>Middle</moveButton>
       </dock>
       <keyboard>
-        <keybind key="W-Return">
+        <keybind key="A-Return">
           <action name="Execute"><command>alacritty</command></action>
         </keybind>
-        <keybind key="W-space">
+        <keybind key="A-space">
           <action name="Execute"><command>rofi -show drun</command></action>
         </keybind>
-        <keybind key="W-q">
+        <keybind key="A-q">
           <action name="Close"/>
         </keybind>
-        <keybind key="W-f">
+        <keybind key="A-f">
           <action name="ToggleFullscreen"/>
         </keybind>
-        <keybind key="W-t">
+        <keybind key="A-t">
           <action name="ToggleMaximizeFull"/>
         </keybind>
-        <keybind key="W-s">
+        <keybind key="A-s">
           <action name="Execute"><command>maim ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png</command></action>
         </keybind>
-        <keybind key="W-S-s">
+        <keybind key="A-S-s">
           <action name="Execute"><command>maim -s ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png</command></action>
         </keybind>
         <keybind key="Print">
           <action name="Execute"><command>maim ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png</command></action>
         </keybind>
-        <keybind key="W-h">
+        <keybind key="A-h">
           <action name="MoveToEdgeWest"/>
         </keybind>
-        <keybind key="W-l">
+        <keybind key="A-l">
           <action name="MoveToEdgeEast"/>
         </keybind>
-        <keybind key="W-S-h">
+        <keybind key="A-S-h">
           <action name="MoveToEdgeSouthWest"/>
         </keybind>
-        <keybind key="W-S-l">
+        <keybind key="A-S-l">
           <action name="MoveToEdgeSouthEast"/>
         </keybind>
-        <keybind key="W-1">
+        <keybind key="A-1">
           <action name="GoToDesktop"><to>1</to></action>
         </keybind>
-        <keybind key="W-2">
+        <keybind key="A-2">
           <action name="GoToDesktop"><to>2</to></action>
         </keybind>
-        <keybind key="W-3">
+        <keybind key="A-3">
           <action name="GoToDesktop"><to>3</to></action>
         </keybind>
-        <keybind key="W-4">
+        <keybind key="A-4">
           <action name="GoToDesktop"><to>4</to></action>
         </keybind>
-        <keybind key="W-5">
+        <keybind key="A-5">
           <action name="GoToDesktop"><to>5</to></action>
         </keybind>
-        <keybind key="W-S-1">
+        <keybind key="A-S-1">
           <action name="SendToDesktop"><to>1</to></action>
           <action name="GoToDesktop"><to>1</to></action>
         </keybind>
-        <keybind key="W-S-2">
+        <keybind key="A-S-2">
           <action name="SendToDesktop"><to>2</to></action>
           <action name="GoToDesktop"><to>2</to></action>
         </keybind>
-        <keybind key="W-S-3">
+        <keybind key="A-S-3">
           <action name="SendToDesktop"><to>3</to></action>
           <action name="GoToDesktop"><to>3</to></action>
         </keybind>
-        <keybind key="W-S-4">
+        <keybind key="A-S-4">
           <action name="SendToDesktop"><to>4</to></action>
           <action name="GoToDesktop"><to>4</to></action>
         </keybind>
-        <keybind key="W-S-5">
+        <keybind key="A-S-5">
           <action name="SendToDesktop"><to>5</to></action>
           <action name="GoToDesktop"><to>5</to></action>
         </keybind>
-        <keybind key="W-m">
+        <keybind key="A-m">
           <action name="SendToDesktop"><to>9</to></action>
           <action name="GoToDesktop"><to>9</to></action>
         </keybind>
-        <keybind key="W-S-m">
+        <keybind key="A-S-m">
           <action name="GoToDesktop"><to>9</to></action>
         </keybind>
-        <keybind key="W-S-q">
+        <keybind key="A-S-q">
           <action name="Execute"><command>i3lock</command></action>
         </keybind>
         <keybind key="XF86AudioRaiseVolume">
