@@ -43,6 +43,7 @@
 
   programs.brave.commandLineArgs = [
     "--disable-features=SmoothScrolling"
+    "--ozone-platform-hint=x11"
   ];
 
   programs.home-manager.enable = true;
