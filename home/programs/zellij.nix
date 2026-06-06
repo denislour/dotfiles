@@ -2,12 +2,6 @@
   home.packages = with pkgs; [ zellij ];
 
   xdg.configFile."zellij/config.kdl".text = ''
-    keybinds {
-        unbind "Ctrl p"
-        bind "Ctrl a" {
-            SwitchToMode "Normal"
-        }
-    }
     theme "catppuccin-mocha"
     plugins {
         tab_bar location="zellij:tab-bar"
