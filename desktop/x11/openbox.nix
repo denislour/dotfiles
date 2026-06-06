@@ -97,6 +97,22 @@
         <keybind key="A-S-l">
           <action name="MoveToEdgeSouthEast"/>
         </keybind>
+        <keybind key="A-Tab">
+          <action name="NextWindow">
+            <finalactions>
+              <action name="Focus"/>
+              <action name="Raise"/>
+            </finalactions>
+          </action>
+        </keybind>
+        <keybind key="A-S-Tab">
+          <action name="PreviousWindow">
+            <finalactions>
+              <action name="Focus"/>
+              <action name="Raise"/>
+            </finalactions>
+          </action>
+        </keybind>
         <keybind key="A-1">
           <action name="GoToDesktop"><to>1</to></action>
         </keybind>
