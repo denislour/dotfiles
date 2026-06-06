@@ -82,6 +82,9 @@
     mod1 + Return
       alacritty
 
+    mod1 + Tab
+      bspc node -f next
+
     mod1 + space
       rofi -show drun
 
