@@ -16,6 +16,7 @@
     set -g default-terminal "tmux-256color"
     set -ga terminal-overrides ",*:Tc"
     set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
+    set -ga terminal-overrides '*:kbs=^?'
 
     bind '"' split-window -v -c "#{pane_current_path}"
     bind '%' split-window -h -c "#{pane_current_path}"
