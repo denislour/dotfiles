@@ -2,6 +2,9 @@
   programs.alacritty.enable = true;
 
   home.file.".config/alacritty/alacritty.toml".text = ''
+    [shell]
+    program = "${pkgs.zellij}/bin/zellij"
+
     [window]
     padding = { x = 8, y = 8 }
     opacity = 1.0
