@@ -5,7 +5,6 @@
     set -g mouse on
     set -g extended-keys on
     set -s extended-keys-format csi-u
-    set -as terminal-features 'xterm*:extkeys'
 
     set -g base-index 1
     setw -g pane-base-index 1
