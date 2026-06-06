@@ -4,7 +4,7 @@
   home.file.".tmux.conf".text = ''
     set -g mouse on
     set -g extended-keys on
-    set -s extended-keys-format csi-u
+    set -g extended-keys-format csi-u
 
     set -g base-index 1
     setw -g pane-base-index 1
@@ -36,6 +36,8 @@
     bind -T copy-mode-vi C-l select-pane -R
 
     bind r source-file ~/.tmux.conf \; display "Config reloaded!"
+
+    set -g destroy-unattached on
 
     set -g history-limit 50000
 
