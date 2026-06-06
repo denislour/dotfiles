@@ -2,7 +2,7 @@
   programs.alacritty.enable = true;
 
   home.file.".config/alacritty/alacritty.toml".text = ''
-    [shell]
+    [terminal.shell]
     program = "${pkgs.zellij}/bin/zellij"
 
     [window]
