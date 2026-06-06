@@ -11,5 +11,6 @@
     }
     pane_frames true
     simplified_ui true
+    show_startup_tips false
   '';
 }
