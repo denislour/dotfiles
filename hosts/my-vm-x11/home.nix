@@ -16,8 +16,8 @@
     ../../home/programs/eza.nix
     ../../home/programs/fastfetch
     ../../home/programs/fd.nix
-    ../../home/programs/xterm.nix
     ../../home/programs/ghostty.nix
+    ../../home/programs/alacritty.nix
     ../../home/programs/tmux.nix
     ../../home/programs/xfce-panel.nix
     ../../home/programs/git.nix
