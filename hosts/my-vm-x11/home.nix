@@ -38,5 +38,9 @@
     };
   };
 
+  programs.brave.commandLineArgs = [
+    "--disable-features=SmoothScrolling"
+  ];
+
   programs.home-manager.enable = true;
 }
