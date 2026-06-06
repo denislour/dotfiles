@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ bspwm polybar sxhkd ];
+  home.packages = with pkgs; [ bspwm polybar rofi sxhkd ];
 
   xdg.configFile."wallpaper".source = ../../system/wallpapers/default.jpg;
 
