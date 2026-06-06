@@ -222,7 +222,7 @@
 
   xdg.configFile."openbox/autostart".text = ''
     polybar main &
-    picom --experimental-backends &
+    picom --experimental-backends --inactive-opacity 0.88 &
     dunst &
     nm-applet &
     ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &
