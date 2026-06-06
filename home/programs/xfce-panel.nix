@@ -1,5 +1,7 @@
 { ... }: {
-  xdg.configFile."xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml".text = ''
+  xdg.configFile."xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml" = {
+    force = true;
+    text = ''
     <?xml version="1.0" encoding="UTF-8"?>
     <channel name="xfce4-panel" version="1.0">
       <property name="panels" type="uint" value="1">
