@@ -79,49 +79,49 @@
   '';
 
   xdg.configFile."sxhkd/sxhkdrc".text = ''
-    alt + Return
+    mod1 + Return
       alacritty
 
-    alt + space
+    mod1 + space
       rofi -show drun
 
-    alt + q
+    mod1 + q
       bspc node -c
 
-    alt + f
+    mod1 + f
       bspc node -t ~fullscreen
 
-    alt + t
+    mod1 + t
       bspc node -t ~floating
 
-    alt + s
+    mod1 + s
       maim ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png
 
-    alt + shift + s
+    mod1 + shift + s
       maim -s ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png
 
     Print
       maim ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png
 
-    alt + {h,j,k,l}
+    mod1 + {h,j,k,l}
       bspc node -f {west,south,north,east}
 
-    alt + shift + {h,j,k,l}
+    mod1 + shift + {h,j,k,l}
       bspc node -m {west,south,north,east}
 
-    alt + {1-9}
+    mod1 + {1-9}
       bspc desktop -f ^{1-9}
 
-    alt + shift + {1-9}
+    mod1 + shift + {1-9}
       bspc node -d ^{1-9}
 
-    alt + m
+    mod1 + m
       bspc node -d ^9
 
-    alt + shift + m
+    mod1 + shift + m
       bspc desktop -f ^9
 
-    alt + shift + q
+    mod1 + shift + q
       i3lock
 
     XF86AudioRaiseVolume
