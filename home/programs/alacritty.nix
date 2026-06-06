@@ -7,7 +7,7 @@
 
     [window]
     padding = { x = 8, y = 8 }
-    opacity = 1.0
+    opacity = 0.5
     decorations = "Full"
 
     [font]

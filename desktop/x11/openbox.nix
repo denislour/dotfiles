@@ -198,6 +198,11 @@
           </mousebind>
         </context>
       </mouse>
+      <applications>
+        <application class="Alacritty">
+          <decor>yes</decor>
+        </application>
+      </applications>
     </openbox_config>
   '';
 
