@@ -46,4 +46,8 @@
   ];
 
   programs.home-manager.enable = true;
+
+  xdg.configFile."xfce4/helpers.rc".text = ''
+    TerminalEmulator=alacritty
+  '';
 }
