@@ -1,6 +1,6 @@
 {
   defaultProvider = "deepseek";
   defaultModel = "deepseek-v4-flash";
-  defaultThinkingLevel = "high";
+  defaultThinkingLevel = "medium";
   theme = "robusta";
 }
