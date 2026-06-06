@@ -71,7 +71,6 @@
           <property name="&lt;Alt&gt;s" type="string" value="maim ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"/>
           <property name="&lt;Alt&gt;&lt;Shift&gt;s" type="string" value="maim -s ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"/>
           <property name="Print" type="string" value="maim ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"/>
-          <property name="&lt;Alt&gt;Print" type="string" value="maim -i $(xdotool getactivewindow) ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"/>
           <property name="XF86AudioRaiseVolume" type="string" value="pactl set-sink-volume @DEFAULT_SINK@ +5%"/>
           <property name="XF86AudioLowerVolume" type="string" value="pactl set-sink-volume @DEFAULT_SINK@ -5%"/>
           <property name="XF86AudioMute" type="string" value="pactl set-sink-mute @DEFAULT_SINK@ toggle"/>

@@ -11,7 +11,6 @@
     slop
     wireplumber
     xclip
-    xdotool
     xsel
   ];
 }
