@@ -24,7 +24,5 @@
     XTerm*color13: #d699b6
     XTerm*color14: #83c092
     XTerm*color15: #f8f5e4
-    XTerm*modifyOtherKeys: 1
-    XTerm*formatOtherKeys: 1
   '';
 }
