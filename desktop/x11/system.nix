@@ -1,15 +1,15 @@
 { pkgs, lib, ... }:
 
 {
-  services.displayManager.defaultSession = lib.mkDefault "none+bspwm";
+  services.displayManager.defaultSession = lib.mkDefault "none+openbox";
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.xfce.enable = true;
 
   services.xserver.displayManager.session = [{
-    name = "bspwm";
+    name = "openbox";
     manage = "window";
     start = ''
-      exec ${pkgs.bspwm}/bin/bspwm
+      exec ${pkgs.openbox}/bin/openbox
     '';
   }];
 
