@@ -8,6 +8,7 @@
     [window]
     padding = { x = 8, y = 8 }
     opacity = 1.0
+    decorations = "Full"
 
     [font]
     normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
