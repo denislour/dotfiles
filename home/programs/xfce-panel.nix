@@ -26,5 +26,6 @@
         <property name="plugin-4" type="string" value="clock"/>
       </property>
     </channel>
-  '';  
+  '';
+  };
 }
