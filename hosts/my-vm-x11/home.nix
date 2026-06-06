@@ -21,7 +21,7 @@
     ../../home/programs/xfce-panel.nix
     ../../home/programs/git.nix
     ../../home/programs/lazygit.nix
-    ../../home/programs/brave.nix
+    ../../home/programs/librewolf.nix
     ../../home/programs/pi
     # ../../home/programs/zed-editor  # enable when needed
     ../../home/programs/ripgrep.nix
@@ -40,14 +40,10 @@
     };
   };
 
-  programs.brave.commandLineArgs = [
-    "--disable-features=SmoothScrolling"
-    "--ozone-platform-hint=x11"
-  ];
-
   programs.home-manager.enable = true;
 
   xdg.configFile."xfce4/helpers.rc".text = ''
     TerminalEmulator=alacritty
+    WebBrowser=librewolf
   '';
 }
