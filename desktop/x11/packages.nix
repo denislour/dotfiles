@@ -6,10 +6,12 @@
     maim
     networkmanagerapplet
     pavucontrol
+    playerctl
     redshift
     slop
     wireplumber
     xclip
+    xdotool
     xsel
   ];
 }
