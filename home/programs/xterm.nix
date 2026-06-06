@@ -2,7 +2,6 @@
   home.packages = with pkgs; [ xterm ];
 
   xresources.extraConfig = ''
-    XTerm*ttyModes: erase ^?
     XTerm*faceName: JetBrainsMono Nerd Font
     XTerm*faceSize: 16
     XTerm*renderFont: true
