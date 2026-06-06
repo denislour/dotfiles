@@ -7,9 +7,9 @@ let
     requiresReasoningContentOnAssistantMessages = true;
     thinkingFormat = "deepseek";
     reasoningEffortMap = {
-      minimal = "high";
-      low = "high";
-      medium = "high";
+      minimal = "low";
+      low = "low";
+      medium = "medium";
       high = "high";
       xhigh = "max";
     };
