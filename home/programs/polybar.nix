@@ -59,7 +59,7 @@
     module-margin-right = 0
 
     font-0 = "JetBrainsMono Nerd Font:style=Bold:size=13;2"
-    font-1 = "JetBrainsMono Nerd Font:style=Regular:size=17;3"
+    font-1 = "JetBrainsMono Nerd Font:style=Regular:size=18;3"
 
     modules-left = launcher sep term folder browser sep title
     modules-center =
@@ -87,85 +87,85 @@
 
     [module/bgi]
     type = custom/text
-    label = ""
+    label = "◆"
     label-foreground = ''${color.green}
     label-background = ''${color.bg}
 
     [module/bri]
     type = custom/text
-    label = ""
+    label = "◆"
     label-foreground = ''${color.red}
     label-background = ''${color.bg}
 
     [module/byi]
     type = custom/text
-    label = ""
+    label = "◆"
     label-foreground = ''${color.yellow}
     label-background = ''${color.bg}
 
     [module/bpi]
     type = custom/text
-    label = ""
+    label = "◆"
     label-foreground = ''${color.purple}
     label-background = ''${color.bg}
 
     [module/bbi]
     type = custom/text
-    label = ""
+    label = "◆"
     label-foreground = ''${color.blue}
     label-background = ''${color.bg}
 
     [module/boi]
     type = custom/text
-    label = ""
+    label = "◆"
     label-foreground = ''${color.orange}
     label-background = ''${color.bg}
 
     [module/bii]
     type = custom/text
-    label = ""
+    label = "◆"
     label-foreground = ''${color.indigo}
     label-background = ''${color.bg}
 
     [module/bgd]
     type = custom/text
-    label = ""
+    label = "◆"
     label-foreground = ''${color.bg}
     label-background = ''${color.green}
 
     [module/brd]
     type = custom/text
-    label = ""
+    label = "◆"
     label-foreground = ''${color.bg}
     label-background = ''${color.red}
 
     [module/byd]
     type = custom/text
-    label = ""
+    label = "◆"
     label-foreground = ''${color.bg}
     label-background = ''${color.yellow}
 
     [module/bpd]
     type = custom/text
-    label = ""
+    label = "◆"
     label-foreground = ''${color.bg}
     label-background = ''${color.purple}
 
     [module/bbd]
     type = custom/text
-    label = ""
+    label = "◆"
     label-foreground = ''${color.bg}
     label-background = ''${color.blue}
 
     [module/bod]
     type = custom/text
-    label = ""
+    label = "◆"
     label-foreground = ''${color.bg}
     label-background = ''${color.orange}
 
     [module/bid]
     type = custom/text
-    label = ""
+    label = "◆"
     label-foreground = ''${color.bg}
     label-background = ''${color.indigo}
 
@@ -204,8 +204,7 @@
     format = <label>
     label = " %output%"
     label-padding = 4 pt
-    label-foreground = ''${color.fg}
-    label-background = ''${color.grey}
+    label-foreground = ''${color.indigo}
 
     ; ───────────────────────── FILESYSTEM ─────────────────────────
 
@@ -406,7 +405,7 @@
     type = custom/text
     label = 
     label-foreground = ''${color.blue}
-    label-padding = 2
+    label-padding = 4
     click-left = rofi -show drun
 
     ; ───────────────────────── TERMINAL ─────────────────────────
@@ -415,7 +414,7 @@
     type = custom/text
     label = 
     label-foreground = ''${color.green}
-    label-padding = 2
+    label-padding = 4
     click-left = alacritty
 
     ; ───────────────────────── FOLDER ─────────────────────────
@@ -424,7 +423,7 @@
     type = custom/text
     label = 
     label-foreground = ''${color.yellow}
-    label-padding = 2
+    label-padding = 4
     click-left = yazi
 
     ; ───────────────────────── BROWSER ─────────────────────────
@@ -433,7 +432,7 @@
     type = custom/text
     label = 
     label-foreground = ''${color.cyan}
-    label-padding = 2
+    label-padding = 4
     click-left = librewolf
 
     ; ───────────────────────── SEPARATORS ─────────────────────────
@@ -484,7 +483,7 @@
     type = custom/text
     label = ""
     label-foreground = ''${color.purple}
-    label-padding = 2
+    label-padding = 4
 
     ; ───────────────────────── USER CARD ─────────────────────────
 
@@ -492,7 +491,7 @@
     type = custom/text
     label = ""
     label-foreground = ''${color.yellow}
-    label-padding = 2
+    label-padding = 4
     click-left = fastfetch
 
     ; ───────────────────────── POWER ─────────────────────────
@@ -500,7 +499,7 @@
     [module/power]
     type = custom/text
     label = ""
-    label-padding = 2
+    label-padding = 4
     label-foreground = ''${color.red}
     click-left = i3lock
 
