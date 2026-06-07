@@ -65,7 +65,7 @@
 
     modules-left = launcher sep term sep folder browser sep title
     modules-center =
-    modules-right = bluetooth sep usercard sep mplayer sep battery sep bgi updates bgd bri filesystem brd byi cpu_bar byd bpi memory_bar bpd bbi pulseaudio bbd boi network bod bii date bid sep tray sep power
+    modules-right = weather sep usercard sep mplayer sep battery sep bgi workspace bgd bri filesystem brd byi cpu_bar byd bpi memory_bar bpd bbi pulseaudio bbd boi network bod bii date bid sep tray sep power
 
     separator =
     dim-value = 1.0
@@ -185,6 +185,29 @@
     label = "%time%%date%"
     label-background = ''${color.indigo}
     label-foreground = ''${color.bg}
+
+    ; ───────────────────────── WEATHER ─────────────────────────
+
+    [module/weather]
+    type = custom/script
+    exec = curl -s "wttr.in?format=%c+%t&lang=en" 2>/dev/null || echo ""
+    interval = 900
+    format = <label>
+    label = "%output%"
+    label-padding = 2 pt
+    label-foreground = ''${color.cyan}
+
+    ; ───────────────────────── WORKSPACE ─────────────────────────
+
+    [module/workspace]
+    type = custom/script
+    exec = bspc query -D -d focused --names 2>/dev/null || echo ""
+    interval = 1
+    format = <label>
+    label = " %output%"
+    label-padding = 4 pt
+    label-foreground = ''${color.fg}
+    label-background = ''${color.grey}
 
     ; ───────────────────────── FILESYSTEM ─────────────────────────
 
@@ -444,7 +467,7 @@
     type = internal/memory
     interval = 3
     format = <label>
-    format-prefix = ""
+    format-prefix = ""
     format-prefix-padding = 4 pt
     format-prefix-foreground = ''${color.bg}
     format-prefix-background = ''${color.purple}
@@ -466,6 +489,7 @@
     type = custom/text
     label = ""
     label-foreground = ''${color.yellow}
+    click-left = fastfetch
 
     ; ───────────────────────── POWER ─────────────────────────
 
@@ -487,15 +511,6 @@
     tray-spacing = 4px
     tray-padding = 0px
     tray-size = 72%
-
-    ; ───────────────────────── BLUETOOTH ─────────────────────────
-
-    [module/bluetooth]
-    type = custom/script
-    exec = bluetooth-polybar.sh
-    interval = 3
-    format = <label>
-    label = "%output%"
 
     ; ───────────────────────── WEATHER ─────────────────────────
 
