@@ -8,7 +8,7 @@
       display-run:                "";
       display-window:             "";
       drun-display-format:        "{name}";
-      font:                       "JetBrainsMono Nerd Font 12";
+      font:                       "JetBrainsMonoNL Nerd Font 12";
     }
 
     * {
