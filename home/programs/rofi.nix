@@ -1,92 +1,5 @@
 {
   xdg.configFile."rofi/config.rasi".text = ''
-    @theme "catppuccin-default"
-  '';
-
-  xdg.configFile."rofi/catppuccin-default.rasi".text = ''
-    @import "themes/catppuccin-mocha"
-
-    * {
-      selected-active-foreground:  @background;
-      lightfg:                     @text;
-      separatorcolor:              @foreground;
-      urgent-foreground:           @red;
-      alternate-urgent-background: @lightbg;
-      lightbg:                     @mantle;
-      background-color:            transparent;
-      border-color:                @foreground;
-      normal-background:           @background;
-      selected-urgent-background:  @red;
-      alternate-active-background: @lightbg;
-      spacing:                     2;
-      alternate-normal-foreground: @foreground;
-      urgent-background:           @background;
-      selected-normal-foreground:  @lightbg;
-      active-foreground:           @blue;
-      background:                  @base;
-      selected-active-background:  @blue;
-      active-background:           @background;
-      selected-normal-background:  @lightfg;
-      alternate-normal-background: @lightbg;
-      foreground:                  @text;
-      selected-urgent-foreground:  @background;
-      normal-foreground:           @foreground;
-    }
-
-    window {
-      transparency:                "real";
-      location:                    center;
-      anchor:                      center;
-      width:                       600px;
-      border-radius:               12px;
-    }
-
-    mainbox {
-      spacing:                     10px;
-      padding:                     24px;
-      children:                    [ "inputbar", "listview" ];
-    }
-
-    inputbar {
-      spacing:                     10px;
-      children:                    [ "textbox-prompt-colon", "entry" ];
-    }
-
-    textbox-prompt-colon {
-      expand:                      false;
-      str:                         "";
-    }
-
-    listview {
-      spacing:                     6px;
-      margin:                      12px 0px 0px 0px;
-      lines:                       8;
-    }
-
-    element {
-      padding:                     8px 12px;
-      border-radius:               8px;
-    }
-
-    element-icon {
-      size:                        1.2em;
-    }
-
-    element-text {
-      vertical-align:              0.5;
-    }
-
-    message {
-      margin:                      12px 0px 0px 0px;
-    }
-
-    textbox {
-      padding:                     8px 12px;
-      border-radius:               8px;
-    }
-  '';
-
-  xdg.configFile."rofi/themes/catppuccin-mocha.rasi".text = ''
     * {
       rosewater: #f5e0dc;
       flamingo: #f2cdcd;
@@ -114,6 +27,145 @@
       base: #1e1e2e;
       mantle: #181825;
       crust: #11111b;
+
+      lightfg:                     @text;
+      lightbg:                     @mantle;
+      background:                  @base;
+      foreground:                  @text;
+      selected-normal-background:  @lightfg;
+      selected-normal-foreground:  @lightbg;
+      normal-background:           @background;
+      normal-foreground:           @foreground;
+      urgent-background:           @background;
+      urgent-foreground:           @red;
+      active-background:           @background;
+      active-foreground:           @blue;
+      alternate-normal-background: @lightbg;
+      alternate-normal-foreground: @foreground;
+      selected-urgent-background:  @red;
+      selected-urgent-foreground:  @background;
+      selected-active-background:  @blue;
+      selected-active-foreground:  @background;
+      alternate-urgent-background: @lightbg;
+      alternate-active-background: @lightbg;
+    }
+
+    configuration {
+      modi:                       "drun,run,window";
+      show-icons:                 true;
+      icon-theme:                 "Papirus";
+      display-drun:               " Apps";
+      display-run:                " Run";
+      display-window:             " Windows";
+      drun-display-format:        "{name}";
+      font:                       "JetBrainsMono Nerd Font 12";
+    }
+
+    window {
+      transparency:                real;
+      location:                    center;
+      anchor:                      center;
+      width:                       600;
+      border-radius:               12;
+      background-color:            @background;
+    }
+
+    mainbox {
+      spacing:                     10;
+      padding:                     24;
+      background-color:            transparent;
+      children:                    [ "inputbar", "listview" ];
+    }
+
+    inputbar {
+      spacing:                     10;
+      background-color:            transparent;
+      children:                    [ "textbox-prompt-colon", "entry" ];
+    }
+
+    textbox-prompt-colon {
+      padding:                     6 0;
+      expand:                      false;
+      str:                         "";
+      background-color:            transparent;
+      text-color:                  @foreground;
+    }
+
+    entry {
+      padding:                     6 0;
+      background-color:            transparent;
+      text-color:                  @foreground;
+      placeholder:                 "Search";
+      placeholder-color:           @overlay0;
+    }
+
+    listview {
+      spacing:                     6;
+      margin:                      12 0 0 0;
+      lines:                       8;
+      columns:                     1;
+      cycle:                       true;
+      dynamic:                     true;
+      scrollbar:                   true;
+      layout:                      vertical;
+      background-color:            transparent;
+      text-color:                  @foreground;
+    }
+
+    scrollbar {
+      handle-width:                4;
+      handle-color:                @mauve;
+      border-radius:               4;
+      background-color:            transparent;
+    }
+
+    element {
+      padding:                     8 12;
+      border-radius:               8;
+      background-color:            transparent;
+      text-color:                  @foreground;
+    }
+
+    element normal.normal {
+      background-color:            transparent;
+      text-color:                  @foreground;
+    }
+
+    element selected.normal {
+      background-color:            @mauve;
+      text-color:                  @base;
+    }
+
+    element-icon {
+      size:                        1.2em;
+      vertical-align:              0.5;
+      horizontal-align:            0.5;
+    }
+
+    element-text {
+      vertical-align:              0.5;
+      horizontal-align:            0.0;
+    }
+
+    message {
+      spacing:                     8;
+      margin:                      12 0 0 0;
+      background-color:            transparent;
+      text-color:                  @foreground;
+    }
+
+    textbox {
+      padding:                     8 12;
+      border-radius:               8;
+      background-color:            transparent;
+      text-color:                  @foreground;
+    }
+
+    error-message {
+      padding:                     12;
+      border-radius:               12;
+      background-color:            @base;
+      text-color:                  @text;
     }
   '';
 }
