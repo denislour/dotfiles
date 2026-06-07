@@ -1,8 +1,22 @@
 { pkgs, lib, ... }:
 
 {
-  services.displayManager.defaultSession = lib.mkDefault "bspwm";
-  services.xserver.displayManager.lightdm.enable = true;
+  services.displayManager = {
+    ly = {
+      enable = true;
+      settings = {
+        bg = "1e1e2e";
+        fg = "cdd6f4";
+        asterisk = "◆";
+        clear_term = true;
+        lang = "us";
+        save = false;
+        load = true;
+        min_refresh_delta = 50;
+      };
+    };
+    defaultSession = lib.mkDefault "bspwm";
+  };
 
   services.xserver.desktopManager.session = [{
     name = "bspwm";
