@@ -35,6 +35,11 @@
     ../../home/programs/mpd.nix
   ];
 
+  stylix.targets = {
+    rofi.enable = true;
+    yazi.enable = true;
+  };
+
   gtk = {
     enable = true;
     iconTheme = {
