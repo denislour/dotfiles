@@ -63,7 +63,7 @@
 
     modules-left = launcher sep term folder browser sep title
     modules-center =
-    modules-right = weather sep usercard sep mplayer sep workspace bgd filesystem brd cpu_bar byd memory_bar bpd network bod date bid sep tray sep power
+    modules-right = weather usercard mplayer workspace bgd filesystem brd cpu_bar byd memory_bar bpd network bod date bid tray power
 
     separator =
     dim-value = 1.0
@@ -87,39 +87,39 @@
 
     [module/bgd]
     type = custom/text
-    label = "  %{B#6C77BB} %{B-}"
-    label-foreground = ''${color.bg}
-    label-background = ''${color.green}
+    label = "  "
+    label-foreground = ''${color.green}
+    label-background = ''${color.bg}
 
     [module/brd]
     type = custom/text
-    label = "  %{B#6C77BB} %{B-}"
-    label-foreground = ''${color.bg}
-    label-background = ''${color.red}
+    label = "  "
+    label-foreground = ''${color.red}
+    label-background = ''${color.bg}
 
     [module/byd]
     type = custom/text
-    label = "  %{B#6C77BB} %{B-}"
-    label-foreground = ''${color.bg}
-    label-background = ''${color.yellow}
+    label = "  "
+    label-foreground = ''${color.yellow}
+    label-background = ''${color.bg}
 
     [module/bpd]
     type = custom/text
-    label = "  %{B#6C77BB} %{B-}"
-    label-foreground = ''${color.bg}
-    label-background = ''${color.purple}
+    label = "  "
+    label-foreground = ''${color.purple}
+    label-background = ''${color.bg}
 
     [module/bod]
     type = custom/text
-    label = "  %{B#6C77BB} %{B-}"
-    label-foreground = ''${color.bg}
-    label-background = ''${color.orange}
+    label = "  "
+    label-foreground = ''${color.orange}
+    label-background = ''${color.bg}
 
     [module/bid]
     type = custom/text
     label = "  "
-    label-foreground = ''${color.bg}
-    label-background = ''${color.indigo}
+    label-foreground = ''${color.indigo}
+    label-background = ''${color.bg}
 
     ; ───────────────────────── DATE ─────────────────────────
 
