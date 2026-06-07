@@ -38,10 +38,10 @@
     fixed-center = false
 
     width = 95%
-    height = 28
+    height = 34
 
     offset-x = 2.5%
-    offset-y = 5
+    offset-y = 4
 
     background = ''${color.bg}
     foreground = ''${color.fg}
@@ -52,16 +52,16 @@
     border-size = 14
     border-color = ''${color.bg}
 
-    padding-left = 4
-    padding-right = 4
+    padding-left = 6
+    padding-right = 6
 
     module-margin-left = 0
     module-margin-right = 0
 
-    font-0 = "JetBrainsMono Nerd Font:style=Bold:size=12;2"
-    font-1 = "JetBrainsMono Nerd Font:style=Regular:size=15;3"
+    font-0 = "JetBrainsMono Nerd Font:style=Bold:size=13;2"
+    font-1 = "JetBrainsMono Nerd Font:style=Regular:size=17;3"
 
-    modules-left = launcher sep term sep folder browser sep title
+    modules-left = launcher sep term folder browser sep title
     modules-center =
     modules-right = weather sep usercard sep mplayer sep bgi workspace bgd bri filesystem brd byi cpu_bar byd bpi memory_bar bpd boi network bod bii date bid sep tray sep power
 
@@ -406,6 +406,7 @@
     type = custom/text
     label = 
     label-foreground = ''${color.blue}
+    label-padding = 2
     click-left = rofi -show drun
 
     ; ───────────────────────── TERMINAL ─────────────────────────
@@ -414,6 +415,7 @@
     type = custom/text
     label = 
     label-foreground = ''${color.green}
+    label-padding = 2
     click-left = alacritty
 
     ; ───────────────────────── FOLDER ─────────────────────────
@@ -422,6 +424,7 @@
     type = custom/text
     label = 
     label-foreground = ''${color.yellow}
+    label-padding = 2
     click-left = yazi
 
     ; ───────────────────────── BROWSER ─────────────────────────
@@ -430,6 +433,7 @@
     type = custom/text
     label = 
     label-foreground = ''${color.cyan}
+    label-padding = 2
     click-left = librewolf
 
     ; ───────────────────────── SEPARATORS ─────────────────────────
@@ -480,6 +484,7 @@
     type = custom/text
     label = ""
     label-foreground = ''${color.purple}
+    label-padding = 2
 
     ; ───────────────────────── USER CARD ─────────────────────────
 
@@ -487,6 +492,7 @@
     type = custom/text
     label = ""
     label-foreground = ''${color.yellow}
+    label-padding = 2
     click-left = fastfetch
 
     ; ───────────────────────── POWER ─────────────────────────
@@ -494,7 +500,7 @@
     [module/power]
     type = custom/text
     label = ""
-    label-padding-left = 4 pt
+    label-padding = 2
     label-foreground = ''${color.red}
     click-left = i3lock
 
