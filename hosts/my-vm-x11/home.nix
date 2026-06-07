@@ -32,6 +32,7 @@
     ../../home/programs/zsh.nix
     ../../home/packages.nix
     ../../home/programs/liger.nix
+    ../../home/programs/mpd.nix
   ];
 
   gtk = {

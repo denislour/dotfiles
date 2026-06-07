@@ -17,5 +17,8 @@
     sqlite
     sqlite.dev
     playerctl
+    mpd
+    mpc
+    ncmpcpp
   ];
 }
