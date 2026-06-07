@@ -5,8 +5,14 @@ rebuild:
     sudo nix-collect-garbage -d
     sudo nix-store --optimise
 
+rebuild-lite:
+    sudo nixos-rebuild switch --flake .#{{_host}}
+
 rebuild-x11:
     just _host=my-vm-x11 rebuild
+
+rebuild-x11-lite:
+    just _host=my-vm-x11 rebuild-lite
 
 rebuild-suckless:
     just _host=my-vm-suckless rebuild
