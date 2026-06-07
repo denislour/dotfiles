@@ -63,7 +63,7 @@
 
     modules-left = launcher sep term sep folder browser sep title
     modules-center =
-    modules-right = weather sep usercard sep mplayer sep battery sep bgi workspace bgd bri filesystem brd byi cpu_bar byd bpi memory_bar bpd bbi pulseaudio bbd boi network bod bii date bid sep tray sep power
+    modules-right = weather sep usercard sep mplayer sep bgi workspace bgd bri filesystem brd byi cpu_bar byd bpi memory_bar bpd boi network bod bii date bid sep tray sep power
 
     separator =
     dim-value = 1.0
@@ -188,7 +188,7 @@
 
     [module/weather]
     type = custom/script
-    exec = curl -s "wttr.in?format=%c+%t&lang=en" 2>/dev/null || echo ""
+    exec = curl -s "wttr.in?format=%t" 2>/dev/null || echo ""
     interval = 900
     format = <label>
     label = "%output%"
@@ -235,7 +235,7 @@
 
     [module/network]
     type = internal/network
-    interface = enp30s0
+    interface = ens33
     interval = 3.0
     accumulate-stats = true
     unknown-as-up = true
