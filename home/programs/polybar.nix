@@ -87,43 +87,37 @@
 
     [module/bgd]
     type = custom/text
-    label = ""
+    label = "  "
     label-foreground = ''${color.bg}
     label-background = ''${color.green}
 
     [module/brd]
     type = custom/text
-    label = ""
+    label = "  "
     label-foreground = ''${color.bg}
     label-background = ''${color.red}
 
     [module/byd]
     type = custom/text
-    label = ""
+    label = "  "
     label-foreground = ''${color.bg}
     label-background = ''${color.yellow}
 
     [module/bpd]
     type = custom/text
-    label = ""
+    label = "  "
     label-foreground = ''${color.bg}
     label-background = ''${color.purple}
 
-    [module/bbd]
-    type = custom/text
-    label = ""
-    label-foreground = ''${color.bg}
-    label-background = ''${color.blue}
-
     [module/bod]
     type = custom/text
-    label = ""
+    label = "  "
     label-foreground = ''${color.bg}
     label-background = ''${color.orange}
 
     [module/bid]
     type = custom/text
-    label = ""
+    label = "  "
     label-foreground = ''${color.bg}
     label-background = ''${color.indigo}
 
