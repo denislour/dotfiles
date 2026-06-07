@@ -54,15 +54,15 @@
     padding-left = 8
     padding-right = 8
 
-    module-margin-left = 1
-    module-margin-right = 1
+    module-margin-left = 2
+    module-margin-right = 2
 
     font-0 = "JetBrainsMono Nerd Font:style=Bold:size=13;2"
     font-1 = "JetBrainsMono Nerd Font:style=Regular:size=18;3"
 
-    modules-left = launcher sep term folder browser sep title
-    modules-center =
-    modules-right = weather usercard mplayer workspace filesystem cpu_bar memory_bar network date power
+    modules-left = launcher sep term folder browser sep
+    modules-center = title workspace filesystem cpu_bar memory_bar network date
+    modules-right = weather usercard mplayer power
 
     separator =
     dim-value = 1.0
