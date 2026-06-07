@@ -54,8 +54,4 @@
 
   xdg.configFile."mimeapps.list".force = true;
   xdg.dataFile."applications/mimeapps.list".force = true;
-
-
-
-
 }
