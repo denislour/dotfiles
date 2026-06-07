@@ -95,6 +95,7 @@
     format-prefix-background = ''${color.indigo}
     label = "%time%%date%"
     label-minlen = 12
+    label-align = center
     label-padding = 4 pt
     label-foreground = ''${color.bg}
     label-background = ''${color.indigo}
@@ -119,6 +120,7 @@
     format = <label>
     label = " %output%"
     label-minlen = 6
+    label-align = center
     label-padding = 4 pt
     label-foreground = ''${color.bg}
     label-background = ''${color.green}
@@ -136,6 +138,7 @@
     format-mounted-prefix-background = ''${color.red}
     label-mounted = %used%
     label-mounted-minlen = 6
+    label-mounted-align = center
     label-mounted-padding = 4 pt
     label-mounted-foreground = ''${color.bg}
     label-mounted-background = ''${color.red}
@@ -352,6 +355,7 @@
     format-prefix-background = ''${color.yellow}
     label = "%percentage%%"
     label-minlen = 6
+    label-align = center
     label-padding = 4 pt
     label-foreground = ''${color.bg}
     label-background = ''${color.yellow}
@@ -367,6 +371,7 @@
     format-prefix-background = ''${color.purple}
     label = "%used%"
     label-minlen = 6
+    label-align = center
     label-padding = 4 pt
     label-foreground = ''${color.bg}
     label-background = ''${color.purple}
@@ -386,6 +391,7 @@
     format-connected-prefix-background = ''${color.orange}
     label-connected = %netspeed%
     label-connected-minlen = 6
+    label-connected-align = center
     label-connected-padding = 4 pt
     label-connected-foreground = ''${color.bg}
     label-connected-background = ''${color.orange}
@@ -422,6 +428,7 @@
     label = ""
     label-padding = 4
     label-minlen = 6
+    label-align = center
     label-foreground = ''${color.red}
     click-left = i3lock
 
