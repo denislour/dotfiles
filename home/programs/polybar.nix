@@ -436,8 +436,8 @@
 
     [module/sep]
     type = custom/text
-    label = " "
-    label-foreground = ''${color.bg-alt}
+    label = " 󰇙 "
+    label-foreground = ''${color.indigo}
 
     [module/sep2]
     type = custom/text
