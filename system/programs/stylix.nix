@@ -77,7 +77,7 @@
       rofi.enable = true;
       starship.enable = true;
       yazi.enable = true;
-      zellij.enable = true;
+      zellij.enable = false;
     };
   };
 }
