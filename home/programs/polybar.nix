@@ -1,4 +1,8 @@
+{ pkgs, ... }:
+
 {
+  home.packages = with pkgs; [ polybar ];
+
   xdg.configFile."polybar/config.ini".text = ''
     [colors]
     bg = #232136
