@@ -1,7 +1,7 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ bspwm polybar rofi sxhkd ];
+  home.packages = with pkgs; [ bspwm rofi sxhkd ];
 
-  xdg.configFile."wallpaper".source = ../../system/wallpapers/default.jpg;
+  xdg.configFile."wallpaper".source = ../../system/wallpapers/wallpaper.webp;
 
   xdg.configFile."bspwm/bspwmrc" = {
     executable = true;
