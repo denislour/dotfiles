@@ -92,7 +92,11 @@
       bspc node -c
 
     mod1 + f
-      bspc node -t ~fullscreen
+      if [ -z "$(bspc query -N -n focused.fullscreen)" ]; then \
+        bspc node focused -t fullscreen; \
+      else \
+        bspc node focused -t tiled; \
+      fi
 
     mod1 + t
       if [ -z "$(bspc query -N -n focused.floating)" ]; then \
@@ -117,16 +121,16 @@
       bspc node -m {west,south,north,east}
 
     mod1 + {1-9}
-      bspc desktop -f ^{1-9}
+      bspc desktop -f {1-9}
 
     mod1 + shift + {1-9}
-      bspc node -d ^{1-9}
+      bspc node -d {1-9}
 
     mod1 + m
-      bspc node -d ^9
+      bspc node -d 9
 
     mod1 + shift + m
-      bspc desktop -f ^9
+      bspc desktop -f 9
 
     mod1 + shift + q
       i3lock
