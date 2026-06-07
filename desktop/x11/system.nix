@@ -24,8 +24,7 @@
   services.xserver.desktopManager.session = [{
     name = "bspwm";
     start = ''
-      source /home/jake/.config/bspwm/bspwmrc
-      exec ${pkgs.bspwm}/bin/bspwm
+      ${pkgs.bash}/bin/bash -c '. /home/jake/.config/bspwm/bspwmrc; exec ${pkgs.bspwm}/bin/bspwm'
     '';
   }];
 
