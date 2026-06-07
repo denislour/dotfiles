@@ -14,7 +14,7 @@
         compact_bar = "zellij:compact-bar";
       };
       keybinds = {
-        unbind = [ "Ctrl + o" ];
+        unbind = [ "Ctrl o" ];
       };
     };
   };
