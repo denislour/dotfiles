@@ -35,7 +35,7 @@
     override-redirect = false
 
     bottom = true
-    fixed-center = false
+    fixed-center = true
 
     width = 95%
     height = 38
@@ -54,8 +54,8 @@
     padding-left = 8
     padding-right = 8
 
-    module-margin-left = 0
-    module-margin-right = 2
+    module-margin-left = 1
+    module-margin-right = 1
 
     font-0 = "JetBrainsMono Nerd Font:style=Bold:size=13;2"
     font-1 = "JetBrainsMono Nerd Font:style=Regular:size=18;3"
@@ -94,6 +94,7 @@
     format-prefix-foreground = ''${color.bg}
     format-prefix-background = ''${color.indigo}
     label = "%time%%date%"
+    label-minlen = 12
     label-padding = 4 pt
     label-foreground = ''${color.bg}
     label-background = ''${color.indigo}
@@ -117,6 +118,7 @@
     interval = 1
     format = <label>
     label = " %output%"
+    label-minlen = 12
     label-padding = 4 pt
     label-foreground = ''${color.bg}
     label-background = ''${color.green}
@@ -133,6 +135,7 @@
     format-mounted-prefix-foreground = ''${color.bg}
     format-mounted-prefix-background = ''${color.red}
     label-mounted = %used%
+    label-mounted-minlen = 12
     label-mounted-padding = 4 pt
     label-mounted-foreground = ''${color.bg}
     label-mounted-background = ''${color.red}
@@ -348,6 +351,7 @@
     format-prefix-foreground = ''${color.bg}
     format-prefix-background = ''${color.yellow}
     label = "%percentage%%"
+    label-minlen = 12
     label-padding = 4 pt
     label-foreground = ''${color.bg}
     label-background = ''${color.yellow}
@@ -362,6 +366,7 @@
     format-prefix-foreground = ''${color.bg}
     format-prefix-background = ''${color.purple}
     label = "%used%"
+    label-minlen = 12
     label-padding = 4 pt
     label-foreground = ''${color.bg}
     label-background = ''${color.purple}
@@ -380,6 +385,7 @@
     format-connected-prefix-foreground = ''${color.bg}
     format-connected-prefix-background = ''${color.orange}
     label-connected = %netspeed%
+    label-connected-minlen = 12
     label-connected-padding = 4 pt
     label-connected-foreground = ''${color.bg}
     label-connected-background = ''${color.orange}
@@ -415,6 +421,7 @@
     type = custom/text
     label = ""
     label-padding = 4
+    label-minlen = 12
     label-foreground = ''${color.red}
     click-left = i3lock
 
