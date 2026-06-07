@@ -68,6 +68,10 @@
     stylix.targets = {
       alacritty.enable = true;
       bat.enable = true;
+      firefox = {
+        enable = true;
+        profileNames = [ "default" ];
+      };
       fzf.enable = true;
       lazygit.enable = true;
       rofi.enable = true;
