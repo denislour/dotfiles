@@ -87,85 +87,85 @@
 
     [module/bgi]
     type = custom/text
-    label = "%{O-2}"
+    label = ""
     label-foreground = ''${color.green}
     label-background = ''${color.bg}
 
     [module/bri]
     type = custom/text
-    label = "%{O-2}"
+    label = ""
     label-foreground = ''${color.red}
     label-background = ''${color.bg}
 
     [module/byi]
     type = custom/text
-    label = "%{O-2}"
+    label = ""
     label-foreground = ''${color.yellow}
     label-background = ''${color.bg}
 
     [module/bpi]
     type = custom/text
-    label = "%{O-2}"
+    label = ""
     label-foreground = ''${color.purple}
     label-background = ''${color.bg}
 
     [module/bbi]
     type = custom/text
-    label = "%{O-2}"
+    label = ""
     label-foreground = ''${color.blue}
     label-background = ''${color.bg}
 
     [module/boi]
     type = custom/text
-    label = "%{O-2}"
+    label = ""
     label-foreground = ''${color.orange}
     label-background = ''${color.bg}
 
     [module/bii]
     type = custom/text
-    label = "%{O-2}"
+    label = ""
     label-foreground = ''${color.indigo}
     label-background = ''${color.bg}
 
     [module/bgd]
     type = custom/text
-    label = "%{O-2}"
+    label = ""
     label-foreground = ''${color.bg}
     label-background = ''${color.green}
 
     [module/brd]
     type = custom/text
-    label = "%{O-2}"
+    label = ""
     label-foreground = ''${color.bg}
     label-background = ''${color.red}
 
     [module/byd]
     type = custom/text
-    label = "%{O-2}"
+    label = ""
     label-foreground = ''${color.bg}
     label-background = ''${color.yellow}
 
     [module/bpd]
     type = custom/text
-    label = "%{O-2}"
+    label = ""
     label-foreground = ''${color.bg}
     label-background = ''${color.purple}
 
     [module/bbd]
     type = custom/text
-    label = "%{O-2}"
+    label = ""
     label-foreground = ''${color.bg}
     label-background = ''${color.blue}
 
     [module/bod]
     type = custom/text
-    label = "%{O-2}"
+    label = ""
     label-foreground = ''${color.bg}
     label-background = ''${color.orange}
 
     [module/bid]
     type = custom/text
-    label = "%{O-2}"
+    label = ""
     label-foreground = ''${color.bg}
     label-background = ''${color.indigo}
 
