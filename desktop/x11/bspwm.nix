@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ bspwm rofi sxhkd ];
+  home.packages = with pkgs; [ bspwm i3lock rofi sxhkd ];
 
   xdg.configFile."wallpaper".source = ../../system/wallpapers/wallpaper.webp;
 
