@@ -385,6 +385,7 @@
     type = custom/text
     label = 
     label-foreground = ''${color.blue}
+    click-left = rofi -show drun
 
     ; ───────────────────────── SEPARATORS ─────────────────────────
 
@@ -449,6 +450,7 @@
     label = ""
     label-padding-left = 4 pt
     label-foreground = ''${color.red}
+    click-left = i3lock
 
     ; ───────────────────────── TRAY ─────────────────────────
 
