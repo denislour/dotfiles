@@ -63,7 +63,7 @@
     font-0 = "JetBrainsMono Nerd Font:style=Bold:size=9;2"
     font-1 = "JetBrainsMono Nerd Font:style=Regular:size=12;3"
 
-    modules-left = launcher sep term sep folder sep2 bspwm sep2 title
+    modules-left = launcher sep term sep folder sep browser sep2 bspwm sep2 title
     modules-center =
     modules-right = bluetooth sep usercard sep mplayer sep battery sep bgi updates bgd bri filesystem brd byi cpu_bar byd bpi memory_bar bpd bbi pulseaudio bbd boi network bod bii date bid sep tray sep power
 
@@ -402,6 +402,14 @@
     label = 
     label-foreground = ''${color.yellow}
     click-left = yazi
+
+    ; ───────────────────────── BROWSER ─────────────────────────
+
+    [module/browser]
+    type = custom/text
+    label = 
+    label-foreground = ''${color.cyan}
+    click-left = librewolf
 
     ; ───────────────────────── SEPARATORS ─────────────────────────
 
