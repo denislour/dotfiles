@@ -156,7 +156,8 @@
     format = <label>
     label = " %output%"
     label-padding = 4 pt
-    label-foreground = ''${color.indigo}
+    label-foreground = ''${color.bg}
+    label-background = ''${color.indigo}
 
     ; ───────────────────────── FILESYSTEM ─────────────────────────
 
