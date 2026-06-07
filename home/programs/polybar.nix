@@ -34,7 +34,7 @@
     monitor-strict = false
     override-redirect = false
 
-    bottom = true
+    bottom = false
     fixed-center = true
 
     width = 95%
@@ -54,15 +54,17 @@
     padding-left = 8
     padding-right = 8
 
-    module-margin-left = 2
-    module-margin-right = 2
+    module-margin-left = 0
+    module-margin-right = 0
 
     font-0 = "JetBrainsMono Nerd Font:style=Bold:size=13;2"
     font-1 = "JetBrainsMono Nerd Font:style=Regular:size=18;3"
+    font-2 = "JetBrainsMono Nerd Font:style=Bold:size=26;4"
+    font-3 = "polycat:style=Regular:size=20;0"
 
-    modules-left = launcher sep term folder browser sep
-    modules-center = title workspace filesystem cpu_bar memory_bar network date
-    modules-right = weather usercard mplayer power
+    modules-left = launcher sep term folder browser sep title
+    modules-center = polycat usercard mplayer
+    modules-right = workspace filesystem cpu_bar memory_bar network date power
 
     separator =
     dim-value = 1.0
@@ -133,7 +135,7 @@
     interval = 60
     fixed-values = false
     format-mounted = <label-mounted>
-    format-mounted-prefix = " "
+    format-mounted-prefix = "  "
     format-mounted-prefix-foreground = ''${color.bg}
     format-mounted-prefix-background = ''${color.red}
     label-mounted = %used%
@@ -302,7 +304,8 @@
     type = custom/text
     label = 
     label-foreground = ''${color.blue}
-    label-padding = 4
+    label-font = 2
+    label-padding = 1
     click-left = rofi -show drun
 
     ; ───────────────────────── TERMINAL ─────────────────────────
@@ -311,7 +314,8 @@
     type = custom/text
     label = 
     label-foreground = ''${color.green}
-    label-padding = 4
+    label-font = 2
+    label-padding = 1
     click-left = alacritty
 
     ; ───────────────────────── FOLDER ─────────────────────────
@@ -320,8 +324,9 @@
     type = custom/text
     label = 
     label-foreground = ''${color.yellow}
-    label-padding = 4
-    click-left = yazi
+    label-font = 2
+    label-padding = 1
+    click-left = alacritty -e yazi
 
     ; ───────────────────────── BROWSER ─────────────────────────
 
@@ -329,7 +334,8 @@
     type = custom/text
     label = 
     label-foreground = ''${color.cyan}
-    label-padding = 4
+    label-font = 2
+    label-padding = 1
     click-left = librewolf
 
     ; ───────────────────────── SEPARATORS ─────────────────────────
@@ -350,7 +356,7 @@
     type = internal/cpu
     interval = 0.5
     format = <label>
-    format-prefix = " "
+    format-prefix = "  "
     format-prefix-foreground = ''${color.bg}
     format-prefix-background = ''${color.yellow}
     label = "%percentage%%"
@@ -366,7 +372,7 @@
     type = internal/memory
     interval = 3
     format = <label>
-    format-prefix = " "
+    format-prefix = "  "
     format-prefix-foreground = ''${color.bg}
     format-prefix-background = ''${color.purple}
     label = "%used%"
@@ -386,7 +392,7 @@
     unknown-as-up = true
     speed-unit = ""
     format-connected = <label-connected>
-    format-connected-prefix = " "
+    format-connected-prefix = "   "
     format-connected-prefix-foreground = ''${color.bg}
     format-connected-prefix-background = ''${color.orange}
     label-connected = %netspeed%
@@ -410,7 +416,8 @@
     type = custom/text
     label = ""
     label-foreground = ''${color.purple}
-    label-padding = 4
+    label-font = 2
+    label-padding = 2
 
     ; ───────────────────────── USER CARD ─────────────────────────
 
@@ -418,16 +425,25 @@
     type = custom/text
     label = ""
     label-foreground = ''${color.yellow}
-    label-padding = 4
-    click-left = fastfetch
+    label-font = 2
+    label-padding = 1
+    click-left = alacritty --hold -e fastfetch
+
+    ; ───────────────────────── POLYCAT ─────────────────────────
+
+    [module/polycat]
+    type = custom/script
+    exec = polycat
+    tail = true
 
     ; ───────────────────────── POWER ─────────────────────────
 
     [module/power]
     type = custom/text
     label = ""
-    label-padding = 4
+    label-font = 2
     label-minlen = 6
+    label-padding = 2
     label-align = center
     label-foreground = ''${color.red}
     click-left = i3lock
