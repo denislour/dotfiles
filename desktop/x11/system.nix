@@ -13,6 +13,7 @@
         save = false;
         load = true;
         min_refresh_delta = 50;
+        xauth_cmd = "${pkgs.xauth}/bin/xauth";
       };
     };
     defaultSession = lib.mkDefault "bspwm";
