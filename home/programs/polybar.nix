@@ -512,13 +512,5 @@
     tray-padding = 0px
     tray-size = 72%
 
-    ; ───────────────────────── WEATHER ─────────────────────────
-
-    [module/weather]
-    type = custom/script
-    exec = Weather wmodule
-    interval = 900
-    format = <label>
-    label = "%output%"
   '';
 }
