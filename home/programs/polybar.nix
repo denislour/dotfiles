@@ -157,7 +157,7 @@
     label = " %output%"
     label-padding = 4 pt
     label-foreground = ''${color.bg}
-    label-background = ''${color.indigo}
+    label-background = ''${color.green}
 
     ; ───────────────────────── FILESYSTEM ─────────────────────────
 
