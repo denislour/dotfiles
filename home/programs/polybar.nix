@@ -62,7 +62,7 @@
 
     modules-left = launcher sep term folder browser sep title
     modules-center =
-    modules-right = weather usercard mplayer workspace filesystem cpu_bar memory_bar date tray power
+    modules-right = weather usercard mplayer workspace filesystem cpu_bar memory_bar network date power
 
     separator =
     dim-value = 1.0
@@ -366,6 +366,32 @@
     label-foreground = ''${color.bg}
     label-background = ''${color.purple}
 
+    ; ───────────────────────── NETWORK ─────────────────────────
+
+    [module/network]
+    type = internal/network
+    interface = ens33
+    interval = 3.0
+    accumulate-stats = true
+    unknown-as-up = true
+    speed-unit = ""
+    format-connected = <label-connected>
+    format-connected-prefix = " "
+    format-connected-prefix-foreground = ''${color.bg}
+    format-connected-prefix-background = ''${color.orange}
+    label-connected = %netspeed%
+    label-connected-padding = 4 pt
+    label-connected-foreground = ''${color.bg}
+    label-connected-background = ''${color.orange}
+    format-disconnected = <label-disconnected>
+    format-disconnected-prefix = " "
+    format-disconnected-prefix-foreground = ''${color.bg}
+    format-disconnected-background = ''${color.orange}
+    label-disconnected = Offline
+    label-disconnected-padding = 4 pt
+    label-disconnected-foreground = ''${color.bg}
+    label-disconnected-background = ''${color.orange}
+
     ; ───────────────────────── MPLAYER / MUSIC ─────────────────────────
 
     [module/mplayer]
@@ -392,17 +418,6 @@
     label-foreground = ''${color.red}
     click-left = i3lock
 
-    ; ───────────────────────── TRAY ─────────────────────────
-
-    [module/tray]
-    type = internal/tray
-    format = <tray>
-    format-background = ''${color.bg}
-    tray-background = ''${color.bg}
-    tray-foreground = ''${color.fg}
-    tray-spacing = 4px
-    tray-padding = 0px
-    tray-size = 72%
 
   '';
 }
