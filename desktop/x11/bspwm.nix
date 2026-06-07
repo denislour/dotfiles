@@ -95,7 +95,11 @@
       bspc node -t ~fullscreen
 
     mod1 + t
-      bspc node -t ~floating
+      if [ -z "$(bspc query -N -n focused.floating)" ]; then \
+        bspc node focused -t floating; \
+      else \
+        bspc node focused -t tiled; \
+      fi
 
     mod1 + s
       maim ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png
