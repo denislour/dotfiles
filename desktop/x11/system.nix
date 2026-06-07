@@ -18,6 +18,8 @@
     defaultSession = lib.mkDefault "bspwm";
   };
 
+  environment.etc."ly/setup.sh".source = "${pkgs.ly}/etc/setup.sh";
+
   services.xserver.desktopManager.session = [{
     name = "bspwm";
     start = ''
