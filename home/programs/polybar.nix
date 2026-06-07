@@ -63,7 +63,7 @@
     font-3 = "polycat:style=Regular:size=20;0"
 
     modules-left = launcher sep term folder browser sep title
-    modules-center = polycat usercard mplayer
+    modules-center = usercard polycat mplayer
     modules-right = workspace filesystem cpu_bar memory_bar network date power
 
     separator =
@@ -398,7 +398,7 @@
     label-foreground = ''${color.purple}
     label-font = 2
     label-padding = 2
-    click-left = playerctl play-pause
+    click-left = alacritty -e ncmpcpp
 
 
     [module/usercard]
