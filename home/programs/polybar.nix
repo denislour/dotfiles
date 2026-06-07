@@ -61,7 +61,7 @@
     module-margin-right = 0
 
     font-0 = "JetBrainsMono Nerd Font:style=Bold:size=9;2"
-    font-1 = "JetBrainsMono Nerd Font:size=13;3"
+    font-1 = "JetBrainsMono Nerd Font:style=Regular:size=12;3"
 
     modules-left = launcher sep2 bspwm sep2 title
     modules-center =
@@ -324,15 +324,15 @@
     reverse-scroll = true
     pin-workspaces = true
     occupied-scroll = false
-    ws-icon-0 = 1;
+    ws-icon-0 = 1;
     ws-icon-1 = 2;
-    ws-icon-2 = 3;
+    ws-icon-2 = 3;
     ws-icon-3 = 4;
-    ws-icon-4 = 5;
+    ws-icon-4 = 5;
     ws-icon-5 = 6;
     ws-icon-6 = 7;
-    ws-icon-7 = 8;
-    ws-icon-8 = 9;🚽
+    ws-icon-7 = 8;
+    ws-icon-8 = 9;
     format = <label-state>
     label-focused = %icon%
     label-focused-padding = 1
@@ -383,7 +383,7 @@
 
     [module/launcher]
     type = custom/text
-    label = 󰣇
+    label = 
     label-foreground = ''${color.blue}
 
     ; ───────────────────────── SEPARATORS ─────────────────────────
