@@ -7,22 +7,22 @@
     polarity = "dark";
 
     base16Scheme = {
-      base00 = "2d353b";
-      base01 = "343f44";
-      base02 = "3d484d";
-      base03 = "475258";
-      base04 = "80867a";
-      base05 = "d3c6aa";
-      base06 = "e6e2cc";
-      base07 = "f8f5e4";
-      base08 = "e67e80";
-      base09 = "e69875";
-      base0A = "dbbc7f";
-      base0B = "a7c080";
-      base0C = "83c092";
-      base0D = "7fbbb3";
-      base0E = "d699b6";
-      base0F = "f8f5e4";
+      base00 = "1e1e2e";
+      base01 = "181825";
+      base02 = "313244";
+      base03 = "45475a";
+      base04 = "585b70";
+      base05 = "cdd6f4";
+      base06 = "f5f5f5";
+      base07 = "b4befe";
+      base08 = "f38ba8";
+      base09 = "fab387";
+      base0A = "f9e2af";
+      base0B = "a6e3a1";
+      base0C = "94e2d5";
+      base0D = "89b4fa";
+      base0E = "cba6f7";
+      base0F = "f2cdcd";
     };
 
     cursor = {
@@ -57,6 +57,7 @@
       qt.enable = true;
       plymouth.enable = false;
     };
+
     opacity = {
       terminal = 0.95;
       popups = 0.95;
