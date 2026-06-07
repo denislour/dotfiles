@@ -84,7 +84,6 @@
     compositing-border = over
     pseudo-transparency = false
 
-    ; ───────────────────────── DATE ─────────────────────────
 
     [module/date]
     type = internal/date
@@ -102,7 +101,6 @@
     label-foreground = ''${color.bg}
     label-background = ''${color.indigo}
 
-    ; ───────────────────────── WEATHER ─────────────────────────
 
     [module/weather]
     type = custom/script
@@ -113,7 +111,6 @@
     label-padding = 2 pt
     label-foreground = ''${color.cyan}
 
-    ; ───────────────────────── WORKSPACE ─────────────────────────
 
     [module/workspace]
     type = custom/script
@@ -127,7 +124,6 @@
     label-foreground = ''${color.bg}
     label-background = ''${color.green}
 
-    ; ───────────────────────── FILESYSTEM ─────────────────────────
 
     [module/filesystem]
     type = internal/fs
@@ -153,11 +149,9 @@
     label-unmounted-foreground = ''${color.bg}
     label-unmounted-background = ''${color.red}
 
-    ; ───────────────────────── NETWORK ─────────────────────────
 
 
 
-    ; ───────────────────────── PULSEAUDIO ─────────────────────────
 
     [module/pulseaudio]
     type = internal/pulseaudio
@@ -182,7 +176,6 @@
     label-muted-background = ''${color.blue}
     label-muted-foreground = ''${color.bg}
 
-    ; ───────────────────────── BRIGHTNESS ─────────────────────────
 
     [module/brightness]
     type = internal/backlight
@@ -202,7 +195,6 @@
     ramp-9 = 󱩖
     ramp-foreground = ''${color.amber}
 
-    ; ───────────────────────── BATTERY ─────────────────────────
 
     [module/battery]
     type = internal/battery
@@ -234,7 +226,6 @@
     animation-charging-padding = 4 pt
     animation-charging-framerate = 700
 
-    ; ───────────────────────── BSPWM ─────────────────────────
 
     [module/bspwm]
     type = internal/bspwm
@@ -268,7 +259,6 @@
     label-separator-padding = 0
     label-separator-foreground = ''${color.bg-alt}
 
-    ; ───────────────────────── TITLE ─────────────────────────
 
     [module/title]
     type = internal/xwindow
@@ -282,7 +272,6 @@
     label-empty-padding = 4 pt
     label-empty-foreground = ''${color.grey}
 
-    ; ───────────────────────── UPDATES ─────────────────────────
 
     [module/updates]
     type = custom/ipc
@@ -298,7 +287,6 @@
     label-foreground = ''${color.bg}
     label-background = ''${color.green}
 
-    ; ───────────────────────── LAUNCHER ─────────────────────────
 
     [module/launcher]
     type = custom/text
@@ -308,7 +296,6 @@
     label-padding = 1
     click-left = rofi -show drun
 
-    ; ───────────────────────── TERMINAL ─────────────────────────
 
     [module/term]
     type = custom/text
@@ -318,7 +305,6 @@
     label-padding = 1
     click-left = alacritty
 
-    ; ───────────────────────── FOLDER ─────────────────────────
 
     [module/folder]
     type = custom/text
@@ -328,7 +314,6 @@
     label-padding = 1
     click-left = alacritty -e yazi
 
-    ; ───────────────────────── BROWSER ─────────────────────────
 
     [module/browser]
     type = custom/text
@@ -338,7 +323,6 @@
     label-padding = 1
     click-left = librewolf
 
-    ; ───────────────────────── SEPARATORS ─────────────────────────
 
     [module/sep]
     type = custom/text
@@ -350,7 +334,6 @@
     label = " 󰇙 "
     label-foreground = ''${color.indigo}
 
-    ; ───────────────────────── CPU BAR ─────────────────────────
 
     [module/cpu_bar]
     type = internal/cpu
@@ -366,7 +349,6 @@
     label-foreground = ''${color.bg}
     label-background = ''${color.yellow}
 
-    ; ───────────────────────── MEMORY BAR ─────────────────────────
 
     [module/memory_bar]
     type = internal/memory
@@ -382,7 +364,6 @@
     label-foreground = ''${color.bg}
     label-background = ''${color.purple}
 
-    ; ───────────────────────── NETWORK ─────────────────────────
 
     [module/network]
     type = internal/network
@@ -410,7 +391,6 @@
     label-disconnected-foreground = ''${color.bg}
     label-disconnected-background = ''${color.orange}
 
-    ; ───────────────────────── MPLAYER / MUSIC ─────────────────────────
 
     [module/mplayer]
     type = custom/text
@@ -419,24 +399,20 @@
     label-font = 2
     label-padding = 2
 
-    ; ───────────────────────── USER CARD ─────────────────────────
 
     [module/usercard]
     type = custom/text
     label = ""
     label-foreground = ''${color.yellow}
     label-font = 2
-    label-padding = 1
+    label-padding = 2
     click-left = alacritty --hold -e fastfetch
-
-    ; ───────────────────────── POLYCAT ─────────────────────────
 
     [module/polycat]
     type = custom/script
     exec = polycat
     tail = true
 
-    ; ───────────────────────── POWER ─────────────────────────
 
     [module/power]
     type = custom/text
