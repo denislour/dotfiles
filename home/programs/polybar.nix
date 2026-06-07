@@ -38,7 +38,7 @@
     fixed-center = false
 
     width = 95%
-    height = 34
+    height = 38
 
     offset-x = 2.5%
     offset-y = 4
@@ -52,8 +52,8 @@
     border-size = 14
     border-color = ''${color.bg}
 
-    padding-left = 6
-    padding-right = 6
+    padding-left = 8
+    padding-right = 8
 
     module-margin-left = 0
     module-margin-right = 0
@@ -63,7 +63,7 @@
 
     modules-left = launcher sep term folder browser sep title
     modules-center =
-    modules-right = weather usercard mplayer workspace bgd filesystem brd cpu_bar byd memory_bar bpd network bod date bid tray power
+    modules-right = weather usercard mplayer workspace filesystem cpu_bar memory_bar network date tray power
 
     separator =
     dim-value = 1.0
@@ -82,44 +82,6 @@
     compositing-underline = over
     compositing-border = over
     pseudo-transparency = false
-
-    ; ───────────────────────── DIAMOND SEPARATORS ─────────────────────────
-
-    [module/bgd]
-    type = custom/text
-    label = "  "
-    label-foreground = ''${color.green}
-    label-background = ''${color.bg}
-
-    [module/brd]
-    type = custom/text
-    label = "  "
-    label-foreground = ''${color.red}
-    label-background = ''${color.bg}
-
-    [module/byd]
-    type = custom/text
-    label = "  "
-    label-foreground = ''${color.yellow}
-    label-background = ''${color.bg}
-
-    [module/bpd]
-    type = custom/text
-    label = "  "
-    label-foreground = ''${color.purple}
-    label-background = ''${color.bg}
-
-    [module/bod]
-    type = custom/text
-    label = "  "
-    label-foreground = ''${color.orange}
-    label-background = ''${color.bg}
-
-    [module/bid]
-    type = custom/text
-    label = "  "
-    label-foreground = ''${color.indigo}
-    label-background = ''${color.bg}
 
     ; ───────────────────────── DATE ─────────────────────────
 
