@@ -49,8 +49,7 @@
     line-size = 3
     line-color = ''${color.blue}
 
-    border-size = 14
-    border-color = ''${color.bg}
+    border-size = 0
 
     padding-left = 8
     padding-right = 8
@@ -63,7 +62,7 @@
 
     modules-left = launcher sep term folder browser sep title
     modules-center =
-    modules-right = weather usercard mplayer workspace filesystem cpu_bar memory_bar network date tray power
+    modules-right = weather usercard mplayer workspace filesystem cpu_bar memory_bar date tray power
 
     separator =
     dim-value = 1.0
@@ -91,12 +90,13 @@
     time = %I:%M %P
     date-alt = "%a, %d %b %Y"
     format = <label>
-    format-prefix-background = ''${color.indigo}
+    format-prefix = "  "
     format-prefix-foreground = ''${color.bg}
-    label-padding = 4 pt
+    format-prefix-background = ''${color.indigo}
     label = "%time%%date%"
-    label-background = ''${color.indigo}
+    label-padding = 4 pt
     label-foreground = ''${color.bg}
+    label-background = ''${color.indigo}
 
     ; ───────────────────────── WEATHER ─────────────────────────
 
@@ -128,50 +128,23 @@
     mount-0 = /
     interval = 60
     fixed-values = false
-    format-mounted = <label-mounted>
-    format-mounted-prefix = 
-    format-mounted-prefix-padding = 4 pt
-    format-mounted-prefix-foreground = ''${color.bg}
-    format-mounted-prefix-background = ''${color.red}
-    format-unmounted = <label-unmounted>
-    format-unmounted-prefix = 
-    format-unmounted-prefix-background = ''${color.red}
+    format = <label>
+    format-prefix = " "
+    format-prefix-foreground = ''${color.bg}
+    format-prefix-background = ''${color.red}
+    format-foreground = ''${color.bg}
+    format-background = ''${color.red}
     label-mounted = %used%
-    label-mounted-padding-right = 4 pt
-    label-mounted-foreground = ''${color.bg}
-    label-mounted-background = ''${color.red}
+    label-padding = 4 pt
+    label-foreground = ''${color.bg}
+    label-background = ''${color.red}
     label-unmounted = %mountpoint%: not mounted
-    label-unmounted-padding-right = 4 pt
     label-unmounted-foreground = ''${color.bg}
     label-unmounted-background = ''${color.red}
 
     ; ───────────────────────── NETWORK ─────────────────────────
 
-    [module/network]
-    type = internal/network
-    interface = ens33
-    interval = 3.0
-    accumulate-stats = true
-    unknown-as-up = true
-    speed-unit = ""
-    format-connected = <label-connected>
-    format-connected-prefix = 
-    format-connected-prefix-padding = 4 pt
-    label-connected = %netspeed%
-    label-connected-padding-right = 4 pt
-    format-connected-prefix-foreground = ''${color.bg}
-    format-connected-prefix-background = ''${color.orange}
-    label-connected-foreground = ''${color.bg}
-    label-connected-background = ''${color.orange}
-    format-disconnected = <label-disconnected>
-    format-disconnected-prefix = 
-    format-disconnected-prefix-padding = 4 pt
-    format-disconnected-foreground = ''${color.bg}
-    format-disconnected-background = ''${color.orange}
-    label-disconnected = Offline
-    label-disconnected-padding-right = 4 pt
-    label-disconnected-foreground = ''${color.bg}
-    label-disconnected-background = ''${color.orange}
+
 
     ; ───────────────────────── PULSEAUDIO ─────────────────────────
 
@@ -368,12 +341,11 @@
     type = internal/cpu
     interval = 0.5
     format = <label>
-    format-prefix = ""
-    format-prefix-padding = 4 pt
+    format-prefix = " "
     format-prefix-foreground = ''${color.bg}
     format-prefix-background = ''${color.yellow}
     label = "%percentage%%"
-    label-padding-right = 4 pt
+    label-padding = 4 pt
     label-foreground = ''${color.bg}
     label-background = ''${color.yellow}
 
@@ -383,12 +355,11 @@
     type = internal/memory
     interval = 3
     format = <label>
-    format-prefix = ""
-    format-prefix-padding = 4 pt
+    format-prefix = " "
     format-prefix-foreground = ''${color.bg}
     format-prefix-background = ''${color.purple}
     label = "%used%"
-    label-padding-right = 4 pt
+    label-padding = 4 pt
     label-foreground = ''${color.bg}
     label-background = ''${color.purple}
 
