@@ -467,7 +467,7 @@
     type = internal/memory
     interval = 3
     format = <label>
-    format-prefix = ""
+    format-prefix = ""
     format-prefix-padding = 4 pt
     format-prefix-foreground = ''${color.bg}
     format-prefix-background = ''${color.purple}
