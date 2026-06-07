@@ -36,9 +36,14 @@
   ];
 
   stylix.targets = {
+    alacritty.enable = true;
+    bat.enable = true;
+    fzf.enable = true;
+    lazygit.enable = true;
     rofi.enable = true;
     starship.enable = true;
     yazi.enable = true;
+    zellij.enable = true;
   };
 
   gtk = {

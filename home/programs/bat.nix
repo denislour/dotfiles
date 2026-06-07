@@ -4,7 +4,6 @@
     config = {
       pager = "less -FR";
       style = "auto";
-      theme = "catppuccin-mocha";
     };
   };
 }
