@@ -3,7 +3,6 @@
 {
   services.displayManager.defaultSession = lib.mkDefault "bspwm";
   services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
 
   services.xserver.desktopManager.session = [{
     name = "bspwm";

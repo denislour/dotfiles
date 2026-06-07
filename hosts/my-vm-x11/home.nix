@@ -18,7 +18,6 @@
     ../../home/programs/fd.nix
     ../../home/programs/alacritty.nix
     ../../home/programs/zellij.nix
-    ../../home/programs/xfce-panel.nix
     ../../home/programs/git.nix
     ../../home/programs/lazygit.nix
     ../../home/programs/librewolf.nix
@@ -56,10 +55,7 @@
   xdg.configFile."mimeapps.list".force = true;
   xdg.dataFile."applications/mimeapps.list".force = true;
 
-  xdg.configFile."xfce4/helpers.rc".text = ''
-    TerminalEmulator=alacritty
-    WebBrowser=librewolf
-  '';
+
 
 
 }

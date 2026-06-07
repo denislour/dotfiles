@@ -18,7 +18,7 @@
     bspc config presel_feedback_color "#585b70"
 
     polybar main &
-    picom --experimental-backends &
+    picom &
     dunst &
     nm-applet &
     ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &
