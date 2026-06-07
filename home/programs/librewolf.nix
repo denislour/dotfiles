@@ -6,6 +6,9 @@
       "network.cookie.lifetimePolicy" = 0;
       "privacy.resistFingerprinting" = false;
       "privacy.firstparty.isolate" = false;
+      "privacy.clearOnShutdown.cookies" = false;
+      "privacy.clearOnShutdown.sessions" = false;
+      "privacy.sanitize.sanitizeOnShutdown" = false;
     };
   };
 }
