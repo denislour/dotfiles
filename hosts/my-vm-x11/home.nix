@@ -37,6 +37,7 @@
 
   stylix.targets = {
     rofi.enable = true;
+    starship.enable = true;
     yazi.enable = true;
   };
 
