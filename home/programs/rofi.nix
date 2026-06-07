@@ -1,21 +1,36 @@
 {
   xdg.configFile."rofi/config.rasi".text = ''
-    configuration {
-      modi:                       "drun,run,window";
-      show-icons:                 true;
-      icon-theme:                 "Papirus";
-      display-drun:               " Apps";
-      display-run:                " Run";
-      display-window:             " Windows";
-      drun-display-format:        "{name}";
-      window-format:              "{w} · {c} · {t}";
-      font:                       "JetBrainsMono Nerd Font 12";
-    }
+    @theme "catppuccin-default"
+  '';
+
+  xdg.configFile."rofi/catppuccin-default.rasi".text = ''
+    @import "themes/catppuccin-mocha"
 
     * {
-      background:                 #1e1e2e;
-      foreground:                 #cdd6f4;
-      selected:                   #cba6f7;
+      selected-active-foreground:  @background;
+      lightfg:                     @text;
+      separatorcolor:              @foreground;
+      urgent-foreground:           @red;
+      alternate-urgent-background: @lightbg;
+      lightbg:                     @mantle;
+      background-color:            transparent;
+      border-color:                @foreground;
+      normal-background:           @background;
+      selected-urgent-background:  @red;
+      alternate-active-background: @lightbg;
+      spacing:                     2;
+      alternate-normal-foreground: @foreground;
+      urgent-background:           @background;
+      selected-normal-foreground:  @lightbg;
+      active-foreground:           @blue;
+      background:                  @base;
+      selected-active-background:  @blue;
+      active-background:           @background;
+      selected-normal-background:  @lightfg;
+      alternate-normal-background: @lightbg;
+      foreground:                  @text;
+      selected-urgent-foreground:  @background;
+      normal-foreground:           @foreground;
     }
 
     window {
@@ -24,108 +39,81 @@
       anchor:                      center;
       width:                       600px;
       border-radius:               12px;
-      background-color:            @background;
     }
 
     mainbox {
       spacing:                     10px;
-      padding:                     20px;
-      background-color:            transparent;
+      padding:                     24px;
       children:                    [ "inputbar", "listview" ];
     }
 
     inputbar {
       spacing:                     10px;
-      padding:                     0px;
-      background-color:            transparent;
-      text-color:                  @foreground;
       children:                    [ "textbox-prompt-colon", "entry" ];
     }
 
     textbox-prompt-colon {
-      padding:                     6px 0px;
       expand:                      false;
       str:                         "";
-      background-color:            transparent;
-      text-color:                  @foreground;
-    }
-
-    entry {
-      padding:                     6px 0px;
-      background-color:            transparent;
-      text-color:                  @foreground;
-      placeholder:                 "Search...";
     }
 
     listview {
-      columns:                     1;
+      spacing:                     6px;
+      margin:                      12px 0px 0px 0px;
       lines:                       8;
-      cycle:                       true;
-      dynamic:                     true;
-      scrollbar:                   true;
-      layout:                      vertical;
-      spacing:                     4px;
-      margin:                      10px 0px 0px 0px;
-      background-color:            transparent;
-      text-color:                  @foreground;
-    }
-
-    scrollbar {
-      handle-width:                4px;
-      handle-color:                @selected;
-      border-radius:               4px;
-      background-color:            transparent;
     }
 
     element {
-      spacing:                     8px;
       padding:                     8px 12px;
       border-radius:               8px;
-      background-color:            transparent;
-      text-color:                  @foreground;
-      cursor:                      pointer;
-    }
-
-    element normal.normal {
-      background-color:            transparent;
-      text-color:                  @foreground;
-    }
-
-    element selected.normal {
-      background-color:            @selected;
-      text-color:                  @background;
     }
 
     element-icon {
       size:                        1.2em;
-      vertical-align:              0.5;
-      horizontal-align:            0.5;
     }
 
     element-text {
       vertical-align:              0.5;
-      horizontal-align:            0.0;
     }
 
     message {
-      spacing:                     8px;
-      margin:                      10px 0px 0px 0px;
-      background-color:            transparent;
-      text-color:                  @foreground;
+      margin:                      12px 0px 0px 0px;
     }
 
     textbox {
       padding:                     8px 12px;
       border-radius:               8px;
-      background-color:            transparent;
-      text-color:                  @foreground;
     }
+  '';
 
-    error-message {
-      padding:                     12px;
-      border-radius:               12px;
-      background-color:            @background;
-      text-color:                  @foreground;
+  xdg.configFile."rofi/themes/catppuccin-mocha.rasi".text = ''
+    * {
+      rosewater: #f5e0dc;
+      flamingo: #f2cdcd;
+      pink: #f5c2e7;
+      mauve: #cba6f7;
+      red: #f38ba8;
+      maroon: #eba0ac;
+      peach: #fab387;
+      yellow: #f9e2af;
+      green: #a6e3a1;
+      teal: #94e2d5;
+      sky: #89dceb;
+      sapphire: #74c7ec;
+      blue: #89b4fa;
+      lavender: #b4befe;
+      text: #cdd6f4;
+      subtext1: #bac2de;
+      subtext0: #a6adc8;
+      overlay2: #9399b2;
+      overlay1: #7f849c;
+      overlay0: #6c7086;
+      surface2: #585b70;
+      surface1: #45475a;
+      surface0: #313244;
+      base: #1e1e2e;
+      mantle: #181825;
+      crust: #11111b;
     }
   '';
 }
