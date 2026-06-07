@@ -38,7 +38,7 @@
     fixed-center = false
 
     width = 95%
-    height = 24
+    height = 28
 
     offset-x = 2.5%
     offset-y = 5
@@ -58,10 +58,10 @@
     module-margin-left = 0
     module-margin-right = 0
 
-    font-0 = "JetBrainsMono Nerd Font:style=Bold:size=10;2"
-    font-1 = "JetBrainsMono Nerd Font:style=Regular:size=14;3"
+    font-0 = "JetBrainsMono Nerd Font:style=Bold:size=12;2"
+    font-1 = "JetBrainsMono Nerd Font:style=Regular:size=15;3"
 
-    modules-left = launcher sep term sep folder sep browser sep title
+    modules-left = launcher sep term sep folder browser sep title
     modules-center =
     modules-right = weather sep usercard sep mplayer sep bgi workspace bgd bri filesystem brd byi cpu_bar byd bpi memory_bar bpd boi network bod bii date bid sep tray sep power
 
