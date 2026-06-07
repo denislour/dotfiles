@@ -55,7 +55,7 @@
     padding-right = 8
 
     module-margin-left = 0
-    module-margin-right = 0
+    module-margin-right = 2
 
     font-0 = "JetBrainsMono Nerd Font:style=Bold:size=13;2"
     font-1 = "JetBrainsMono Nerd Font:style=Regular:size=18;3"
@@ -128,17 +128,20 @@
     mount-0 = /
     interval = 60
     fixed-values = false
-    format = <label>
-    format-prefix = " "
-    format-prefix-foreground = ''${color.bg}
-    format-prefix-background = ''${color.red}
-    format-foreground = ''${color.bg}
-    format-background = ''${color.red}
+    format-mounted = <label-mounted>
+    format-mounted-prefix = " "
+    format-mounted-prefix-foreground = ''${color.bg}
+    format-mounted-prefix-background = ''${color.red}
     label-mounted = %used%
-    label-padding = 4 pt
-    label-foreground = ''${color.bg}
-    label-background = ''${color.red}
+    label-mounted-padding = 4 pt
+    label-mounted-foreground = ''${color.bg}
+    label-mounted-background = ''${color.red}
+    format-unmounted = <label-unmounted>
+    format-unmounted-prefix = " "
+    format-unmounted-prefix-foreground = ''${color.bg}
+    format-unmounted-prefix-background = ''${color.red}
     label-unmounted = %mountpoint%: not mounted
+    label-unmounted-padding = 4 pt
     label-unmounted-foreground = ''${color.bg}
     label-unmounted-background = ''${color.red}
 
