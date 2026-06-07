@@ -16,5 +16,6 @@
     worker-build
     sqlite
     sqlite.dev
+    playerctl
   ];
 }

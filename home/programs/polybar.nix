@@ -398,6 +398,7 @@
     label-foreground = ''${color.purple}
     label-font = 2
     label-padding = 2
+    click-left = playerctl play-pause
 
 
     [module/usercard]
