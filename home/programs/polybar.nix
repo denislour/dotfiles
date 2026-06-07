@@ -118,7 +118,7 @@
     interval = 1
     format = <label>
     label = " %output%"
-    label-minlen = 12
+    label-minlen = 6
     label-padding = 4 pt
     label-foreground = ''${color.bg}
     label-background = ''${color.green}
@@ -135,7 +135,7 @@
     format-mounted-prefix-foreground = ''${color.bg}
     format-mounted-prefix-background = ''${color.red}
     label-mounted = %used%
-    label-mounted-minlen = 12
+    label-mounted-minlen = 6
     label-mounted-padding = 4 pt
     label-mounted-foreground = ''${color.bg}
     label-mounted-background = ''${color.red}
@@ -351,7 +351,7 @@
     format-prefix-foreground = ''${color.bg}
     format-prefix-background = ''${color.yellow}
     label = "%percentage%%"
-    label-minlen = 12
+    label-minlen = 6
     label-padding = 4 pt
     label-foreground = ''${color.bg}
     label-background = ''${color.yellow}
@@ -366,7 +366,7 @@
     format-prefix-foreground = ''${color.bg}
     format-prefix-background = ''${color.purple}
     label = "%used%"
-    label-minlen = 12
+    label-minlen = 6
     label-padding = 4 pt
     label-foreground = ''${color.bg}
     label-background = ''${color.purple}
@@ -385,7 +385,7 @@
     format-connected-prefix-foreground = ''${color.bg}
     format-connected-prefix-background = ''${color.orange}
     label-connected = %netspeed%
-    label-connected-minlen = 12
+    label-connected-minlen = 6
     label-connected-padding = 4 pt
     label-connected-foreground = ''${color.bg}
     label-connected-background = ''${color.orange}
@@ -421,7 +421,7 @@
     type = custom/text
     label = ""
     label-padding = 4
-    label-minlen = 12
+    label-minlen = 6
     label-foreground = ''${color.red}
     click-left = i3lock
 
