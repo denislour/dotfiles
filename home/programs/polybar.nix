@@ -38,15 +38,13 @@
     fixed-center = false
 
     width = 95%
-    height = 20
+    height = 26
 
     offset-x = 2.5%
     offset-y = 5
 
     background = ''${color.bg}
     foreground = ''${color.fg}
-
-    radius-bottom = 1
 
     line-size = 3
     line-color = ''${color.blue}
@@ -57,11 +55,11 @@
     padding-left = 2
     padding-right = 1
 
-    module-margin-left = 0
-    module-margin-right = 0
+    module-margin-left = 2
+    module-margin-right = 2
 
-    font-0 = "JetBrainsMono Nerd Font:style=Bold:size=9;2"
-    font-1 = "JetBrainsMono Nerd Font:style=Regular:size=12;3"
+    font-0 = "JetBrainsMono Nerd Font:style=Bold:size=11;2"
+    font-1 = "JetBrainsMono Nerd Font:style=Regular:size=14;3"
 
     modules-left = launcher sep term sep folder browser sep title
     modules-center =
