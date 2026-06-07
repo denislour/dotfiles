@@ -32,7 +32,6 @@
   '';
   };
 
-
   xdg.configFile."sxhkd/sxhkdrc".text = ''
     mod1 + Return
       alacritty
