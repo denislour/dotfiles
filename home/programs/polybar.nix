@@ -409,11 +409,8 @@
     [module/mplayer]
     type = custom/text
     label = ""
-    label-foreground = ''${color.bg}
-    label-background = ''${color.purple}
+    label-foreground = ''${color.purple}
     label-padding = 4
-    label-minlen = 6
-    label-align = center
 
     ; ───────────────────────── USER CARD ─────────────────────────
 
