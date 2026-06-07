@@ -3,60 +3,58 @@
     configuration {
       modi:                       "drun,run,window";
       show-icons:                 true;
-      display-drun:               "";
-      display-run:                "";
-      display-window:             "";
+      icon-theme:                 "Papirus";
+      display-drun:               " Apps";
+      display-run:                " Run";
+      display-window:             " Windows";
       drun-display-format:        "{name}";
       window-format:              "{w} · {c} · {t}";
+      font:                       "JetBrainsMono Nerd Font 12";
     }
 
     * {
       background:                 #1e1e2e;
-      background-alt:             #313244;
       foreground:                 #cdd6f4;
       selected:                   #cba6f7;
-      active:                     #a6e3a1;
-      urgent:                     #f38ba8;
     }
 
     window {
       transparency:                "real";
       location:                    center;
       anchor:                      center;
-      fullscreen:                  false;
       width:                       600px;
-      border-radius:               10px;
+      border-radius:               12px;
       background-color:            @background;
     }
 
     mainbox {
       spacing:                     10px;
-      padding:                     30px;
+      padding:                     20px;
       background-color:            transparent;
-      children:                    [ "inputbar", "message", "listview" ];
+      children:                    [ "inputbar", "listview" ];
     }
 
     inputbar {
       spacing:                     10px;
+      padding:                     0px;
       background-color:            transparent;
       text-color:                  @foreground;
-      children:                    [ "textbox-prompt-colon", "entry", "mode-switcher" ];
+      children:                    [ "textbox-prompt-colon", "entry" ];
     }
 
     textbox-prompt-colon {
-      padding:                     5px 0px;
+      padding:                     6px 0px;
       expand:                      false;
       str:                         "";
-      background-color:            inherit;
-      text-color:                  inherit;
+      background-color:            transparent;
+      text-color:                  @foreground;
     }
 
     entry {
-      padding:                     5px 0px;
-      background-color:            inherit;
-      text-color:                  inherit;
+      padding:                     6px 0px;
+      background-color:            transparent;
+      text-color:                  @foreground;
       placeholder:                 "Search...";
-      placeholder-color:           inherit;
     }
 
     listview {
@@ -66,22 +64,29 @@
       dynamic:                     true;
       scrollbar:                   true;
       layout:                      vertical;
-      spacing:                     5px;
+      spacing:                     4px;
+      margin:                      10px 0px 0px 0px;
       background-color:            transparent;
       text-color:                  @foreground;
     }
 
     scrollbar {
-      handle-width:                5px;
+      handle-width:                4px;
       handle-color:                @selected;
-      border-radius:               10px;
-      background-color:            @background-alt;
+      border-radius:               4px;
+      background-color:            transparent;
     }
 
     element {
-      spacing:                     10px;
-      padding:                     5px 10px;
-      border-radius:               10px;
+      spacing:                     8px;
+      padding:                     8px 12px;
+      border-radius:               8px;
+      background-color:            transparent;
+      text-color:                  @foreground;
+      cursor:                      pointer;
+    }
+
+    element normal.normal {
       background-color:            transparent;
       text-color:                  @foreground;
     }
@@ -92,7 +97,9 @@
     }
 
     element-icon {
-      size:                        24px;
+      size:                        1.2em;
+      vertical-align:              0.5;
+      horizontal-align:            0.5;
     }
 
     element-text {
@@ -100,41 +107,23 @@
       horizontal-align:            0.0;
     }
 
-    mode-switcher {
-      spacing:                     10px;
-      background-color:            transparent;
-      text-color:                  @foreground;
-    }
-
-    button {
-      padding:                     5px 10px;
-      border-radius:               10px;
-      background-color:            @background-alt;
-      text-color:                  inherit;
-    }
-
-    button selected {
-      background-color:            @selected;
-      text-color:                  @background;
-    }
-
     message {
+      spacing:                     8px;
+      margin:                      10px 0px 0px 0px;
       background-color:            transparent;
       text-color:                  @foreground;
     }
 
     textbox {
-      padding:                     8px 10px;
-      border-radius:               10px;
-      background-color:            @background-alt;
+      padding:                     8px 12px;
+      border-radius:               8px;
+      background-color:            transparent;
       text-color:                  @foreground;
     }
 
     error-message {
-      padding:                     10px;
-      border:                      2px solid;
-      border-radius:               10px;
-      border-color:                @selected;
+      padding:                     12px;
+      border-radius:               12px;
       background-color:            @background;
       text-color:                  @foreground;
     }
