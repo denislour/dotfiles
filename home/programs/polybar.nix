@@ -63,7 +63,7 @@
 
     modules-left = launcher sep term folder browser sep title
     modules-center =
-    modules-right = weather sep usercard sep mplayer sep bgi workspace bgd bri filesystem brd byi cpu_bar byd bpi memory_bar bpd boi network bod bii date bid sep tray sep power
+    modules-right = weather sep usercard sep mplayer sep workspace bgd filesystem brd cpu_bar byd memory_bar bpd network bod date bid sep tray sep power
 
     separator =
     dim-value = 1.0
@@ -84,48 +84,6 @@
     pseudo-transparency = false
 
     ; ───────────────────────── DIAMOND SEPARATORS ─────────────────────────
-
-    [module/bgi]
-    type = custom/text
-    label = ""
-    label-foreground = ''${color.green}
-    label-background = ''${color.bg}
-
-    [module/bri]
-    type = custom/text
-    label = ""
-    label-foreground = ''${color.red}
-    label-background = ''${color.bg}
-
-    [module/byi]
-    type = custom/text
-    label = ""
-    label-foreground = ''${color.yellow}
-    label-background = ''${color.bg}
-
-    [module/bpi]
-    type = custom/text
-    label = ""
-    label-foreground = ''${color.purple}
-    label-background = ''${color.bg}
-
-    [module/bbi]
-    type = custom/text
-    label = ""
-    label-foreground = ''${color.blue}
-    label-background = ''${color.bg}
-
-    [module/boi]
-    type = custom/text
-    label = ""
-    label-foreground = ''${color.orange}
-    label-background = ''${color.bg}
-
-    [module/bii]
-    type = custom/text
-    label = ""
-    label-foreground = ''${color.indigo}
-    label-background = ''${color.bg}
 
     [module/bgd]
     type = custom/text
