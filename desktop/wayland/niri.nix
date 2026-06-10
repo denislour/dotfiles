@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  noctalia = args: [ "noctalia-shell" "ipc" "call" ] ++ args;
+  noctaliaMsg = args: [ "noctalia" "msg" ] ++ args;
 in
 {
   programs.niri = {
@@ -86,7 +86,7 @@ in
 
       binds = {
         "Alt+Return".action.spawn = [ "${pkgs.ghostty}/bin/ghostty" ];
-        "Alt+Space".action.spawn = noctalia [ "launcher" "toggle" ];
+        "Alt+Space".action.spawn = noctaliaMsg [ "panel-toggle" "launcher" ];
 
         "Alt+q".action.close-window = { };
         "Alt+f".action.fullscreen-window = { };
@@ -100,7 +100,7 @@ in
         "Alt+o".action.toggle-overview = { };
         "Alt+Left".action.consume-or-expel-window-left = { };
         "Alt+Right".action.consume-or-expel-window-right = { };
-        "Alt+comma".action.spawn = noctalia [ "settings" "toggle" ];
+        "Alt+comma".action.spawn = noctaliaMsg [ "settings-toggle" ];
         "Alt+Shift+comma".action.consume-window-into-column = { };
         "Alt+period".action.expel-window-from-column = { };
         "Alt+w".action.toggle-column-tabbed-display = { };
@@ -142,20 +142,19 @@ in
         "Alt+Shift+4".action.move-column-to-workspace = 4;
         "Alt+Shift+5".action.move-column-to-workspace = 5;
 
-        "XF86AudioRaiseVolume".action.spawn = noctalia [ "volume" "increase" ];
-        "XF86AudioLowerVolume".action.spawn = noctalia [ "volume" "decrease" ];
-        "XF86AudioMute".action.spawn = noctalia [ "volume" "muteOutput" ];
-        "Shift+XF86AudioMute".action.spawn = noctalia [ "volume" "muteInput" ];
+        "XF86AudioRaiseVolume".action.spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+" ];
+        "XF86AudioLowerVolume".action.spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-" ];
+        "XF86AudioMute".action.spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle" ];
+        "Shift+XF86AudioMute".action.spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle" ];
 
-        "XF86AudioPlay".action.spawn = noctalia [ "media" "playPause" ];
-        "XF86AudioNext".action.spawn = noctalia [ "media" "next" ];
-        "XF86AudioPrev".action.spawn = noctalia [ "media" "previous" ];
+        "XF86AudioPlay".action.spawn = [ "playerctl" "play-pause" ];
+        "XF86AudioNext".action.spawn = [ "playerctl" "next" ];
+        "XF86AudioPrev".action.spawn = [ "playerctl" "previous" ];
 
-        "Alt+Shift+q".action.spawn = noctalia [ "lockScreen" "lock" ];
+        "Alt+Shift+q".action.spawn = noctaliaMsg [ "session" "lock" ];
       };
 
       spawn-at-startup = [
-        { command = [ "noctalia-shell" ]; }
         { command = [ "wl-clip-persist" "--clipboard" "both" ]; }
         { command = [ "sh" "-c" "wl-paste --type text --watch cliphist store" ]; }
         { command = [ "sh" "-c" "wl-paste --type image --watch cliphist store" ]; }
