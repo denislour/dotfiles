@@ -1,40 +1,57 @@
+{ lib, ... }:
+let
+  inherit (lib) mkForce;
+in
 {
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
     settings = {
-      add_newline = true;
+      "$schema" = "https://starship.rs/config-schema.json";
 
       format = ''
-        [░▒▓](bg:base00 fg:base05)[ $time ](bg:base02 fg:base0D)[▓▒░](bg:base00 fg:base02)$directory$git_branch$git_status$nix_shell$cmd_duration
-        [❯](bold base0B) ''$character'';
+        [](bg:base08 fg:crust)\
+        $os\
+        $username\
+        [](bg:peach fg:base08)\
+        $directory\
+        [](bg:yellow fg:peach)\
+        $git_branch\
+        $git_status\
+        [ ](fg:base0A)\
+        $line_break\
+        $character'';
 
-      character = {
-        success_symbol = "[❯](bold base0B)";
-        error_symbol = "[❯](bold base08)";
+      palette = mkForce "catppuccin_mocha";
+
+      os = {
+        disabled = false;
+        style = "bg:base08 fg:crust";
       };
 
-      time = {
-        disabled = false;
-        format = "🕐 $time";
-        style = "bg:base02 fg:base0D";
+      username = {
+        show_always = true;
+        style_user = "bg:base08 fg:crust";
+        style_root = "bg:base08 fg:crust";
+        format = "[ $user]($style)";
       };
 
       directory = {
-        truncation_length = 3;
-        style = "bg:base00 fg:base0D";
-        truncate_to_repo = false;
+        style = "bg:peach fg:crust";
         format = "[ $path ]($style)";
+        truncation_length = 3;
+        truncation_symbol = "…/";
       };
 
       git_branch = {
-        format = "on [$symbol$branch(:$remote_branch)]($style) ";
-        style = "bg:base00 fg:base0E";
+        symbol = "";
+        style = "bg:yellow";
+        format = "[[ $symbol $branch ](fg:crust bg:yellow)]($style)";
       };
 
       git_status = {
-        style = "bg:base00 fg:base0A";
-        format = "[\\[$all_status$ahead_behind\\]]($style) ";
+        style = "bg:yellow";
+        format = "[[($all_status$ahead_behind )](fg:crust bg:yellow)]($style)";
       };
 
       nix_shell = {
@@ -45,20 +62,46 @@
 
       cmd_duration = {
         format = "took [$duration]($style) ";
-        style = "bg:base00 fg:base0A";
+        style = "bold base0A";
         show_milliseconds = false;
         min_time = 2000;
       };
 
-      status = {
-        format = "[$symbol]($style) ";
-        symbol = "❌ ";
-        style = "bold base08";
-        pipestatus = false;
-        disabled = false;
+      line_break.disabled = true;
+
+      character = {
+        success_symbol = "[❯](bold fg:green)";
+        error_symbol = "[❯](bold fg:base08)";
       };
 
-      line_break.disabled = false;
+      palettes.catppuccin_mocha = {
+        rosewater = "#f5e0dc";
+        flamingo = "#f2cdcd";
+        pink = "#f5c2e7";
+        mauve = "#cba6f7";
+        red = "#f38ba8";
+        maroon = "#eba0ac";
+        peach = "#fab387";
+        yellow = "#f9e2af";
+        green = "#a6e3a1";
+        teal = "#94e2d5";
+        sky = "#89dceb";
+        sapphire = "#74c7ec";
+        blue = "#89b4fa";
+        lavender = "#b4befe";
+        text = "#cdd6f4";
+        subtext1 = "#bac2de";
+        subtext0 = "#a6adc8";
+        overlay2 = "#9399b2";
+        overlay1 = "#7f849c";
+        overlay0 = "#6c7086";
+        surface2 = "#585b70";
+        surface1 = "#45475a";
+        surface0 = "#313244";
+        base = "#1e1e2e";
+        mantle = "#181825";
+        crust = "#11111b";
+      };
     };
   };
 }
