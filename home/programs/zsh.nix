@@ -12,6 +12,7 @@
     initContent = ''
       source ${pkgs.fzf}/share/fzf/completion.zsh 2>/dev/null || true
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh 2>/dev/null || true
+      eval "$(starship init zsh)"
       alias history='atuin history'
       alias ls='eza --icons'
       alias ll='eza -la --icons'
