@@ -19,6 +19,7 @@
         display-window:          "";
         drun-display-format:     "{name}";
         font:                    "JetBrainsMonoNL Nerd Font 10";
+        terminal:                "alacritty";
     }
   '';
 
