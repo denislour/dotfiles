@@ -75,7 +75,7 @@
       fzf.enable = true;
       lazygit.enable = true;
       rofi.enable = true;
-      dunst.enable = true;
+      dunst.enable = false;
       starship.enable = true;
       yazi.enable = true;
       zellij.enable = true;

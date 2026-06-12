@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }:
+
+let
+  scheme = config.stylix.base16Scheme;
+in {
   home.packages = with pkgs; [ dunst ];
 
   xdg.configFile."dunst/dunstrc".text = ''
@@ -6,13 +10,12 @@
     font = JetBrainsMonoNL Nerd Font 12
     markup = yes
     plain_text = no
-    theme = Catppuccin-Mocha
 
     frame_width = 2
-    frame_color = "#cba6f7"
-    separator_color = "#313244"
-    background = "#1e1e2e"
-    foreground = "#cdd6f4"
+    frame_color = "${scheme.base0E}"
+    separator_color = "${scheme.base02}"
+    background = "${scheme.base00}"
+    foreground = "${scheme.base05}"
 
     width = 350
     height = 100
@@ -28,18 +31,18 @@
     max_icon_size = 64
 
     [urgency_low]
-    background = "#1e1e2e"
-    foreground = "#cdd6f4"
+    background = "${scheme.base00}"
+    foreground = "${scheme.base05}"
     timeout = 5
 
     [urgency_normal]
-    background = "#1e1e2e"
-    foreground = "#cdd6f4"
+    background = "${scheme.base00}"
+    foreground = "${scheme.base05}"
     timeout = 8
 
     [urgency_critical]
-    background = "#1e1e2e"
-    foreground = "#f38ba8"
+    background = "${scheme.base00}"
+    foreground = "${scheme.base08}"
     timeout = 0
   '';
 
