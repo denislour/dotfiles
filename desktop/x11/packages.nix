@@ -3,6 +3,5 @@
     feh
     maim
     networkmanagerapplet
-    playerctl
   ];
 }
