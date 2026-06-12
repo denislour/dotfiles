@@ -3,57 +3,54 @@
     enable = true;
     enableZshIntegration = true;
     settings = {
-      format = "[](bg:base08 fg:base00)$os$username[](bg:base09 fg:base08)$directory[](bg:base0A fg:base09)$git_branch$git_status[ ](fg:base05)$line_break$character";
+      add_newline = true;
 
-      os = {
-        disabled = false;
-        style = "bg:base08 fg:base00";
-      };
+      format = "$directory$git_branch$git_status$nix_shell$cmd_duration$line_break$character";
 
-      username = {
-        show_always = true;
-        style_user = "bg:base08 fg:base00";
-        style_root = "bg:base08 fg:base00";
-        format = "[ $user]($style)";
+      character = {
+        success_symbol = "[❯](bold green)";
+        error_symbol = "[❯](bold red)";
       };
 
       directory = {
-        style = "bg:base09 fg:base00";
-        format = "[ $path ]($style)";
         truncation_length = 3;
-        truncation_symbol = "…/";
+        style = "bold cyan";
+        truncate_to_repo = false;
+        prefix = " ";
       };
 
       git_branch = {
-        symbol = "";
-        style = "bg:base0A";
-        format = "[[ $symbol $branch ](fg:base00 bg:base0A)]($style)";
+        format = "on [$symbol$branch(:$remote_branch)]($style) ";
+        style = "bold purple";
       };
 
       git_status = {
-        style = "bg:base0A";
-        format = "[[($all_status$ahead_behind )](fg:base00 bg:base0A)]($style)";
+        style = "bold yellow";
+        format = "[\\[$all_status$ahead_behind\\]]($style) ";
       };
 
       nix_shell = {
         format = "via [$symbol$state( \\($name\\))]($style) ";
         symbol = "❄️ ";
-        style = "bg:base00 fg:base0C";
+        style = "bold blue";
       };
 
       cmd_duration = {
         format = "took [$duration]($style) ";
-        style = "bold base0A";
+        style = "bold yellow";
         show_milliseconds = false;
         min_time = 2000;
       };
 
-      line_break.disabled = true;
-
-      character = {
-        success_symbol = "[❯](bold fg:base0B)";
-        error_symbol = "[❯](bold fg:base08)";
+      status = {
+        format = "[$symbol]($style) ";
+        symbol = "❌ ";
+        style = "bold red";
+        pipestatus = false;
+        disabled = false;
       };
+
+      line_break.disabled = false;
     };
   };
 }
