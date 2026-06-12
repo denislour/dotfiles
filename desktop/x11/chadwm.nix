@@ -101,7 +101,7 @@
     mod1 + Return
       alacritty
 
-    mod1 + d
+    mod1 + space
       rofi -show drun
 
     mod1 + s
