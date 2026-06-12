@@ -6,19 +6,19 @@
       add_newline = true;
 
       format = ''
-        [╭─]($style) [ $directory ](bold base0D)$git_branch$git_status$nix_shell
-        [╰─](bold green)$character'';
+        [┌](bold base0D)[─](bold base0D) $directory $git_branch $git_status $nix_shell
+        [└](bold base0B)[─](bold base0B) $character'';
 
       character = {
-        success_symbol = "[❯](bold base0B)";
-        error_symbol = "[❯](bold base08)";
-        vicmd_symbol = "[❮](bold base0E)";
+        success_symbol = "[▶](bold base0B)";
+        error_symbol = "[▶](bold base08)";
       };
 
       directory = {
         truncation_length = 3;
         style = "bold base0D";
         truncate_to_repo = false;
+        prefix = " ";
       };
 
       git_branch = {
