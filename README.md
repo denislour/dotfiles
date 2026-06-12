@@ -3,6 +3,8 @@
 X11 stack: **N**ixOS + **C**hadwm + **A**lacritty on VMware Workstation 17 Pro
 Also available: Wayland stack (Niri + Noctalia) for 3D-accelerated VMs.
 
+![Desktop screenshot](images/desktop-screenshot.png)
+
 ## Hosts
 
 | Host | Desktop | WM | Status |
