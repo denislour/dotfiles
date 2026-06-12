@@ -74,7 +74,7 @@
       };
       fzf.enable = true;
       lazygit.enable = true;
-      rofi.enable = true;
+      rofi.enable = false;
       starship.enable = true;
       yazi.enable = true;
       zellij.enable = true;
