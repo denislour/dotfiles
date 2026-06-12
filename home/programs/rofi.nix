@@ -4,6 +4,7 @@
     extraConfig = {
       show-icons = true;
       icon-theme = "Papirus";
+      terminal = "alacritty";
     };
   };
 
