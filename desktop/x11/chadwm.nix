@@ -1,43 +1,7 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ chadwm rofi sxhkd picom dunst slock ];
+  home.packages = with pkgs; [ chadwm rofi slock ];
 
   xdg.configFile."wallpaper".source = ../../system/wallpapers/emilia-01.webp;
-
-  systemd.user.services.picom = {
-    Unit = {
-      Description = "Picom compositor";
-      PartOf = [ "graphical-session.target" ];
-    };
-    Service = {
-      ExecStart = "${pkgs.picom}/bin/picom --backend xrender";
-      Restart = "on-failure";
-    };
-    Install.WantedBy = [ "graphical-session.target" ];
-  };
-
-  systemd.user.services.sxhkd = {
-    Unit = {
-      Description = "SXHKD hotkey daemon";
-      PartOf = [ "graphical-session.target" ];
-    };
-    Service = {
-      ExecStart = "${pkgs.sxhkd}/bin/sxhkd";
-      Restart = "on-failure";
-    };
-    Install.WantedBy = [ "graphical-session.target" ];
-  };
-
-  systemd.user.services.dunst = {
-    Unit = {
-      Description = "Dunst notification daemon";
-      PartOf = [ "graphical-session.target" ];
-    };
-    Service = {
-      ExecStart = "${pkgs.dunst}/bin/dunst";
-      Restart = "on-failure";
-    };
-    Install.WantedBy = [ "graphical-session.target" ];
-  };
 
   xdg.configFile."chadwm/bar.sh" = {
     executable = true;
@@ -100,42 +64,4 @@
       ${pkgs.networkmanagerapplet}/bin/nm-applet &
     '';
   };
-
-  xdg.configFile."sxhkd/sxhkdrc".text = ''
-    mod1 + Return
-      alacritty
-
-    mod1 + space
-      rofi -show drun
-
-    mod1 + s
-      maim ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png
-
-    mod1 + shift + s
-      maim -s ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png
-
-    Print
-      maim ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png
-
-    mod1 + shift + q
-      slock
-
-    XF86AudioRaiseVolume
-      pactl set-sink-volume @DEFAULT_SINK@ +5%
-
-    XF86AudioLowerVolume
-      pactl set-sink-volume @DEFAULT_SINK@ -5%
-
-    XF86AudioMute
-      pactl set-sink-mute @DEFAULT_SINK@ toggle
-
-    XF86AudioPlay
-      playerctl play-pause
-
-    XF86AudioNext
-      playerctl next
-
-    XF86AudioPrev
-      playerctl previous
-  '';
 }
