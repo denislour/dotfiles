@@ -53,25 +53,19 @@
     super + Return
       alacritty
 
-    mod1 + Return
-      alacritty
-
     super + d
       rofi -show drun
 
-    mod1 + space
-      rofi -show drun
-
-    mod1 + s
+    super + s
       maim ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png
 
-    mod1 + shift + s
+    super + shift + s
       maim -s ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png
 
     Print
       maim ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png
 
-    mod1 + shift + q
+    super + shift + q
       i3lock
 
     XF86AudioRaiseVolume
