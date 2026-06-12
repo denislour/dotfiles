@@ -55,17 +55,18 @@
       darkblue=#7f92ee
 
       cpu() {
-        cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
-        printf "^c$black^ ^b$green^ CPU ^c$white^ ^b$grey^ $cpu_val ^b$black^"
+        cpu_val=$(ps -eo pcpu --no-headers 2>/dev/null | awk '{s+=$1} END{printf "%.0f", s}')
+        [ -z "$cpu_val" ] && cpu_val=0
+        printf "^c$black^ ^b$green^  ^c$white^ ^b$grey^ $cpu_val%% ^b$black^"
       }
 
       mem() {
         mem_val=$(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)
-        printf "^c$black^ ^b$blue^ MEM ^c$black^ ^b$darkblue^ $mem_val ^b$black^"
+        printf "^c$black^ ^b$blue^  ^c$black^ ^b$darkblue^ $mem_val ^b$black^"
       }
 
       clock() {
-        printf "^c$black^ ^b$darkblue^ CLK ^c$black^ ^b$blue^ $(date '+%H:%M') ^b$black^"
+        printf "^c$black^ ^b$darkblue^ 󱑆 ^c$black^ ^b$blue^ $(date '+%H:%M') ^b$black^"
       }
 
       while true; do
