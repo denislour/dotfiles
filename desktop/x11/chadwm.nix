@@ -9,7 +9,7 @@
       PartOf = [ "graphical-session.target" ];
     };
     Service = {
-      ExecStart = "${pkgs.picom}/bin/picom --backend glx";
+      ExecStart = "${pkgs.picom}/bin/picom";
       Restart = "on-failure";
     };
     Install.WantedBy = [ "graphical-session.target" ];
