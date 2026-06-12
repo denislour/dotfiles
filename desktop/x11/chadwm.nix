@@ -55,7 +55,7 @@
       darkblue=#7f92ee
 
       cpu() {
-        cpu_val=$(ps -eo pcpu --no-headers 2>/dev/null | awk '{s+=$1} END{printf "%.0f", s}')
+        cpu_val=$(ps -eo pcpu --no-headers 2>/dev/null | awk -v c=$(nproc) '{s+=$1} END{printf "%.0f", s/c}')
         [ -z "$cpu_val" ] && cpu_val=0
         printf "^c$black^ ^b$green^  ^c$white^ ^b$grey^ $cpu_val%% ^b$black^"
       }
