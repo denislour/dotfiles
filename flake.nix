@@ -79,7 +79,7 @@
         #define ICONSIZE 19
         #define ICONSPACING 8
 
-        static const char *fonts[] = {"JetBrainsMono Nerd Font:style:medium:size=12", "JetBrainsMono Nerd Font Mono:style:medium:size=19"};
+        static const char *fonts[] = {"JetBrainsMonoNL Nerd Font:style:medium:size=12", "JetBrainsMonoNL Nerd Font Mono:style:medium:size=19"};
 
         // theme
         #include "themes/tundra.h"
@@ -104,19 +104,12 @@
         };
 
         /* tagging */
-        static char *tags[] = { "", "" };
+        static char *tags[] = { "", "", "", "", "" };
 
-        static const char* rofi_launcher[] = { "rofi", "-show", "drun", NULL };
-        static const char* librewolf_launcher[] = { "librewolf", NULL };
-        static const char* alacritty_launcher[] = { "alacritty", NULL };
-        static const Launcher launchers[] = {
-            { rofi_launcher, "  " },
-            { librewolf_launcher, "  " },
-            { alacritty_launcher, "  " },
-        };
+        static const Launcher launchers[] = { { 0 } };
 
         static const int tagschemes[] = {
-            SchemeTag1, SchemeTag2
+            SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag4, SchemeTag5
         };
 
         static const unsigned int ulinepad      = 5;
