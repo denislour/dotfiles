@@ -22,36 +22,34 @@
   '';
 
   xdg.configFile."rofi/style-5.rasi".text = ''
+    @import "~/.local/share/rofi/themes/custom.rasi"
+
     * {
-        background:                 #1e1e2e;
-        background-alt:             #313244;
-        foreground:                 #cdd6f4;
-        selected:                   #cba6f7;
-        active:                     #a6e3a1;
-        urgent:                     #f38ba8;
-        border-colour:              #cba6f7;
-        handle-colour:              #cba6f7;
-        background-colour:          #1e1e2e;
-        foreground-colour:          #cdd6f4;
-        alternate-background:       #313244;
-        normal-background:          #1e1e2e;
-        normal-foreground:          #cdd6f4;
-        urgent-background:          #f38ba8;
-        urgent-foreground:          #1e1e2e;
-        active-background:          #a6e3a1;
-        active-foreground:          #1e1e2e;
-        selected-normal-background: #cba6f7;
-        selected-normal-foreground: #1e1e2e;
-        selected-urgent-background: #a6e3a1;
-        selected-urgent-foreground: #1e1e2e;
-        selected-active-background: #f38ba8;
-        selected-active-foreground: #1e1e2e;
-        alternate-normal-background:#1e1e2e;
-        alternate-normal-foreground:#cdd6f4;
-        alternate-urgent-background:#f38ba8;
-        alternate-urgent-foreground:#1e1e2e;
-        alternate-active-background:#a6e3a1;
-        alternate-active-foreground:#1e1e2e;
+        green: #a6e3a1;
+
+        border-colour:              var(foreground);
+        handle-colour:              var(blue);
+        background-colour:          var(background);
+        foreground-colour:          var(foreground);
+        alternate-background:       var(lightbg);
+        normal-background:          var(background);
+        normal-foreground:          var(foreground);
+        urgent-background:          var(red);
+        urgent-foreground:          var(background);
+        active-background:          var(green);
+        active-foreground:          var(background);
+        selected-normal-background: var(blue);
+        selected-normal-foreground: var(background);
+        selected-urgent-background: var(green);
+        selected-urgent-foreground: var(background);
+        selected-active-background: var(red);
+        selected-active-foreground: var(background);
+        alternate-normal-background:var(background);
+        alternate-normal-foreground:var(foreground);
+        alternate-urgent-background:var(red);
+        alternate-urgent-foreground:var(background);
+        alternate-active-background:var(green);
+        alternate-active-foreground:var(background);
     }
 
     window {
