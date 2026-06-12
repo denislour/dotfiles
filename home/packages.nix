@@ -20,6 +20,5 @@
     mpd
     mpc
     ncmpcpp
-    chafa
   ];
 }
