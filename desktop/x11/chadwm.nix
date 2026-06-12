@@ -65,11 +65,11 @@
 
       mem() {
         mem_val=$(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)
-        printf "^c$black^ ^b$yellow^  ^c$black^ ^b$grey^ $mem_val ^b$black^"
+        printf "^c$black^ ^b$yellow^  ^c$white^ ^b$grey^ $mem_val ^b$black^"
       }
 
       clock() {
-        printf "^c$black^ ^b$darkblue^ 󱑆 ^c$black^ ^b$blue^ $(date '+%H:%M') ^b$black^"
+        printf "^c$black^ ^b$darkblue^ 󱑆 ^c$white^ ^b$grey^ $(date '+%H:%M') ^b$black^"
       }
 
       while true; do
