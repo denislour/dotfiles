@@ -1,14 +1,14 @@
 { pkgs, lib, ... }:
 
 {
-  services.displayManager.defaultSession = lib.mkDefault "bspwm";
+  services.displayManager.defaultSession = lib.mkDefault "chadwm";
 
   services.xserver.displayManager.lightdm.enable = true;
 
   services.xserver.desktopManager.session = [{
-    name = "bspwm";
+    name = "chadwm";
     start = ''
-      ${pkgs.bash}/bin/bash -c 'exec ${pkgs.bspwm}/bin/bspwm'
+      ${pkgs.bash}/bin/bash -c 'exec ${pkgs.chadwm}/bin/chadwm'
     '';
   }];
 

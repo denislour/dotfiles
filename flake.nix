@@ -38,14 +38,30 @@
   outputs = { self, nixpkgs, home-manager, disko, stylix, niri, noctalia, sops-nix, ... } @ inputs:
     let
       system = "x86_64-linux";
+      overlays.default = final: prev: {
+        chadwm = prev.dwm.overrideAttrs (old: {
+          pname = "chadwm";
+          version = "6.5-unstable-2025-12-30";
+          src = final.fetchFromGitHub {
+            owner = "siduck";
+            repo = "chadwm";
+            rev = "7991ac8d33878b716e7e7cabf58b47503864f622";
+            hash = "sha256-4Bunr/rRF6UUOBV/LTK4gyrekXRFWdaCxkWNYfp44Jo=";
+          };
+          sourceRoot = "source/chadwm";
+          buildInputs = old.buildInputs ++ [ final.imlib2 ];
+        });
+      };
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        overlays = [ overlays.default ];
       };
       sharedModules = [
         stylix.nixosModules.stylix
         disko.nixosModules.disko
         sops-nix.nixosModules.sops
+        { nixpkgs.overlays = [ overlays.default ]; }
         ./system/packages.nix
         ./system/environment.nix
         ./system/services/sops.nix

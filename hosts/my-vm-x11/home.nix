@@ -23,7 +23,6 @@
     ../../home/programs/librewolf.nix
     ../../home/programs/pi
     ../../home/programs/polycat
-    ../../home/programs/polybar.nix
     ../../home/programs/rofi.nix
     # ../../home/programs/zed-editor  # enable when needed
     ../../home/programs/ripgrep.nix
