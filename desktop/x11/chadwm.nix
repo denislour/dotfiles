@@ -44,6 +44,8 @@
     text = ''
       #!/usr/bin/env bash
 
+      ${pkgs.feh}/bin/feh --bg-fill "$HOME/.config/wallpaper"
+
       fg=#e0def4
       bg=#232136
       black=#111827
