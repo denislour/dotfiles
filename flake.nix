@@ -107,7 +107,13 @@
         static char *tags[] = {"", "", "", "", ""};
 
         static const char* rofi_launcher[] = { "rofi", "-show", "drun", NULL };
-        static const Launcher launchers[] = { { rofi_launcher, "launcher" } };
+        static const char* librewolf_launcher[] = { "librewolf", NULL };
+        static const char* alacritty_launcher[] = { "alacritty", NULL };
+        static const Launcher launchers[] = {
+            { rofi_launcher, "  " },
+            { librewolf_launcher, "  " },
+            { alacritty_launcher, "  " },
+        };
 
         static const int tagschemes[] = {
             SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag4, SchemeTag5
