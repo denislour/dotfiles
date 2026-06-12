@@ -4,6 +4,11 @@
     shellWrapperName = "yy";
 
     settings = {
+      opener = {
+        image = [
+          { run = "feh \"$@\""; block = true; }
+        ];
+      };
       manager = {
         show_hidden = true;
         sort_by = "natural";
