@@ -3,6 +3,7 @@
  *
  * Check DeepSeek account balance with `/ds-balance` command.
  * Reads API key from DEEPSEEK_API_KEY environment variable.
+ * Result sent via system notification (dunst).
  *
  * Usage:
  * - `/ds-balance` - Show current DeepSeek balance
@@ -52,6 +53,15 @@ function formatBalance(data: BalanceResponse): string {
     .join(", ");
 }
 
+function sendDesktopNotification(message: string): void {
+  const { execSync } = require("child_process");
+  try {
+    execSync(`notify-send "DeepSeek" "${message}"`);
+  } catch {
+    // fallback: ignore if notify-send not available
+  }
+}
+
 export default function (pi: ExtensionAPI) {
   pi.registerCommand("ds-balance", {
     description: "Check DeepSeek account balance",
@@ -60,10 +70,13 @@ export default function (pi: ExtensionAPI) {
 
       if (typeof result === "string") {
         ctx.ui.notify(`Balance check failed: ${result}`, "error");
+        sendDesktopNotification(`Balance check failed: ${result}`);
         return;
       }
 
-      ctx.ui.notify(`DeepSeek Balance: ${formatBalance(result)}`, "info");
+      const msg = `DeepSeek Balance: ${formatBalance(result)}`;
+      ctx.ui.notify(msg, "info");
+      sendDesktopNotification(msg);
     },
   });
 }
