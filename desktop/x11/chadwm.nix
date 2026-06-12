@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ chadwm i3lock rofi sxhkd picom dunst ];
+  home.packages = with pkgs; [ chadwm rofi sxhkd picom dunst slock ];
 
   xdg.configFile."wallpaper".source = ../../system/wallpapers/emilia-01.webp;
 
@@ -118,7 +118,7 @@
       maim ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png
 
     mod1 + shift + q
-      i3lock
+      slock
 
     XF86AudioRaiseVolume
       pactl set-sink-volume @DEFAULT_SINK@ +5%

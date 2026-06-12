@@ -16,7 +16,6 @@
         truncation_length = 3;
         style = "bold cyan";
         truncate_to_repo = false;
-        prefix = " ";
       };
 
       git_branch = {
