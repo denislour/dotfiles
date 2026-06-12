@@ -15,6 +15,18 @@
     Install.WantedBy = [ "graphical-session.target" ];
   };
 
+  systemd.user.services.sxhkd = {
+    Unit = {
+      Description = "SXHKD hotkey daemon";
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.sxhkd}/bin/sxhkd";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
+
   systemd.user.services.dunst = {
     Unit = {
       Description = "Dunst notification daemon";
@@ -38,8 +50,14 @@
   };
 
   xdg.configFile."sxhkd/sxhkdrc".text = ''
+    super + Return
+      alacritty
+
     mod1 + Return
       alacritty
+
+    super + d
+      rofi -show drun
 
     mod1 + space
       rofi -show drun

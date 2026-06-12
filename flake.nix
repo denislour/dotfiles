@@ -183,8 +183,7 @@
             {MODKEY,                            XK_u,       spawn,
                 SHCMD("maim --select | xclip -selection clipboard -t image/png")},
 
-            { MODKEY,                           XK_d,       spawn,          SHCMD("rofi -show drun") },
-            { MODKEY,                           XK_Return,  spawn,          SHCMD("alacritty")},
+
 
             // toggle stuff
             { MODKEY,                           XK_b,       togglebar,      {0} },
