@@ -65,7 +65,7 @@
 
       mem() {
         mem_val=$(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)
-        printf "^c$black^ ^b$yellow^  ^c$black^ ^b$darkblue^ $mem_val ^b$black^"
+        printf "^c$black^ ^b$yellow^  ^c$black^ ^b$grey^ $mem_val ^b$black^"
       }
 
       clock() {
