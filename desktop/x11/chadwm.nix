@@ -55,16 +55,17 @@
       blue=#A5B4FC
       red=#FCA5A5
       darkblue=#7f92ee
+      yellow=#f9e2af
 
       cpu() {
         cpu_val=$(ps -eo pcpu --no-headers 2>/dev/null | awk -v c=$(nproc) '{s+=$1} END{printf "%.0f", s/c}')
         [ -z "$cpu_val" ] && cpu_val=0
-        printf "^c$black^ ^b$green^  ^c$white^ ^b$grey^ $cpu_val%% ^b$black^"
+        printf "^c$black^ ^b$green^   ^c$white^ ^b$grey^ $cpu_val%% ^b$black^"
       }
 
       mem() {
         mem_val=$(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)
-        printf "^c$black^ ^b$blue^  ^c$black^ ^b$darkblue^ $mem_val ^b$black^"
+        printf "^c$black^ ^b$yellow^  ^c$black^ ^b$darkblue^ $mem_val ^b$black^"
       }
 
       clock() {
