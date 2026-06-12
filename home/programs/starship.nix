@@ -3,7 +3,7 @@
     enable = true;
     enableZshIntegration = true;
     settings = {
-      format = "[](bg:base08 fg:base00)$os$username[](bg:base09 fg:base08)$directory[](bg:base0A fg:base09)$git_branch$git_status[ ](fg:base0A)$line_break$character";
+      format = "[](bg:base08 fg:base00)$os$username[](bg:base09 fg:base00)$directory[](bg:base0A fg:base00)$git_branch$git_status[ ](fg:base00)$line_break$character";
 
       os = {
         disabled = false;
