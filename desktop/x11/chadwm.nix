@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [ chadwm i3lock rofi sxhkd picom dunst ];
 
-  xdg.configFile."wallpaper".source = ../../system/wallpapers/wallpaper.webp;
+  xdg.configFile."wallpaper".source = ../../system/wallpapers/default.jpg;
 
   systemd.user.services.picom = {
     Unit = {
