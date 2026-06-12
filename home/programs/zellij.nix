@@ -12,7 +12,7 @@
     show_startup_tips false
 
     keybinds {
-        unbind "Ctrl + o"
+        unbind "Ctrl o"
     }
   '';
 }
