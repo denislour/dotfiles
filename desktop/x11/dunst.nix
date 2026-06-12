@@ -1,8 +1,4 @@
-{ config, pkgs, ... }:
-
-let
-  scheme = config.stylix.base16Scheme;
-in {
+{ pkgs, ... }: {
   home.packages = with pkgs; [ dunst ];
 
   xdg.configFile."dunst/dunstrc".text = ''
@@ -12,10 +8,10 @@ in {
     plain_text = no
 
     frame_width = 2
-    frame_color = "${scheme.base0E}"
-    separator_color = "${scheme.base02}"
-    background = "${scheme.base00}"
-    foreground = "${scheme.base05}"
+    frame_color = "#cba6f7"
+    separator_color = "#313244"
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
 
     width = 350
     height = 100
@@ -31,18 +27,18 @@ in {
     max_icon_size = 64
 
     [urgency_low]
-    background = "${scheme.base00}"
-    foreground = "${scheme.base05}"
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
     timeout = 5
 
     [urgency_normal]
-    background = "${scheme.base00}"
-    foreground = "${scheme.base05}"
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
     timeout = 8
 
     [urgency_critical]
-    background = "${scheme.base00}"
-    foreground = "${scheme.base08}"
+    background = "#1e1e2e"
+    foreground = "#f38ba8"
     timeout = 0
   '';
 

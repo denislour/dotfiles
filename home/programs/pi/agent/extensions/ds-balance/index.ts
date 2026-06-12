@@ -63,13 +63,7 @@ export default function (pi: ExtensionAPI) {
         return;
       }
 
-      pi.sendMessage({
-        customType: "ds-balance",
-        content: `DeepSeek Balance: ${formatBalance(result)}`,
-        display: true,
-      }, {
-        triggerTurn: false,
-      });
+      ctx.ui.notify(`DeepSeek Balance: ${formatBalance(result)}`, "info");
     },
   });
 }
