@@ -15,9 +15,6 @@
 
   xdg.configFile."zellij/layouts/nix-layout.kdl".text = ''
     layout {
-        pane size=1 borderless=true {
-            plugin location="zellij:tab-bar"
-        }
         pane
     }
   '';
