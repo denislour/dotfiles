@@ -104,7 +104,7 @@
         };
 
         /* tagging */
-        static char *tags[] = {"", "", "", "", ""};
+        static char *tags[] = { "", "" };
 
         static const char* rofi_launcher[] = { "rofi", "-show", "drun", NULL };
         static const char* librewolf_launcher[] = { "librewolf", NULL };
@@ -116,7 +116,7 @@
         };
 
         static const int tagschemes[] = {
-            SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag4, SchemeTag5
+            SchemeTag1, SchemeTag2
         };
 
         static const unsigned int ulinepad      = 5;
