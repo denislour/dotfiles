@@ -6,61 +6,46 @@
       add_newline = true;
 
       format = ''
-        [┌](bold base0D)[─](bold base0D) $directory $git_branch $git_status $nix_shell
-        [└](bold base0B)[─](bold base0B) $character'';
+        [░▒▓](bg:base00 fg:base05)[ $time ](bg:base02 fg:base0D)[▓▒░](bg:base00 fg:base02)$directory$git_branch$git_status$nix_shell$cmd_duration
+        [❯](bold base0B) ''$character'';
 
       character = {
-        success_symbol = "[▶](bold base0B)";
-        error_symbol = "[▶](bold base08)";
+        success_symbol = "[❯](bold base0B)";
+        error_symbol = "[❯](bold base08)";
+      };
+
+      time = {
+        disabled = false;
+        format = "🕐 $time";
+        style = "bg:base02 fg:base0D";
       };
 
       directory = {
         truncation_length = 3;
-        style = "bold base0D";
+        style = "bg:base00 fg:base0D";
         truncate_to_repo = false;
-        prefix = " ";
+        format = "[ $path ]($style)";
       };
 
       git_branch = {
         format = "on [$symbol$branch(:$remote_branch)]($style) ";
-        style = "bold base0E";
+        style = "bg:base00 fg:base0E";
       };
 
       git_status = {
-        style = "bold base0A";
+        style = "bg:base00 fg:base0A";
         format = "[\\[$all_status$ahead_behind\\]]($style) ";
       };
 
       nix_shell = {
         format = "via [$symbol$state( \\($name\\))]($style) ";
         symbol = "❄️ ";
-        style = "bold base0C";
-      };
-
-      nodejs = {
-        format = "via [$symbol($version )]($style)";
-        symbol = "🔴 ";
-        style = "bold base0B";
-        disabled = false;
-      };
-
-      python = {
-        format = "via [$symbol($version )]($style)";
-        symbol = "🐍 ";
-        style = "bold base0A";
-        disabled = false;
-      };
-
-      rust = {
-        format = "via [$symbol($version )]($style)";
-        symbol = "🦀 ";
-        style = "bold base08";
-        disabled = false;
+        style = "bg:base00 fg:base0C";
       };
 
       cmd_duration = {
         format = "took [$duration]($style) ";
-        style = "bold base0A";
+        style = "bg:base00 fg:base0A";
         show_milliseconds = false;
         min_time = 2000;
       };
