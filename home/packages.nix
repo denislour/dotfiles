@@ -20,5 +20,6 @@
     mpd
     mpc
     ncmpcpp
+    yt-dlp
   ];
 }
