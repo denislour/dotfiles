@@ -39,6 +39,54 @@
     Install.WantedBy = [ "graphical-session.target" ];
   };
 
+  xdg.configFile."chadwm/bar.sh" = {
+    executable = true;
+    text = ''
+      #!/usr/bin/env bash
+
+      fg=#e0def4
+      bg=#232136
+      black=#111827
+      green=#A8C5B3
+      white=#E6EDF3
+      grey=#303542
+      blue=#A5B4FC
+      red=#FCA5A5
+      darkblue=#7f92ee
+
+      cpu() {
+        cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
+        printf "^c$black^ ^b$green^ CPU ^c$white^ ^b$grey^ $cpu_val ^b$black^"
+      }
+
+      mem() {
+        mem_val=$(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)
+        printf "^c$black^ ^b$blue^ MEM ^c$black^ ^b$darkblue^ $mem_val ^b$black^"
+      }
+
+      clock() {
+        printf "^c$black^ ^b$darkblue^ CLK ^c$black^ ^b$blue^ $(date '+%H:%M') ^b$black^"
+      }
+
+      while true; do
+        xsetroot -name "$(cpu) $(mem) $(clock)"
+        sleep 1
+      done
+    '';
+  };
+
+  systemd.user.services.chadwm-bar = {
+    Unit = {
+      Description = "Chadwm status bar";
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.bash}/bin/bash %h/.config/chadwm/bar.sh";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
+
   xdg.configFile."chadwm/autostart.sh" = {
     executable = true;
     text = ''
@@ -50,22 +98,22 @@
   };
 
   xdg.configFile."sxhkd/sxhkdrc".text = ''
-    super + Return
+    mod1 + Return
       alacritty
 
-    super + d
+    mod1 + d
       rofi -show drun
 
-    super + s
+    mod1 + s
       maim ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png
 
-    super + shift + s
+    mod1 + shift + s
       maim -s ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png
 
     Print
       maim ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png
 
-    super + shift + q
+    mod1 + shift + q
       i3lock
 
     XF86AudioRaiseVolume

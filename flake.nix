@@ -104,7 +104,7 @@
         };
 
         /* tagging */
-        static char *tags[] = {"1", "2", "3", "4", "5"};
+        static char *tags[] = {"", "", "", "", ""};
 
         static const char* rofi_launcher[] = { "rofi", "-show", "drun", NULL };
         static const Launcher launchers[] = { { rofi_launcher, "launcher" } };
@@ -157,7 +157,7 @@
         };
 
         /* key definitions */
-        #define MODKEY Mod4Mask
+        #define MODKEY Mod1Mask
         #define TAGKEYS(KEY,TAG) \
             { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
             { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
