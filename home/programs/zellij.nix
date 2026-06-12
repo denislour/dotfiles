@@ -3,17 +3,22 @@
 
   xdg.configFile."zellij/config.kdl".text = ''
     theme "catppuccin-mocha"
-    default_layout "default"
+    default_layout "nix-layout"
     pane_frames false
     simplified_ui true
     show_startup_tips false
 
-    plugins {
-        tab_bar location="zellij:tab-bar"
-    }
-
     keybinds {
         unbind "Ctrl o"
+    }
+  '';
+
+  xdg.configFile."zellij/layouts/nix-layout.kdl".text = ''
+    layout {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane
     }
   '';
 }
