@@ -29,6 +29,7 @@ in
   home.file.".pi/agent/extensions/caveman/index.ts".source = ./agent/extensions/caveman/index.ts;
   home.file.".pi/agent/extensions/ds-balance/index.ts".source = ./agent/extensions/ds-balance/index.ts;
   home.file.".pi/agent/extensions/focus-mode/index.ts".source = ./agent/extensions/focus-mode/index.ts;
+  home.file.".pi/agent/extensions/web-search/index.ts".source = ./agent/extensions/web-search/index.ts;
 
   home.activation.ensureDesignSystemsSymlink = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     designs="${config.home.homeDirectory}/.pi/designs"
