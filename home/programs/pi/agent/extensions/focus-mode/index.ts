@@ -74,20 +74,12 @@ export default function (pi: ExtensionAPI) {
   pi.on("before_agent_start", async (event, ctx) => {
     if (!active) return;
 
-    return {
-      message: {
-        role: "user",
-        content: [
-          {
-            type: "text",
-            text: `[FOCUS MODE] Trả lời bằng tiếng Việt có dấu. Ngắn gọn, đúng trọng tâm. Bỏ từ đệm, khách sáo. Giữ nguyên thuật ngữ chuyên môn.
+    ctx.ui.setStatus("focus-mode", "⚡ Focus ON");
 
-Toàn bộ thinking/reasoning phải bằng tiếng Việt, không dùng tiếng Anh.
-Sau thinking, tóm tắt 1 dòng lý do (tiếng Việt).`,
-          },
-        ],
-        display: false,
-      },
+    return {
+      systemPrompt:
+        event.systemPrompt +
+        `\n\n[FOCUS MODE] Trả lời bằng tiếng Việt có dấu. Ngắn gọn, đúng trọng tâm. Bỏ từ đệm, khách sáo. Giữ nguyên thuật ngữ chuyên môn.\n\nToàn bộ thinking/reasoning phải bằng tiếng Việt, không dùng tiếng Anh.\nSau thinking, tóm tắt 1 dòng lý do (tiếng Việt).`,
     };
   });
 
