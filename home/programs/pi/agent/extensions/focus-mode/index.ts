@@ -1,7 +1,7 @@
 /**
  * Focus Mode Extension for Pi Coding Agent
  *
- * 1. Collapses thinking blocks by default, shows "💭 Thinking..." label
+ * 1. Collapses thinking blocks by default, shows "⚡ Thinking..." label
  * 2. Ctrl+Shift+O opens overlay with full thinking content
  * 3. Injects concise/Vietnamese instructions to save tokens
  * 4. Shows 1-line summary in footer after thinking completes
@@ -23,7 +23,7 @@ export default function (pi: ExtensionAPI) {
   pi.on("session_start", async (_event, ctx) => {
     active = true;
     thinkingAccumulated = "";
-    ctx.ui.setHiddenThinkingLabel("💭 Thinking...");
+    ctx.ui.setHiddenThinkingLabel("⚡ Thinking...");
   });
 
   pi.on("turn_start", async () => {
@@ -93,7 +93,7 @@ export default function (pi: ExtensionAPI) {
       active = !active;
       ctx.ui.notify(active ? "Focus mode ON" : "Focus mode OFF", "info");
       if (active) {
-        ctx.ui.setHiddenThinkingLabel("💭 Thinking...");
+        ctx.ui.setHiddenThinkingLabel("⚡ Thinking...");
       } else {
         ctx.ui.setHiddenThinkingLabel();
       }
