@@ -2,6 +2,8 @@ _host := 'my-vm'
 
 rebuild:
     sudo nixos-rebuild switch --flake .#{{_host}}
+    sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2
+    nix-env --delete-generations +2 || true
     sudo nix-collect-garbage -d
     sudo nix-store --optimise
 
@@ -20,6 +22,8 @@ rebuild-suckless:
 update:
     git pull
     sudo nixos-rebuild switch --flake .#{{_host}}
+    sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2
+    nix-env --delete-generations +2 || true
     sudo nix-collect-garbage -d
     sudo nix-store --optimise
     sudo reboot
@@ -30,6 +34,8 @@ update-x11:
 upgrade:
     nix flake update
     sudo nixos-rebuild switch --flake .#{{_host}}
+    sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2
+    nix-env --delete-generations +2 || true
     sudo nix-collect-garbage -d
     sudo nix-store --optimise
     sudo reboot
@@ -47,10 +53,10 @@ clean keep='2':
     echo "kept last {{keep}} generations"
 
 clean-all:
+    sudo nix-env -p /nix/var/nix/profiles/system --delete-generations old
+    nix-env --delete-generations old || true
     sudo nix-collect-garbage -d
     sudo nix-store --optimise
-    nix-env --delete-generations old || true
     sudo journalctl --vacuum-time=1d --vacuum-size=100M 2>/dev/null || true
     sudo rm -rf /nix/var/log/nix/drvs 2>/dev/null || true
-    sudo rm -rf /tmp/nix-build-* 2>/dev/null || true
     echo "full cleanup done"
