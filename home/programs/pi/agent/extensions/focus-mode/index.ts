@@ -45,16 +45,29 @@ export default function (pi: ExtensionAPI) {
     if (!active) return;
     if (event.message.role !== "assistant") return;
 
-    const hasThinking = event.message.content.some(
-      (c) => c.type === "thinking"
-    );
+    const content = event.message.content;
+    const hasThinking = content.some((c) => c.type === "thinking");
     if (!hasThinking) return;
 
     const summary = thinkingAccumulated
       ? thinkingAccumulated.split("\n")[0].trim().slice(0, 120)
       : "Thought through the problem";
 
+    const newContent = content.map((block) => {
+      if (block.type === "thinking") {
+        return { type: "text" as const, text: `[🧠 ${summary}]` };
+      }
+      return block;
+    });
+
     ctx.ui.setStatus("focus-summary", `Thought: ${summary}`);
+
+    return {
+      message: {
+        ...event.message,
+        content: newContent,
+      },
+    };
   });
 
   pi.on("before_agent_start", async (event, ctx) => {
