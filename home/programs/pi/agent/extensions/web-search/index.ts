@@ -29,6 +29,21 @@ function formatResults(results: SearchResult[]): string {
     .join("\n\n");
 }
 
+let lastCallTime = 0;
+
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function rateLimitBrave(): Promise<void> {
+  const now = Date.now();
+  const elapsed = now - lastCallTime;
+  if (elapsed < 1000) {
+    await delay(1000 - elapsed);
+  }
+  lastCallTime = Date.now();
+}
+
 export default function (pi: ExtensionAPI) {
   pi.registerTool({
     name: "web_search",
@@ -63,6 +78,7 @@ export default function (pi: ExtensionAPI) {
       ),
     }),
     async execute(toolCallId, params, _signal, _onUpdate, _ctx) {
+      await rateLimitBrave();
       const apiKey = process.env.BRAVE_SEARCH_API_KEY;
       if (!apiKey) {
         return {
