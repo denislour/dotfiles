@@ -29,6 +29,7 @@ function formatResults(results: SearchResult[]): string {
     .join("\n\n");
 }
 
+let lastCallPromise = Promise.resolve();
 let lastCallTime = 0;
 
 function delay(ms: number): Promise<void> {
@@ -36,12 +37,21 @@ function delay(ms: number): Promise<void> {
 }
 
 async function rateLimitBrave(): Promise<void> {
+  const prev = lastCallPromise;
+  let resolveCur: () => void;
+  lastCallPromise = new Promise<void>((resolve) => {
+    resolveCur = resolve;
+  });
+
+  await prev;
+
   const now = Date.now();
   const elapsed = now - lastCallTime;
   if (elapsed < 1000) {
     await delay(1000 - elapsed);
   }
   lastCallTime = Date.now();
+  resolveCur!();
 }
 
 export default function (pi: ExtensionAPI) {
