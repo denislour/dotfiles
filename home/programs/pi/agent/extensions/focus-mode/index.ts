@@ -19,25 +19,35 @@ import { Text } from "@earendil-works/pi-tui";
 
 let active = true;
 let thinkingAccumulated = "";
+let lastLabelLine = "";
 
 export default function (pi: ExtensionAPI) {
   pi.on("session_start", async (_event, ctx) => {
     active = true;
     thinkingAccumulated = "";
-    ctx.ui.setHiddenThinkingLabel("⚡ Thinking...");
+    lastLabelLine = "";
+    ctx.ui.setHiddenThinkingLabel("⚡ Đang thinking...");
   });
 
   pi.on("turn_start", async () => {
     thinkingAccumulated = "";
+    lastLabelLine = "";
   });
 
-  pi.on("message_update", async (event) => {
+  pi.on("message_update", async (event, ctx) => {
     if (!active) return;
     if (event.message.role !== "assistant") return;
 
     for (const block of event.message.content) {
       if (block.type === "thinking" && "thinking" in block) {
-        thinkingAccumulated = block.thinking as string;
+        const thinking = block.thinking as string;
+        thinkingAccumulated = thinking;
+
+        const firstLine = thinking.split("\n")[0].trim().slice(0, 60);
+        if (firstLine && firstLine !== lastLabelLine) {
+          lastLabelLine = firstLine;
+          ctx.ui.setHiddenThinkingLabel(`⚡ ${firstLine}...`);
+        }
       }
     }
   });
@@ -46,27 +56,27 @@ export default function (pi: ExtensionAPI) {
     if (!active) return;
     if (event.message.role !== "assistant") return;
 
-    const content = event.message.content;
-    const hasThinking = content.some((c) => c.type === "thinking");
+    const hasThinking = event.message.content.some(
+      (c) => c.type === "thinking"
+    );
     if (!hasThinking) return;
 
     const summary = thinkingAccumulated
       ? thinkingAccumulated.split("\n")[0].trim().slice(0, 120)
       : "Thought through the problem";
 
-    const newContent = content.map((block) => {
-      if (block.type === "thinking") {
-        return { type: "text" as const, text: `[⚡ ${summary}]` };
-      }
-      return block;
-    });
-
-    ctx.ui.setStatus("focus-summary", `Thought: ${summary}`);
+    ctx.ui.setHiddenThinkingLabel(`⚡ ${summary}`);
+    ctx.ui.setStatus("focus-summary", `⚡ Tóm tắt: ${summary}`);
 
     return {
       message: {
         ...event.message,
-        content: newContent,
+        content: event.message.content.map((block) => {
+          if (block.type === "thinking") {
+            return { type: "text" as const, text: `⚡ ${summary}` };
+          }
+          return block;
+        }),
       },
     };
   });
@@ -87,9 +97,9 @@ export default function (pi: ExtensionAPI) {
     description: "Toggle focus mode on/off",
     handler: async (_args, ctx) => {
       active = !active;
-      ctx.ui.notify(active ? "Focus mode ON" : "Focus mode OFF", "info");
+      ctx.ui.notify(active ? "Focus mode BẬT" : "Focus mode TẮT", "info");
       if (active) {
-        ctx.ui.setHiddenThinkingLabel("⚡ Thinking...");
+        ctx.ui.setHiddenThinkingLabel("⚡ Đang thinking...");
       } else {
         ctx.ui.setHiddenThinkingLabel();
       }
@@ -100,7 +110,7 @@ export default function (pi: ExtensionAPI) {
     description: "Open thinking content overlay",
     handler: async (ctx) => {
       if (!thinkingAccumulated) {
-        ctx.ui.notify("No thinking content available", "info");
+        ctx.ui.notify("Không có nội dung thinking", "info");
         return;
       }
 
@@ -109,11 +119,11 @@ export default function (pi: ExtensionAPI) {
           const lines = thinkingAccumulated.split("\n");
           const displayLines = lines.slice(0, 200);
           const text =
-            theme.bold(" ═══ Thinking Content ═══ ") +
+            theme.bold(" ═══ Nội dung Thinking ═══ ") +
             "\n" +
             displayLines.join("\n") +
             "\n" +
-            theme.fg("dim", " Press Escape or Ctrl+C to close ");
+            theme.fg("dim", " Nhấn Escape hoặc Ctrl+C để đóng ");
 
           const component = new Text(text, 1, 1);
           component.onKey = (key) => {
