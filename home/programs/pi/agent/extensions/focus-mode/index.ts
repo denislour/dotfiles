@@ -56,7 +56,7 @@ export default function (pi: ExtensionAPI) {
 
     const newContent = content.map((block) => {
       if (block.type === "thinking") {
-        return { type: "text" as const, text: `[🧠 ${summary}]` };
+        return { type: "text" as const, text: `[⚡ ${summary}]` };
       }
       return block;
     });
