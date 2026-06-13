@@ -11,6 +11,7 @@
 
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 import { Type } from "typebox";
+import { Text } from "@earendil-works/pi-tui";
 
 interface SearchResult {
   title: string;
@@ -87,6 +88,30 @@ export default function (pi: ExtensionAPI) {
         })
       ),
     }),
+    renderCall(args, theme, _context) {
+      return new Text(
+        theme.fg("toolTitle", theme.bold("web_search ")) +
+          theme.fg("dim", `"${(args.query as string).slice(0, 60)}"`),
+        0,
+        0
+      );
+    },
+    renderResult(result, { expanded, isPartial }, theme, _context) {
+      if (isPartial) {
+        return new Text(theme.fg("warning", "🔍 Searching..."), 0, 0);
+      }
+      const count = result.details?.resultCount as number | undefined;
+      if (expanded) {
+        const content = result.content?.[0] as { text?: string } | undefined;
+        return new Text(content?.text ?? "", 0, 0);
+      }
+      return new Text(
+        theme.fg("success", `✓ ${count ?? 0} kết quả`) +
+          `  ${theme.fg("dim", "(mở rộng để xem)")}`,
+        0,
+        0
+      );
+    },
     async execute(toolCallId, params, _signal, _onUpdate, _ctx) {
       await rateLimitBrave();
       const apiKey = process.env.BRAVE_SEARCH_API_KEY;
