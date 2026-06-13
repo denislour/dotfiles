@@ -4,7 +4,8 @@
  * 1. Collapses thinking blocks by default, shows "⚡ Thinking..." label
  * 2. Ctrl+Shift+O opens overlay with full thinking content
  * 3. Injects concise/Vietnamese instructions to save tokens
- * 4. Shows 1-line summary in footer after thinking completes
+ * 4. Shows 1-line Vietnamese summary in footer after thinking completes
+ * 5. Forces thinking/reasoning in Vietnamese
  *
  * Commands:
  *   /focus          Toggle focus mode on/off
@@ -79,7 +80,10 @@ export default function (pi: ExtensionAPI) {
         content: [
           {
             type: "text",
-            text: `[FOCUS MODE] Trả lời bằng tiếng Việt có dấu. Ngắn gọn, đúng trọng tâm. Bỏ từ đệm, khách sáo. Giữ nguyên thuật ngữ chuyên môn. Sau thinking, tóm tắt 1 dòng lý do. Thinking/reasoning bằng tiếng Việt, không dùng tiếng Anh.`,
+            text: `[FOCUS MODE] Trả lời bằng tiếng Việt có dấu. Ngắn gọn, đúng trọng tâm. Bỏ từ đệm, khách sáo. Giữ nguyên thuật ngữ chuyên môn.
+
+Toàn bộ thinking/reasoning phải bằng tiếng Việt, không dùng tiếng Anh.
+Sau thinking, tóm tắt 1 dòng lý do (tiếng Việt).`,
           },
         ],
         display: false,
