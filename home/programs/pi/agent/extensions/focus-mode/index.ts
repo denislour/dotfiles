@@ -79,7 +79,7 @@ export default function (pi: ExtensionAPI) {
         content: [
           {
             type: "text",
-            text: `[FOCUS MODE] Trả lời bằng tiếng Việt có dấu. Ngắn gọn, đúng trọng tâm. Bỏ từ đệm, khách sáo. Giữ nguyên thuật ngữ chuyên môn. Sau thinking, tóm tắt 1 dòng lý do.`,
+            text: `[FOCUS MODE] Trả lời bằng tiếng Việt có dấu. Ngắn gọn, đúng trọng tâm. Bỏ từ đệm, khách sáo. Giữ nguyên thuật ngữ chuyên môn. Sau thinking, tóm tắt 1 dòng lý do. Thinking/reasoning bằng tiếng Việt, không dùng tiếng Anh.`,
           },
         ],
         display: false,
