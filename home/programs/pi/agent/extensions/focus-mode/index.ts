@@ -3,7 +3,7 @@
  *
  * 1. Collapses thinking blocks by default, shows "💭 Thinking..." label
  * 2. Ctrl+Shift+O opens overlay with full thinking content
- * 3. Injects concise/caveman instructions to save tokens
+ * 3. Injects concise/Vietnamese instructions to save tokens
  * 4. Shows 1-line summary in footer after thinking completes
  *
  * Commands:
@@ -79,7 +79,7 @@ export default function (pi: ExtensionAPI) {
         content: [
           {
             type: "text",
-            text: `[FOCUS MODE] Respond concisely. Drop filler words, pleasantries, hedging. Short sentences, keep technical terms exact. After thinking, give a brief 1-line summary of your reasoning.`,
+            text: `[FOCUS MODE] Trả lời bằng tiếng Việt có dấu. Ngắn gọn, đúng trọng tâm. Bỏ từ đệm, khách sáo. Giữ nguyên thuật ngữ chuyên môn. Sau thinking, tóm tắt 1 dòng lý do.`,
           },
         ],
         display: false,
