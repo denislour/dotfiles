@@ -38,10 +38,7 @@ in
 
   home.packages = with pkgs; [
     rustc cargo rust-analyzer rustfmt
-    go gopls delve
     python3 pyright
-    ruby solargraph
-    zig
     tree-sitter
     gcc
     vscode-extensions.vadimcn.vscode-lldb
