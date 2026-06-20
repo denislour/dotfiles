@@ -4,6 +4,6 @@
     maim
     networkmanagerapplet
     elixir
-    elixir_ls
+    elixir-ls
   ];
 }
