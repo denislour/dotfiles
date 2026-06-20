@@ -17,6 +17,9 @@
     mod1 + Return
       alacritty
 
+    mod1 + shift + y
+      alacritty -e rainfrog
+
     mod1 + space
       rofi -show drun
 
