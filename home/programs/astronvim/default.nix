@@ -38,7 +38,7 @@ in
 
   home.packages = with pkgs; [
     rustc cargo rust-analyzer rustfmt
-    go gopls delve gotools
+    go gopls delve
     python3 pyright
     ruby solargraph
     zig
