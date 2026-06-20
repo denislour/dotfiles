@@ -3,5 +3,7 @@
     feh
     maim
     networkmanagerapplet
+    elixir
+    elixir_ls
   ];
 }
