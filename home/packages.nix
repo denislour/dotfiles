@@ -23,5 +23,6 @@
     yt-dlp
     go
     postgresql
+    rainfrog
   ];
 }
