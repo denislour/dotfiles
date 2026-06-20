@@ -21,5 +21,6 @@
     mpc
     ncmpcpp
     yt-dlp
+    go
   ];
 }
