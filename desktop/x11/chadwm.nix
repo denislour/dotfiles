@@ -23,7 +23,7 @@
 
       cpu() {
         cpu_val=$(mpstat 1 1 | awk '/Average/ {printf "%.0f", 100 - $NF}')
-        printf "^c$black^ ^b$green^   ^c$white^ ^b$grey^ ${cpu_val:-0}%% ^b$black^"
+        printf "^c$black^ ^b$green^   ^c$white^ ^b$grey^ ''${cpu_val:-0}%% ^b$black^"
       }
 
       mem() {
