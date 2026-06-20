@@ -3,7 +3,7 @@ return {
   { import = "astrocommunity.file-explorer.yazi-nvim" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.python" },
-  { import = "astrocommunity.pack.elixir" },
+  { import = "astrocommunity.pack.elixir-phoenix" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
   { import = "astrocommunity.markdown-and-latex.glow-nvim" },
