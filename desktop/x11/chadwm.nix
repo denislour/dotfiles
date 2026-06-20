@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ chadwm rofi slock ];
+  home.packages = with pkgs; [ chadwm rofi slock sysstat ];
 
   xdg.configFile."wallpaper".source = ../../system/wallpapers/emilia-01.webp;
 
@@ -22,9 +22,8 @@
       yellow=#f9e2af
 
       cpu() {
-        cpu_val=$(ps -eo pcpu --no-headers 2>/dev/null | awk -v c=$(nproc) '{s+=$1} END{printf "%.0f", s/c}')
-        [ -z "$cpu_val" ] && cpu_val=0
-        printf "^c$black^ ^b$green^   ^c$white^ ^b$grey^ $cpu_val%% ^b$black^"
+        cpu_val=$(mpstat 1 1 | awk '/Average/ {printf "%.0f", 100 - $NF}')
+        printf "^c$black^ ^b$green^   ^c$white^ ^b$grey^ ${cpu_val:-0}%% ^b$black^"
       }
 
       mem() {
