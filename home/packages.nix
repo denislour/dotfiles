@@ -22,5 +22,6 @@
     ncmpcpp
     yt-dlp
     go
+    postgresql
   ];
 }
