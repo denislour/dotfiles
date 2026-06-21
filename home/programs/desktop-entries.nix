@@ -10,7 +10,7 @@
     fastfetch = {
       name = "fastfetch";
       comment = "System information tool";
-      exec = "bash -c 'fastfetch; read -p \"Press enter to exit\"'";
+      exec = "zsh -c 'fastfetch; echo; read -q \"?Press any key to exit...\"; echo'";
       terminal = true;
       categories = [ "Utility" "System" ];
     };
