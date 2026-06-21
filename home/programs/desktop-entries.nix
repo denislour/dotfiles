@@ -10,7 +10,7 @@
     fastfetch = {
       name = "fastfetch";
       comment = "System information tool";
-      exec = "fastfetch";
+      exec = "bash -c 'fastfetch; read -p \"Press enter to exit\"'";
       terminal = true;
       categories = [ "Utility" "System" ];
     };
