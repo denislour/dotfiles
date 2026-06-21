@@ -22,6 +22,7 @@
     ncmpcpp
     yt-dlp
     go
+    nodejs
     postgresql
     rainfrog
   ];
