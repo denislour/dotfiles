@@ -31,12 +31,17 @@
         printf "^c$black^ ^b$yellow^  ^c$white^ ^b$grey^ $mem_val ^b$black^"
       }
 
+      disk() {
+        disk_val=$(df -h / | awk 'NR==2 {print $3}')
+        printf "^c$black^ ^b$blue^   ^c$white^ ^b$grey^ $disk_val ^b$black^"
+      }
+
       clock() {
         printf "^c$black^ ^b$darkblue^ 󱑆 ^c$white^ ^b$grey^ $(date '+%H:%M') ^b$black^"
       }
 
       while true; do
-        xsetroot -name "$(cpu) $(mem) $(clock)"
+        xsetroot -name "$(cpu) $(mem) $(disk) $(clock)"
         sleep 1
       done
     '';
