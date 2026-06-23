@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [ chadwm rofi slock sysstat ];
 
-  xdg.configFile."wallpaper".source = ../../system/wallpapers/emilia-01.webp;
+  xdg.configFile."wallpaper".source = ../../system/wallpapers/qiuyuan_cleaned.jpg;
 
   xdg.configFile."chadwm/bar.sh" = {
     executable = true;
