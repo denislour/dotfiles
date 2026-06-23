@@ -33,7 +33,7 @@
 
       disk() {
         disk_val=$(df -h / | awk 'NR==2 {print $3}')
-        printf "^c$black^ ^b$blue^   ^c$white^ ^b$grey^ $disk_val ^b$black^"
+        printf "^c$black^ ^b$blue^  ^c$white^ ^b$grey^ $disk_val ^b$black^"
       }
 
       clock() {
