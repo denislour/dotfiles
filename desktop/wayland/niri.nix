@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   noctaliaMsg = args: [ "noctalia" "msg" ] ++ args;
@@ -159,6 +159,20 @@ in
         { command = [ "sh" "-c" "wl-paste --type text --watch cliphist store" ]; }
         { command = [ "sh" "-c" "wl-paste --type image --watch cliphist store" ]; }
         { command = [ "sh" "-c" "echo '' | ${pkgs.gnome-keyring}/bin/gnome-keyring-daemon --unlock" ]; }
+        {
+          command = [
+            "sh" "-c"
+            ''
+              wp="${config.home.homeDirectory}/.local/share/noctalia/wallpapers/emilia-01.webp"
+              i=0
+              while [ ! -f "$wp" ] && [ $i -lt 10 ]; do
+                sleep 0.5
+                i=$((i + 1))
+              done
+              [ -f "$wp" ] && noctalia msg wallpaper-set "$wp"
+            ''
+          ];
+        }
       ];
 
       window-rules = [

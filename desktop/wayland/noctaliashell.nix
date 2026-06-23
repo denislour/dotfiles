@@ -74,5 +74,5 @@ in
     };
   };
 
-  home.file.".local/share/noctalia/wallpapers/default.jpg".source = wallpaperFile;
+  home.file.".local/share/noctalia/wallpapers/emilia-01.webp".source = wallpaperFile;
 }
