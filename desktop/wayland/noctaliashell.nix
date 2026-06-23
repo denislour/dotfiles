@@ -2,7 +2,7 @@
 
 let
   homeDir = config.home.homeDirectory;
-  wallpaperFile = ../../system/wallpapers/default.jpg;
+  wallpaperFile = ../../system/wallpapers/emilia-01.webp;
 in
 {
   programs.noctalia = {
