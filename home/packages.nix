@@ -26,6 +26,5 @@
     postgresql
     rainfrog
     uv
-    python314
   ];
 }
