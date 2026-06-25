@@ -4,6 +4,7 @@ return {
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.elixir-phoenix" },
+  { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.astro" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
