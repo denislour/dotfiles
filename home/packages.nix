@@ -25,5 +25,7 @@
     nodejs
     postgresql
     rainfrog
+    uv
+    python314
   ];
 }
