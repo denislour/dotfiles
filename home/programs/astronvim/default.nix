@@ -43,6 +43,8 @@ in
     tree-sitter
     gcc
     vscode-extensions.vadimcn.vscode-lldb
+    statix
+    deadnix
   ];
 
   home.sessionVariables = {
