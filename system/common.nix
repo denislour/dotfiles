@@ -1,9 +1,11 @@
-{...}: {
+{ ... }:
+
+{
   programs.nix-ld.enable = true;
   qt.enable = true;
 
   nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [ "nix-command" "flakes" ];
     min-free = 5120;
     max-free = 10240;
   };
