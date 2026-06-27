@@ -35,12 +35,20 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, stylix, niri, noctalia, sops-nix, ... } @ inputs:
-    let
-      system = "x86_64-linux";
-      overlays.default = final: prev:
-        let
-          configH = final.writeText "config.def.h" ''
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    disko,
+    stylix,
+    niri,
+    noctalia,
+    sops-nix,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    overlays.default = final: prev: let
+      configH = final.writeText "config.def.h" ''
         /* See LICENSE file for copyright and license details. */
 
         #include <X11/XF86keysym.h>
@@ -171,7 +179,7 @@
         static const Key keys[] = {
             /* modifier                         key         function        argument */
 
-            // brightness and audio 
+            // brightness and audio
             {0,             XF86XK_AudioLowerVolume,    spawn, {.v = downvol}},
             {0,             XF86XK_AudioMute, spawn,    {.v = mutevol }},
             {0,             XF86XK_AudioRaiseVolume,    spawn, {.v = upvol}},
@@ -200,7 +208,7 @@
             { MODKEY,                           XK_Left,    shiftview,      {.i = -1 } },
             { MODKEY,                           XK_Right,   shiftview,      {.i = +1 } },
 
-            // change mfact sizes 
+            // change mfact sizes
             { MODKEY,                           XK_h,       setmfact,       {.f = -0.05} },
             { MODKEY,                           XK_l,       setmfact,       {.f = +0.05} },
             { MODKEY|ShiftMask,                 XK_h,       setcfact,       {.f = +0.25} },
@@ -224,7 +232,7 @@
             { MODKEY|ControlMask,               XK_o,       incrogaps,      {.i = +1 } },
             { MODKEY|ControlMask|ShiftMask,     XK_o,       incrogaps,      {.i = -1 } },
 
-            // inner+outer hori, vert gaps 
+            // inner+outer hori, vert gaps
             { MODKEY|ControlMask,               XK_6,       incrihgaps,     {.i = +1 } },
             { MODKEY|ControlMask|ShiftMask,     XK_6,       incrihgaps,     {.i = -1 } },
             { MODKEY|ControlMask,               XK_7,       incrivgaps,     {.i = +1 } },
@@ -301,82 +309,90 @@
             { ClkTabClose,          0,              Button1,        killclient,     {0} },
         };
       '';
-        in {
-        chadwm = prev.dwm.overrideAttrs (old: {
-          pname = "chadwm";
-          version = "6.5-unstable-2025-12-30";
-          src = final.fetchFromGitHub {
-            owner = "siduck";
-            repo = "chadwm";
-            rev = "7991ac8d33878b716e7e7cabf58b47503864f622";
-            hash = "sha256-4Bunr/rRF6UUOBV/LTK4gyrekXRFWdaCxkWNYfp44Jo=";
-          };
-          sourceRoot = "source/chadwm";
-          buildInputs = old.buildInputs ++ [ final.imlib2 final.libxrender ];
-          postPatch = (old.postPatch or "") + ''
+    in {
+      chadwm = prev.dwm.overrideAttrs (old: {
+        pname = "chadwm";
+        version = "6.5-unstable-2025-12-30";
+        src = final.fetchFromGitHub {
+          owner = "siduck";
+          repo = "chadwm";
+          rev = "7991ac8d33878b716e7e7cabf58b47503864f622";
+          hash = "sha256-4Bunr/rRF6UUOBV/LTK4gyrekXRFWdaCxkWNYfp44Jo=";
+        };
+        sourceRoot = "source/chadwm";
+        buildInputs = old.buildInputs ++ [final.imlib2 final.libxrender];
+        postPatch =
+          (old.postPatch or "")
+          + ''
             cp ${configH} config.def.h
           '';
-        });
-      };
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-        overlays = [ overlays.default ];
-      };
-      sharedModules = [
-        stylix.nixosModules.stylix
-        disko.nixosModules.disko
-        sops-nix.nixosModules.sops
-        { nixpkgs.overlays = [ overlays.default ]; }
-        ./system/packages.nix
-        ./system/environment.nix
-        ./system/services/sops.nix
-        ./system/common.nix
-        ./system/programs/stylix.nix
-        ./system/programs/xdg-portal.nix
-        ./system/services/ssh.nix
+      });
+    };
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+      overlays = [overlays.default];
+    };
+    sharedModules = [
+      stylix.nixosModules.stylix
+      disko.nixosModules.disko
+      sops-nix.nixosModules.sops
+      {nixpkgs.overlays = [overlays.default];}
+      {nixpkgs.config.allowUnfree = true;}
+      ./system/packages.nix
+      ./system/environment.nix
+      ./system/services/sops.nix
+      ./system/common.nix
+      ./system/programs/stylix.nix
+      ./system/programs/xdg-portal.nix
+      ./system/services/ssh.nix
 
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.sharedModules = [];
-          home-manager.backupFileExtension = "hm-backup";
-          home-manager.extraSpecialArgs = { inherit inputs; };
-        }
-      ];
-    in {
-      nixosConfigurations.my-vm = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit self inputs;
-          wallpaper = ./system/wallpapers/default.jpg;
-        };
-        modules = sharedModules ++ [
+      home-manager.nixosModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.sharedModules = [];
+        home-manager.backupFileExtension = "hm-backup";
+        home-manager.extraSpecialArgs = {inherit inputs;};
+      }
+    ];
+  in {
+    nixosConfigurations.my-vm = nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = {
+        inherit self inputs;
+        wallpaper = ./system/wallpapers/default.jpg;
+      };
+      modules =
+        sharedModules
+        ++ [
           ./hosts/my-vm/disk-config.nix
           ./hosts/my-vm/configuration.nix
           ./desktop/wayland/system.nix
 
-          ({
+          {
             home-manager.users.jake = import ./hosts/my-vm/home.nix;
-          })
+          }
         ];
-      };
+    };
 
-      nixosConfigurations.my-vm-x11 = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit self inputs;
-          wallpaper = ./system/wallpapers/default.jpg;
-        };
-        modules = sharedModules ++ [
+    nixosConfigurations.my-vm-x11 = nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = {
+        inherit self inputs;
+        wallpaper = ./system/wallpapers/default.jpg;
+      };
+      modules =
+        sharedModules
+        ++ [
           ./hosts/my-vm-x11/disk-config.nix
           ./hosts/my-vm-x11/configuration.nix
           ./desktop/x11/system.nix
 
-          ({
+          {
             home-manager.users.jake = import ./hosts/my-vm-x11/home.nix;
-          })
+          }
         ];
-      };
     };
+  };
 }
