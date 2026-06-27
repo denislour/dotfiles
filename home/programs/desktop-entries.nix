@@ -4,7 +4,7 @@
       name = "rainfrog";
       comment = "PostgreSQL database management TUI";
       exec = "rainfrog";
-      icon = "database";
+      icon = "utilities-terminal";
       terminal = true;
       categories = [ "Development" "Database" ];
     };
