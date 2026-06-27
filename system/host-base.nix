@@ -12,7 +12,7 @@
 
   users.users.jake = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "input" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "input" "docker" ];
     initialPassword = "changeme";
     shell = pkgs.zsh;
   };

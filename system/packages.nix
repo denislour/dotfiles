@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  virtualisation.docker.enable = true;
+
   environment.systemPackages = with pkgs; [
     age
     curl
@@ -16,5 +18,6 @@
     adwaita-qt6
     pkg-config
     openssl
+    docker-compose
   ];
 }
