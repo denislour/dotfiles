@@ -74,6 +74,7 @@
       };
       fzf.enable = true;
       lazygit.enable = true;
+      vscode.enable = true;
       rofi.enable = true;
       dunst.enable = false;
       starship.enable = true;
