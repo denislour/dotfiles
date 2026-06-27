@@ -6,7 +6,6 @@
     procs
     sd
     trunk
-    zig
     crystal
     shards
     mint
