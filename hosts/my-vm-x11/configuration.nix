@@ -1,9 +1,11 @@
-{ ... }: {
+{lib, ...}: {
+  systemd.mounts = lib.mkForce [];
+
   nixpkgs.config.permittedInsecurePackages = [
     "librewolf-151.0.2-1"
     "librewolf-unwrapped-151.0.2-1"
   ];
-  imports = [ ../../system/host-base.nix ];
+  imports = [../../system/host-base.nix];
 
   networking.hostName = "my-vm-x11";
 
@@ -14,5 +16,4 @@
     enable = true;
     user = "jake";
   };
-
 }
