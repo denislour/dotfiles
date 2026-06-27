@@ -21,7 +21,7 @@
     ../../home/programs/lazygit.nix
     ../../home/programs/brave.nix
     ../../home/programs/pi
-    # ../../home/programs/zed-editor  # enable when needed
+    ../../home/programs/zed-editor
     ../../home/programs/ripgrep.nix
     ../../home/programs/yazi.nix
     ../../home/programs/zoxide.nix
