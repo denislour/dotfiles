@@ -8,11 +8,6 @@
     max-free = 10240;
   };
 
-  system.autoUpgrade = {
-    enable = true;
-    allowReboot = false;
-  };
-
   nix.gc = {
     automatic = true;
     dates = "daily";
