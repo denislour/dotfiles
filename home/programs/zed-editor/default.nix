@@ -20,7 +20,7 @@ let
     base_keymap = "JetBrains";
     vim_mode = false;
     relative_line_numbers = "disabled";
-    gutter.runnables = true;
+    gutter.runnables = false;
     current_line_highlight = "all";
     tab_bar.show = true;
     scrollbar.show = "always";
@@ -29,14 +29,10 @@ let
       quick_actions = false;
     };
     indent_guides = {
-      enabled = true;
-      background_coloring = "disabled";
-      coloring = "fixed";
-      line_width = 1;
+      enabled = false;
     };
     inlay_hints = {
-      enabled = true;
-      show_background = true;
+      enabled = false;
     };
     buffer_line_height = "comfortable";
     show_whitespaces = "all";
@@ -44,7 +40,7 @@ let
       space = "·";
       tab = "→";
     };
-    colorize_brackets = true;
+    colorize_brackets = false;
     format_on_save = "on";
     tab_size = 2;
     theme = {
@@ -54,15 +50,15 @@ let
     };
     icon_theme = "Catppuccin Mocha";
     ui_font_family = "JetBrainsMono Nerd Font";
-    ui_font_size = 22;
+    ui_font_size = 16;
     buffer_font_family = "JetBrainsMono Nerd Font";
-    buffer_font_size = 22;
+    buffer_font_size = 16;
     buffer_font_features = {
       calt = false;
       dlig = false;
       liga = false;
     };
-    terminal.font_size = 22;
+    terminal.font_size = 16;
     edit_predictions = {
       mode = "subtle";
     };
@@ -122,28 +118,28 @@ let
         };
       };
     };
-    agent_ui_font_size = 22;
-    agent_buffer_font_size = 22;
+    agent_ui_font_size = 16;
+    agent_buffer_font_size = 16;
     languages = {
       Nix = {
         tab_size = 2;
         format_on_save = "on";
-        language_servers = ["nil"];
+        language_servers = [ "nil" ];
       };
       Rust = {
         tab_size = 4;
         format_on_save = "on";
-        language_servers = ["rust-analyzer"];
+        language_servers = [ "rust-analyzer" ];
       };
       Python = {
         tab_size = 4;
         format_on_save = "on";
-        language_servers = ["pyright"];
+        language_servers = [ "pyright" ];
       };
       Markdown = {
         tab_size = 2;
         format_on_save = "on";
-        language_servers = ["marksman"];
+        language_servers = [ "marksman" ];
       };
       TOML = {
         tab_size = 2;
@@ -154,7 +150,7 @@ let
       nil = {
         binary.path = "${pkgs.nil}/bin/nil";
         initialization_options = {
-          formatting.command = ["${pkgs.alejandra}/bin/alejandra" "-q"];
+          formatting.command = [ "${pkgs.alejandra}/bin/alejandra" "-q" ];
         };
       };
     };
@@ -167,7 +163,8 @@ let
     postBuild = ''
       rm -f $out/bin/zeditor
       makeWrapper ${pkgs.zed-editor}/bin/zeditor $out/bin/zeditor \
-        --run 'export DEEPSEEK_API_KEY="$(cat /run/secrets/deepseek_api_key 2>/dev/null || echo "")"'
+        --run 'export DEEPSEEK_API_KEY="$(cat /run/secrets/deepseek_api_key 2>/dev/null || echo "")"' \
+        --run 'export ZED_ALLOW_EMULATED_GPU=1'
     '';
   };
 in
@@ -189,7 +186,7 @@ in
 
   home.file.".config/zed/AGENTS.md".source = ./AGENTS.md;
 
-  home.activation.injectBraveSearchMCP = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  home.activation.injectBraveSearchMCP = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     settings=${config.home.homeDirectory}/.config/zed/settings.json
     secret=$(cat /run/secrets/brave_search_api_key 2>/dev/null || echo "")
     tmp=$(mktemp)
