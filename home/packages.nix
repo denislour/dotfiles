@@ -6,13 +6,12 @@
 }: let
   vscodeWithFlags = pkgs.symlinkJoin {
     name = "vscode-with-flags";
-    paths = [pkgs.vscodium];
+    paths = [pkgs.vscode];
     buildInputs = [pkgs.makeWrapper];
     postBuild = ''
-      rm -f $out/bin/codium $out/bin/code
-      makeWrapper ${pkgs.vscodium}/bin/codium $out/bin/codium \
+      rm -f $out/bin/code
+      makeWrapper ${pkgs.vscode}/bin/code $out/bin/code \
         --add-flags "--disable-gpu"
-      ln -s $out/bin/codium $out/bin/code
     '';
   };
 in {
