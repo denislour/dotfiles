@@ -20,7 +20,6 @@ let
     cp "${luaSrc}/plugins/nightfox.lua" "$out/lua/plugins/nightfox.lua"
     cp "${luaSrc}/plugins/yazi.lua" "$out/lua/plugins/yazi.lua"
     cp "${luaSrc}/plugins/glow.lua" "$out/lua/plugins/glow.lua"
-    cp "${luaSrc}/plugins/nix.lua" "$out/lua/plugins/nix.lua"
     cp "${luaSrc}/plugins/crystal.lua" "$out/lua/plugins/crystal.lua"
     cp "${luaSrc}/plugins/mint.lua" "$out/lua/plugins/mint.lua"
     cp "${luaSrc}/plugins/rainfrog.lua" "$out/lua/plugins/rainfrog.lua"
@@ -43,8 +42,6 @@ in
     tree-sitter
     gcc
     vscode-extensions.vadimcn.vscode-lldb
-    statix
-    deadnix
   ];
 
   home.sessionVariables = {
