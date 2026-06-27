@@ -38,7 +38,7 @@ in
 
   home.packages = with pkgs; [
     rustc cargo rust-analyzer rustfmt
-    python3 pyright
+    python3 pyrefly ruff
     tree-sitter
     gcc
     vscode-extensions.vadimcn.vscode-lldb
