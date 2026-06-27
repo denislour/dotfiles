@@ -3,8 +3,6 @@
 {
   services.displayManager.defaultSession = lib.mkDefault "chadwm";
 
-  services.xserver.displayManager.lightdm.enable = true;
-
   services.xserver.desktopManager.session = [{
     name = "chadwm";
     start = ''
@@ -14,7 +12,9 @@
     '';
   }];
 
-  services.xserver.videoDrivers = [ "vmware" "modesetting" ];
+  services.xserver.videoDrivers = [ "vmware" ];
+
+  hardware.graphics.extraPackages = with pkgs; [ mesa ];
 
   xdg.portal.config.common = {
     default = [ "gtk" ];
