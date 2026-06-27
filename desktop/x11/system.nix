@@ -12,7 +12,7 @@
     '';
   }];
 
-  services.xserver.videoDrivers = [ "vmware" ];
+  services.xserver.videoDrivers = [ "vmware" "modesetting" ];
 
   hardware.graphics.extraPackages = with pkgs; [ mesa ];
 
