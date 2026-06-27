@@ -10,3 +10,4 @@ secrets/*
 *.swp
 *.swo
 *~
+.null-ls_*
