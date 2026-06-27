@@ -24,7 +24,6 @@ update:
     sudo nixos-rebuild switch --flake .#{{_host}}
     sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2
     nix-env --delete-generations +2 || true
-    sudo nix-collect-garbage -d
     sudo nix-store --optimise
     sudo reboot
 
@@ -36,7 +35,6 @@ upgrade:
     sudo nixos-rebuild switch --flake .#{{_host}}
     sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2
     nix-env --delete-generations +2 || true
-    sudo nix-collect-garbage -d
     sudo nix-store --optimise
     sudo reboot
 
