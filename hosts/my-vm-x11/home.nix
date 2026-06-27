@@ -30,6 +30,7 @@
     ../../home/programs/yazi.nix
     ../../home/programs/zoxide.nix
     ../../home/programs/zsh.nix
+    ../../home/programs/go.nix
     ../../home/packages.nix
     ../../home/programs/liger.nix
     ../../home/programs/mpd.nix
