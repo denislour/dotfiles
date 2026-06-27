@@ -25,6 +25,13 @@
 
   virtualisation.vmware.guest.enable = true;
 
+  systemd.mounts = [
+    {
+      where = "/run/vmblock-fuse";
+      enable = false;
+    }
+  ];
+
   services.speechd.enable = lib.mkForce false;
 
   stylix.image = wallpaper;
