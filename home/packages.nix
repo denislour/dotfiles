@@ -27,6 +27,7 @@ in {
     shards
     mint
     ameba
+    xrandr
     wrangler
     worker-build
     sqlite
