@@ -4,6 +4,7 @@
       name = "rainfrog";
       comment = "PostgreSQL database management TUI";
       exec = "rainfrog";
+      icon = "database";
       terminal = true;
       categories = [ "Development" "Database" ];
     };
@@ -15,6 +16,7 @@
         echo
         ${pkgs.zsh}/bin/zsh -c 'read -q "?Press any key to exit..."; echo'
       ''}/bin/fastfetch-pause";
+      icon = "utilities-system-monitor";
       terminal = true;
       categories = [ "Utility" "System" ];
     };
