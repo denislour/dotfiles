@@ -25,7 +25,7 @@
     ../../home/programs/polycat
     ../../home/programs/rofi.nix
     ../../home/programs/desktop-entries.nix
-    ../../home/programs/zed-editor
+    #../../home/programs/zed-editor  # enable when needed
     ../../home/programs/ripgrep.nix
     ../../home/programs/yazi.nix
     ../../home/programs/zoxide.nix
