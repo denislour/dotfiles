@@ -22,7 +22,6 @@
     yt-dlp
     go
     nodejs
-    postgresql
     rainfrog
     uv
   ];
