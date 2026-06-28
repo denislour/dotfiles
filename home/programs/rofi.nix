@@ -14,9 +14,9 @@
     configuration {
         modi:                    "drun,run,window";
         show-icons:              true;
-        display-drun:            "";
-        display-run:             "";
-        display-window:          "";
+        display-drun:            " ";
+        display-run:             " ";
+        display-window:          " ";
         drun-display-format:     "{name}";
         font:                    "JetBrainsMonoNL Nerd Font 10";
         terminal:                "alacritty";
